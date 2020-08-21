@@ -1,0 +1,56 @@
+version(1);
+project_name = "AMS Code";
+
+patterns = {
+"*.c",
+"*.cpp",
+"*.h",
+"*.bat",
+"*.sh",
+"*.4coder",
+"*.md",
+"commit.txt",
+};
+blacklist_patterns = {
+".*",
+"Generated*"
+};
+
+load_paths_only = {
+ {"."},
+};
+load_paths = {
+ { load_paths_only, .os = "win"  },
+ { load_paths_only, .os = "linux"},
+ { load_paths_only, .os = "mac"  },
+};
+
+build_preprocessor_win = "build-preproc.bat";
+build_preprocessor_test_win = "build-preproc.bat";
+build_preprocessor_lin = "preprocessor/build.sh";
+build_preprocessor_test_lin = "preprocessor/test/build.sh";
+
+build_test_win = "build_test.bat";
+build_test_lin = "./build_test.sh";
+
+command_list = {
+ { .name = "preproc build",
+   .out = "*compilation*", .save_dirty_files = true,
+   .cmd = { {build_preprocessor_win, .os ="win"  },
+            {build_preprocessor_lin, .os ="linux"  },
+          }, },
+ { .name = "preproc test build",
+   .out = "*compilation*", .save_dirty_files = true,
+   .cmd = { {build_preprocessor_test_win, .os ="win"  },
+            {build_preprocessor_test_lin, .os ="linux"  },
+          }, },
+ { .name = "test build",
+   .out = "*compilation*", .save_dirty_files = true,
+   .cmd = { {build_test_win, .os ="win"  },
+            {build_test_lin, .os ="linux"  },
+          }, },
+ };
+
+fkey_command[1] = "test build";
+fkey_command[2] = "preproc build";
+fkey_command[5] = "preproc test build";

@@ -6,6 +6,9 @@ void
 CreateStructJson(term_struct *Struct, tag *Tag, memory_arena *Memory, output_data *Headers, output_data *Definitions)
 {
     WriteToOutput(Headers, Memory,
+                  "#ifdef GEN_JSMN_HEADER\n");
+    
+    WriteToOutput(Headers, Memory,
                   "u32 PushJson(char *Json, u32 MaxLength, char const *Tag, const %.*s &Value, u32 JsonFlags);\n",
                   PSTRING(Struct->Name));
     WriteToOutput(Headers, Memory, "struct %.*s_existlist;\n", PSTRING(Struct->Name));
@@ -18,7 +21,12 @@ CreateStructJson(term_struct *Struct, tag *Tag, memory_arena *Memory, output_dat
                   "JsonArrayToObjectArray(memory_arena *VolatileMemory, char const *Json, size_t JsonLength, %.*s **ObjectArray, %.*s_existlist **ObjectArrayExist);\n",
                   PSTRING(Struct->Name),
                   PSTRING(Struct->Name));
+    WriteToOutput(Headers,Memory,
+                  "#endif\n\n");
     
+    
+    WriteToOutput(Definitions, Memory,
+                  "#ifdef GEN_JSMN_HEADER\n");
     
     WriteToOutput(Definitions, Memory,
                   "u32 PushJson(char *Json, u32 MaxLength, char const*Tag, const %.*s &Value, u32 JsonFlags = 0)\n{\n"
@@ -113,8 +121,8 @@ CreateStructJson(term_struct *Struct, tag *Tag, memory_arena *Memory, output_dat
             }
             else if(abs_AreStringsEqual(Item->Type, "s32") ||
                     abs_AreStringsEqual(Item->Type, "s16") ||
-                    abs_AreStringsEqual(Item->Type, "s8") || 
-                    abs_AreStringsEqual(Item->Type, "int") || 
+                    abs_AreStringsEqual(Item->Type, "s8") ||
+                    abs_AreStringsEqual(Item->Type, "int") ||
                     abs_AreStringsEqual(Item->Type, "long"))
                 
             {
@@ -439,6 +447,9 @@ CreateStructJson(term_struct *Struct, tag *Tag, memory_arena *Memory, output_dat
                   PSTRING(Struct->Name),
                   PSTRING(Struct->Name),
                   PSTRING(Struct->Name));
+    
+    WriteToOutput(Definitions, Memory,
+                  "#endif\n\n");
     
     CopyToOutput(Headers, Memory, ExistListScratch);
 } // CreateStructJson

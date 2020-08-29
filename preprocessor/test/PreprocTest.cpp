@@ -3,6 +3,7 @@
 
 #define AB_STRING_SRC
 #define AB_MEMORY_SRC
+#define AB_JSON_SRC
 #define GEN_JSMN_HEADER
 #include "Generated_Test.h"
 

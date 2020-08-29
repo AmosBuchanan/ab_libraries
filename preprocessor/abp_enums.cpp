@@ -2,7 +2,7 @@
 #include "ab_lexer.h"
 
 void
-CreateEnumJson(term_enum *Enum, tag *Tag, 
+CreateEnumJson(term_enum *Enum, tag *Tag,
                memory_arena *Memory, output_data *DefinitionsOut, output_data *FunctionsOut)
 {
     temporary_memory TempMem = abm_BeginTemporaryMemory(Memory);
@@ -19,13 +19,21 @@ CreateEnumJson(term_enum *Enum, tag *Tag,
     {
         // NOTE(amos): the Unused item is so it matches the signature of the struct JSON.
         HeaderCount += stbsp_snprintf(&HeaderScratch[HeaderCount], (MaxSectionSize - HeaderCount),
+                                      "#ifdef GEN_JSMN_HEADER\n"
                                       "jsmntok_t *JsonToObject(memory_arena *VolatileMemory, char const *Json, size_t JsonLength, jsmntok_t *TokenArray, %.*s *ObjectOut, u32 Unused);\n",
                                       Enum->Name.Length, Enum->Name.String);
+        
         HeaderCount += stbsp_snprintf(&HeaderScratch[HeaderCount], (MaxSectionSize - HeaderCount),
                                       "u32\n"
                                       "PushJson(char *Json, u32 MaxLength, char const *Tag, %.*s Type, u32 JsonFlags);\n",
                                       Enum->Name.Length, Enum->Name.String);
         
+        HeaderCount += stbsp_snprintf(&HeaderScratch[HeaderCount], (MaxSectionSize - HeaderCount),
+                                      "#endif\n\n");
+        
+        FunctionCount += stbsp_snprintf(&FunctionScratch[FunctionCount], (MaxSectionSize - FunctionCount),
+                                        "#ifdef GEN_JSMN_HEADER\n"
+                                        );
         FunctionCount += stbsp_snprintf(&FunctionScratch[FunctionCount], (MaxSectionSize - FunctionCount),
                                         "u32\n"
                                         "PushJson(char *Json, u32 MaxLength, char const *Tag, %.*s Type, u32 JsonFlags = 0)\n"
@@ -80,6 +88,9 @@ CreateEnumJson(term_enum *Enum, tag *Tag,
                                         Enum->Name.Length, Enum->Name.String
                                         );
         
+        FunctionCount += stbsp_snprintf(&FunctionScratch[FunctionCount], (MaxSectionSize - FunctionCount),
+                                        "#endif\n\n");
+        
         Assert(FunctionCount < MaxSectionSize);
         FunctionScratch[FunctionCount] = 0;
         
@@ -117,12 +128,12 @@ const char *<Enum>ToLabelShort(<Enum>);
                                       LabelTag->Option.Length, LabelTag->Option.String,
                                       Enum->Name.Length, Enum->Name.String);
         
-        HeaderCount += stbsp_snprintf(&HeaderScratch[HeaderCount], (MaxSectionSize - HeaderCount),
-                                      "const char * %.*s_Label%.*s[%.*s_Count] = \n"
-                                      "{\n",
-                                      Enum->Name.Length, Enum->Name.String,
-                                      LabelTag->Option.Length, LabelTag->Option.String,
-                                      Enum->Name.Length, Enum->Name.String);
+        FunctionCount += stbsp_snprintf(&FunctionScratch[FunctionCount], (MaxSectionSize - FunctionCount),
+                                        "const char * %.*s_Label%.*s[%.*s_Count] = \n"
+                                        "{\n",
+                                        Enum->Name.Length, Enum->Name.String,
+                                        LabelTag->Option.Length, LabelTag->Option.String,
+                                        Enum->Name.Length, Enum->Name.String);
         
         
         term_enumitem *CurrentItem = Enum->ItemListSentinal.Next;
@@ -145,14 +156,14 @@ const char *<Enum>ToLabelShort(<Enum>);
                 Label = CurrentItem->Name;
             }
             
-            HeaderCount += stbsp_snprintf(&HeaderScratch[HeaderCount], (MaxSectionSize - HeaderCount),
-                                          "    \"%.*s\",\n",
-                                          Label.Length, Label.String);
+            FunctionCount += stbsp_snprintf(&FunctionScratch[FunctionCount], (MaxSectionSize - FunctionCount),
+                                            "    \"%.*s\",\n",
+                                            Label.Length, Label.String);
             
             CurrentItem = CurrentItem->Next;
         }
         
-        HeaderCount += stbsp_snprintf(&HeaderScratch[HeaderCount], (MaxSectionSize - HeaderCount), "};\n\n");
+        FunctionCount += stbsp_snprintf(&FunctionScratch[FunctionCount], (MaxSectionSize - FunctionCount), "};\n\n");
         
         FunctionCount += stbsp_snprintf(&FunctionScratch[FunctionCount], (MaxSectionSize - FunctionCount),
                                         "const char *\n"
@@ -177,7 +188,7 @@ const char *<Enum>ToLabelShort(<Enum>);
 }
 
 void
-CreateEnumStrings(term_enum *Enum, tag *Tag, 
+CreateEnumStrings(term_enum *Enum, tag *Tag,
                   memory_arena *Memory, output_data *DefinitionsOut, output_data *FunctionsOut)
 {
     temporary_memory TempMem = abm_BeginTemporaryMemory(Memory);
@@ -198,36 +209,29 @@ CreateEnumStrings(term_enum *Enum, tag *Tag,
                                       "template<>\n"
                                       "auto StringToEnum<%.*s>(abs_stringptr String) -> %.*s;\n"
                                       "constexpr abs_stringptr EnumToString(%.*s EnumToken);\n"
-                                      "constexpr char const* EnumToCString(%.*s EnumToken);\n"
-                                      "constexpr abs_stringptr %.*s_Strings[%.*s_Count] = \n{\n",
-                                      Enum->Name.Length, Enum->Name.String,
-                                      Enum->Name.Length, Enum->Name.String,
+                                      "constexpr char const* EnumToCString(%.*s EnumToken);\n",
                                       Enum->Name.Length, Enum->Name.String,
                                       Enum->Name.Length, Enum->Name.String,
                                       Enum->Name.Length, Enum->Name.String,
                                       Enum->Name.Length, Enum->Name.String,
                                       Enum->Name.Length, Enum->Name.String,
                                       Enum->Name.Length, Enum->Name.String);
-        
-#if 0
         FunctionCount += stbsp_snprintf(&FunctionScratch[FunctionCount], (MaxSectionSize - FunctionCount),
-                                        "const abs_stringptr %.*s_Strings[%.*s_Count] = \n"
-                                        "{\n",
+                                        "constexpr abs_stringptr %.*s_Strings[%.*s_Count] = \n{\n",
                                         Enum->Name.Length, Enum->Name.String,
                                         Enum->Name.Length, Enum->Name.String);
-#endif
         term_enumitem *CurrentItem = Enum->ItemListSentinal.Next;
         while(CurrentItem != &Enum->ItemListSentinal)
         {
-            HeaderCount += stbsp_snprintf(&HeaderScratch[HeaderCount], (MaxSectionSize - HeaderCount),
-                                          "   {\"%.*s\", %u},\n",
-                                          CurrentItem->Name.Length, CurrentItem->Name.String,
-                                          CurrentItem->Name.Length);
+            FunctionCount += stbsp_snprintf(&FunctionScratch[FunctionCount], (MaxSectionSize - FunctionCount),
+                                            "   {\"%.*s\", %u},\n",
+                                            CurrentItem->Name.Length, CurrentItem->Name.String,
+                                            CurrentItem->Name.Length);
             
             CurrentItem = CurrentItem->Next;
         }
         
-        HeaderCount += stbsp_snprintf(&HeaderScratch[HeaderCount], (MaxSectionSize - HeaderCount), "};\n\n");
+        FunctionCount += stbsp_snprintf(&FunctionScratch[FunctionCount], (MaxSectionSize - FunctionCount), "};\n\n");
         
         
         FunctionCount += stbsp_snprintf(&FunctionScratch[FunctionCount], (MaxSectionSize - FunctionCount),
@@ -323,12 +327,12 @@ ProcessEnums(term_enum *EnumListSentinal, memory_arena *Memory, output_data *Hea
     term_enum *Enum = EnumListSentinal->Next;
     while(Enum != EnumListSentinal)
     {
-        WriteToOutput(Headers, Memory, 
+        WriteToOutput(Headers, Memory,
                       "/****** Enum %.*s Header *****/\n",
                       Enum->Name.Length, Enum->Name.String);
         
         WriteToOutput(Headers, Memory,
-                      "enum class %.*s;\n", 
+                      "enum class %.*s;\n",
                       Enum->Name.Length, Enum->Name.String);
         WriteToOutput(Headers, Memory, "const u32 %.*s_Count = %u;\n",
                       Enum->Name.Length, Enum->Name.String,

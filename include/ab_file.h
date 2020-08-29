@@ -22,11 +22,13 @@ struct file_data
 // OS Defined
 struct file_list;
 
+b8 
+isDirExists(const char* const path);
 file_list *abf_InitializeFileList(memory_arena *Memory, const char *Path);
 b8 abf_GetNextFile(file_list *FileList, file_data *FileDataOut);
 void abf_ReleaseFileList(file_list *FileList);
 
-// 
+//
 
 #endif //_AB_FILE_H
 
@@ -37,6 +39,22 @@ void abf_ReleaseFileList(file_list *FileList);
 #endif
 
 #if defined(AB_FILE_SRC)
+
+
+b8
+isDirExists(const char* const path)
+{
+    struct stat info;
+    b8 isDir = false;
+    
+    int statRC = stat( path, &info );
+    if( statRC == 0 )
+    {
+        isDir = (info.st_mode & S_IFDIR) > 0;
+    }
+    
+    return isDir;
+}
 
 #undef AB_FILE_SRC
 #endif

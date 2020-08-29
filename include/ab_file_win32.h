@@ -15,6 +15,7 @@ struct file_list
 {
     HANDLE FileSearchHandle;
     file_data *CurrentFile;
+    b8 isDirValid;
     
     char Path[MAX_PATH];
 };
@@ -25,10 +26,13 @@ struct file_list
 file_list *
 abf_InitializeFileList(memory_arena *Memory, const char *Path)
 {
-    file_list *Result = abm_PushStruct(Memory, file_list);
-    Result->FileSearchHandle = INVALID_HANDLE_VALUE;
-    snprintf(Result->Path, MAX_PATH, Path);
-    
+    file_list *Result = 0;
+    if(isDirExists(Path))
+    {
+        Result = abm_PushStruct(Memory, file_list);
+        Result->FileSearchHandle = INVALID_HANDLE_VALUE;
+        snprintf(Result->Path, MAX_PATH, Path);
+    }
     return Result;
 }
 
@@ -84,11 +88,13 @@ abf_GetNextFile(file_list *FileList, file_data *FileDataOut)
             printf("Error: %s\n", (LPSTR)&lpMsgBuf);
             LocalFree(lpMsgBuf);
             
-            isFileValid = VerifyValidFile(FindData);
+            isFileValid = false;
+            FileList->isDirValid = false;
         }
         else
         {
-            isFileValid = false;
+            FileList->isDirValid = true;
+            isFileValid = VerifyValidFile(FindData);
         }
         
         

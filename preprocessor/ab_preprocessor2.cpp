@@ -68,14 +68,14 @@ CopyToOutput(output_data *Output, memory_arena *Memory, char const* String)
     output_data *OutputPtr = Output;
     const size_t OutputTotalSize = ArrayCount(Output->OutputString);
     size_t StringLen = strlen(String);
-    s32 StringIndex = 0;
+    u32 StringIndex = 0;
     while(StringIndex < StringLen)
     {
         size_t Index = OutputPtr->Used;
         size_t OutputEmptySize = OutputTotalSize - OutputPtr->Used;
         if(OutputEmptySize > 1)
         {
-            u32 MaxLen = (u32)MINIMUM((s32)OutputEmptySize, StringLen);
+            u32 MaxLen = (u32)MINIMUM((u32)OutputEmptySize, StringLen);
             abs_StringCopy(&OutputPtr->OutputString[Index], String, MaxLen, false);
             OutputPtr->Used += MaxLen;
             StringIndex += MaxLen;
@@ -321,13 +321,17 @@ main(int argc, char** argv)
         
         output_data *OutputData = GenerateOutput(&Memory, OutputFile, HeaderOutput, DefinitionOutput);
         
-        if(isFileOutput)
+        if(isFileOutput && FileList)
         {
             WriteOutputToFile(OutputData, SourceDirectory, OutputFile);
         }
-        else
+        else if(FileList)
         {
             WriteOutputToStdOut(OutputData);
+        }
+        else
+        {
+            printf("Invalid Dir specified: %s\n", OutputFile);
         }
         
         abf_ReleaseFileList(FileList);

@@ -26,27 +26,31 @@ struct file_list
 file_list *
 abf_InitializeFileList(memory_arena *Memory, const char *Path)
 {
-    file_list *Result = abm_PushStruct(Memory, file_list);
-    
-    const u32 WildCardSize = (MAX_PATH) + 10;
-    char WildCard[WildCardSize];
-    stbsp_snprintf(WildCard, WildCardSize, "%s/*.c*", Path);
-    s32 ReturnC = glob(WildCard, 0, 0, &Result->GlobData);
-    
-    stbsp_snprintf(WildCard, WildCardSize, "%s/*.h*", Path);
-    s32 ReturnH = glob(WildCard, GLOB_APPEND, 0, &Result->GlobData);
-    //s32 ReturnH = -1;
-    
-    if( (ReturnC == 0) || (ReturnH == 0))
+    file_list *Result = 0;
+    if(isDirExists(Path))
     {
-        Result->FileCount = Result->GlobData.gl_pathc;
+        Result = abm_PushStruct(Memory, file_list);
+        
+        const u32 WildCardSize = (MAX_PATH) + 10;
+        char WildCard[WildCardSize];
+        stbsp_snprintf(WildCard, WildCardSize, "%s/*.c*", Path);
+        s32 ReturnC = glob(WildCard, 0, 0, &Result->GlobData);
+        
+        stbsp_snprintf(WildCard, WildCardSize, "%s/*.h*", Path);
+        s32 ReturnH = glob(WildCard, GLOB_APPEND, 0, &Result->GlobData);
+        //s32 ReturnH = -1;
+        
+        if( (ReturnC == 0) || (ReturnH == 0))
+        {
+            Result->FileCount = Result->GlobData.gl_pathc;
+        }
+        else
+        {
+            Result->FileCount = 0;
+        }
+        
+        Result->FileIndex = 0;
     }
-    else
-    {
-        Result->FileCount = 0;
-    }
-    
-    Result->FileIndex = 0;
     return Result;
 }
 

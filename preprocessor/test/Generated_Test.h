@@ -28,87 +28,23 @@
 #include "ab_string.h"
 #include "stb_sprintf.h"
 #ifdef GEN_JSMN_HEADER
-#include "jsmn.h"
+#include "ab_json.h"
 #endif // GEN_JSMN_HEADER
 
 
 #if !defined(_GENERATED_HEADER_)
 #define _GENERATED_HEADER_
-#ifdef GEN_JSMN_HEADER
-enum json_flags
-{
-    JSON_Null = 0,
-    JSON_IsLastInList = 1 << 0,
-    JSON_DontUseTag = 1 << 1,
-    JSON_BaseObject = 1 << 2,
-};
-#endif
-
 template<typename T>
 auto StringToEnum(const char *String) -> T;
 
 template<typename T>
 auto StringToEnum(abs_stringptr String) -> T;
 
-u32 StartGroup(char *, u32 MaxLength);
-u32 EndGroup(char *, u32 MaxLength, b8 isLast);
-#ifdef GEN_JSMN_HEADER
-s32 ParseJson(memory_arena *VolatileMemory, char const *Json,  size_t JsonLength, jsmntok_t **TokenArray);
-#endif
 
 #endif
 
 #if !defined(_AB_GENERATED_HEADER_GENERATED_TEST_)
 #define _AB_GENERATED_HEADER_GENERATED_TEST_
-
-/****** Enum test_cmd Header *****/
-enum class test_cmd;
-const u32 test_cmd_Count = 6;
-template<>
-auto StringToEnum<test_cmd>(const char *String) -> test_cmd;
-template<>
-auto StringToEnum<test_cmd>(abs_stringptr String) -> test_cmd;
-constexpr abs_stringptr EnumToString(test_cmd EnumToken);
-constexpr char const* EnumToCString(test_cmd EnumToken);
-constexpr abs_stringptr test_cmd_Strings[test_cmd_Count] = 
-{
-   {"NOP", 3},
-   {"Command1", 8},
-   {"Command2", 8},
-   {"Command3", 8},
-   {"Command4", 8},
-   {"Last", 4},
-};
-
-
-/****** Enum Colours Header *****/
-enum class Colours;
-const u32 Colours_Count = 3;
-jsmntok_t *JsonToObject(memory_arena *VolatileMemory, char const *Json, size_t JsonLength, jsmntok_t *TokenArray, Colours *ObjectOut, u32 Unused);
-u32
-PushJson(char *Json, u32 MaxLength, char const *Tag, Colours Type, u32 JsonFlags);
-template<>
-auto StringToEnum<Colours>(const char *String) -> Colours;
-template<>
-auto StringToEnum<Colours>(abs_stringptr String) -> Colours;
-constexpr abs_stringptr EnumToString(Colours EnumToken);
-constexpr char const* EnumToCString(Colours EnumToken);
-constexpr abs_stringptr Colours_Strings[Colours_Count] = 
-{
-   {"Red", 3},
-   {"Green", 5},
-   {"Blue", 4},
-};
-
-const char *EnumToLabel_Object(Colours EnumToken);
-//const char * Colours_LabelObject[Colours_Count];
-const char * Colours_LabelObject[Colours_Count] = 
-{
-    "Apple",
-    "Brocoli",
-    "Blueberry",
-};
-
 
 /****  StateMachine: TEST_STATEMACHINE ****/
 struct test_type;
@@ -142,13 +78,44 @@ TEST_STATEMACHINE(Running);
 
 /*********/
 
+/****** Enum test_cmd Header *****/
+enum class test_cmd;
+const u32 test_cmd_Count = 6;
+template<>
+auto StringToEnum<test_cmd>(const char *String) -> test_cmd;
+template<>
+auto StringToEnum<test_cmd>(abs_stringptr String) -> test_cmd;
+constexpr abs_stringptr EnumToString(test_cmd EnumToken);
+constexpr char const* EnumToCString(test_cmd EnumToken);
+
+/****** Enum Colours Header *****/
+enum class Colours;
+const u32 Colours_Count = 3;
+#ifdef GEN_JSMN_HEADER
+jsmntok_t *JsonToObject(memory_arena *VolatileMemory, char const *Json, size_t JsonLength, jsmntok_t *TokenArray, Colours *ObjectOut, u32 Unused);
+u32
+PushJson(char *Json, u32 MaxLength, char const *Tag, Colours Type, u32 JsonFlags);
+#endif
+
+template<>
+auto StringToEnum<Colours>(const char *String) -> Colours;
+template<>
+auto StringToEnum<Colours>(abs_stringptr String) -> Colours;
+constexpr abs_stringptr EnumToString(Colours EnumToken);
+constexpr char const* EnumToCString(Colours EnumToken);
+const char *EnumToLabel_Object(Colours EnumToken);
+//const char * Colours_LabelObject[Colours_Count];
+
 /****** Struct my_json_test Header *****/
 struct my_json_test;
+#ifdef GEN_JSMN_HEADER
 u32 PushJson(char *Json, u32 MaxLength, char const *Tag, const my_json_test &Value, u32 JsonFlags);
 struct my_json_test_existlist;
 jsmntok_t *JsonToObject(memory_arena *VolatileMemory, char const *Json, size_t JsonLength, jsmntok_t *TokenArray, my_json_test *ObjectOut, my_json_test_existlist *ItemsExistOut);
 u32
 JsonArrayToObjectArray(memory_arena *VolatileMemory, char const *Json, size_t JsonLength, my_json_test **ObjectArray, my_json_test_existlist **ObjectArrayExist);
+#endif
+
 struct my_json_test_existlist
 {
    b8 TestUnsigned;
@@ -156,6 +123,7 @@ struct my_json_test_existlist
    b8 MyColour;
    b8 isValue;
 };
+
 
 #endif // _AB_GENERATED_HEADER_GENERATED_TEST_
 
@@ -169,207 +137,8 @@ struct my_json_test_existlist
 #include "stb_sprintf.h"
 #undef STB_SPRINTF_IMPLEMENTATION
 
-#ifdef GEN_JSMN_HEADER
-
-inline s32
-ParseJson(memory_arena *VolatileMemory, char const *Json, size_t JsonLength, jsmntok_t **TokenArray)
-{
-    s32 NumTokensProcessed = 0;
-    if(!(*TokenArray))
-    {
-        jsmn_parser Parser;
-        jsmn_init(&Parser);
-        s32 NumTokensExisting = jsmn_parse(&Parser, Json, JsonLength, NULL, 0);
-        if(NumTokensExisting > 0)
-        {
-            // NOTE(amos): The last token will always be an undefined, so we can use it
-            //     to find the end of the token array.
-            *TokenArray = abm_PushArray(VolatileMemory, (NumTokensExisting+1), jsmntok_t);
-            jsmn_init(&Parser);
-            NumTokensProcessed = jsmn_parse(&Parser, Json, JsonLength, *TokenArray, NumTokensExisting);
-        }
-    }
-    else
-    {
-        NumTokensProcessed = (*TokenArray)->size;
-    }
-    
-    return NumTokensProcessed;
-}
-
-inline u32
-StartGroup(char *Json, u32 MaxLength)
-{
-    u32 Length = 0;
-    if (MaxLength >= 1)
-    {
-        Json[0] = '{';
-        ++Length;
-    }
-    
-    return Length;
-}
-
-inline u32
-EndGroup(char *Json, u32 MaxLength, b8 isLast = false)
-{
-    u32 Length = 0;
-    if(isLast && MaxLength >= 1)
-    {
-        Json[0] = '}';
-        ++Length;
-    }
-    else if(!isLast && MaxLength >= 2)
-    {
-        Json[0] = '}';
-        Json[1] = ',';
-        Length += 2;
-    }
-    
-    return Length;
-}
-
-inline abs_stringptr
-TokenToStringPtr(char const *Json, jsmntok_t *Token)
-{
-    abs_stringptr Result;
-    Result.String = &Json[Token->start];
-    Result.Length = (Token->end-Token->start);
-    
-    return Result;
-}
-
-inline b8
-TokenEquals(char const* Json, jsmntok_t *Token, char const* Value)
-{
-    u32 TokenLength = Token->end-Token->start;
-    b8 Result =
-        abs_AreStringsEqual(&Json[Token->start], TokenLength, Value, abs_StringLength(Value, TokenLength), true);
-    
-    return Result;
-}
 
 #endif
-
-#endif
-/****** Enum test_cmd Functions *****/
-template<>
-auto StringToEnum<test_cmd>(const char *String) -> test_cmd
-{
-    u32 StringIndex = abs_FindInList(String, test_cmd_Count, test_cmd_Strings, true);
-    test_cmd Result = test_cmd::NOP;
-    if(StringIndex < test_cmd_Count)
-    {
-        Result = static_cast<test_cmd>(StringIndex);
-    }
-    return Result;
-}
-template<>
-auto StringToEnum<test_cmd>(abs_stringptr String) -> test_cmd
-{
-    u32 StringIndex = abs_FindInList(String, test_cmd_Count, test_cmd_Strings, true);
-    test_cmd Result = test_cmd::NOP;
-    if(StringIndex < test_cmd_Count)
-    {
-        Result = static_cast<test_cmd>(StringIndex);
-    }
-    return Result;
-}
-constexpr const char *
-EnumToCString(test_cmd EnumToken)
-{
-    return test_cmd_Strings[int(EnumToken)].String;
-}
-
-constexpr abs_stringptr
-EnumToString(test_cmd EnumToken)
-{
-    return test_cmd_Strings[int(EnumToken)];
-}
-
-
-/****** Enum Colours Functions *****/
-u32
-PushJson(char *Json, u32 MaxLength, char const *Tag, Colours Type, u32 JsonFlags = 0)
-{
-    u32 Length = 0;
-    b8 isLast = (JsonFlags & JSON_IsLastInList);
-    Length += stbsp_snprintf(Json, MaxLength, "\"%s\":\"%s\"", Tag, EnumToCString(Type));
-    if(!isLast) { Json[Length++] = ','; }
-    return Length;
-}
-
-jsmntok_t *JsonToObject(memory_arena *VolatileMemory, char const *Json, size_t JsonLength, jsmntok_t *TokenArray, Colours *ObjectOut, u32 Unused)
-{
-    Colours Result = static_cast<Colours>(0);
-    s32 NumTokensUsed = 0;
-    
-    s32 TotalTokens = ParseJson(VolatileMemory, Json, JsonLength, &TokenArray);
-    if(TokenArray)
-    {
-        s32 Index = 0;
-        if((TokenArray[Index].type == JSMN_OBJECT) &&
-           (TotalTokens > 1))
-        {
-            ++Index;
-        }
-        if(TokenArray[Index].type == JSMN_STRING)
-        {
-            s32 TokenLength = (TokenArray[Index].end - TokenArray[Index].start);
-            abs_stringptr EnumString = {&Json[TokenArray[Index].start], TokenLength};
-            Result = StringToEnum<Colours>(EnumString);
-            NumTokensUsed = Index;
-        }
-        else 
-        {
-            NumTokensUsed = Index;
-        }
-    }
-    *ObjectOut = Result;
-    return TokenArray + NumTokensUsed;
-}
-
-template<>
-auto StringToEnum<Colours>(const char *String) -> Colours
-{
-    u32 StringIndex = abs_FindInList(String, Colours_Count, Colours_Strings, true);
-    Colours Result = Colours::Red;
-    if(StringIndex < Colours_Count)
-    {
-        Result = static_cast<Colours>(StringIndex);
-    }
-    return Result;
-}
-template<>
-auto StringToEnum<Colours>(abs_stringptr String) -> Colours
-{
-    u32 StringIndex = abs_FindInList(String, Colours_Count, Colours_Strings, true);
-    Colours Result = Colours::Red;
-    if(StringIndex < Colours_Count)
-    {
-        Result = static_cast<Colours>(StringIndex);
-    }
-    return Result;
-}
-constexpr const char *
-EnumToCString(Colours EnumToken)
-{
-    return Colours_Strings[int(EnumToken)].String;
-}
-
-constexpr abs_stringptr
-EnumToString(Colours EnumToken)
-{
-    return Colours_Strings[int(EnumToken)];
-}
-
-const char *
-EnumToLabel_Object(Colours EnumToken)
-{
-    return Colours_LabelObject[int(EnumToken)];
-}
-
-
 /****** Queue: test_cmd ****/
 inline void
 InitializeQueue(test_cmd_queue *Queue)
@@ -471,7 +240,153 @@ return Dequeue(&State->CommandQueue);
 
 /*********/
 
+/****** Enum test_cmd Functions *****/
+constexpr abs_stringptr test_cmd_Strings[test_cmd_Count] = 
+{
+   {"NOP", 3},
+   {"Command1", 8},
+   {"Command2", 8},
+   {"Command3", 8},
+   {"Command4", 8},
+   {"Last", 4},
+};
+
+template<>
+auto StringToEnum<test_cmd>(const char *String) -> test_cmd
+{
+    u32 StringIndex = abs_FindInList(String, test_cmd_Count, test_cmd_Strings, true);
+    test_cmd Result = test_cmd::NOP;
+    if(StringIndex < test_cmd_Count)
+    {
+        Result = static_cast<test_cmd>(StringIndex);
+    }
+    return Result;
+}
+template<>
+auto StringToEnum<test_cmd>(abs_stringptr String) -> test_cmd
+{
+    u32 StringIndex = abs_FindInList(String, test_cmd_Count, test_cmd_Strings, true);
+    test_cmd Result = test_cmd::NOP;
+    if(StringIndex < test_cmd_Count)
+    {
+        Result = static_cast<test_cmd>(StringIndex);
+    }
+    return Result;
+}
+constexpr const char *
+EnumToCString(test_cmd EnumToken)
+{
+    return test_cmd_Strings[int(EnumToken)].String;
+}
+
+constexpr abs_stringptr
+EnumToString(test_cmd EnumToken)
+{
+    return test_cmd_Strings[int(EnumToken)];
+}
+
+
+/****** Enum Colours Functions *****/
+#ifdef GEN_JSMN_HEADER
+u32
+PushJson(char *Json, u32 MaxLength, char const *Tag, Colours Type, u32 JsonFlags = 0)
+{
+    u32 Length = 0;
+    b8 isLast = (JsonFlags & JSON_IsLastInList);
+    Length += stbsp_snprintf(Json, MaxLength, "\"%s\":\"%s\"", Tag, EnumToCString(Type));
+    if(!isLast) { Json[Length++] = ','; }
+    return Length;
+}
+
+jsmntok_t *JsonToObject(memory_arena *VolatileMemory, char const *Json, size_t JsonLength, jsmntok_t *TokenArray, Colours *ObjectOut, u32 Unused)
+{
+    Colours Result = static_cast<Colours>(0);
+    s32 NumTokensUsed = 0;
+    
+    s32 TotalTokens = ParseJson(VolatileMemory, Json, JsonLength, &TokenArray);
+    if(TokenArray)
+    {
+        s32 Index = 0;
+        if((TokenArray[Index].type == JSMN_OBJECT) &&
+           (TotalTokens > 1))
+        {
+            ++Index;
+        }
+        if(TokenArray[Index].type == JSMN_STRING)
+        {
+            s32 TokenLength = (TokenArray[Index].end - TokenArray[Index].start);
+            abs_stringptr EnumString = {&Json[TokenArray[Index].start], TokenLength};
+            Result = StringToEnum<Colours>(EnumString);
+            NumTokensUsed = Index;
+        }
+        else 
+        {
+            NumTokensUsed = Index;
+        }
+    }
+    *ObjectOut = Result;
+    return TokenArray + NumTokensUsed;
+}
+
+#endif
+
+constexpr abs_stringptr Colours_Strings[Colours_Count] = 
+{
+   {"Red", 3},
+   {"Green", 5},
+   {"Blue", 4},
+};
+
+template<>
+auto StringToEnum<Colours>(const char *String) -> Colours
+{
+    u32 StringIndex = abs_FindInList(String, Colours_Count, Colours_Strings, true);
+    Colours Result = Colours::Red;
+    if(StringIndex < Colours_Count)
+    {
+        Result = static_cast<Colours>(StringIndex);
+    }
+    return Result;
+}
+template<>
+auto StringToEnum<Colours>(abs_stringptr String) -> Colours
+{
+    u32 StringIndex = abs_FindInList(String, Colours_Count, Colours_Strings, true);
+    Colours Result = Colours::Red;
+    if(StringIndex < Colours_Count)
+    {
+        Result = static_cast<Colours>(StringIndex);
+    }
+    return Result;
+}
+constexpr const char *
+EnumToCString(Colours EnumToken)
+{
+    return Colours_Strings[int(EnumToken)].String;
+}
+
+constexpr abs_stringptr
+EnumToString(Colours EnumToken)
+{
+    return Colours_Strings[int(EnumToken)];
+}
+
+const char * Colours_LabelObject[Colours_Count] = 
+{
+    "Apple",
+    "Brocoli",
+    "Blueberry",
+};
+
+const char *
+EnumToLabel_Object(Colours EnumToken)
+{
+    return Colours_LabelObject[int(EnumToken)];
+}
+
+
 /****** Struct my_json_test Functions *****/
+#ifdef GEN_JSMN_HEADER
 u32 PushJson(char *Json, u32 MaxLength, char const*Tag, const my_json_test &Value, u32 JsonFlags = 0)
 {
     u32 Length = 0;
@@ -604,5 +519,8 @@ JsonArrayToObjectArray(memory_arena *VolatileMemory, char const *Json, size_t Js
     }
     return NumberOfObjects;
 }
+#endif
+
+
 
 #endif // GENERATED_TEST_SRC

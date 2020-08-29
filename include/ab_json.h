@@ -4,7 +4,10 @@
 #include "ab_common.h"
 #include "ab_memory.h"
 #include "ab_string.h"
+
+#define JSMN_HEADER
 #include "jsmn.h"
+#undef JSMN_HEADER
 
 enum json_flags
 {
@@ -18,16 +21,17 @@ enum json_flags
 s32 ParseJson(memory_arena *VolatileMemory, char const *Json,  size_t JsonLength, jsmntok_t **TokenArray);
 u32 StartGroup(char *, u32 MaxLength);
 u32 EndGroup(char *, u32 MaxLength, b8 isLast);
-inline abs_stringptr
+abs_stringptr
 TokenToStringPtr(char const *Json, jsmntok_t *Token);
-inline b8
+b8
 TokenEquals(char const* Json, jsmntok_t *Token, char const* Value);
 
 #endif //AB_JSON_H
 
 
 #ifdef AB_JSON_SRC
-inline s32
+
+s32
 ParseJson(memory_arena *VolatileMemory, char const *Json, size_t JsonLength, jsmntok_t **TokenArray)
 {
     s32 NumTokensProcessed = 0;
@@ -53,7 +57,7 @@ ParseJson(memory_arena *VolatileMemory, char const *Json, size_t JsonLength, jsm
     return NumTokensProcessed;
 }
 
-inline u32
+u32
 StartGroup(char *Json, u32 MaxLength)
 {
     u32 Length = 0;

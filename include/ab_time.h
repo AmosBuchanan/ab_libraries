@@ -3,6 +3,8 @@
 
 #include <time.h>
 
+#include "ab_common.h"
+
 typedef timespec abt_time;
 
 void abt_GetCurrent(abt_time *Now);
@@ -23,7 +25,7 @@ abt_GetCurrent(abt_time *Now)
     timespec_get(Now, TIME_UTC);
 }
 
-abt_time 
+abt_time
 abt_GetCurrent()
 {
     timespec Result = {};
@@ -36,7 +38,15 @@ abt_time
 abt_GetMonotonic()
 {
     abt_time Result = {};
+    
+#if _WINDOWS
+    ULONGLONG Value = GetTickCount64();
+    Result.tv_sec = (time_t)MS_TO_S((r32)Value);
+    Result.tv_nsec = (long)MS_TO_NS(Value - S_TO_MS(Result.tv_sec));
+    
+#elif _LINUX
     clock_gettime(CLOCK_MONOTONIC, &Result);
+#endif
     
     return Result;
 }
@@ -105,8 +115,8 @@ abt_GetWallClockFromElapsed(abt_time StartTime, r32 TimestampMs)
 inline u32
 abt_GetMsFromTimeU32(abt_time Time)
 {
-    u32 Ms = S_TO_MS(Time.tv_sec);
-    Ms += NS_TO_MS(Time.tv_nsec);
+    u32 Ms = (u32)S_TO_MS(Time.tv_sec);
+    Ms += (u32)NS_TO_MS(Time.tv_nsec);
     return Ms;
 }
 

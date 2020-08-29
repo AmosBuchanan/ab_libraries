@@ -8,7 +8,7 @@
 #if defined(AB_MEMORY_SRC)
 
 #include <sys/mman.h>
-#include <sys/errno.h>
+#include <errno.h>
 
 void *abm_AllocateOsMemory(void *Address, size_t Size)
 {

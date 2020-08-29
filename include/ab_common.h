@@ -55,8 +55,13 @@ typedef double r64;
 
 const r32 TAU = 6.2831853071f;
 
+#if (defined (_DEBUG) && !defined (DEBUG))
+#define DEBUG
+#endif
+
+
 // NOTE(amos): These will get compiled out of the release.
-#if defined(DEBUG)
+#ifdef _DEBUG
 #define Assert(test) if(!(test)) {*(int*)(0x0) = 0;}
 
 #else

@@ -112,7 +112,8 @@ CopyToOutput(output_data *ToOutput, memory_arena *Memory, output_data *FromOutpu
 #include "abp_structs.cpp"
 
 output_data *
-GenerateOutput(memory_arena *Memory, char const *OutputFile, output_data *Header, output_data *Definition)
+GenerateOutput(memory_arena *Memory, char const *OutputFile,
+               output_data *HeaderIncludes, output_data *Header, output_data *Definition)
 {
     Assert(OutputFile);
     output_data *FullOutput = abm_PushStruct(Memory, output_data);
@@ -180,6 +181,8 @@ GenerateOutput(memory_arena *Memory, char const *OutputFile, output_data *Header
                   PSTRING(CapitalizedOutput), PSTRING(CapitalizedOutput));
     
     CopyToOutput(FullOutput, Memory, Header);
+    
+    CopyToOutput(FullOutput, Memory, HeaderIncludes);
     
     WriteToOutput(FullOutput, Memory,
                   "\n#endif // _AB_GENERATED_HEADER_%.*s_\n\n",
@@ -298,6 +301,8 @@ main(int argc, char** argv)
         temporary_memory TempMem = abm_BeginTemporaryMemory(&Memory);
         output_data *HeaderOutput = abm_PushStruct(&Memory, output_data);
         output_data *DefinitionOutput = abm_PushStruct(&Memory, output_data);
+        output_data *HeaderIncludes = 
+            abm_PushStruct(&Memory, output_data);
         
         
         file_list *FileList = abf_InitializeFileList(&Memory, SourceDirectory);
@@ -317,9 +322,17 @@ main(int argc, char** argv)
                                   &Memory, HeaderOutput, DefinitionOutput);
             ProcessEnums(&Parser->EnumListSentinal, &Memory, HeaderOutput, DefinitionOutput);
             ProcessStructs(&Parser->StructListSentinal, &Memory, HeaderOutput, DefinitionOutput);
+            
+            if(File.Type == enFileType::Header)
+            {
+                WriteToOutput(HeaderIncludes, &Memory,
+                              "#include \"%s\"\n",
+                              File.FileName);
+            }
+            
         }
         
-        output_data *OutputData = GenerateOutput(&Memory, OutputFile, HeaderOutput, DefinitionOutput);
+        output_data *OutputData = GenerateOutput(&Memory, OutputFile, HeaderIncludes, HeaderOutput, DefinitionOutput);
         
         if(isFileOutput && FileList)
         {

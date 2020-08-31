@@ -124,6 +124,7 @@ struct my_json_test_existlist
    b8 isValue;
 };
 
+#include "PreprocTest.h"
 
 #endif // _AB_GENERATED_HEADER_GENERATED_TEST_
 

@@ -10,12 +10,20 @@
 #include "stb_sprintf.h"
 #include "ab_memory.h"
 
+enum class enFileType
+{
+    Unknown,
+    Header, 
+    Cpp,
+};
+
 struct file_data
 {
     size_t Size;
-    u32 FileIndex;
-    char FileName[50];
+    u32 FileIndex;;
+    char FileName[MAX_PATH];
     char *FileData;
+    enFileType Type;
 };
 
 

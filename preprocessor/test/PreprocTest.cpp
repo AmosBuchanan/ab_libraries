@@ -1,58 +1,17 @@
 #include "ab_common.h"
-#include "jsmn.h"
+#include "stdio.h"
 
 #define AB_STRING_SRC
 #define AB_MEMORY_SRC
 #define AB_JSON_SRC
 #define GEN_JSMN_HEADER
+//#include "Generated_Test.h"
+#define GENERATED_TEST_SRC
 #include "Generated_Test.h"
-
-#include "stdio.h"
 
 STATEMACHINE(test_statemachine, test_type, test_cmd, int Int, char const *String);
 
-struct test_type
-{
-    test_statemachine *CurrentState;
-    b8 isNewState;
-    test_cmd_queue CommandQueue;
-};
-
-TAG(Strings)
-enum class test_cmd
-{
-    NOP,
-    Command1,
-    Command2,
-    Command3,
-    Command4,
-    Last
-};
-
-TAG(JSON, Strings, Label:Object);
-enum class Colours
-{
-    TAG(Object:"Apple")
-        Red,
-    
-    TAG(Object:"Brocoli")
-        Green,
-    
-    TAG(Object:"Blueberry")
-        Blue
-};
-
-TAG(JSON)
-struct my_json_test
-{
-    u8 TestUnsigned;
-    char TestString[50];
-    Colours MyColour;
-    b8 isValue;
-};
-
-#define GENERATED_TEST_SRC
-#include "Generated_Test.h"
+#include "PreprocTest.h"
 
 #define JSMN_SRC
 #include "jsmn.h"

@@ -9,6 +9,7 @@
 #include <fcntl.h>
 #include <unistd.h>
 #include <malloc.h>
+#include <libgen.h>
 
 struct file_list
 {
@@ -54,6 +55,52 @@ abf_InitializeFileList(memory_arena *Memory, const char *Path)
     return Result;
 }
 
+enFileType
+abf_GetFileType(char const *Filename)
+{
+    enFileType Result = enFileType::Unknown;
+    
+    const u32 HeaderMaxLength = 20;
+    const u32 FileMaxLength = 255;
+    char HeaderBuffer[HeaderMaxLength];
+    u32 HeaderIndex = HeaderMaxLength-1;
+    
+    u32 StringIndex = abs_StringLength(Filename, FileMaxLength);
+    
+    for(u32 i = (HeaderIndex-1); i >= 0; --i, --StringIndex, --HeaderIndex)
+    {
+        if(Filename[StringIndex] == '.')
+        {
+            break;
+        }
+        else 
+        {
+            HeaderBuffer[HeaderIndex] = Filename[StringIndex];
+        }
+    }
+    
+    ++HeaderIndex;
+    u32 HeaderLength = HeaderMaxLength - HeaderIndex;
+    if(HeaderBuffer[HeaderMaxLength-1] == 0)
+    {
+        --HeaderLength;
+    }
+    
+    if(abs_AreStringsEqual("h", 1, &HeaderBuffer[HeaderIndex], HeaderLength) || 
+       abs_AreStringsEqual("hpp", 3, &HeaderBuffer[HeaderIndex], HeaderLength)
+       )
+    {
+        Result = enFileType::Header;
+    }
+    else if(abs_AreStringsEqual("c", 1, &HeaderBuffer[HeaderIndex], HeaderLength) || 
+            abs_AreStringsEqual("cpp", 3, &HeaderBuffer[HeaderIndex], HeaderLength))
+    {
+        Result = enFileType::Cpp;
+    }
+    
+    return Result;
+}
+
 b8 
 abf_GetNextFile(file_list *FileList, file_data *FileDataOut)
 {
@@ -78,7 +125,8 @@ abf_GetNextFile(file_list *FileList, file_data *FileDataOut)
         if(FileHandle != -1)
         {
             struct stat FileStatus;
-            if(fstat(FileHandle, &FileStatus) != -1)
+            if((fstat(FileHandle, &FileStatus) != -1) &&
+               (FileStatus.st_mode & S_IFMT) == S_IFREG)
             {
                 FileDataOut->Size = FileStatus.st_size;
                 
@@ -86,6 +134,8 @@ abf_GetNextFile(file_list *FileList, file_data *FileDataOut)
                 FileDataOut->FileData[FileDataOut->Size] = 0;
                 if(FileDataOut->FileData)
                 {
+                    FileDataOut->Type = abf_GetFileType(FileName);
+                    
                     u32 BytesToRead = FileDataOut->Size;
                     u8* NextByteLocation = (u8*)FileDataOut->FileData;
                     while (BytesToRead)
@@ -107,6 +157,12 @@ abf_GetNextFile(file_list *FileList, file_data *FileDataOut)
                         }
                     }
                     FileList->CurrentFile = FileDataOut;
+                    char FullPath[MAX_PATH];
+                    abs_StringCopy(FullPath, FileName, ArrayCount(FullPath));
+                    
+                    char *BaseFile = basename(FullPath);
+                    abs_StringCopy(FileDataOut->FileName, BaseFile, ArrayCount(FileDataOut->FileName), 
+                                   true);
                 }
                 else
                 {

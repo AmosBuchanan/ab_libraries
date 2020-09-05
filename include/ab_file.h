@@ -7,6 +7,8 @@
 #define MAX_PATH 255
 #endif
 
+#include <sys/stat.h>
+
 #include "stb_sprintf.h"
 #include "ab_memory.h"
 
@@ -40,9 +42,9 @@ void abf_ReleaseFileList(file_list *FileList);
 
 #endif //_AB_FILE_H
 
-#if defined(WINDOWS)
+#if defined(_WINDOWS)
 #include "ab_file_win32.h"
-#elif defined(LINUX)
+#elif defined(_LINUX)
 #include "ab_file_linux.h"
 #endif
 

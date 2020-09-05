@@ -213,7 +213,7 @@ abs_StringCopy(char *DestString, const char* SrcString, size_t Length, b8 AddTer
     
     if(AddTerminator)
     {
-        Dest[++CharsCopied] = 0;
+        *Dest = 0;
     }
     
     return CharsCopied;

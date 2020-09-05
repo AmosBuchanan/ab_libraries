@@ -39,13 +39,13 @@ abt_GetMonotonic()
 {
     abt_time Result = {};
     
-#if _WINDOWS
+#ifdef _WINDOWS
     ULONGLONG Value = GetTickCount64();
     r32 ValueR32 = (r32)Value;
     Result.tv_sec = (time_t)MS_TO_S(ValueR32);
     Result.tv_nsec = (long)MS_TO_NS(Value - S_TO_MS(Result.tv_sec));
     
-#elif _LINUX
+#elif defined(_LINUX)
     clock_gettime(CLOCK_MONOTONIC, &Result);
 #endif
     

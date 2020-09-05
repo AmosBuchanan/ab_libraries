@@ -44,9 +44,9 @@ abm_CreateSubArena(memory_arena *Memory, size_t Size);
 
 #endif
 
-#if WINDOWS
+#if _WINDOWS
 #include "ab_memory_win32.h"
-#elif LINUX
+#elif _LINUX
 #include "ab_memory_linux.h"
 #endif
 
@@ -120,7 +120,7 @@ abm_ResetMemory(memory_arena *Memory)
     Memory->Used = 0;
 }
 
-inline size_t 
+inline size_t
 abm_GetMemoryLeft(memory_arena *Memory)
 {
     size_t Result = Memory->Size - Memory->Used;

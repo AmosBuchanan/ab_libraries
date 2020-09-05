@@ -3,7 +3,6 @@
 
 #include "ab_memory.h"
 
-// String Length, not including the final '\0', if there is one.
 u32 abs_StringLength(char const *x, u32 MaxLength);
 #define PSTRING(STR) STR.Length, STR.String
 
@@ -214,7 +213,7 @@ abs_StringCopy(char *DestString, const char* SrcString, size_t Length, b8 AddTer
     
     if(AddTerminator)
     {
-        *Dest = 0;
+        Dest[++CharsCopied] = 0;
     }
     
     return CharsCopied;

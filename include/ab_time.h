@@ -10,8 +10,8 @@ typedef timespec abt_time;
 void abt_GetCurrent(abt_time *Now);
 abt_time abt_GetCurrent();
 abt_time abt_GetMonotonic();
-u32 abt_GetElapsedMsU32(abt_time StartTime, abt_time *Now);
-r32 abt_GetElapsedMsR32(abt_time StartTime, abt_time *Now);
+u32 abt_GetElapsedMsU32(abt_time StartTime, abt_time Now);
+r32 abt_GetElapsedMsR32(abt_time StartTime, abt_time Now);
 abt_time abt_GetWallClockFromElapsed(abt_time StartTime, r32 TimestampMs);
 inline u32 abt_GetMsFromTimeU32(abt_time Time);
 inline u32 abt_GetMsFromTime32(abt_time Time);
@@ -41,7 +41,8 @@ abt_GetMonotonic()
     
 #if _WINDOWS
     ULONGLONG Value = GetTickCount64();
-    Result.tv_sec = (time_t)MS_TO_S((r32)Value);
+    r32 ValueR32 = (r32)Value;
+    Result.tv_sec = (time_t)MS_TO_S(ValueR32);
     Result.tv_nsec = (long)MS_TO_NS(Value - S_TO_MS(Result.tv_sec));
     
 #elif _LINUX
@@ -52,44 +53,34 @@ abt_GetMonotonic()
 }
 
 r32
-abt_GetElapsedMsR32(abt_time StartTime, abt_time *Now)
+abt_GetElapsedMsR32(abt_time StartTime, abt_time Now)
 {
     r32 ElapsedTimeMs = 0.0f;
-    if(Now)
+    ElapsedTimeMs = (r32)S_TO_MS(Now.tv_sec - StartTime.tv_sec);
+    if(Now.tv_nsec > StartTime.tv_nsec)
     {
-        abt_GetCurrent(Now);
-        
-        ElapsedTimeMs = (r32)S_TO_MS(Now->tv_sec - StartTime.tv_sec);
-        if(Now->tv_nsec > StartTime.tv_nsec)
-        {
-            ElapsedTimeMs += (r32)NS_TO_MS(Now->tv_nsec - StartTime.tv_nsec);
-        }
-        else
-        {
-            ElapsedTimeMs +=(r32) NS_TO_MS((S_TO_NS(1.0f) + Now->tv_nsec) - StartTime.tv_nsec) - S_TO_MS(1.0f);
-        }
+        ElapsedTimeMs += (r32)NS_TO_MS(Now.tv_nsec - StartTime.tv_nsec);
+    }
+    else
+    {
+        ElapsedTimeMs +=(r32) NS_TO_MS((S_TO_NS(1.0f) + Now.tv_nsec) - StartTime.tv_nsec) - S_TO_MS(1.0f);
     }
     
     return ElapsedTimeMs;
 }
 
 u32
-abt_GetElapsedMsU32(abt_time StartTime, abt_time *Now)
+abt_GetElapsedMsU32(abt_time StartTime, abt_time Now)
 {
     u32 ElapsedTimeMs = 0;
-    if(Now)
+    ElapsedTimeMs = (u32)S_TO_MS(Now.tv_sec - StartTime.tv_sec);
+    if(Now.tv_nsec > StartTime.tv_nsec)
     {
-        abt_GetCurrent(Now);
-        
-        ElapsedTimeMs = (u32)S_TO_MS(Now->tv_sec - StartTime.tv_sec);
-        if(Now->tv_nsec > StartTime.tv_nsec)
-        {
-            ElapsedTimeMs += (u32)NS_TO_MS(Now->tv_nsec - StartTime.tv_nsec);
-        }
-        else
-        {
-            ElapsedTimeMs +=(u32) NS_TO_MS((S_TO_NS(1) + Now->tv_nsec) - StartTime.tv_nsec) - S_TO_MS(1);
-        }
+        ElapsedTimeMs += (u32)NS_TO_MS(Now.tv_nsec - StartTime.tv_nsec);
+    }
+    else
+    {
+        ElapsedTimeMs +=(u32) NS_TO_MS((S_TO_NS(1) + Now.tv_nsec) - StartTime.tv_nsec) - S_TO_MS(1);
     }
     
     return ElapsedTimeMs;

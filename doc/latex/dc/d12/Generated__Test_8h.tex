@@ -1,0 +1,312 @@
+\hypertarget{Generated__Test_8h}{}\section{Generated\+\_\+\+Test.\+h File Reference}
+\label{Generated__Test_8h}\index{Generated\+\_\+\+Test.\+h@{Generated\+\_\+\+Test.\+h}}
+{\ttfamily \#include $<$stdlib.\+h$>$}\newline
+{\ttfamily \#include \char`\"{}ab\+\_\+memory.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}ab\+\_\+string.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}stb\+\_\+sprintf.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}Preproc\+Test.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}ab\+\_\+json.\+h\char`\"{}}\newline
+Include dependency graph for Generated\+\_\+\+Test.\+h\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{de/da9/Generated__Test_8h__incl}
+\end{center}
+\end{figure}
+This graph shows which files directly or indirectly include this file\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=175pt]{dd/d12/Generated__Test_8h__dep__incl}
+\end{center}
+\end{figure}
+\subsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \hyperlink{structtest__cmd__queue}{test\+\_\+cmd\+\_\+queue}
+\item 
+struct \hyperlink{structmy__json__test__existlist}{my\+\_\+json\+\_\+test\+\_\+existlist}
+\end{DoxyCompactItemize}
+\subsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \hyperlink{Generated__Test_8h_ad9b15e5b6d9b1ed55b76d9916ff6dec2}{T\+AG}(...)
+\item 
+\#define \hyperlink{Generated__Test_8h_ad16363f6583678566864d70afebc6a41}{S\+T\+A\+T\+E\+M\+A\+C\+H\+I\+NE}(...)
+\item 
+\#define \hyperlink{Generated__Test_8h_a674d40d2d82bc2df72c865d466d90a77}{\+\_\+\+G\+E\+N\+E\+R\+A\+T\+E\+D\+\_\+\+H\+E\+A\+D\+E\+R\+\_\+}
+\item 
+\#define \hyperlink{Generated__Test_8h_a249bf3ceb9df5c1fec7be5efe674a1ba}{\+\_\+\+A\+B\+\_\+\+G\+E\+N\+E\+R\+A\+T\+E\+D\+\_\+\+H\+E\+A\+D\+E\+R\+\_\+\+G\+E\+N\+E\+R\+A\+T\+E\+D\+\_\+\+T\+E\+S\+T\+\_\+}
+\item 
+\#define \hyperlink{Generated__Test_8h_a60e76ed427c4968689b9571af7254547}{T\+E\+S\+T\+\_\+\+S\+T\+A\+T\+E\+M\+A\+C\+H\+I\+NE}(name)~void name(\hyperlink{structtest__type}{test\+\_\+type} $\ast$State, \hyperlink{PreprocTest_8h_a55ed691059222a58555cf9992ec14431}{test\+\_\+cmd} Cmd, int Int, char const $\ast$String)
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+{\footnotesize template$<$typename T $>$ }\\auto \hyperlink{Generated__Test_8h_a9a60bb3cdfd4c044939d80c8e1edd6dd}{String\+To\+Enum} (const char $\ast$String) -\/$>$ T
+\item 
+{\footnotesize template$<$typename T $>$ }\\auto \hyperlink{Generated__Test_8h_ac56b1acaa9bd587f623d2983f921ad50}{String\+To\+Enum} (\hyperlink{structabs__stringptr}{abs\+\_\+stringptr} String) -\/$>$ T
+\item 
+void \hyperlink{Generated__Test_8h_a43822849924e4365ec1ad146736a7967}{Initialize\+Queue} (\hyperlink{structtest__cmd__queue}{test\+\_\+cmd\+\_\+queue} $\ast$Queue)
+\item 
+\hyperlink{ab__common_8h_a70e369648385b50f2d0588e8e8745275}{b8} \hyperlink{Generated__Test_8h_a24b3c990497a61d0d6aca57105e2c86a}{is\+Queue\+Empty} (\hyperlink{structtest__cmd__queue}{test\+\_\+cmd\+\_\+queue} $\ast$Queue)
+\item 
+\hyperlink{ab__common_8h_a70e369648385b50f2d0588e8e8745275}{b8} \hyperlink{Generated__Test_8h_a5074b01af8cb1f2124b7d04399a48c82}{is\+Queue\+Full} (\hyperlink{structtest__cmd__queue}{test\+\_\+cmd\+\_\+queue} $\ast$Queue)
+\item 
+\hyperlink{ab__common_8h_a70e369648385b50f2d0588e8e8745275}{b8} \hyperlink{Generated__Test_8h_a9ca011b44b1d493d71b8414f84af2f69}{Enqueue\+Command} (\hyperlink{structtest__cmd__queue}{test\+\_\+cmd\+\_\+queue} $\ast$Queue, \hyperlink{PreprocTest_8h_a55ed691059222a58555cf9992ec14431}{test\+\_\+cmd} Cmd)
+\item 
+\hyperlink{PreprocTest_8h_a55ed691059222a58555cf9992ec14431}{test\+\_\+cmd} \hyperlink{Generated__Test_8h_aa15eaba01fecffd4380ff2f1b4018a3a}{Dequeue\+Command} (\hyperlink{structtest__cmd__queue}{test\+\_\+cmd\+\_\+queue} $\ast$Queue)
+\item 
+typedef \hyperlink{Generated__Test_8h_a5b28cc9825a80c7d578bce92d5152de4}{T\+E\+S\+T\+\_\+\+S\+T\+A\+T\+E\+M\+A\+C\+H\+I\+NE} (test\+\_\+statemachine)
+\item 
+\hyperlink{ab__common_8h_a70e369648385b50f2d0588e8e8745275}{b8} \hyperlink{Generated__Test_8h_ad4b73e92f4af2b501841ce35b274f71c}{Go\+To\+State} (\hyperlink{structtest__type}{test\+\_\+type} $\ast$State, test\+\_\+statemachine $\ast$New\+State)
+\item 
+char const  $\ast$ \hyperlink{Generated__Test_8h_a36c15d4c27a71b37003bfc22b75964be}{Get\+State\+Name} (test\+\_\+statemachine $\ast$State\+Name)
+\item 
+\hyperlink{ab__common_8h_a70e369648385b50f2d0588e8e8745275}{b8} \hyperlink{Generated__Test_8h_aacf77a00c47b027a4331328a1071854c}{Enqueue\+Command} (\hyperlink{structtest__type}{test\+\_\+type} $\ast$State, \hyperlink{PreprocTest_8h_a55ed691059222a58555cf9992ec14431}{test\+\_\+cmd} Cmd)
+\item 
+\hyperlink{PreprocTest_8h_a55ed691059222a58555cf9992ec14431}{test\+\_\+cmd} \hyperlink{Generated__Test_8h_aa431f033dae8e03ce9f9e76c5897d077}{Dequeue\+Command} (\hyperlink{structtest__type}{test\+\_\+type} $\ast$State)
+\item 
+\hyperlink{Generated__Test_8h_ab6c57dcff4bca075ce03bbe119d0b4dd}{T\+E\+S\+T\+\_\+\+S\+T\+A\+T\+E\+M\+A\+C\+H\+I\+NE} (Idle)
+\item 
+\hyperlink{Generated__Test_8h_aed31da543c10eab9ca01e8b7f1e299cd}{T\+E\+S\+T\+\_\+\+S\+T\+A\+T\+E\+M\+A\+C\+H\+I\+NE} (Running)
+\item 
+{\footnotesize template$<$$>$ }\\auto \hyperlink{Generated__Test_8h_a3918139d94601cfee23f622cd557582f}{String\+To\+Enum$<$ test\+\_\+cmd $>$} (const char $\ast$String) -\/$>$ \hyperlink{PreprocTest_8h_a55ed691059222a58555cf9992ec14431}{test\+\_\+cmd}
+\item 
+{\footnotesize template$<$$>$ }\\auto \hyperlink{Generated__Test_8h_a196b200d9f8e70d10669c8841f0ece91}{String\+To\+Enum$<$ test\+\_\+cmd $>$} (\hyperlink{structabs__stringptr}{abs\+\_\+stringptr} String) -\/$>$ \hyperlink{PreprocTest_8h_a55ed691059222a58555cf9992ec14431}{test\+\_\+cmd}
+\item 
+constexpr \hyperlink{structabs__stringptr}{abs\+\_\+stringptr} \hyperlink{Generated__Test_8h_a6087c1644a941337a7e8ac43157a30b3}{Enum\+To\+String} (\hyperlink{PreprocTest_8h_a55ed691059222a58555cf9992ec14431}{test\+\_\+cmd} Enum\+Token)
+\item 
+constexpr char const  $\ast$ \hyperlink{Generated__Test_8h_a37220bfe6977f9507cffa3283af7f09b}{Enum\+To\+C\+String} (\hyperlink{PreprocTest_8h_a55ed691059222a58555cf9992ec14431}{test\+\_\+cmd} Enum\+Token)
+\item 
+{\footnotesize template$<$$>$ }\\auto \hyperlink{Generated__Test_8h_ad369bcb4826dc155da6b130a0fa97d13}{String\+To\+Enum$<$ en\+Colours $>$} (const char $\ast$String) -\/$>$ \hyperlink{PreprocTest_8h_a081cf1a0e70d6e2bd48c98f457742877}{en\+Colours}
+\item 
+{\footnotesize template$<$$>$ }\\auto \hyperlink{Generated__Test_8h_a768f3f6a292bf1dee6bd92fc1f0648e9}{String\+To\+Enum$<$ en\+Colours $>$} (\hyperlink{structabs__stringptr}{abs\+\_\+stringptr} String) -\/$>$ \hyperlink{PreprocTest_8h_a081cf1a0e70d6e2bd48c98f457742877}{en\+Colours}
+\item 
+constexpr \hyperlink{structabs__stringptr}{abs\+\_\+stringptr} \hyperlink{Generated__Test_8h_af1c959d0e9481a0fb8345289c1ef463a}{Enum\+To\+String} (\hyperlink{PreprocTest_8h_a081cf1a0e70d6e2bd48c98f457742877}{en\+Colours} Enum\+Token)
+\item 
+constexpr char const  $\ast$ \hyperlink{Generated__Test_8h_ac94b257fa3ae7dabdbdc07db0ac072c4}{Enum\+To\+C\+String} (\hyperlink{PreprocTest_8h_a081cf1a0e70d6e2bd48c98f457742877}{en\+Colours} Enum\+Token)
+\item 
+const char $\ast$ \hyperlink{Generated__Test_8h_a9b8638e967a81b3c211b77df49d85034}{Enum\+To\+Label\+\_\+\+Object} (\hyperlink{PreprocTest_8h_a081cf1a0e70d6e2bd48c98f457742877}{en\+Colours} Enum\+Token)
+\end{DoxyCompactItemize}
+\subsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+struct \hyperlink{structtest__cmd__queue}{test\+\_\+cmd\+\_\+queue} \hyperlink{Generated__Test_8h_a3ee2f2be736dcd0ff7e75d6ff8d2e6d5}{Initialize\+Queue}
+\item 
+const \hyperlink{ab__common_8h_afaa62991928fb9fb18ff0db62a040aba}{u32} \hyperlink{Generated__Test_8h_a1d64dbc5eb5071c30cc178bb11db36f7}{test\+\_\+cmd\+\_\+\+Count} = 6
+\item 
+const \hyperlink{ab__common_8h_afaa62991928fb9fb18ff0db62a040aba}{u32} \hyperlink{Generated__Test_8h_abd85a89ac29df78a4d1b078c54016c79}{en\+Colours\+\_\+\+Count} = 3
+\end{DoxyCompactItemize}
+
+
+\subsection{Macro Definition Documentation}
+\mbox{\Hypertarget{Generated__Test_8h_a249bf3ceb9df5c1fec7be5efe674a1ba}\label{Generated__Test_8h_a249bf3ceb9df5c1fec7be5efe674a1ba}} 
+\index{Generated\+\_\+\+Test.\+h@{Generated\+\_\+\+Test.\+h}!\+\_\+\+A\+B\+\_\+\+G\+E\+N\+E\+R\+A\+T\+E\+D\+\_\+\+H\+E\+A\+D\+E\+R\+\_\+\+G\+E\+N\+E\+R\+A\+T\+E\+D\+\_\+\+T\+E\+S\+T\+\_\+@{\+\_\+\+A\+B\+\_\+\+G\+E\+N\+E\+R\+A\+T\+E\+D\+\_\+\+H\+E\+A\+D\+E\+R\+\_\+\+G\+E\+N\+E\+R\+A\+T\+E\+D\+\_\+\+T\+E\+S\+T\+\_\+}}
+\index{\+\_\+\+A\+B\+\_\+\+G\+E\+N\+E\+R\+A\+T\+E\+D\+\_\+\+H\+E\+A\+D\+E\+R\+\_\+\+G\+E\+N\+E\+R\+A\+T\+E\+D\+\_\+\+T\+E\+S\+T\+\_\+@{\+\_\+\+A\+B\+\_\+\+G\+E\+N\+E\+R\+A\+T\+E\+D\+\_\+\+H\+E\+A\+D\+E\+R\+\_\+\+G\+E\+N\+E\+R\+A\+T\+E\+D\+\_\+\+T\+E\+S\+T\+\_\+}!Generated\+\_\+\+Test.\+h@{Generated\+\_\+\+Test.\+h}}
+\subsubsection{\texorpdfstring{\+\_\+\+A\+B\+\_\+\+G\+E\+N\+E\+R\+A\+T\+E\+D\+\_\+\+H\+E\+A\+D\+E\+R\+\_\+\+G\+E\+N\+E\+R\+A\+T\+E\+D\+\_\+\+T\+E\+S\+T\+\_\+}{\_AB\_GENERATED\_HEADER\_GENERATED\_TEST\_}}
+{\footnotesize\ttfamily \#define \+\_\+\+A\+B\+\_\+\+G\+E\+N\+E\+R\+A\+T\+E\+D\+\_\+\+H\+E\+A\+D\+E\+R\+\_\+\+G\+E\+N\+E\+R\+A\+T\+E\+D\+\_\+\+T\+E\+S\+T\+\_\+}
+
+\mbox{\Hypertarget{Generated__Test_8h_a674d40d2d82bc2df72c865d466d90a77}\label{Generated__Test_8h_a674d40d2d82bc2df72c865d466d90a77}} 
+\index{Generated\+\_\+\+Test.\+h@{Generated\+\_\+\+Test.\+h}!\+\_\+\+G\+E\+N\+E\+R\+A\+T\+E\+D\+\_\+\+H\+E\+A\+D\+E\+R\+\_\+@{\+\_\+\+G\+E\+N\+E\+R\+A\+T\+E\+D\+\_\+\+H\+E\+A\+D\+E\+R\+\_\+}}
+\index{\+\_\+\+G\+E\+N\+E\+R\+A\+T\+E\+D\+\_\+\+H\+E\+A\+D\+E\+R\+\_\+@{\+\_\+\+G\+E\+N\+E\+R\+A\+T\+E\+D\+\_\+\+H\+E\+A\+D\+E\+R\+\_\+}!Generated\+\_\+\+Test.\+h@{Generated\+\_\+\+Test.\+h}}
+\subsubsection{\texorpdfstring{\+\_\+\+G\+E\+N\+E\+R\+A\+T\+E\+D\+\_\+\+H\+E\+A\+D\+E\+R\+\_\+}{\_GENERATED\_HEADER\_}}
+{\footnotesize\ttfamily \#define \+\_\+\+G\+E\+N\+E\+R\+A\+T\+E\+D\+\_\+\+H\+E\+A\+D\+E\+R\+\_\+}
+
+\mbox{\Hypertarget{Generated__Test_8h_ad16363f6583678566864d70afebc6a41}\label{Generated__Test_8h_ad16363f6583678566864d70afebc6a41}} 
+\index{Generated\+\_\+\+Test.\+h@{Generated\+\_\+\+Test.\+h}!S\+T\+A\+T\+E\+M\+A\+C\+H\+I\+NE@{S\+T\+A\+T\+E\+M\+A\+C\+H\+I\+NE}}
+\index{S\+T\+A\+T\+E\+M\+A\+C\+H\+I\+NE@{S\+T\+A\+T\+E\+M\+A\+C\+H\+I\+NE}!Generated\+\_\+\+Test.\+h@{Generated\+\_\+\+Test.\+h}}
+\subsubsection{\texorpdfstring{S\+T\+A\+T\+E\+M\+A\+C\+H\+I\+NE}{STATEMACHINE}}
+{\footnotesize\ttfamily \#define S\+T\+A\+T\+E\+M\+A\+C\+H\+I\+NE(\begin{DoxyParamCaption}\item[{}]{... }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{Generated__Test_8h_ad9b15e5b6d9b1ed55b76d9916ff6dec2}\label{Generated__Test_8h_ad9b15e5b6d9b1ed55b76d9916ff6dec2}} 
+\index{Generated\+\_\+\+Test.\+h@{Generated\+\_\+\+Test.\+h}!T\+AG@{T\+AG}}
+\index{T\+AG@{T\+AG}!Generated\+\_\+\+Test.\+h@{Generated\+\_\+\+Test.\+h}}
+\subsubsection{\texorpdfstring{T\+AG}{TAG}}
+{\footnotesize\ttfamily \#define T\+AG(\begin{DoxyParamCaption}\item[{}]{... }\end{DoxyParamCaption})}
+
+G\+E\+N\+E\+R\+A\+T\+ED Code Generator Version\+: 1.\+0
+
+This file was autogenerated. Do not edit directly, your changes will get over-\/written. This is a single file include. To include the source, add
+
+\#define G\+E\+N\+E\+R\+A\+T\+E\+D\+\_\+\+T\+E\+S\+T\+\_\+\+S\+RC \begin{DoxyVerb}before including this this file.
+
+If you are using JSON parsing, add 
+\end{DoxyVerb}
+
+
+\#define G\+E\+N\+\_\+\+J\+S\+M\+N\+\_\+\+H\+E\+A\+D\+ER \begin{DoxyVerb}Ensure the jsmn.h header is in your include directory.\end{DoxyVerb}
+ \mbox{\Hypertarget{Generated__Test_8h_a60e76ed427c4968689b9571af7254547}\label{Generated__Test_8h_a60e76ed427c4968689b9571af7254547}} 
+\index{Generated\+\_\+\+Test.\+h@{Generated\+\_\+\+Test.\+h}!T\+E\+S\+T\+\_\+\+S\+T\+A\+T\+E\+M\+A\+C\+H\+I\+NE@{T\+E\+S\+T\+\_\+\+S\+T\+A\+T\+E\+M\+A\+C\+H\+I\+NE}}
+\index{T\+E\+S\+T\+\_\+\+S\+T\+A\+T\+E\+M\+A\+C\+H\+I\+NE@{T\+E\+S\+T\+\_\+\+S\+T\+A\+T\+E\+M\+A\+C\+H\+I\+NE}!Generated\+\_\+\+Test.\+h@{Generated\+\_\+\+Test.\+h}}
+\subsubsection{\texorpdfstring{T\+E\+S\+T\+\_\+\+S\+T\+A\+T\+E\+M\+A\+C\+H\+I\+NE}{TEST\_STATEMACHINE}}
+{\footnotesize\ttfamily \#define T\+E\+S\+T\+\_\+\+S\+T\+A\+T\+E\+M\+A\+C\+H\+I\+NE(\begin{DoxyParamCaption}\item[{}]{name }\end{DoxyParamCaption})~void name(\hyperlink{structtest__type}{test\+\_\+type} $\ast$State, \hyperlink{PreprocTest_8h_a55ed691059222a58555cf9992ec14431}{test\+\_\+cmd} Cmd, int Int, char const $\ast$String)}
+
+
+
+\subsection{Function Documentation}
+\mbox{\Hypertarget{Generated__Test_8h_aa15eaba01fecffd4380ff2f1b4018a3a}\label{Generated__Test_8h_aa15eaba01fecffd4380ff2f1b4018a3a}} 
+\index{Generated\+\_\+\+Test.\+h@{Generated\+\_\+\+Test.\+h}!Dequeue\+Command@{Dequeue\+Command}}
+\index{Dequeue\+Command@{Dequeue\+Command}!Generated\+\_\+\+Test.\+h@{Generated\+\_\+\+Test.\+h}}
+\subsubsection{\texorpdfstring{Dequeue\+Command()}{DequeueCommand()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \hyperlink{PreprocTest_8h_a55ed691059222a58555cf9992ec14431}{test\+\_\+cmd} Dequeue\+Command (\begin{DoxyParamCaption}\item[{\hyperlink{structtest__cmd__queue}{test\+\_\+cmd\+\_\+queue} $\ast$}]{Queue }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{Generated__Test_8h_aa431f033dae8e03ce9f9e76c5897d077}\label{Generated__Test_8h_aa431f033dae8e03ce9f9e76c5897d077}} 
+\index{Generated\+\_\+\+Test.\+h@{Generated\+\_\+\+Test.\+h}!Dequeue\+Command@{Dequeue\+Command}}
+\index{Dequeue\+Command@{Dequeue\+Command}!Generated\+\_\+\+Test.\+h@{Generated\+\_\+\+Test.\+h}}
+\subsubsection{\texorpdfstring{Dequeue\+Command()}{DequeueCommand()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \hyperlink{PreprocTest_8h_a55ed691059222a58555cf9992ec14431}{test\+\_\+cmd} Dequeue\+Command (\begin{DoxyParamCaption}\item[{\hyperlink{structtest__type}{test\+\_\+type} $\ast$}]{State }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{Generated__Test_8h_a9ca011b44b1d493d71b8414f84af2f69}\label{Generated__Test_8h_a9ca011b44b1d493d71b8414f84af2f69}} 
+\index{Generated\+\_\+\+Test.\+h@{Generated\+\_\+\+Test.\+h}!Enqueue\+Command@{Enqueue\+Command}}
+\index{Enqueue\+Command@{Enqueue\+Command}!Generated\+\_\+\+Test.\+h@{Generated\+\_\+\+Test.\+h}}
+\subsubsection{\texorpdfstring{Enqueue\+Command()}{EnqueueCommand()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \hyperlink{ab__common_8h_a70e369648385b50f2d0588e8e8745275}{b8} Enqueue\+Command (\begin{DoxyParamCaption}\item[{\hyperlink{structtest__cmd__queue}{test\+\_\+cmd\+\_\+queue} $\ast$}]{Queue,  }\item[{\hyperlink{PreprocTest_8h_a55ed691059222a58555cf9992ec14431}{test\+\_\+cmd}}]{Cmd }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{Generated__Test_8h_aacf77a00c47b027a4331328a1071854c}\label{Generated__Test_8h_aacf77a00c47b027a4331328a1071854c}} 
+\index{Generated\+\_\+\+Test.\+h@{Generated\+\_\+\+Test.\+h}!Enqueue\+Command@{Enqueue\+Command}}
+\index{Enqueue\+Command@{Enqueue\+Command}!Generated\+\_\+\+Test.\+h@{Generated\+\_\+\+Test.\+h}}
+\subsubsection{\texorpdfstring{Enqueue\+Command()}{EnqueueCommand()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \hyperlink{ab__common_8h_a70e369648385b50f2d0588e8e8745275}{b8} Enqueue\+Command (\begin{DoxyParamCaption}\item[{\hyperlink{structtest__type}{test\+\_\+type} $\ast$}]{State,  }\item[{\hyperlink{PreprocTest_8h_a55ed691059222a58555cf9992ec14431}{test\+\_\+cmd}}]{Cmd }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{Generated__Test_8h_a37220bfe6977f9507cffa3283af7f09b}\label{Generated__Test_8h_a37220bfe6977f9507cffa3283af7f09b}} 
+\index{Generated\+\_\+\+Test.\+h@{Generated\+\_\+\+Test.\+h}!Enum\+To\+C\+String@{Enum\+To\+C\+String}}
+\index{Enum\+To\+C\+String@{Enum\+To\+C\+String}!Generated\+\_\+\+Test.\+h@{Generated\+\_\+\+Test.\+h}}
+\subsubsection{\texorpdfstring{Enum\+To\+C\+String()}{EnumToCString()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily constexpr char const$\ast$ Enum\+To\+C\+String (\begin{DoxyParamCaption}\item[{\hyperlink{PreprocTest_8h_a55ed691059222a58555cf9992ec14431}{test\+\_\+cmd}}]{Enum\+Token }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{Generated__Test_8h_ac94b257fa3ae7dabdbdc07db0ac072c4}\label{Generated__Test_8h_ac94b257fa3ae7dabdbdc07db0ac072c4}} 
+\index{Generated\+\_\+\+Test.\+h@{Generated\+\_\+\+Test.\+h}!Enum\+To\+C\+String@{Enum\+To\+C\+String}}
+\index{Enum\+To\+C\+String@{Enum\+To\+C\+String}!Generated\+\_\+\+Test.\+h@{Generated\+\_\+\+Test.\+h}}
+\subsubsection{\texorpdfstring{Enum\+To\+C\+String()}{EnumToCString()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily constexpr char const$\ast$ Enum\+To\+C\+String (\begin{DoxyParamCaption}\item[{\hyperlink{PreprocTest_8h_a081cf1a0e70d6e2bd48c98f457742877}{en\+Colours}}]{Enum\+Token }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{Generated__Test_8h_a9b8638e967a81b3c211b77df49d85034}\label{Generated__Test_8h_a9b8638e967a81b3c211b77df49d85034}} 
+\index{Generated\+\_\+\+Test.\+h@{Generated\+\_\+\+Test.\+h}!Enum\+To\+Label\+\_\+\+Object@{Enum\+To\+Label\+\_\+\+Object}}
+\index{Enum\+To\+Label\+\_\+\+Object@{Enum\+To\+Label\+\_\+\+Object}!Generated\+\_\+\+Test.\+h@{Generated\+\_\+\+Test.\+h}}
+\subsubsection{\texorpdfstring{Enum\+To\+Label\+\_\+\+Object()}{EnumToLabel\_Object()}}
+{\footnotesize\ttfamily const char$\ast$ Enum\+To\+Label\+\_\+\+Object (\begin{DoxyParamCaption}\item[{\hyperlink{PreprocTest_8h_a081cf1a0e70d6e2bd48c98f457742877}{en\+Colours}}]{Enum\+Token }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{Generated__Test_8h_a6087c1644a941337a7e8ac43157a30b3}\label{Generated__Test_8h_a6087c1644a941337a7e8ac43157a30b3}} 
+\index{Generated\+\_\+\+Test.\+h@{Generated\+\_\+\+Test.\+h}!Enum\+To\+String@{Enum\+To\+String}}
+\index{Enum\+To\+String@{Enum\+To\+String}!Generated\+\_\+\+Test.\+h@{Generated\+\_\+\+Test.\+h}}
+\subsubsection{\texorpdfstring{Enum\+To\+String()}{EnumToString()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily constexpr \hyperlink{structabs__stringptr}{abs\+\_\+stringptr} Enum\+To\+String (\begin{DoxyParamCaption}\item[{\hyperlink{PreprocTest_8h_a55ed691059222a58555cf9992ec14431}{test\+\_\+cmd}}]{Enum\+Token }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{Generated__Test_8h_af1c959d0e9481a0fb8345289c1ef463a}\label{Generated__Test_8h_af1c959d0e9481a0fb8345289c1ef463a}} 
+\index{Generated\+\_\+\+Test.\+h@{Generated\+\_\+\+Test.\+h}!Enum\+To\+String@{Enum\+To\+String}}
+\index{Enum\+To\+String@{Enum\+To\+String}!Generated\+\_\+\+Test.\+h@{Generated\+\_\+\+Test.\+h}}
+\subsubsection{\texorpdfstring{Enum\+To\+String()}{EnumToString()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily constexpr \hyperlink{structabs__stringptr}{abs\+\_\+stringptr} Enum\+To\+String (\begin{DoxyParamCaption}\item[{\hyperlink{PreprocTest_8h_a081cf1a0e70d6e2bd48c98f457742877}{en\+Colours}}]{Enum\+Token }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{Generated__Test_8h_a36c15d4c27a71b37003bfc22b75964be}\label{Generated__Test_8h_a36c15d4c27a71b37003bfc22b75964be}} 
+\index{Generated\+\_\+\+Test.\+h@{Generated\+\_\+\+Test.\+h}!Get\+State\+Name@{Get\+State\+Name}}
+\index{Get\+State\+Name@{Get\+State\+Name}!Generated\+\_\+\+Test.\+h@{Generated\+\_\+\+Test.\+h}}
+\subsubsection{\texorpdfstring{Get\+State\+Name()}{GetStateName()}}
+{\footnotesize\ttfamily char const$\ast$ Get\+State\+Name (\begin{DoxyParamCaption}\item[{test\+\_\+statemachine $\ast$}]{State\+Name }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{Generated__Test_8h_ad4b73e92f4af2b501841ce35b274f71c}\label{Generated__Test_8h_ad4b73e92f4af2b501841ce35b274f71c}} 
+\index{Generated\+\_\+\+Test.\+h@{Generated\+\_\+\+Test.\+h}!Go\+To\+State@{Go\+To\+State}}
+\index{Go\+To\+State@{Go\+To\+State}!Generated\+\_\+\+Test.\+h@{Generated\+\_\+\+Test.\+h}}
+\subsubsection{\texorpdfstring{Go\+To\+State()}{GoToState()}}
+{\footnotesize\ttfamily \hyperlink{ab__common_8h_a70e369648385b50f2d0588e8e8745275}{b8} Go\+To\+State (\begin{DoxyParamCaption}\item[{\hyperlink{structtest__type}{test\+\_\+type} $\ast$}]{State,  }\item[{test\+\_\+statemachine $\ast$}]{New\+State }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\mbox{\Hypertarget{Generated__Test_8h_a43822849924e4365ec1ad146736a7967}\label{Generated__Test_8h_a43822849924e4365ec1ad146736a7967}} 
+\index{Generated\+\_\+\+Test.\+h@{Generated\+\_\+\+Test.\+h}!Initialize\+Queue@{Initialize\+Queue}}
+\index{Initialize\+Queue@{Initialize\+Queue}!Generated\+\_\+\+Test.\+h@{Generated\+\_\+\+Test.\+h}}
+\subsubsection{\texorpdfstring{Initialize\+Queue()}{InitializeQueue()}}
+{\footnotesize\ttfamily void Initialize\+Queue (\begin{DoxyParamCaption}\item[{\hyperlink{structtest__cmd__queue}{test\+\_\+cmd\+\_\+queue} $\ast$}]{Queue }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\mbox{\Hypertarget{Generated__Test_8h_a24b3c990497a61d0d6aca57105e2c86a}\label{Generated__Test_8h_a24b3c990497a61d0d6aca57105e2c86a}} 
+\index{Generated\+\_\+\+Test.\+h@{Generated\+\_\+\+Test.\+h}!is\+Queue\+Empty@{is\+Queue\+Empty}}
+\index{is\+Queue\+Empty@{is\+Queue\+Empty}!Generated\+\_\+\+Test.\+h@{Generated\+\_\+\+Test.\+h}}
+\subsubsection{\texorpdfstring{is\+Queue\+Empty()}{isQueueEmpty()}}
+{\footnotesize\ttfamily \hyperlink{ab__common_8h_a70e369648385b50f2d0588e8e8745275}{b8} is\+Queue\+Empty (\begin{DoxyParamCaption}\item[{\hyperlink{structtest__cmd__queue}{test\+\_\+cmd\+\_\+queue} $\ast$}]{Queue }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\mbox{\Hypertarget{Generated__Test_8h_a5074b01af8cb1f2124b7d04399a48c82}\label{Generated__Test_8h_a5074b01af8cb1f2124b7d04399a48c82}} 
+\index{Generated\+\_\+\+Test.\+h@{Generated\+\_\+\+Test.\+h}!is\+Queue\+Full@{is\+Queue\+Full}}
+\index{is\+Queue\+Full@{is\+Queue\+Full}!Generated\+\_\+\+Test.\+h@{Generated\+\_\+\+Test.\+h}}
+\subsubsection{\texorpdfstring{is\+Queue\+Full()}{isQueueFull()}}
+{\footnotesize\ttfamily \hyperlink{ab__common_8h_a70e369648385b50f2d0588e8e8745275}{b8} is\+Queue\+Full (\begin{DoxyParamCaption}\item[{\hyperlink{structtest__cmd__queue}{test\+\_\+cmd\+\_\+queue} $\ast$}]{Queue }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\mbox{\Hypertarget{Generated__Test_8h_a9a60bb3cdfd4c044939d80c8e1edd6dd}\label{Generated__Test_8h_a9a60bb3cdfd4c044939d80c8e1edd6dd}} 
+\index{Generated\+\_\+\+Test.\+h@{Generated\+\_\+\+Test.\+h}!String\+To\+Enum@{String\+To\+Enum}}
+\index{String\+To\+Enum@{String\+To\+Enum}!Generated\+\_\+\+Test.\+h@{Generated\+\_\+\+Test.\+h}}
+\subsubsection{\texorpdfstring{String\+To\+Enum()}{StringToEnum()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+auto String\+To\+Enum (\begin{DoxyParamCaption}\item[{const char $\ast$}]{String }\end{DoxyParamCaption}) -\/$>$  T}
+
+\mbox{\Hypertarget{Generated__Test_8h_ac56b1acaa9bd587f623d2983f921ad50}\label{Generated__Test_8h_ac56b1acaa9bd587f623d2983f921ad50}} 
+\index{Generated\+\_\+\+Test.\+h@{Generated\+\_\+\+Test.\+h}!String\+To\+Enum@{String\+To\+Enum}}
+\index{String\+To\+Enum@{String\+To\+Enum}!Generated\+\_\+\+Test.\+h@{Generated\+\_\+\+Test.\+h}}
+\subsubsection{\texorpdfstring{String\+To\+Enum()}{StringToEnum()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+auto String\+To\+Enum (\begin{DoxyParamCaption}\item[{\hyperlink{structabs__stringptr}{abs\+\_\+stringptr}}]{String }\end{DoxyParamCaption}) -\/$>$  T}
+
+\mbox{\Hypertarget{Generated__Test_8h_ad369bcb4826dc155da6b130a0fa97d13}\label{Generated__Test_8h_ad369bcb4826dc155da6b130a0fa97d13}} 
+\index{Generated\+\_\+\+Test.\+h@{Generated\+\_\+\+Test.\+h}!String\+To\+Enum$<$ en\+Colours $>$@{String\+To\+Enum$<$ en\+Colours $>$}}
+\index{String\+To\+Enum$<$ en\+Colours $>$@{String\+To\+Enum$<$ en\+Colours $>$}!Generated\+\_\+\+Test.\+h@{Generated\+\_\+\+Test.\+h}}
+\subsubsection{\texorpdfstring{String\+To\+Enum$<$ en\+Colours $>$()}{StringToEnum< enColours >()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily template$<$$>$ \\
+auto \hyperlink{Generated__Test_8h_ac56b1acaa9bd587f623d2983f921ad50}{String\+To\+Enum}$<$ \hyperlink{PreprocTest_8h_a081cf1a0e70d6e2bd48c98f457742877}{en\+Colours} $>$ (\begin{DoxyParamCaption}\item[{const char $\ast$}]{String }\end{DoxyParamCaption}) -\/$>$  \hyperlink{PreprocTest_8h_a081cf1a0e70d6e2bd48c98f457742877}{en\+Colours}}
+
+\mbox{\Hypertarget{Generated__Test_8h_a768f3f6a292bf1dee6bd92fc1f0648e9}\label{Generated__Test_8h_a768f3f6a292bf1dee6bd92fc1f0648e9}} 
+\index{Generated\+\_\+\+Test.\+h@{Generated\+\_\+\+Test.\+h}!String\+To\+Enum$<$ en\+Colours $>$@{String\+To\+Enum$<$ en\+Colours $>$}}
+\index{String\+To\+Enum$<$ en\+Colours $>$@{String\+To\+Enum$<$ en\+Colours $>$}!Generated\+\_\+\+Test.\+h@{Generated\+\_\+\+Test.\+h}}
+\subsubsection{\texorpdfstring{String\+To\+Enum$<$ en\+Colours $>$()}{StringToEnum< enColours >()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily template$<$$>$ \\
+auto \hyperlink{Generated__Test_8h_ac56b1acaa9bd587f623d2983f921ad50}{String\+To\+Enum}$<$ \hyperlink{PreprocTest_8h_a081cf1a0e70d6e2bd48c98f457742877}{en\+Colours} $>$ (\begin{DoxyParamCaption}\item[{\hyperlink{structabs__stringptr}{abs\+\_\+stringptr}}]{String }\end{DoxyParamCaption}) -\/$>$  \hyperlink{PreprocTest_8h_a081cf1a0e70d6e2bd48c98f457742877}{en\+Colours}}
+
+\mbox{\Hypertarget{Generated__Test_8h_a3918139d94601cfee23f622cd557582f}\label{Generated__Test_8h_a3918139d94601cfee23f622cd557582f}} 
+\index{Generated\+\_\+\+Test.\+h@{Generated\+\_\+\+Test.\+h}!String\+To\+Enum$<$ test\+\_\+cmd $>$@{String\+To\+Enum$<$ test\+\_\+cmd $>$}}
+\index{String\+To\+Enum$<$ test\+\_\+cmd $>$@{String\+To\+Enum$<$ test\+\_\+cmd $>$}!Generated\+\_\+\+Test.\+h@{Generated\+\_\+\+Test.\+h}}
+\subsubsection{\texorpdfstring{String\+To\+Enum$<$ test\+\_\+cmd $>$()}{StringToEnum< test\_cmd >()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily template$<$$>$ \\
+auto \hyperlink{Generated__Test_8h_ac56b1acaa9bd587f623d2983f921ad50}{String\+To\+Enum}$<$ \hyperlink{PreprocTest_8h_a55ed691059222a58555cf9992ec14431}{test\+\_\+cmd} $>$ (\begin{DoxyParamCaption}\item[{const char $\ast$}]{String }\end{DoxyParamCaption}) -\/$>$  \hyperlink{PreprocTest_8h_a55ed691059222a58555cf9992ec14431}{test\+\_\+cmd}}
+
+\mbox{\Hypertarget{Generated__Test_8h_a196b200d9f8e70d10669c8841f0ece91}\label{Generated__Test_8h_a196b200d9f8e70d10669c8841f0ece91}} 
+\index{Generated\+\_\+\+Test.\+h@{Generated\+\_\+\+Test.\+h}!String\+To\+Enum$<$ test\+\_\+cmd $>$@{String\+To\+Enum$<$ test\+\_\+cmd $>$}}
+\index{String\+To\+Enum$<$ test\+\_\+cmd $>$@{String\+To\+Enum$<$ test\+\_\+cmd $>$}!Generated\+\_\+\+Test.\+h@{Generated\+\_\+\+Test.\+h}}
+\subsubsection{\texorpdfstring{String\+To\+Enum$<$ test\+\_\+cmd $>$()}{StringToEnum< test\_cmd >()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily template$<$$>$ \\
+auto \hyperlink{Generated__Test_8h_ac56b1acaa9bd587f623d2983f921ad50}{String\+To\+Enum}$<$ \hyperlink{PreprocTest_8h_a55ed691059222a58555cf9992ec14431}{test\+\_\+cmd} $>$ (\begin{DoxyParamCaption}\item[{\hyperlink{structabs__stringptr}{abs\+\_\+stringptr}}]{String }\end{DoxyParamCaption}) -\/$>$  \hyperlink{PreprocTest_8h_a55ed691059222a58555cf9992ec14431}{test\+\_\+cmd}}
+
+\mbox{\Hypertarget{Generated__Test_8h_a5b28cc9825a80c7d578bce92d5152de4}\label{Generated__Test_8h_a5b28cc9825a80c7d578bce92d5152de4}} 
+\index{Generated\+\_\+\+Test.\+h@{Generated\+\_\+\+Test.\+h}!T\+E\+S\+T\+\_\+\+S\+T\+A\+T\+E\+M\+A\+C\+H\+I\+NE@{T\+E\+S\+T\+\_\+\+S\+T\+A\+T\+E\+M\+A\+C\+H\+I\+NE}}
+\index{T\+E\+S\+T\+\_\+\+S\+T\+A\+T\+E\+M\+A\+C\+H\+I\+NE@{T\+E\+S\+T\+\_\+\+S\+T\+A\+T\+E\+M\+A\+C\+H\+I\+NE}!Generated\+\_\+\+Test.\+h@{Generated\+\_\+\+Test.\+h}}
+\subsubsection{\texorpdfstring{T\+E\+S\+T\+\_\+\+S\+T\+A\+T\+E\+M\+A\+C\+H\+I\+N\+E()}{TEST\_STATEMACHINE()}\hspace{0.1cm}{\footnotesize\ttfamily [1/3]}}
+{\footnotesize\ttfamily typedef T\+E\+S\+T\+\_\+\+S\+T\+A\+T\+E\+M\+A\+C\+H\+I\+NE (\begin{DoxyParamCaption}\item[{test\+\_\+statemachine}]{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{Generated__Test_8h_ab6c57dcff4bca075ce03bbe119d0b4dd}\label{Generated__Test_8h_ab6c57dcff4bca075ce03bbe119d0b4dd}} 
+\index{Generated\+\_\+\+Test.\+h@{Generated\+\_\+\+Test.\+h}!T\+E\+S\+T\+\_\+\+S\+T\+A\+T\+E\+M\+A\+C\+H\+I\+NE@{T\+E\+S\+T\+\_\+\+S\+T\+A\+T\+E\+M\+A\+C\+H\+I\+NE}}
+\index{T\+E\+S\+T\+\_\+\+S\+T\+A\+T\+E\+M\+A\+C\+H\+I\+NE@{T\+E\+S\+T\+\_\+\+S\+T\+A\+T\+E\+M\+A\+C\+H\+I\+NE}!Generated\+\_\+\+Test.\+h@{Generated\+\_\+\+Test.\+h}}
+\subsubsection{\texorpdfstring{T\+E\+S\+T\+\_\+\+S\+T\+A\+T\+E\+M\+A\+C\+H\+I\+N\+E()}{TEST\_STATEMACHINE()}\hspace{0.1cm}{\footnotesize\ttfamily [2/3]}}
+{\footnotesize\ttfamily T\+E\+S\+T\+\_\+\+S\+T\+A\+T\+E\+M\+A\+C\+H\+I\+NE (\begin{DoxyParamCaption}\item[{Idle}]{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{Generated__Test_8h_aed31da543c10eab9ca01e8b7f1e299cd}\label{Generated__Test_8h_aed31da543c10eab9ca01e8b7f1e299cd}} 
+\index{Generated\+\_\+\+Test.\+h@{Generated\+\_\+\+Test.\+h}!T\+E\+S\+T\+\_\+\+S\+T\+A\+T\+E\+M\+A\+C\+H\+I\+NE@{T\+E\+S\+T\+\_\+\+S\+T\+A\+T\+E\+M\+A\+C\+H\+I\+NE}}
+\index{T\+E\+S\+T\+\_\+\+S\+T\+A\+T\+E\+M\+A\+C\+H\+I\+NE@{T\+E\+S\+T\+\_\+\+S\+T\+A\+T\+E\+M\+A\+C\+H\+I\+NE}!Generated\+\_\+\+Test.\+h@{Generated\+\_\+\+Test.\+h}}
+\subsubsection{\texorpdfstring{T\+E\+S\+T\+\_\+\+S\+T\+A\+T\+E\+M\+A\+C\+H\+I\+N\+E()}{TEST\_STATEMACHINE()}\hspace{0.1cm}{\footnotesize\ttfamily [3/3]}}
+{\footnotesize\ttfamily T\+E\+S\+T\+\_\+\+S\+T\+A\+T\+E\+M\+A\+C\+H\+I\+NE (\begin{DoxyParamCaption}\item[{Running}]{ }\end{DoxyParamCaption})}
+
+
+
+\subsection{Variable Documentation}
+\mbox{\Hypertarget{Generated__Test_8h_abd85a89ac29df78a4d1b078c54016c79}\label{Generated__Test_8h_abd85a89ac29df78a4d1b078c54016c79}} 
+\index{Generated\+\_\+\+Test.\+h@{Generated\+\_\+\+Test.\+h}!en\+Colours\+\_\+\+Count@{en\+Colours\+\_\+\+Count}}
+\index{en\+Colours\+\_\+\+Count@{en\+Colours\+\_\+\+Count}!Generated\+\_\+\+Test.\+h@{Generated\+\_\+\+Test.\+h}}
+\subsubsection{\texorpdfstring{en\+Colours\+\_\+\+Count}{enColours\_Count}}
+{\footnotesize\ttfamily const \hyperlink{ab__common_8h_afaa62991928fb9fb18ff0db62a040aba}{u32} en\+Colours\+\_\+\+Count = 3}
+
+\mbox{\Hypertarget{Generated__Test_8h_a3ee2f2be736dcd0ff7e75d6ff8d2e6d5}\label{Generated__Test_8h_a3ee2f2be736dcd0ff7e75d6ff8d2e6d5}} 
+\index{Generated\+\_\+\+Test.\+h@{Generated\+\_\+\+Test.\+h}!Initialize\+Queue@{Initialize\+Queue}}
+\index{Initialize\+Queue@{Initialize\+Queue}!Generated\+\_\+\+Test.\+h@{Generated\+\_\+\+Test.\+h}}
+\subsubsection{\texorpdfstring{Initialize\+Queue}{InitializeQueue}}
+{\footnotesize\ttfamily struct \hyperlink{structtest__cmd__queue}{test\+\_\+cmd\+\_\+queue} Initialize\+Queue}
+
+\mbox{\Hypertarget{Generated__Test_8h_a1d64dbc5eb5071c30cc178bb11db36f7}\label{Generated__Test_8h_a1d64dbc5eb5071c30cc178bb11db36f7}} 
+\index{Generated\+\_\+\+Test.\+h@{Generated\+\_\+\+Test.\+h}!test\+\_\+cmd\+\_\+\+Count@{test\+\_\+cmd\+\_\+\+Count}}
+\index{test\+\_\+cmd\+\_\+\+Count@{test\+\_\+cmd\+\_\+\+Count}!Generated\+\_\+\+Test.\+h@{Generated\+\_\+\+Test.\+h}}
+\subsubsection{\texorpdfstring{test\+\_\+cmd\+\_\+\+Count}{test\_cmd\_Count}}
+{\footnotesize\ttfamily const \hyperlink{ab__common_8h_afaa62991928fb9fb18ff0db62a040aba}{u32} test\+\_\+cmd\+\_\+\+Count = 6}
+

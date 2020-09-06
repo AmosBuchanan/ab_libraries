@@ -1,0 +1,132 @@
+\hypertarget{ab__memory_8h}{}\section{ab\+\_\+memory.\+h File Reference}
+\label{ab__memory_8h}\index{ab\+\_\+memory.\+h@{ab\+\_\+memory.\+h}}
+{\ttfamily \#include \char`\"{}ab\+\_\+common.\+h\char`\"{}}\newline
+Include dependency graph for ab\+\_\+memory.\+h\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=198pt]{d7/d5f/ab__memory_8h__incl}
+\end{center}
+\end{figure}
+This graph shows which files directly or indirectly include this file\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{d4/d8c/ab__memory_8h__dep__incl}
+\end{center}
+\end{figure}
+\subsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \hyperlink{structmemory__arena}{memory\+\_\+arena}
+\item 
+struct \hyperlink{structtemporary__memory}{temporary\+\_\+memory}
+\end{DoxyCompactItemize}
+\subsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \hyperlink{ab__memory_8h_a0436d3ae4dac7362742c35ea6a146fea}{abm\+\_\+\+Push\+Struct}(Arena,  Type)~(Type$\ast$)\hyperlink{ab__memory_8h_a15270c8569eb858cdb20ee45c3bb46f7}{abm\+\_\+\+Push\+Size\+\_\+}(Arena, sizeof(Type))
+\item 
+\#define \hyperlink{ab__memory_8h_ab8d45b257f787efccb8a928176cc2c88}{abm\+\_\+\+Push\+Size}(Arena,  Size)~\hyperlink{ab__memory_8h_a15270c8569eb858cdb20ee45c3bb46f7}{abm\+\_\+\+Push\+Size\+\_\+}(Arena, Size)
+\item 
+\#define \hyperlink{ab__memory_8h_a89df166532e625eea593369a7997139d}{abm\+\_\+\+Push\+Array}(Arena,  Count,  Type)~(Type$\ast$)\hyperlink{ab__memory_8h_a15270c8569eb858cdb20ee45c3bb46f7}{abm\+\_\+\+Push\+Size\+\_\+}(Arena, (Count)$\ast$sizeof(Type))
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void $\ast$ \hyperlink{ab__memory_8h_a20bffb2c2335745a56275b6094b6dcad}{abm\+\_\+\+Allocate\+Os\+Memory} (void $\ast$Address, size\+\_\+t Size)
+\item 
+void \hyperlink{ab__memory_8h_ad393d506412ba1d8d6fe25e8e16253b4}{abm\+\_\+\+Deallocate\+Os\+Memory} (void $\ast$Address, size\+\_\+t Size)
+\item 
+void $\ast$ \hyperlink{ab__memory_8h_a15270c8569eb858cdb20ee45c3bb46f7}{abm\+\_\+\+Push\+Size\+\_\+} (\hyperlink{structmemory__arena}{memory\+\_\+arena} $\ast$Memory, size\+\_\+t Size, \hyperlink{ab__common_8h_a70e369648385b50f2d0588e8e8745275}{b8} Clear\+Memory=true)
+\item 
+\hyperlink{structmemory__arena}{memory\+\_\+arena} \hyperlink{ab__memory_8h_a5f2fa70a405694492db91b26ed884207}{abm\+\_\+\+Init\+Memory} (void $\ast$Start, size\+\_\+t Size)
+\item 
+void \hyperlink{ab__memory_8h_a8ca432174a01c886b3c834cbb140c5ab}{abm\+\_\+\+Reset\+Memory} (\hyperlink{structmemory__arena}{memory\+\_\+arena} $\ast$Memory)
+\item 
+size\+\_\+t \hyperlink{ab__memory_8h_a9061bfb19b910033ab211832bc593fed}{abm\+\_\+\+Get\+Memory\+Left} (\hyperlink{structmemory__arena}{memory\+\_\+arena} $\ast$Memory)
+\item 
+\hyperlink{structtemporary__memory}{temporary\+\_\+memory} \hyperlink{ab__memory_8h_a77b6adde3ba40f7f3777bcc01c396ccd}{abm\+\_\+\+Begin\+Temporary\+Memory} (\hyperlink{structmemory__arena}{memory\+\_\+arena} $\ast$Memory)
+\item 
+void \hyperlink{ab__memory_8h_a8dbf22e067d85b9ad8422126755d23df}{abm\+\_\+\+End\+Temporary\+Memory} (\hyperlink{structtemporary__memory}{temporary\+\_\+memory} Temp\+Mem)
+\item 
+\hyperlink{structmemory__arena}{memory\+\_\+arena} \hyperlink{ab__memory_8h_a1b0ab8d04e6309ae31b1b2f8282dc085}{abm\+\_\+\+Create\+Sub\+Arena} (\hyperlink{structmemory__arena}{memory\+\_\+arena} $\ast$Memory, size\+\_\+t Size)
+\end{DoxyCompactItemize}
+
+
+\subsection{Macro Definition Documentation}
+\mbox{\Hypertarget{ab__memory_8h_a89df166532e625eea593369a7997139d}\label{ab__memory_8h_a89df166532e625eea593369a7997139d}} 
+\index{ab\+\_\+memory.\+h@{ab\+\_\+memory.\+h}!abm\+\_\+\+Push\+Array@{abm\+\_\+\+Push\+Array}}
+\index{abm\+\_\+\+Push\+Array@{abm\+\_\+\+Push\+Array}!ab\+\_\+memory.\+h@{ab\+\_\+memory.\+h}}
+\subsubsection{\texorpdfstring{abm\+\_\+\+Push\+Array}{abm\_PushArray}}
+{\footnotesize\ttfamily \#define abm\+\_\+\+Push\+Array(\begin{DoxyParamCaption}\item[{}]{Arena,  }\item[{}]{Count,  }\item[{}]{Type }\end{DoxyParamCaption})~(Type$\ast$)\hyperlink{ab__memory_8h_a15270c8569eb858cdb20ee45c3bb46f7}{abm\+\_\+\+Push\+Size\+\_\+}(Arena, (Count)$\ast$sizeof(Type))}
+
+\mbox{\Hypertarget{ab__memory_8h_ab8d45b257f787efccb8a928176cc2c88}\label{ab__memory_8h_ab8d45b257f787efccb8a928176cc2c88}} 
+\index{ab\+\_\+memory.\+h@{ab\+\_\+memory.\+h}!abm\+\_\+\+Push\+Size@{abm\+\_\+\+Push\+Size}}
+\index{abm\+\_\+\+Push\+Size@{abm\+\_\+\+Push\+Size}!ab\+\_\+memory.\+h@{ab\+\_\+memory.\+h}}
+\subsubsection{\texorpdfstring{abm\+\_\+\+Push\+Size}{abm\_PushSize}}
+{\footnotesize\ttfamily \#define abm\+\_\+\+Push\+Size(\begin{DoxyParamCaption}\item[{}]{Arena,  }\item[{}]{Size }\end{DoxyParamCaption})~\hyperlink{ab__memory_8h_a15270c8569eb858cdb20ee45c3bb46f7}{abm\+\_\+\+Push\+Size\+\_\+}(Arena, Size)}
+
+\mbox{\Hypertarget{ab__memory_8h_a0436d3ae4dac7362742c35ea6a146fea}\label{ab__memory_8h_a0436d3ae4dac7362742c35ea6a146fea}} 
+\index{ab\+\_\+memory.\+h@{ab\+\_\+memory.\+h}!abm\+\_\+\+Push\+Struct@{abm\+\_\+\+Push\+Struct}}
+\index{abm\+\_\+\+Push\+Struct@{abm\+\_\+\+Push\+Struct}!ab\+\_\+memory.\+h@{ab\+\_\+memory.\+h}}
+\subsubsection{\texorpdfstring{abm\+\_\+\+Push\+Struct}{abm\_PushStruct}}
+{\footnotesize\ttfamily \#define abm\+\_\+\+Push\+Struct(\begin{DoxyParamCaption}\item[{}]{Arena,  }\item[{}]{Type }\end{DoxyParamCaption})~(Type$\ast$)\hyperlink{ab__memory_8h_a15270c8569eb858cdb20ee45c3bb46f7}{abm\+\_\+\+Push\+Size\+\_\+}(Arena, sizeof(Type))}
+
+
+
+\subsection{Function Documentation}
+\mbox{\Hypertarget{ab__memory_8h_a20bffb2c2335745a56275b6094b6dcad}\label{ab__memory_8h_a20bffb2c2335745a56275b6094b6dcad}} 
+\index{ab\+\_\+memory.\+h@{ab\+\_\+memory.\+h}!abm\+\_\+\+Allocate\+Os\+Memory@{abm\+\_\+\+Allocate\+Os\+Memory}}
+\index{abm\+\_\+\+Allocate\+Os\+Memory@{abm\+\_\+\+Allocate\+Os\+Memory}!ab\+\_\+memory.\+h@{ab\+\_\+memory.\+h}}
+\subsubsection{\texorpdfstring{abm\+\_\+\+Allocate\+Os\+Memory()}{abm\_AllocateOsMemory()}}
+{\footnotesize\ttfamily void$\ast$ abm\+\_\+\+Allocate\+Os\+Memory (\begin{DoxyParamCaption}\item[{void $\ast$}]{Address,  }\item[{size\+\_\+t}]{Size }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{ab__memory_8h_a77b6adde3ba40f7f3777bcc01c396ccd}\label{ab__memory_8h_a77b6adde3ba40f7f3777bcc01c396ccd}} 
+\index{ab\+\_\+memory.\+h@{ab\+\_\+memory.\+h}!abm\+\_\+\+Begin\+Temporary\+Memory@{abm\+\_\+\+Begin\+Temporary\+Memory}}
+\index{abm\+\_\+\+Begin\+Temporary\+Memory@{abm\+\_\+\+Begin\+Temporary\+Memory}!ab\+\_\+memory.\+h@{ab\+\_\+memory.\+h}}
+\subsubsection{\texorpdfstring{abm\+\_\+\+Begin\+Temporary\+Memory()}{abm\_BeginTemporaryMemory()}}
+{\footnotesize\ttfamily \hyperlink{structtemporary__memory}{temporary\+\_\+memory} abm\+\_\+\+Begin\+Temporary\+Memory (\begin{DoxyParamCaption}\item[{\hyperlink{structmemory__arena}{memory\+\_\+arena} $\ast$}]{Memory }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{ab__memory_8h_a1b0ab8d04e6309ae31b1b2f8282dc085}\label{ab__memory_8h_a1b0ab8d04e6309ae31b1b2f8282dc085}} 
+\index{ab\+\_\+memory.\+h@{ab\+\_\+memory.\+h}!abm\+\_\+\+Create\+Sub\+Arena@{abm\+\_\+\+Create\+Sub\+Arena}}
+\index{abm\+\_\+\+Create\+Sub\+Arena@{abm\+\_\+\+Create\+Sub\+Arena}!ab\+\_\+memory.\+h@{ab\+\_\+memory.\+h}}
+\subsubsection{\texorpdfstring{abm\+\_\+\+Create\+Sub\+Arena()}{abm\_CreateSubArena()}}
+{\footnotesize\ttfamily \hyperlink{structmemory__arena}{memory\+\_\+arena} abm\+\_\+\+Create\+Sub\+Arena (\begin{DoxyParamCaption}\item[{\hyperlink{structmemory__arena}{memory\+\_\+arena} $\ast$}]{Memory,  }\item[{size\+\_\+t}]{Size }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{ab__memory_8h_ad393d506412ba1d8d6fe25e8e16253b4}\label{ab__memory_8h_ad393d506412ba1d8d6fe25e8e16253b4}} 
+\index{ab\+\_\+memory.\+h@{ab\+\_\+memory.\+h}!abm\+\_\+\+Deallocate\+Os\+Memory@{abm\+\_\+\+Deallocate\+Os\+Memory}}
+\index{abm\+\_\+\+Deallocate\+Os\+Memory@{abm\+\_\+\+Deallocate\+Os\+Memory}!ab\+\_\+memory.\+h@{ab\+\_\+memory.\+h}}
+\subsubsection{\texorpdfstring{abm\+\_\+\+Deallocate\+Os\+Memory()}{abm\_DeallocateOsMemory()}}
+{\footnotesize\ttfamily void abm\+\_\+\+Deallocate\+Os\+Memory (\begin{DoxyParamCaption}\item[{void $\ast$}]{Address,  }\item[{size\+\_\+t}]{Size }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{ab__memory_8h_a8dbf22e067d85b9ad8422126755d23df}\label{ab__memory_8h_a8dbf22e067d85b9ad8422126755d23df}} 
+\index{ab\+\_\+memory.\+h@{ab\+\_\+memory.\+h}!abm\+\_\+\+End\+Temporary\+Memory@{abm\+\_\+\+End\+Temporary\+Memory}}
+\index{abm\+\_\+\+End\+Temporary\+Memory@{abm\+\_\+\+End\+Temporary\+Memory}!ab\+\_\+memory.\+h@{ab\+\_\+memory.\+h}}
+\subsubsection{\texorpdfstring{abm\+\_\+\+End\+Temporary\+Memory()}{abm\_EndTemporaryMemory()}}
+{\footnotesize\ttfamily void abm\+\_\+\+End\+Temporary\+Memory (\begin{DoxyParamCaption}\item[{\hyperlink{structtemporary__memory}{temporary\+\_\+memory}}]{Temp\+Mem }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{ab__memory_8h_a9061bfb19b910033ab211832bc593fed}\label{ab__memory_8h_a9061bfb19b910033ab211832bc593fed}} 
+\index{ab\+\_\+memory.\+h@{ab\+\_\+memory.\+h}!abm\+\_\+\+Get\+Memory\+Left@{abm\+\_\+\+Get\+Memory\+Left}}
+\index{abm\+\_\+\+Get\+Memory\+Left@{abm\+\_\+\+Get\+Memory\+Left}!ab\+\_\+memory.\+h@{ab\+\_\+memory.\+h}}
+\subsubsection{\texorpdfstring{abm\+\_\+\+Get\+Memory\+Left()}{abm\_GetMemoryLeft()}}
+{\footnotesize\ttfamily size\+\_\+t abm\+\_\+\+Get\+Memory\+Left (\begin{DoxyParamCaption}\item[{\hyperlink{structmemory__arena}{memory\+\_\+arena} $\ast$}]{Memory }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\mbox{\Hypertarget{ab__memory_8h_a5f2fa70a405694492db91b26ed884207}\label{ab__memory_8h_a5f2fa70a405694492db91b26ed884207}} 
+\index{ab\+\_\+memory.\+h@{ab\+\_\+memory.\+h}!abm\+\_\+\+Init\+Memory@{abm\+\_\+\+Init\+Memory}}
+\index{abm\+\_\+\+Init\+Memory@{abm\+\_\+\+Init\+Memory}!ab\+\_\+memory.\+h@{ab\+\_\+memory.\+h}}
+\subsubsection{\texorpdfstring{abm\+\_\+\+Init\+Memory()}{abm\_InitMemory()}}
+{\footnotesize\ttfamily \hyperlink{structmemory__arena}{memory\+\_\+arena} abm\+\_\+\+Init\+Memory (\begin{DoxyParamCaption}\item[{void $\ast$}]{Start,  }\item[{size\+\_\+t}]{Size }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{ab__memory_8h_a15270c8569eb858cdb20ee45c3bb46f7}\label{ab__memory_8h_a15270c8569eb858cdb20ee45c3bb46f7}} 
+\index{ab\+\_\+memory.\+h@{ab\+\_\+memory.\+h}!abm\+\_\+\+Push\+Size\+\_\+@{abm\+\_\+\+Push\+Size\+\_\+}}
+\index{abm\+\_\+\+Push\+Size\+\_\+@{abm\+\_\+\+Push\+Size\+\_\+}!ab\+\_\+memory.\+h@{ab\+\_\+memory.\+h}}
+\subsubsection{\texorpdfstring{abm\+\_\+\+Push\+Size\+\_\+()}{abm\_PushSize\_()}}
+{\footnotesize\ttfamily void$\ast$ abm\+\_\+\+Push\+Size\+\_\+ (\begin{DoxyParamCaption}\item[{\hyperlink{structmemory__arena}{memory\+\_\+arena} $\ast$}]{Memory,  }\item[{size\+\_\+t}]{Size,  }\item[{\hyperlink{ab__common_8h_a70e369648385b50f2d0588e8e8745275}{b8}}]{Clear\+Memory = {\ttfamily true} }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{ab__memory_8h_a8ca432174a01c886b3c834cbb140c5ab}\label{ab__memory_8h_a8ca432174a01c886b3c834cbb140c5ab}} 
+\index{ab\+\_\+memory.\+h@{ab\+\_\+memory.\+h}!abm\+\_\+\+Reset\+Memory@{abm\+\_\+\+Reset\+Memory}}
+\index{abm\+\_\+\+Reset\+Memory@{abm\+\_\+\+Reset\+Memory}!ab\+\_\+memory.\+h@{ab\+\_\+memory.\+h}}
+\subsubsection{\texorpdfstring{abm\+\_\+\+Reset\+Memory()}{abm\_ResetMemory()}}
+{\footnotesize\ttfamily void abm\+\_\+\+Reset\+Memory (\begin{DoxyParamCaption}\item[{\hyperlink{structmemory__arena}{memory\+\_\+arena} $\ast$}]{Memory }\end{DoxyParamCaption})}
+

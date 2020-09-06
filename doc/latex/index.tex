@@ -1,0 +1,491 @@
+A collection of useful libraries that I commonly use in projects, made into single file libraries. They are released under the M\+IT license. You may use everything free, though attribution is appreciated. They are offered without warranty or guarantees. Some of these libraries are not mine, but ones I find useful. Check individual libraries for licenses.
+
+This also includes a preprocessor I generally use. It creates boilerplate functions based on tags.
+
+
+\begin{DoxyItemize}
+\item Author\+: Amos Buchanan
+\item email\+: \href{mailto:amos@amosbuchanan.net}{\tt amos@amosbuchanan.\+net}
+\item License\+: M\+IT, \href{https://opensource.org/licenses/MIT}{\tt https\+://opensource.\+org/licenses/\+M\+IT}
+\end{DoxyItemize}
+
+\section*{Other Useful Libraries}
+
+Some links to other libraries I use and find useful.
+
+
+\begin{DoxyItemize}
+\item Sean T Barrett Single File Libraries\+: \href{https://github.com/nothings/stb}{\tt https\+://github.\+com/nothings/stb}
+\item J\+S\+MN J\+S\+ON Parser\+: \href{https://github.com/zserge/jsmn}{\tt https\+://github.\+com/zserge/jsmn}
+\end{DoxyItemize}
+
+\section*{Libraries}
+
+The libraries are used as-\/is. They aren\textquotesingle{}t really stand-\/alone as such, more they are the base functionality I tend to bring along into every project I work on.
+
+
+\begin{DoxyItemize}
+\item ab\+\_\+common
+\item ab\+\_\+memory
+\item ab\+\_\+string
+\end{DoxyItemize}
+
+\section*{Preprocessor}
+
+The preprocessor reads in the source files of a given directory and outputs a generated file with various useful functions. It\textquotesingle{}s mostly based on a \hyperlink{Generated__001_8h_ad9b15e5b6d9b1ed55b76d9916ff6dec2}{T\+A\+G()} pre-\/define with the various add-\/ons desired.
+
+Example\+:
+
+
+\begin{DoxyCode}
+\hyperlink{Generated__001_8h_ad9b15e5b6d9b1ed55b76d9916ff6dec2}{TAG}(Strings);
+\textcolor{keyword}{enum class} \hyperlink{PreprocTest_8h_a081cf1a0e70d6e2bd48c98f457742877}{enColours}
+\{
+    \hyperlink{PreprocTest_8h_a081cf1a0e70d6e2bd48c98f457742877aee38e4d5dd68c4e440825018d549cb47}{Red},
+    \hyperlink{PreprocTest_8h_a081cf1a0e70d6e2bd48c98f457742877ad382816a3cbeed082c9e216e7392eed1}{Green},
+    \hyperlink{PreprocTest_8h_a081cf1a0e70d6e2bd48c98f457742877a9594eec95be70e7b1710f730fdda33d9}{Blue}
+\};
+\end{DoxyCode}
+
+
+The trailing semicolon is optional.
+
+Before compiling, run the preprocessor\+:
+
+
+\begin{DoxyCode}
+$ preprocessor src/ Generated
+\end{DoxyCode}
+
+
+This reads all the files in the {\ttfamily src/} directory, and creates a single file {\ttfamily src/\+Generated.\+h}. This file may be checked into source control, so even if you lose the preprocessor the existing functions aren\textquotesingle{}t lost.
+
+In the above example, this will generate the functions related to \textquotesingle{}Strings\textquotesingle{}, which is a set of functions for converting enum values to and from strings. It will define functions such as {\ttfamily char $\ast$\+Enum\+To\+String(en\+Colours);}.
+
+The generated file is a single-\/file-\/library. Anywhere in the source code, you can include the file as a header\+:
+
+
+\begin{DoxyCode}
+\textcolor{preprocessor}{#include "Generated.h"}
+\end{DoxyCode}
+
+
+In the place you want to pull in the code (once per project), add the appropriate define\+:
+
+
+\begin{DoxyCode}
+\textcolor{preprocessor}{#define GENERATED\_SRC}
+\textcolor{preprocessor}{#include "Generated.h"}
+\end{DoxyCode}
+ The specific {\ttfamily \#define} to use is listed at the top of the generated file.
+
+Do not modify generated files, they get over-\/written. You can safely re-\/run the preprocessor in the same directory as an existing generated files.
+
+Several tags may be added by separating them with commas. Example\+:
+
+
+\begin{DoxyCode}
+\hyperlink{Generated__001_8h_ad9b15e5b6d9b1ed55b76d9916ff6dec2}{TAG}(Strings, JSON, Label:Short);
+\textcolor{keyword}{enum class} Length
+\{   
+    \hyperlink{ParsedC_8h_a542930d5f2f117ff1e21206f2baa51c5ae444f73956e5b2a401eb9471db89e7c9}{TAG}(Short:\textcolor{stringliteral}{"m"})
+    Meter,
+
+    \hyperlink{ParsedC_8h_a542930d5f2f117ff1e21206f2baa51c5ae444f73956e5b2a401eb9471db89e7c9}{TAG}(Short:\textcolor{stringliteral}{"in"})
+    Inches
+
+    \hyperlink{ParsedC_8h_a542930d5f2f117ff1e21206f2baa51c5ae444f73956e5b2a401eb9471db89e7c9}{TAG}(Short:\textcolor{stringliteral}{"f"})
+    Feet
+\};
+\end{DoxyCode}
+
+
+\subsection*{Enum Class Tags}
+
+Tag always goes before the definition of {\ttfamily enum class}. Usage\+: 
+\begin{DoxyCode}
+\hyperlink{Generated__001_8h_ad9b15e5b6d9b1ed55b76d9916ff6dec2}{TAG}(Tag1, Tag2:Option, ...)
+enum class \hyperlink{PreprocTest_8h_a081cf1a0e70d6e2bd48c98f457742877}{enColours}
+\{
+    \hyperlink{PreprocTest_8h_a081cf1a0e70d6e2bd48c98f457742877aee38e4d5dd68c4e440825018d549cb47}{Red},
+    \hyperlink{PreprocTest_8h_a081cf1a0e70d6e2bd48c98f457742877ad382816a3cbeed082c9e216e7392eed1}{Green},
+    \hyperlink{PreprocTest_8h_a081cf1a0e70d6e2bd48c98f457742877a9594eec95be70e7b1710f730fdda33d9}{Blue}
+\};
+\end{DoxyCode}
+
+
+If any enum tag is used, the following are defined\+: 
+\begin{DoxyCode}
+\textcolor{keyword}{enum class} \hyperlink{PreprocTest_8h_a081cf1a0e70d6e2bd48c98f457742877}{enColours};
+\textcolor{keyword}{const} \hyperlink{ab__common_8h_afaa62991928fb9fb18ff0db62a040aba}{u32} \hyperlink{Generated__Test_8h_abd85a89ac29df78a4d1b078c54016c79}{enColours\_Count};
+\end{DoxyCode}
+
+
+\subsubsection*{Strings}
+
+Usage\+: 
+\begin{DoxyCode}
+\hyperlink{Generated__001_8h_ad9b15e5b6d9b1ed55b76d9916ff6dec2}{TAG}(Strings)
+\textcolor{keyword}{enum class} \hyperlink{PreprocTest_8h_a081cf1a0e70d6e2bd48c98f457742877}{enColours}
+\{
+    \hyperlink{ab__file_8h_a1b665fc63cb310d53283fbcd1b19746ea88183b946cc5f0e8c96b2e66e1c74a7e}{Unknown},
+    \hyperlink{PreprocTest_8h_a081cf1a0e70d6e2bd48c98f457742877aee38e4d5dd68c4e440825018d549cb47}{Red},
+    \hyperlink{PreprocTest_8h_a081cf1a0e70d6e2bd48c98f457742877ad382816a3cbeed082c9e216e7392eed1}{Green},
+    \hyperlink{PreprocTest_8h_a081cf1a0e70d6e2bd48c98f457742877a9594eec95be70e7b1710f730fdda33d9}{Blue}
+\};
+\end{DoxyCode}
+
+
+This creates the following\+: 
+\begin{DoxyCode}
+\hyperlink{PreprocTest_8h_a081cf1a0e70d6e2bd48c98f457742877}{enColours} \hyperlink{Generated__Test_8h_ad369bcb4826dc155da6b130a0fa97d13}{StringToEnum<enColours>}(\textcolor{keyword}{const} \textcolor{keywordtype}{char} *);
+constexpr \textcolor{keywordtype}{char} \textcolor{keyword}{const} *\hyperlink{Generated__001_8h_ac9652e168fff50424ca0f861bd91ef4f}{EnumToCString}(\hyperlink{PreprocTest_8h_a081cf1a0e70d6e2bd48c98f457742877}{enColours});
+\hyperlink{PreprocTest_8h_a081cf1a0e70d6e2bd48c98f457742877}{enColours} \hyperlink{Generated__Test_8h_ad369bcb4826dc155da6b130a0fa97d13}{StringToEnum<enColours>}(\hyperlink{structabs__stringptr}{abs\_stringptr});
+constexpr \hyperlink{structabs__stringptr}{abs\_stringptr} \hyperlink{Generated__001_8h_a6be15e450a8768a136197010c8e7b73f}{EnumToString}(\hyperlink{PreprocTest_8h_a081cf1a0e70d6e2bd48c98f457742877}{enColours});
+\end{DoxyCode}
+
+
+If you attempt to convert an invalid string to enum, the first enum value is returned. I usually reserve the first enum value as \textquotesingle{}Unknown\textquotesingle{} or \textquotesingle{}N\+OP\textquotesingle{}, which is how this convention came about.
+
+
+\begin{DoxyCode}
+\hyperlink{PreprocTest_8h_a081cf1a0e70d6e2bd48c98f457742877}{enColours} Colour = \hyperlink{Generated__Test_8h_ad369bcb4826dc155da6b130a0fa97d13}{StringToEnum<enColours>}(\textcolor{stringliteral}{"Monster"});
+\textcolor{comment}{// Colour is enColours::Red}
+\end{DoxyCode}
+
+
+\subsubsection*{J\+S\+ON}
+
+Note\+: To use J\+S\+ON, you have to specify the define before the inclusion of the Generated header. Those only needs to be done once per project, even if you\textquotesingle{}re using multiple header files. This does add the dependency on the jsmn library, linked above. See below for general notes on using the J\+S\+ON tag. For example\+:
+
+
+\begin{DoxyCode}
+\textcolor{preprocessor}{#define GEN\_JSMN\_HEADER}
+\textcolor{preprocessor}{#include "Generated.h"}
+\end{DoxyCode}
+
+
+Usage\+: 
+\begin{DoxyCode}
+\hyperlink{Generated__001_8h_ad9b15e5b6d9b1ed55b76d9916ff6dec2}{TAG}(JSON)
+\textcolor{keyword}{enum class} \hyperlink{PreprocTest_8h_a081cf1a0e70d6e2bd48c98f457742877}{enColours}
+\{
+    \hyperlink{PreprocTest_8h_a081cf1a0e70d6e2bd48c98f457742877aee38e4d5dd68c4e440825018d549cb47}{Red},
+    \hyperlink{PreprocTest_8h_a081cf1a0e70d6e2bd48c98f457742877ad382816a3cbeed082c9e216e7392eed1}{Green},
+    \hyperlink{PreprocTest_8h_a081cf1a0e70d6e2bd48c98f457742877a9594eec95be70e7b1710f730fdda33d9}{Blue}
+\};
+\end{DoxyCode}
+
+
+This creates the following\+: 
+\begin{DoxyCode}
+\hyperlink{ab__common_8h_afaa62991928fb9fb18ff0db62a040aba}{u32}
+\hyperlink{test_8h_a2e06da4f01d3cba9c9d2cf6687ed8bd5}{PushJson}(\textcolor{keywordtype}{char} *Json, \hyperlink{ab__common_8h_afaa62991928fb9fb18ff0db62a040aba}{u32} MaxLength, \textcolor{keywordtype}{char} \textcolor{keyword}{const} *Tag, \hyperlink{PreprocTest_8h_a081cf1a0e70d6e2bd48c98f457742877}{enColours} Type, 
+      \hyperlink{ab__common_8h_afaa62991928fb9fb18ff0db62a040aba}{u32} JsonFlags);
+\end{DoxyCode}
+ This creates a json fragment of the form\+: 
+\begin{DoxyCode}
+"enColours": "Red"
+\end{DoxyCode}
+
+
+Takes a J\+S\+ON string {\ttfamily Json} of length {\ttfamily Json\+Length} and outputs {\ttfamily Object\+Out}. {\ttfamily Token\+Array} should be {\ttfamily N\+U\+LL}. 
+\begin{DoxyCode}
+\hyperlink{structjsmntok__t}{jsmntok\_t} *\hyperlink{test_8h_ae6d119cc4c994c6ce626578dc0fbfb7d}{JsonToObject}(\hyperlink{structmemory__arena}{memory\_arena} *VolatileMemory, \textcolor{keywordtype}{char} \textcolor{keyword}{const} *Json, \textcolor{keywordtype}{
+      size\_t} JsonLength, \hyperlink{structjsmntok__t}{jsmntok\_t} *TokenArray, Colours *ObjectOut, \hyperlink{ab__common_8h_afaa62991928fb9fb18ff0db62a040aba}{u32} Unused);
+\end{DoxyCode}
+
+
+\subsubsection*{Label}
+
+This allows you to have arbitrary string labels for your enum items.
+
+Usage\+: 
+\begin{DoxyCode}
+\hyperlink{Generated__001_8h_ad9b15e5b6d9b1ed55b76d9916ff6dec2}{TAG}(Label:Object);
+\textcolor{keyword}{enum class} \hyperlink{PreprocTest_8h_a081cf1a0e70d6e2bd48c98f457742877}{enColours}
+\{
+    \hyperlink{ParsedC_8h_a542930d5f2f117ff1e21206f2baa51c5ae444f73956e5b2a401eb9471db89e7c9}{TAG}(Object:\textcolor{stringliteral}{"Apple"})
+    \hyperlink{PreprocTest_8h_a081cf1a0e70d6e2bd48c98f457742877aee38e4d5dd68c4e440825018d549cb47}{Red},
+
+    \hyperlink{ParsedC_8h_a542930d5f2f117ff1e21206f2baa51c5ae444f73956e5b2a401eb9471db89e7c9}{TAG}(Object:\textcolor{stringliteral}{"Brocoli"})
+    \hyperlink{PreprocTest_8h_a081cf1a0e70d6e2bd48c98f457742877ad382816a3cbeed082c9e216e7392eed1}{Green},
+
+    \hyperlink{ParsedC_8h_a542930d5f2f117ff1e21206f2baa51c5ae444f73956e5b2a401eb9471db89e7c9}{TAG}(Object:\textcolor{stringliteral}{"Blueberry"})
+    \hyperlink{PreprocTest_8h_a081cf1a0e70d6e2bd48c98f457742877a9594eec95be70e7b1710f730fdda33d9}{Blue}
+\};
+\end{DoxyCode}
+
+
+This creates the function\+: 
+\begin{DoxyCode}
+\textcolor{keyword}{const} \textcolor{keywordtype}{char} *\hyperlink{Generated__Test_8h_a9b8638e967a81b3c211b77df49d85034}{EnumToLabel\_Object}(\hyperlink{PreprocTest_8h_a081cf1a0e70d6e2bd48c98f457742877}{enColours} EnumToken);
+\end{DoxyCode}
+
+
+Note that you can have multiple labels on the same enum.
+
+
+\begin{DoxyCode}
+\hyperlink{Generated__001_8h_ad9b15e5b6d9b1ed55b76d9916ff6dec2}{TAG}(Label:Object, Label:Animal);
+\textcolor{keyword}{enum class} \hyperlink{PreprocTest_8h_a081cf1a0e70d6e2bd48c98f457742877}{enColours}
+\{
+    \hyperlink{ParsedC_8h_a542930d5f2f117ff1e21206f2baa51c5ae444f73956e5b2a401eb9471db89e7c9}{TAG}(Object:\textcolor{stringliteral}{"Apple"}, Animal:\textcolor{stringliteral}{"Panda"})
+    \hyperlink{PreprocTest_8h_a081cf1a0e70d6e2bd48c98f457742877aee38e4d5dd68c4e440825018d549cb47}{Red},
+
+    \hyperlink{ParsedC_8h_a542930d5f2f117ff1e21206f2baa51c5ae444f73956e5b2a401eb9471db89e7c9}{TAG}(Object:\textcolor{stringliteral}{"Brocoli"}, Animal:\textcolor{stringliteral}{"Frog"})
+    \hyperlink{PreprocTest_8h_a081cf1a0e70d6e2bd48c98f457742877ad382816a3cbeed082c9e216e7392eed1}{Green},
+
+    \hyperlink{ParsedC_8h_a542930d5f2f117ff1e21206f2baa51c5ae444f73956e5b2a401eb9471db89e7c9}{TAG}(Object:\textcolor{stringliteral}{"Blueberry"}, Animal:\textcolor{stringliteral}{"Cookie Monster"})
+    \hyperlink{PreprocTest_8h_a081cf1a0e70d6e2bd48c98f457742877a9594eec95be70e7b1710f730fdda33d9}{Blue}
+\};
+\end{DoxyCode}
+
+
+Which creates\+: 
+\begin{DoxyCode}
+\textcolor{keyword}{const} \textcolor{keywordtype}{char} *\hyperlink{Generated__Test_8h_a9b8638e967a81b3c211b77df49d85034}{EnumToLabel\_Object}(\hyperlink{PreprocTest_8h_a081cf1a0e70d6e2bd48c98f457742877}{enColours} EnumToken);
+\textcolor{keyword}{const} \textcolor{keywordtype}{char} *EnumToLabel\_Animal(\hyperlink{PreprocTest_8h_a081cf1a0e70d6e2bd48c98f457742877}{enColours} EnumToken);
+\end{DoxyCode}
+
+
+If you don\textquotesingle{}t have a label for a specific item, it just uses the item name itself\+:
+
+
+\begin{DoxyCode}
+\hyperlink{Generated__001_8h_ad9b15e5b6d9b1ed55b76d9916ff6dec2}{TAG}(Label:Object);
+\textcolor{keyword}{enum class} \hyperlink{PreprocTest_8h_a081cf1a0e70d6e2bd48c98f457742877}{enColours}
+\{
+    \hyperlink{ab__file_8h_a1b665fc63cb310d53283fbcd1b19746ea88183b946cc5f0e8c96b2e66e1c74a7e}{Unknown}, 
+
+    \hyperlink{ParsedC_8h_a542930d5f2f117ff1e21206f2baa51c5ae444f73956e5b2a401eb9471db89e7c9}{TAG}(Object:\textcolor{stringliteral}{"Apple"})
+    \hyperlink{PreprocTest_8h_a081cf1a0e70d6e2bd48c98f457742877aee38e4d5dd68c4e440825018d549cb47}{Red},
+
+    \hyperlink{ParsedC_8h_a542930d5f2f117ff1e21206f2baa51c5ae444f73956e5b2a401eb9471db89e7c9}{TAG}(Object:\textcolor{stringliteral}{"Brocoli"})
+    \hyperlink{PreprocTest_8h_a081cf1a0e70d6e2bd48c98f457742877ad382816a3cbeed082c9e216e7392eed1}{Green},
+
+    \hyperlink{ParsedC_8h_a542930d5f2f117ff1e21206f2baa51c5ae444f73956e5b2a401eb9471db89e7c9}{TAG}(Object:\textcolor{stringliteral}{"Blueberry"})
+    \hyperlink{PreprocTest_8h_a081cf1a0e70d6e2bd48c98f457742877a9594eec95be70e7b1710f730fdda33d9}{Blue}
+\};
+\end{DoxyCode}
+
+
+This creates the output\+: 
+\begin{DoxyCode}
+\textcolor{keyword}{const} \textcolor{keywordtype}{char}* Label = \hyperlink{Generated__Test_8h_a9b8638e967a81b3c211b77df49d85034}{EnumToLabel\_Object}(\hyperlink{PreprocTest_8h_a081cf1a0e70d6e2bd48c98f457742877}{enColours}:Unknown);
+printf(\textcolor{stringliteral}{"%s\(\backslash\)n"}, Label); \textcolor{comment}{// prints 'Unknown'}
+\end{DoxyCode}
+
+
+\subsection*{Structs}
+
+\subsubsection*{J\+S\+ON}
+
+Creates functions for converting to/from J\+S\+ON, as per enum. Understands the base types as from {\ttfamily \hyperlink{ab__common_8h}{ab\+\_\+common.\+h}}, and any structs/enums that are also tagged with {\ttfamily J\+S\+ON}. See below for more info on J\+S\+ON.
+
+Usage\+: 
+\begin{DoxyCode}
+\hyperlink{Generated__001_8h_ad9b15e5b6d9b1ed55b76d9916ff6dec2}{TAG}(JSON)
+\textcolor{keyword}{struct }\hyperlink{structmy__json__test}{my\_json\_test}
+\{
+    \hyperlink{ab__common_8h_a92c50087ca0e64fa93fc59402c55f8ca}{u8} \hyperlink{structmy__json__test_a0ea8af0c0061131955753275ad70dba4}{TestUnsigned};
+    \textcolor{keywordtype}{char} \hyperlink{structmy__json__test_a497da009ff7ce7742cf99571b0752227}{TestString}[50];
+    \hyperlink{PreprocTest_8h_a081cf1a0e70d6e2bd48c98f457742877}{enColours} \hyperlink{structmy__json__test_a6f1212d5aaf1f688e8887d5614d510ca}{MyColour};
+    \hyperlink{ab__common_8h_a70e369648385b50f2d0588e8e8745275}{b8} \hyperlink{structmy__json__test_a55bffca96cce85232e33fc0c619a9eab}{isValue};
+\};
+\end{DoxyCode}
+
+
+This generates the functions\+: Create a J\+S\+ON string and push it onto {\ttfamily Json}, which is a character buffer with the length {\ttfamily Max\+Length}. Uses the tag {\ttfamily Tag}. Returns number of characters written to {\ttfamily Json}, which is used to chain several structs together. 
+\begin{DoxyCode}
+\hyperlink{ab__common_8h_afaa62991928fb9fb18ff0db62a040aba}{u32} \hyperlink{test_8h_a2e06da4f01d3cba9c9d2cf6687ed8bd5}{PushJson}(\textcolor{keywordtype}{char} *Json, \hyperlink{ab__common_8h_afaa62991928fb9fb18ff0db62a040aba}{u32} MaxLength, \textcolor{keywordtype}{char} \textcolor{keyword}{const} *Tag, \textcolor{keyword}{const} 
+      \hyperlink{structmy__json__test}{my\_json\_test} &Value, \hyperlink{ab__common_8h_afaa62991928fb9fb18ff0db62a040aba}{u32} JsonFlags);
+\end{DoxyCode}
+
+
+Example\+: 
+\begin{DoxyCode}
+\textcolor{keywordtype}{char} Buffer[100];
+\hyperlink{structmy__json__test}{my\_json\_test} Value = \{10, \textcolor{stringliteral}{"SomeString"}, \hyperlink{PreprocTest_8h_a081cf1a0e70d6e2bd48c98f457742877aee38e4d5dd68c4e440825018d549cb47}{enColours::Red}, \textcolor{keyword}{true}\};
+\hyperlink{ab__common_8h_afaa62991928fb9fb18ff0db62a040aba}{u32} \hyperlink{test_8h_a2e06da4f01d3cba9c9d2cf6687ed8bd5}{PushJson}(Buffer, 100, \textcolor{stringliteral}{"MyStruct"}, Value, \hyperlink{ab__json_8h_a23451be0e28c552e70c19429684f83cbab892e8229f95855a30a2c10fde71f78e}{JSON\_IsLastInList});
+\end{DoxyCode}
+
+
+Generates\+: 
+\begin{DoxyCode}
+"MyStruct": \{"TestUnsigned": 10, "TestString": "SomeString", "MyColour": "Red", "isValue": true\}
+\end{DoxyCode}
+
+
+This struct is used to show what items exist in a J\+S\+ON string for a given struct, for use in {\ttfamily Json\+To\+Object}. 
+\begin{DoxyCode}
+\textcolor{keyword}{struct }\hyperlink{structmy__json__test__existlist}{my\_json\_test\_existlist}
+\{
+   \hyperlink{ab__common_8h_a70e369648385b50f2d0588e8e8745275}{b8} \hyperlink{structmy__json__test__existlist_abcc3320a088be44f3780f7768da67efa}{TestUnsigned};
+   \hyperlink{ab__common_8h_a70e369648385b50f2d0588e8e8745275}{b8} \hyperlink{structmy__json__test__existlist_ad1bf35a0d6153e177322567228ae0203}{TestString};
+   \hyperlink{ab__common_8h_a70e369648385b50f2d0588e8e8745275}{b8} \hyperlink{structmy__json__test__existlist_adc7bd401b4e560999733be88e43b5b7f}{MyColour};
+   \hyperlink{ab__common_8h_a70e369648385b50f2d0588e8e8745275}{b8} \hyperlink{structmy__json__test__existlist_ad8b82af159a6dd0709800ca082156caf}{isValue};
+\};
+\end{DoxyCode}
+
+
+Takes a J\+S\+ON string {\ttfamily Json} of length {\ttfamily Json\+Length} and outputs the base object {\ttfamily Object\+Out} and a list of whether the items existed in the original J\+S\+ON as {\ttfamily Items\+Exist\+Out}. {\ttfamily Token\+Array} should be {\ttfamily N\+U\+LL} when calling; this is used for the recursive functionality. 
+\begin{DoxyCode}
+\hyperlink{structjsmntok__t}{jsmntok\_t} *\hyperlink{test_8h_ae6d119cc4c994c6ce626578dc0fbfb7d}{JsonToObject}(\hyperlink{structmemory__arena}{memory\_arena} *VolatileMemory, \textcolor{keywordtype}{char} \textcolor{keyword}{const} *Json, \textcolor{keywordtype}{
+      size\_t} JsonLength, \hyperlink{structjsmntok__t}{jsmntok\_t} *TokenArray, \hyperlink{structmy__json__test}{my\_json\_test} *ObjectOut, 
+      \hyperlink{structmy__json__test__existlist}{my\_json\_test\_existlist} *ItemsExistOut);
+\end{DoxyCode}
+
+
+Intake a J\+S\+ON string {\ttfamily Json} of length {\ttfamily Json\+Length} of an array of objects and output a pointers to the arrays {\ttfamily Object\+Array} and {\ttfamily Object\+Array\+Exist}. Returns the number of items in the array. 
+\begin{DoxyCode}
+\hyperlink{ab__common_8h_afaa62991928fb9fb18ff0db62a040aba}{u32}
+\hyperlink{test_8h_a64ef531190fc6ef16b117e7f5ca1f528}{JsonArrayToObjectArray}(\hyperlink{structmemory__arena}{memory\_arena} *VolatileMemory, \textcolor{keywordtype}{char} \textcolor{keyword}{const} *Json, \textcolor{keywordtype}{
+      size\_t} JsonLength, \hyperlink{structmy__json__test}{my\_json\_test} **ObjectArray, \hyperlink{structmy__json__test__existlist}{my\_json\_test\_existlist} **
+      ObjectArrayExist);
+\end{DoxyCode}
+
+
+\subsection*{State Machine}
+
+I have a standard format for state machines I use, so I created a tag specifically for creating state machines.
+
+Due to a limitation of the program, the statemachine tag {\itshape must} be in the same file as all the state machine functions. I haven\textquotesingle{}t found this to be particularly limiting,
+
+Usage\+: 
+\begin{DoxyCode}
+\hyperlink{Generated__001_8h_ad16363f6583678566864d70afebc6a41}{STATEMACHINE}(base\_name, struct\_name, cmd\_enum\_name \textcolor{comment}{/*, <other types for functions*/});
+\end{DoxyCode}
+
+
+This creates the following\+: 
+\begin{DoxyCode}
+\textcolor{keyword}{struct }cmd\_enum\_name\_queue
+\{
+    cmd\_enum\_name \hyperlink{state__template_8cpp_a8dbb11e631f5fffa9a593e33f5831ed9}{Items}[10];
+    \hyperlink{ab__common_8h_ae9b1af5c037e57a98884758875d3a7c4}{s32} \hyperlink{state__template_8cpp_afb0397e8798aa6a6e51e96ef747c57be}{Front};
+    \hyperlink{ab__common_8h_ae9b1af5c037e57a98884758875d3a7c4}{s32} \hyperlink{state__template_8cpp_ab334bee7c72436f2d94d87e722656116}{Rear};
+\};
+
+\textcolor{keyword}{inline} \textcolor{keywordtype}{void} \hyperlink{Generated__Test_8h_a3ee2f2be736dcd0ff7e75d6ff8d2e6d5}{InitializeQueue}(cmd\_enum\_name\_queue *Queue);
+\textcolor{keyword}{inline} \hyperlink{ab__common_8h_a70e369648385b50f2d0588e8e8745275}{b8} \hyperlink{Generated__001_8h_ad2ffc62f6aa5a206f9537ec0862b62b2}{isQueueEmpty}(cmd\_enum\_name\_queue *Queue);
+\textcolor{keyword}{inline} \hyperlink{ab__common_8h_a70e369648385b50f2d0588e8e8745275}{b8} \hyperlink{Generated__001_8h_aa950b67af8b11518beb172512da739f6}{isQueueFull}(cmd\_enum\_name\_queue *Queue);
+\hyperlink{ab__common_8h_a70e369648385b50f2d0588e8e8745275}{b8} \hyperlink{Generated__001_8h_a3f103e11ae8a34710efceb9f334c7d56}{EnqueueCommand}(cmd\_enum\_name\_queue *Queue, cmd\_enum\_name Cmd);
+cmd\_enum\_name \hyperlink{Generated__001_8h_a9d087daa1094d6feb551bca28df70599}{DequeueCommand}(cmd\_enum\_name\_queue *Queue);
+
+\textcolor{preprocessor}{#define BASE\_NAME(name) void name(struct\_name *State, cmd\_enum\_name Cmd }\textcolor{comment}{/*<, Other types for functions>*/}\textcolor{preprocessor}{)}
+\textcolor{keyword}{typedef} BASE\_NAME(test\_statemachine);
+
+\textcolor{keyword}{inline} \hyperlink{ab__common_8h_a70e369648385b50f2d0588e8e8745275}{b8} \hyperlink{Generated__001_8h_a1dd64b679141089c38e51c1ef6fd641f}{GoToState}(struct\_name *State, base\_name  *NewState);
+\textcolor{keywordtype}{char} \textcolor{keyword}{const} *\hyperlink{Generated__001_8h_a3092a6bb8fdc6a334969301a56010702}{GetStateName}(base\_name *StateName);
+\hyperlink{ab__common_8h_a70e369648385b50f2d0588e8e8745275}{b8} \hyperlink{Generated__001_8h_a3f103e11ae8a34710efceb9f334c7d56}{EnqueueCommand}(struct\_name *State, cmd\_enum\_name Cmd);
+cmd\_enum\_name \hyperlink{Generated__001_8h_a9d087daa1094d6feb551bca28df70599}{DequeueCommand}(struct\_name *State);
+
+\textcolor{comment}{//<Declaration of State Machine Functions>}
+\end{DoxyCode}
+
+
+You can then create state machine functions using {\ttfamily B\+A\+S\+E\+\_\+\+N\+A\+ME} (The declaration is always capitolized, the function typedef is always lowercase.)\+: 
+\begin{DoxyCode}
+BASE\_NAME(IdleState)
+\{\}
+
+BASE\_NAME(RunningState)
+\{\}
+\end{DoxyCode}
+
+
+N\+O\+TE\+: The command queue must be initialized before it can be used. 
+\begin{DoxyCode}
+\hyperlink{Generated__Test_8h_a3ee2f2be736dcd0ff7e75d6ff8d2e6d5}{InitializeQueue}(State->CommandQueue);
+\end{DoxyCode}
+
+
+Example\+: 
+\begin{DoxyCode}
+\textcolor{comment}{// statemachine.h}
+\textcolor{keyword}{struct }\hyperlink{structtest__type}{test\_type}
+\{
+    \textcolor{comment}{// These three variables *must* be defined.}
+    test\_statemachine *\hyperlink{structtest__type_a48139457e16e23a57531e5af02be7f14}{CurrentState};
+    \hyperlink{ab__common_8h_a70e369648385b50f2d0588e8e8745275}{b8} \hyperlink{structtest__type_a36eb3041ef1341aec27a2a2d98500ce6}{isNewState};
+    \hyperlink{structtest__cmd__queue}{test\_cmd\_queue} \hyperlink{structtest__type_a9ef32b05c6f8a712062f8261d71665ca}{CommandQueue};
+\};
+
+\hyperlink{ParsedC_8h_a542930d5f2f117ff1e21206f2baa51c5ae444f73956e5b2a401eb9471db89e7c9}{TAG}(Strings)
+\textcolor{keyword}{enum class} \hyperlink{PreprocTest_8h_a55ed691059222a58555cf9992ec14431}{test\_cmd}
+\{
+    \hyperlink{ain__machine_8h_a128a1796cd4d95a8e92ed32e492fffb2a1a004f5abe2b334db21328be1ea6b593}{NOP},
+    \hyperlink{PreprocTest_8h_a55ed691059222a58555cf9992ec14431a1ed25d14e3a228b0089b334bdbca5769}{Command1},
+    \hyperlink{PreprocTest_8h_a55ed691059222a58555cf9992ec14431a0c33f49f722805e5a6f6f759b491fa2a}{Command2},
+    \hyperlink{PreprocTest_8h_a55ed691059222a58555cf9992ec14431a732a6c81e81f68d48d63e795bd06ab22}{Command3},
+    \hyperlink{PreprocTest_8h_a55ed691059222a58555cf9992ec14431aeb4001380fa7b2b0c963a882c2305280}{Command4},
+    \hyperlink{PreprocTest_8h_a55ed691059222a58555cf9992ec14431ad55b30607c2a9a2616347d6edb789f6b}{Last}
+\};
+
+\textcolor{comment}{// statemachine.c}
+\textcolor{preprocessor}{#include "statemachine.h"}
+
+\hyperlink{Generated__001_8h_ad16363f6583678566864d70afebc6a41}{STATEMACHINE}(test\_statemachine, \hyperlink{structtest__type}{test\_type}, \hyperlink{PreprocTest_8h_a55ed691059222a58555cf9992ec14431}{test\_cmd}, \textcolor{keywordtype}{int} SomeInt, \textcolor{keywordtype}{char} \textcolor{keyword}{const} *
+      AString);
+
+\hyperlink{Generated__Test_8h_a60e76ed427c4968689b9571af7254547}{TEST\_STATEMACHINE}(StartupState)
+\{
+    \hyperlink{Generated__Test_8h_a3ee2f2be736dcd0ff7e75d6ff8d2e6d5}{InitializeQueue}(State->CommandQueue);
+    \textcolor{comment}{// Code Here}
+    \hyperlink{Generated__001_8h_a1dd64b679141089c38e51c1ef6fd641f}{GoToState}(State, IdleState);
+\}
+
+\hyperlink{Generated__Test_8h_a60e76ed427c4968689b9571af7254547}{TEST\_STATEMACHINE}(IdleState)
+\{
+    \textcolor{comment}{// Code Here}
+    \hyperlink{Generated__001_8h_a1dd64b679141089c38e51c1ef6fd641f}{GoToState}(State, RunningState);
+\}
+
+
+\hyperlink{Generated__Test_8h_a60e76ed427c4968689b9571af7254547}{TEST\_STATEMACHINE}(RunningState)
+\{
+    \hyperlink{PreprocTest_8h_a55ed691059222a58555cf9992ec14431}{test\_cmd} = \hyperlink{Generated__001_8h_a9d087daa1094d6feb551bca28df70599}{DequeueCommand}(State);
+    \textcolor{comment}{// Code Here}
+    printf(\textcolor{stringliteral}{"Input Int: %d\(\backslash\)n"}, SomeInt); 
+    printf(\textcolor{stringliteral}{"Input String: %s\(\backslash\)n"}, AString);
+    QueueCommand(State, \hyperlink{PreprocTest_8h_a55ed691059222a58555cf9992ec14431a1ed25d14e3a228b0089b334bdbca5769}{test\_cmd::Command1});
+
+    \textcolor{keywordtype}{char} *StateName = \hyperlink{Generated__001_8h_a3092a6bb8fdc6a334969301a56010702}{GetStateName}(State->CurrentState);
+    printf(\textcolor{stringliteral}{"Current State: %s\(\backslash\)n"}, StateName); \textcolor{comment}{// Prints "Current State: RunningState"}
+
+    \hyperlink{Generated__001_8h_a1dd64b679141089c38e51c1ef6fd641f}{GoToState}(State, IdleState);
+\}
+\end{DoxyCode}
+
+
+\subsection*{J\+S\+ON}
+
+Structs and enums can both be tagged with {\ttfamily J\+S\+ON}. This creates som functions for creating and reading J\+S\+ON objects into C structs or enums. They all follow a similar format, and are recursive. So if you have a struct tagged J\+S\+ON, all the enums and structs it refers to must also be tagged J\+S\+ON.
+
+The preprocessor uses the functions in {\ttfamily \hyperlink{ab__json_8h}{ab\+\_\+json.\+h}} as general functions to use. This means you must include the define 
+\begin{DoxyCode}
+\textcolor{preprocessor}{#define AB\_JSON\_SRC}
+\end{DoxyCode}
+ somewhere in your code so the source can be picked up. It should only be defined once, and could probably be defined in the compiler (though I haven\textquotesingle{}t tested this).
+
+You will also have to include the source to the J\+S\+MN parser somewhere. If you are using the version I\textquotesingle{}ve included here, you only need to define the following\+:
+
+
+\begin{DoxyCode}
+\textcolor{preprocessor}{#define JSMN\_SRC}
+\textcolor{preprocessor}{#include "jsmn.h"}
+\end{DoxyCode}
+
+
+I\textquotesingle{}ve slightly modified the source so this works everywhere. If you are using it directly from git, you\textquotesingle{}ll have read up on how to properly include the source.
+
+\section*{License}
+
+Copyright 2020 Amos Buchanan
+
+Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the \char`\"{}\+Software\char`\"{}), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions\+:
+
+The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
+
+T\+HE S\+O\+F\+T\+W\+A\+RE IS P\+R\+O\+V\+I\+D\+ED \char`\"{}\+A\+S I\+S\char`\"{}, W\+I\+T\+H\+O\+UT W\+A\+R\+R\+A\+N\+TY OF A\+NY K\+I\+ND, E\+X\+P\+R\+E\+SS OR I\+M\+P\+L\+I\+ED, I\+N\+C\+L\+U\+D\+I\+NG B\+UT N\+OT L\+I\+M\+I\+T\+ED TO T\+HE W\+A\+R\+R\+A\+N\+T\+I\+ES OF M\+E\+R\+C\+H\+A\+N\+T\+A\+B\+I\+L\+I\+TY, F\+I\+T\+N\+E\+SS F\+OR A P\+A\+R\+T\+I\+C\+U\+L\+AR P\+U\+R\+P\+O\+SE A\+ND N\+O\+N\+I\+N\+F\+R\+I\+N\+G\+E\+M\+E\+NT. IN NO E\+V\+E\+NT S\+H\+A\+LL T\+HE A\+U\+T\+H\+O\+RS OR C\+O\+P\+Y\+R\+I\+G\+HT H\+O\+L\+D\+E\+RS BE L\+I\+A\+B\+LE F\+OR A\+NY C\+L\+A\+IM, D\+A\+M\+A\+G\+ES OR O\+T\+H\+ER L\+I\+A\+B\+I\+L\+I\+TY, W\+H\+E\+T\+H\+ER IN AN A\+C\+T\+I\+ON OF C\+O\+N\+T\+R\+A\+CT, T\+O\+RT OR O\+T\+H\+E\+R\+W\+I\+SE, A\+R\+I\+S\+I\+NG F\+R\+OM, O\+UT OF OR IN C\+O\+N\+N\+E\+C\+T\+I\+ON W\+I\+TH T\+HE S\+O\+F\+T\+W\+A\+RE OR T\+HE U\+SE OR O\+T\+H\+ER D\+E\+A\+L\+I\+N\+GS IN T\+HE S\+O\+F\+T\+W\+A\+RE. 

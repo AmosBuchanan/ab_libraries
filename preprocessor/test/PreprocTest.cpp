@@ -79,18 +79,18 @@ main(int argc, char* argv[])
 {
     
     printf("Print Strings:\n");
-    for(u32 i = 0; i < Colours_Count; ++i)
+    for(u32 i = 0; i < enColours_Count; ++i)
     {
-        Colours C = (Colours)i;
+        enColours C = (enColours)i;
         abs_stringptr S = EnumToString(C);
         printf("  - %.*s\n", S.Length, S.String);
     }
     printf("\n");
     
     printf("Print Labels: \n");
-    for(u32 i = 0; i < Colours_Count; ++i)
+    for(u32 i = 0; i < enColours_Count; ++i)
     {
-        abs_stringptr S = EnumToLabel_Object((Colours)i);
+        abs_stringptr S = EnumToLabel_Object((enColours)i);
         printf("  - %.*s\n", S.Length, S.String);
     }
     
@@ -161,7 +161,7 @@ main(int argc, char* argv[])
     my_json_test Test = {};
     Test.TestUnsigned = 10;
     snprintf(Test.TestString, 50, "Hello");
-    Test.MyColour = Colours::Red;
+    Test.MyColour = enColours::Red;
     Test.isValue = true;
     
     u32 JsonLength = PushJson(Json, JsonSize, 0, Test, JSON_DontUseTag | JSON_IsLastInList);

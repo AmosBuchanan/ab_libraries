@@ -22,7 +22,7 @@ enum class test_cmd
 };
 
 TAG(JSON, Strings, Label:Object);
-enum class Colours
+enum class enColours
 {
     TAG(Object:"Apple")
         Red,
@@ -39,7 +39,7 @@ struct my_json_test
 {
     u8 TestUnsigned;
     char TestString[50];
-    Colours MyColour;
+    enColours MyColour;
     b8 isValue;
 };
 

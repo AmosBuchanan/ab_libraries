@@ -1,0 +1,107 @@
+\hypertarget{ab__file_8h}{}\section{ab\+\_\+file.\+h File Reference}
+\label{ab__file_8h}\index{ab\+\_\+file.\+h@{ab\+\_\+file.\+h}}
+{\ttfamily \#include $<$sys/stat.\+h$>$}\newline
+{\ttfamily \#include \char`\"{}stb\+\_\+sprintf.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}ab\+\_\+memory.\+h\char`\"{}}\newline
+Include dependency graph for ab\+\_\+file.\+h\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=346pt]{df/d58/ab__file_8h__incl}
+\end{center}
+\end{figure}
+This graph shows which files directly or indirectly include this file\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{d8/d2c/ab__file_8h__dep__incl}
+\end{center}
+\end{figure}
+\subsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \hyperlink{structfile__data}{file\+\_\+data}
+\end{DoxyCompactItemize}
+\subsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \hyperlink{ab__file_8h_ab99ded389af74001a6298fc9e44e74e5}{M\+A\+X\+\_\+\+P\+A\+TH}~255
+\end{DoxyCompactItemize}
+\subsection*{Enumerations}
+\begin{DoxyCompactItemize}
+\item 
+enum \hyperlink{ab__file_8h_a1b665fc63cb310d53283fbcd1b19746e}{en\+File\+Type} \{ \hyperlink{ab__file_8h_a1b665fc63cb310d53283fbcd1b19746ea88183b946cc5f0e8c96b2e66e1c74a7e}{en\+File\+Type\+::\+Unknown}, 
+\hyperlink{ab__file_8h_a1b665fc63cb310d53283fbcd1b19746eabf50d5e661106d0abe925af3c2e6f7e7}{en\+File\+Type\+::\+Header}, 
+\hyperlink{ab__file_8h_a1b665fc63cb310d53283fbcd1b19746eadb4a39bf594c9fbcf318dd39ea19fed3}{en\+File\+Type\+::\+Cpp}
+ \}
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{ab__common_8h_a70e369648385b50f2d0588e8e8745275}{b8} \hyperlink{ab__file_8h_a4421ce1243877d8cc9082aae558db83f}{is\+Dir\+Exists} (const char $\ast$const path)
+\item 
+\hyperlink{structfile__list}{file\+\_\+list} $\ast$ \hyperlink{ab__file_8h_a3651116b0e04d2fdaedbe1154c22a46e}{abf\+\_\+\+Initialize\+File\+List} (\hyperlink{structmemory__arena}{memory\+\_\+arena} $\ast$Memory, const char $\ast$Path)
+\item 
+\hyperlink{ab__common_8h_a70e369648385b50f2d0588e8e8745275}{b8} \hyperlink{ab__file_8h_afba97cbbbebbd2066d87792952d894be}{abf\+\_\+\+Get\+Next\+File} (\hyperlink{structfile__list}{file\+\_\+list} $\ast$File\+List, \hyperlink{structfile__data}{file\+\_\+data} $\ast$File\+Data\+Out)
+\item 
+void \hyperlink{ab__file_8h_a4e85548dcb79723a8c6f468cf776826d}{abf\+\_\+\+Release\+File\+List} (\hyperlink{structfile__list}{file\+\_\+list} $\ast$File\+List)
+\end{DoxyCompactItemize}
+
+
+\subsection{Macro Definition Documentation}
+\mbox{\Hypertarget{ab__file_8h_ab99ded389af74001a6298fc9e44e74e5}\label{ab__file_8h_ab99ded389af74001a6298fc9e44e74e5}} 
+\index{ab\+\_\+file.\+h@{ab\+\_\+file.\+h}!M\+A\+X\+\_\+\+P\+A\+TH@{M\+A\+X\+\_\+\+P\+A\+TH}}
+\index{M\+A\+X\+\_\+\+P\+A\+TH@{M\+A\+X\+\_\+\+P\+A\+TH}!ab\+\_\+file.\+h@{ab\+\_\+file.\+h}}
+\subsubsection{\texorpdfstring{M\+A\+X\+\_\+\+P\+A\+TH}{MAX\_PATH}}
+{\footnotesize\ttfamily \#define M\+A\+X\+\_\+\+P\+A\+TH~255}
+
+
+
+\subsection{Enumeration Type Documentation}
+\mbox{\Hypertarget{ab__file_8h_a1b665fc63cb310d53283fbcd1b19746e}\label{ab__file_8h_a1b665fc63cb310d53283fbcd1b19746e}} 
+\index{ab\+\_\+file.\+h@{ab\+\_\+file.\+h}!en\+File\+Type@{en\+File\+Type}}
+\index{en\+File\+Type@{en\+File\+Type}!ab\+\_\+file.\+h@{ab\+\_\+file.\+h}}
+\subsubsection{\texorpdfstring{en\+File\+Type}{enFileType}}
+{\footnotesize\ttfamily enum \hyperlink{ab__file_8h_a1b665fc63cb310d53283fbcd1b19746e}{en\+File\+Type}\hspace{0.3cm}{\ttfamily [strong]}}
+
+\begin{DoxyEnumFields}{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{Unknown@{Unknown}!ab\+\_\+file.\+h@{ab\+\_\+file.\+h}}\index{ab\+\_\+file.\+h@{ab\+\_\+file.\+h}!Unknown@{Unknown}}}\mbox{\Hypertarget{ab__file_8h_a1b665fc63cb310d53283fbcd1b19746ea88183b946cc5f0e8c96b2e66e1c74a7e}\label{ab__file_8h_a1b665fc63cb310d53283fbcd1b19746ea88183b946cc5f0e8c96b2e66e1c74a7e}} 
+Unknown&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{Header@{Header}!ab\+\_\+file.\+h@{ab\+\_\+file.\+h}}\index{ab\+\_\+file.\+h@{ab\+\_\+file.\+h}!Header@{Header}}}\mbox{\Hypertarget{ab__file_8h_a1b665fc63cb310d53283fbcd1b19746eabf50d5e661106d0abe925af3c2e6f7e7}\label{ab__file_8h_a1b665fc63cb310d53283fbcd1b19746eabf50d5e661106d0abe925af3c2e6f7e7}} 
+Header&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{Cpp@{Cpp}!ab\+\_\+file.\+h@{ab\+\_\+file.\+h}}\index{ab\+\_\+file.\+h@{ab\+\_\+file.\+h}!Cpp@{Cpp}}}\mbox{\Hypertarget{ab__file_8h_a1b665fc63cb310d53283fbcd1b19746eadb4a39bf594c9fbcf318dd39ea19fed3}\label{ab__file_8h_a1b665fc63cb310d53283fbcd1b19746eadb4a39bf594c9fbcf318dd39ea19fed3}} 
+Cpp&\\
+\hline
+
+\end{DoxyEnumFields}
+
+
+\subsection{Function Documentation}
+\mbox{\Hypertarget{ab__file_8h_afba97cbbbebbd2066d87792952d894be}\label{ab__file_8h_afba97cbbbebbd2066d87792952d894be}} 
+\index{ab\+\_\+file.\+h@{ab\+\_\+file.\+h}!abf\+\_\+\+Get\+Next\+File@{abf\+\_\+\+Get\+Next\+File}}
+\index{abf\+\_\+\+Get\+Next\+File@{abf\+\_\+\+Get\+Next\+File}!ab\+\_\+file.\+h@{ab\+\_\+file.\+h}}
+\subsubsection{\texorpdfstring{abf\+\_\+\+Get\+Next\+File()}{abf\_GetNextFile()}}
+{\footnotesize\ttfamily \hyperlink{ab__common_8h_a70e369648385b50f2d0588e8e8745275}{b8} abf\+\_\+\+Get\+Next\+File (\begin{DoxyParamCaption}\item[{\hyperlink{structfile__list}{file\+\_\+list} $\ast$}]{File\+List,  }\item[{\hyperlink{structfile__data}{file\+\_\+data} $\ast$}]{File\+Data\+Out }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{ab__file_8h_a3651116b0e04d2fdaedbe1154c22a46e}\label{ab__file_8h_a3651116b0e04d2fdaedbe1154c22a46e}} 
+\index{ab\+\_\+file.\+h@{ab\+\_\+file.\+h}!abf\+\_\+\+Initialize\+File\+List@{abf\+\_\+\+Initialize\+File\+List}}
+\index{abf\+\_\+\+Initialize\+File\+List@{abf\+\_\+\+Initialize\+File\+List}!ab\+\_\+file.\+h@{ab\+\_\+file.\+h}}
+\subsubsection{\texorpdfstring{abf\+\_\+\+Initialize\+File\+List()}{abf\_InitializeFileList()}}
+{\footnotesize\ttfamily \hyperlink{structfile__list}{file\+\_\+list}$\ast$ abf\+\_\+\+Initialize\+File\+List (\begin{DoxyParamCaption}\item[{\hyperlink{structmemory__arena}{memory\+\_\+arena} $\ast$}]{Memory,  }\item[{const char $\ast$}]{Path }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{ab__file_8h_a4e85548dcb79723a8c6f468cf776826d}\label{ab__file_8h_a4e85548dcb79723a8c6f468cf776826d}} 
+\index{ab\+\_\+file.\+h@{ab\+\_\+file.\+h}!abf\+\_\+\+Release\+File\+List@{abf\+\_\+\+Release\+File\+List}}
+\index{abf\+\_\+\+Release\+File\+List@{abf\+\_\+\+Release\+File\+List}!ab\+\_\+file.\+h@{ab\+\_\+file.\+h}}
+\subsubsection{\texorpdfstring{abf\+\_\+\+Release\+File\+List()}{abf\_ReleaseFileList()}}
+{\footnotesize\ttfamily void abf\+\_\+\+Release\+File\+List (\begin{DoxyParamCaption}\item[{\hyperlink{structfile__list}{file\+\_\+list} $\ast$}]{File\+List }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{ab__file_8h_a4421ce1243877d8cc9082aae558db83f}\label{ab__file_8h_a4421ce1243877d8cc9082aae558db83f}} 
+\index{ab\+\_\+file.\+h@{ab\+\_\+file.\+h}!is\+Dir\+Exists@{is\+Dir\+Exists}}
+\index{is\+Dir\+Exists@{is\+Dir\+Exists}!ab\+\_\+file.\+h@{ab\+\_\+file.\+h}}
+\subsubsection{\texorpdfstring{is\+Dir\+Exists()}{isDirExists()}}
+{\footnotesize\ttfamily \hyperlink{ab__common_8h_a70e369648385b50f2d0588e8e8745275}{b8} is\+Dir\+Exists (\begin{DoxyParamCaption}\item[{const char $\ast$const}]{path }\end{DoxyParamCaption})}
+

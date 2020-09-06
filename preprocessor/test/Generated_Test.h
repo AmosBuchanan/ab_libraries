@@ -88,23 +88,23 @@ auto StringToEnum<test_cmd>(abs_stringptr String) -> test_cmd;
 constexpr abs_stringptr EnumToString(test_cmd EnumToken);
 constexpr char const* EnumToCString(test_cmd EnumToken);
 
-/****** Enum Colours Header *****/
-enum class Colours;
-const u32 Colours_Count = 3;
+/****** Enum enColours Header *****/
+enum class enColours;
+const u32 enColours_Count = 3;
 #ifdef GEN_JSMN_HEADER
-jsmntok_t *JsonToObject(memory_arena *VolatileMemory, char const *Json, size_t JsonLength, jsmntok_t *TokenArray, Colours *ObjectOut, u32 Unused);
+jsmntok_t *JsonToObject(memory_arena *VolatileMemory, char const *Json, size_t JsonLength, jsmntok_t *TokenArray, enColours *ObjectOut, u32 Unused);
 u32
-PushJson(char *Json, u32 MaxLength, char const *Tag, Colours Type, u32 JsonFlags);
+PushJson(char *Json, u32 MaxLength, char const *Tag, enColours Type, u32 JsonFlags);
 #endif
 
 template<>
-auto StringToEnum<Colours>(const char *String) -> Colours;
+auto StringToEnum<enColours>(const char *String) -> enColours;
 template<>
-auto StringToEnum<Colours>(abs_stringptr String) -> Colours;
-constexpr abs_stringptr EnumToString(Colours EnumToken);
-constexpr char const* EnumToCString(Colours EnumToken);
-const char *EnumToLabel_Object(Colours EnumToken);
-//const char * Colours_LabelObject[Colours_Count];
+auto StringToEnum<enColours>(abs_stringptr String) -> enColours;
+constexpr abs_stringptr EnumToString(enColours EnumToken);
+constexpr char const* EnumToCString(enColours EnumToken);
+const char *EnumToLabel_Object(enColours EnumToken);
+//const char * enColours_LabelObject[enColours_Count];
 
 /****** Struct my_json_test Header *****/
 struct my_json_test;
@@ -287,10 +287,10 @@ EnumToString(test_cmd EnumToken)
 }
 
 
-/****** Enum Colours Functions *****/
+/****** Enum enColours Functions *****/
 #ifdef GEN_JSMN_HEADER
 u32
-PushJson(char *Json, u32 MaxLength, char const *Tag, Colours Type, u32 JsonFlags = 0)
+PushJson(char *Json, u32 MaxLength, char const *Tag, enColours Type, u32 JsonFlags = 0)
 {
     u32 Length = 0;
     b8 isLast = (JsonFlags & JSON_IsLastInList);
@@ -299,9 +299,9 @@ PushJson(char *Json, u32 MaxLength, char const *Tag, Colours Type, u32 JsonFlags
     return Length;
 }
 
-jsmntok_t *JsonToObject(memory_arena *VolatileMemory, char const *Json, size_t JsonLength, jsmntok_t *TokenArray, Colours *ObjectOut, u32 Unused)
+jsmntok_t *JsonToObject(memory_arena *VolatileMemory, char const *Json, size_t JsonLength, jsmntok_t *TokenArray, enColours *ObjectOut, u32 Unused)
 {
-    Colours Result = static_cast<Colours>(0);
+    enColours Result = static_cast<enColours>(0);
     s32 NumTokensUsed = 0;
     
     s32 TotalTokens = ParseJson(VolatileMemory, Json, JsonLength, &TokenArray);
@@ -317,7 +317,7 @@ jsmntok_t *JsonToObject(memory_arena *VolatileMemory, char const *Json, size_t J
         {
             s32 TokenLength = (TokenArray[Index].end - TokenArray[Index].start);
             abs_stringptr EnumString = {&Json[TokenArray[Index].start], TokenLength};
-            Result = StringToEnum<Colours>(EnumString);
+            Result = StringToEnum<enColours>(EnumString);
             NumTokensUsed = Index;
         }
         else 
@@ -331,7 +331,7 @@ jsmntok_t *JsonToObject(memory_arena *VolatileMemory, char const *Json, size_t J
 
 #endif
 
-constexpr abs_stringptr Colours_Strings[Colours_Count] = 
+constexpr abs_stringptr enColours_Strings[enColours_Count] = 
 {
    {"Red", 3},
    {"Green", 5},
@@ -339,40 +339,40 @@ constexpr abs_stringptr Colours_Strings[Colours_Count] =
 };
 
 template<>
-auto StringToEnum<Colours>(const char *String) -> Colours
+auto StringToEnum<enColours>(const char *String) -> enColours
 {
-    u32 StringIndex = abs_FindInList(String, Colours_Count, Colours_Strings, true);
-    Colours Result = Colours::Red;
-    if(StringIndex < Colours_Count)
+    u32 StringIndex = abs_FindInList(String, enColours_Count, enColours_Strings, true);
+    enColours Result = enColours::Red;
+    if(StringIndex < enColours_Count)
     {
-        Result = static_cast<Colours>(StringIndex);
+        Result = static_cast<enColours>(StringIndex);
     }
     return Result;
 }
 template<>
-auto StringToEnum<Colours>(abs_stringptr String) -> Colours
+auto StringToEnum<enColours>(abs_stringptr String) -> enColours
 {
-    u32 StringIndex = abs_FindInList(String, Colours_Count, Colours_Strings, true);
-    Colours Result = Colours::Red;
-    if(StringIndex < Colours_Count)
+    u32 StringIndex = abs_FindInList(String, enColours_Count, enColours_Strings, true);
+    enColours Result = enColours::Red;
+    if(StringIndex < enColours_Count)
     {
-        Result = static_cast<Colours>(StringIndex);
+        Result = static_cast<enColours>(StringIndex);
     }
     return Result;
 }
 constexpr const char *
-EnumToCString(Colours EnumToken)
+EnumToCString(enColours EnumToken)
 {
-    return Colours_Strings[int(EnumToken)].String;
+    return enColours_Strings[int(EnumToken)].String;
 }
 
 constexpr abs_stringptr
-EnumToString(Colours EnumToken)
+EnumToString(enColours EnumToken)
 {
-    return Colours_Strings[int(EnumToken)];
+    return enColours_Strings[int(EnumToken)];
 }
 
-const char * Colours_LabelObject[Colours_Count] = 
+const char * enColours_LabelObject[enColours_Count] = 
 {
     "Apple",
     "Brocoli",
@@ -380,9 +380,9 @@ const char * Colours_LabelObject[Colours_Count] =
 };
 
 const char *
-EnumToLabel_Object(Colours EnumToken)
+EnumToLabel_Object(enColours EnumToken)
 {
-    return Colours_LabelObject[int(EnumToken)];
+    return enColours_LabelObject[int(EnumToken)];
 }
 
 

@@ -1,0 +1,130 @@
+\hypertarget{ab__string_8h}{}\section{ab\+\_\+string.\+h File Reference}
+\label{ab__string_8h}\index{ab\+\_\+string.\+h@{ab\+\_\+string.\+h}}
+{\ttfamily \#include \char`\"{}ab\+\_\+memory.\+h\char`\"{}}\newline
+Include dependency graph for ab\+\_\+string.\+h\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=198pt]{de/dc1/ab__string_8h__incl}
+\end{center}
+\end{figure}
+This graph shows which files directly or indirectly include this file\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{df/d7f/ab__string_8h__dep__incl}
+\end{center}
+\end{figure}
+\subsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \hyperlink{structabs__stringptr}{abs\+\_\+stringptr}
+\end{DoxyCompactItemize}
+\subsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \hyperlink{ab__string_8h_a7f78f576bc59e91ba524ecacde27fb02}{P\+S\+T\+R\+I\+NG}(S\+TR)~S\+T\+R.\+Length, S\+T\+R.\+String
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{ab__common_8h_afaa62991928fb9fb18ff0db62a040aba}{u32} \hyperlink{ab__string_8h_a6e49c6fecc08f6ea95b2b2c6d905c690}{abs\+\_\+\+String\+Length} (char const $\ast$x, \hyperlink{ab__common_8h_afaa62991928fb9fb18ff0db62a040aba}{u32} Max\+Length)
+\item 
+\hyperlink{ab__common_8h_a70e369648385b50f2d0588e8e8745275}{b8} \hyperlink{ab__string_8h_abcbcbb065cc77f89aab32d6c8e80311e}{abs\+\_\+\+Are\+String\+Fragments\+Equal} (char const $\ast$String1, char const $\ast$String2, \hyperlink{ab__common_8h_afaa62991928fb9fb18ff0db62a040aba}{u32} Max\+Length, \hyperlink{ab__common_8h_a70e369648385b50f2d0588e8e8745275}{b8} is\+Case\+Insensitive)
+\item 
+\hyperlink{ab__common_8h_a70e369648385b50f2d0588e8e8745275}{b8} \hyperlink{ab__string_8h_a77f3ab940d7dcd44acfdceb478a01395}{abs\+\_\+\+Are\+Strings\+Equal} (const char $\ast$String1, \hyperlink{ab__common_8h_afaa62991928fb9fb18ff0db62a040aba}{u32} String1\+Len, const char $\ast$String2, \hyperlink{ab__common_8h_afaa62991928fb9fb18ff0db62a040aba}{u32} String2\+Len, \hyperlink{ab__common_8h_a70e369648385b50f2d0588e8e8745275}{b8} is\+Case\+Insensitive)
+\item 
+\hyperlink{ab__common_8h_a70e369648385b50f2d0588e8e8745275}{b8} \hyperlink{ab__string_8h_af74ea33a29dd41ec80c7d54066c82c44}{abs\+\_\+\+Are\+Strings\+Equal} (char const $\ast$String1, \hyperlink{ab__common_8h_afaa62991928fb9fb18ff0db62a040aba}{u32} String1\+Len, char const $\ast$String2, \hyperlink{ab__common_8h_afaa62991928fb9fb18ff0db62a040aba}{u32} String2\+Len)
+\item 
+\hyperlink{ab__common_8h_a70e369648385b50f2d0588e8e8745275}{b8} \hyperlink{ab__string_8h_a5d86f4a8562b2bb143d19bbeec0a2fd3}{abs\+\_\+\+Are\+Strings\+Equal} (\hyperlink{structabs__stringptr}{abs\+\_\+stringptr} String1, \hyperlink{structabs__stringptr}{abs\+\_\+stringptr} String2)
+\item 
+\hyperlink{ab__common_8h_a70e369648385b50f2d0588e8e8745275}{b8} \hyperlink{ab__string_8h_aa637bd04edb7399f6c884176469964fb}{abs\+\_\+\+Are\+Strings\+Equal} (char const $\ast$String, \hyperlink{ab__common_8h_afaa62991928fb9fb18ff0db62a040aba}{u32} String\+Len, \hyperlink{structabs__stringptr}{abs\+\_\+stringptr} String\+Ptr)
+\item 
+\hyperlink{ab__common_8h_afaa62991928fb9fb18ff0db62a040aba}{u32} \hyperlink{ab__string_8h_ad3ba7ee7a5f4179224b326ca5811bd48}{abs\+\_\+\+Find\+In\+List} (\hyperlink{structabs__stringptr}{abs\+\_\+stringptr} String, \hyperlink{ab__common_8h_afaa62991928fb9fb18ff0db62a040aba}{u32} List\+Count, const \hyperlink{structabs__stringptr}{abs\+\_\+stringptr} $\ast$List, \hyperlink{ab__common_8h_a70e369648385b50f2d0588e8e8745275}{b8} is\+Case\+Insensitive=false)
+\item 
+\hyperlink{ab__common_8h_afaa62991928fb9fb18ff0db62a040aba}{u32} \hyperlink{ab__string_8h_ad5396dbdc19da30fe3ae6403c164d8f5}{abs\+\_\+\+Find\+In\+List} (const char $\ast$Search\+String, \hyperlink{ab__common_8h_afaa62991928fb9fb18ff0db62a040aba}{u32} List\+Count, const \hyperlink{structabs__stringptr}{abs\+\_\+stringptr} $\ast$List, \hyperlink{ab__common_8h_a70e369648385b50f2d0588e8e8745275}{b8} is\+Case\+Insensitive=false)
+\item 
+\hyperlink{ab__common_8h_afaa62991928fb9fb18ff0db62a040aba}{u32} \hyperlink{ab__string_8h_a0cec3ef782bbac23db935f3b67044f69}{abs\+\_\+\+String\+Copy} (char $\ast$, const char $\ast$, size\+\_\+t, \hyperlink{ab__common_8h_a70e369648385b50f2d0588e8e8745275}{b8} Add\+Terminator=true)
+\item 
+\hyperlink{structabs__stringptr}{abs\+\_\+stringptr} \hyperlink{ab__string_8h_a15334b77c2016e85e38a3c546cc1c40f}{abs\+\_\+\+Create\+String\+Ptr} (\hyperlink{structmemory__arena}{memory\+\_\+arena} $\ast$Memory, const char $\ast$String)
+\item 
+\hyperlink{structabs__stringptr}{abs\+\_\+stringptr} \hyperlink{ab__string_8h_adcdb45de20e47308be39c40093dc89ae}{Create\+String\+Ptr} (char const $\ast$String, \hyperlink{ab__common_8h_afaa62991928fb9fb18ff0db62a040aba}{u32} Length)
+\end{DoxyCompactItemize}
+
+
+\subsection{Macro Definition Documentation}
+\mbox{\Hypertarget{ab__string_8h_a7f78f576bc59e91ba524ecacde27fb02}\label{ab__string_8h_a7f78f576bc59e91ba524ecacde27fb02}} 
+\index{ab\+\_\+string.\+h@{ab\+\_\+string.\+h}!P\+S\+T\+R\+I\+NG@{P\+S\+T\+R\+I\+NG}}
+\index{P\+S\+T\+R\+I\+NG@{P\+S\+T\+R\+I\+NG}!ab\+\_\+string.\+h@{ab\+\_\+string.\+h}}
+\subsubsection{\texorpdfstring{P\+S\+T\+R\+I\+NG}{PSTRING}}
+{\footnotesize\ttfamily \#define P\+S\+T\+R\+I\+NG(\begin{DoxyParamCaption}\item[{}]{S\+TR }\end{DoxyParamCaption})~S\+T\+R.\+Length, S\+T\+R.\+String}
+
+
+
+\subsection{Function Documentation}
+\mbox{\Hypertarget{ab__string_8h_abcbcbb065cc77f89aab32d6c8e80311e}\label{ab__string_8h_abcbcbb065cc77f89aab32d6c8e80311e}} 
+\index{ab\+\_\+string.\+h@{ab\+\_\+string.\+h}!abs\+\_\+\+Are\+String\+Fragments\+Equal@{abs\+\_\+\+Are\+String\+Fragments\+Equal}}
+\index{abs\+\_\+\+Are\+String\+Fragments\+Equal@{abs\+\_\+\+Are\+String\+Fragments\+Equal}!ab\+\_\+string.\+h@{ab\+\_\+string.\+h}}
+\subsubsection{\texorpdfstring{abs\+\_\+\+Are\+String\+Fragments\+Equal()}{abs\_AreStringFragmentsEqual()}}
+{\footnotesize\ttfamily \hyperlink{ab__common_8h_a70e369648385b50f2d0588e8e8745275}{b8} abs\+\_\+\+Are\+String\+Fragments\+Equal (\begin{DoxyParamCaption}\item[{char const $\ast$}]{String1,  }\item[{char const $\ast$}]{String2,  }\item[{\hyperlink{ab__common_8h_afaa62991928fb9fb18ff0db62a040aba}{u32}}]{Max\+Length,  }\item[{\hyperlink{ab__common_8h_a70e369648385b50f2d0588e8e8745275}{b8}}]{is\+Case\+Insensitive }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{ab__string_8h_a77f3ab940d7dcd44acfdceb478a01395}\label{ab__string_8h_a77f3ab940d7dcd44acfdceb478a01395}} 
+\index{ab\+\_\+string.\+h@{ab\+\_\+string.\+h}!abs\+\_\+\+Are\+Strings\+Equal@{abs\+\_\+\+Are\+Strings\+Equal}}
+\index{abs\+\_\+\+Are\+Strings\+Equal@{abs\+\_\+\+Are\+Strings\+Equal}!ab\+\_\+string.\+h@{ab\+\_\+string.\+h}}
+\subsubsection{\texorpdfstring{abs\+\_\+\+Are\+Strings\+Equal()}{abs\_AreStringsEqual()}\hspace{0.1cm}{\footnotesize\ttfamily [1/4]}}
+{\footnotesize\ttfamily \hyperlink{ab__common_8h_a70e369648385b50f2d0588e8e8745275}{b8} abs\+\_\+\+Are\+Strings\+Equal (\begin{DoxyParamCaption}\item[{const char $\ast$}]{String1,  }\item[{\hyperlink{ab__common_8h_afaa62991928fb9fb18ff0db62a040aba}{u32}}]{String1\+Len,  }\item[{const char $\ast$}]{String2,  }\item[{\hyperlink{ab__common_8h_afaa62991928fb9fb18ff0db62a040aba}{u32}}]{String2\+Len,  }\item[{\hyperlink{ab__common_8h_a70e369648385b50f2d0588e8e8745275}{b8}}]{is\+Case\+Insensitive }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{ab__string_8h_af74ea33a29dd41ec80c7d54066c82c44}\label{ab__string_8h_af74ea33a29dd41ec80c7d54066c82c44}} 
+\index{ab\+\_\+string.\+h@{ab\+\_\+string.\+h}!abs\+\_\+\+Are\+Strings\+Equal@{abs\+\_\+\+Are\+Strings\+Equal}}
+\index{abs\+\_\+\+Are\+Strings\+Equal@{abs\+\_\+\+Are\+Strings\+Equal}!ab\+\_\+string.\+h@{ab\+\_\+string.\+h}}
+\subsubsection{\texorpdfstring{abs\+\_\+\+Are\+Strings\+Equal()}{abs\_AreStringsEqual()}\hspace{0.1cm}{\footnotesize\ttfamily [2/4]}}
+{\footnotesize\ttfamily \hyperlink{ab__common_8h_a70e369648385b50f2d0588e8e8745275}{b8} abs\+\_\+\+Are\+Strings\+Equal (\begin{DoxyParamCaption}\item[{char const $\ast$}]{String1,  }\item[{\hyperlink{ab__common_8h_afaa62991928fb9fb18ff0db62a040aba}{u32}}]{String1\+Len,  }\item[{char const $\ast$}]{String2,  }\item[{\hyperlink{ab__common_8h_afaa62991928fb9fb18ff0db62a040aba}{u32}}]{String2\+Len }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{ab__string_8h_a5d86f4a8562b2bb143d19bbeec0a2fd3}\label{ab__string_8h_a5d86f4a8562b2bb143d19bbeec0a2fd3}} 
+\index{ab\+\_\+string.\+h@{ab\+\_\+string.\+h}!abs\+\_\+\+Are\+Strings\+Equal@{abs\+\_\+\+Are\+Strings\+Equal}}
+\index{abs\+\_\+\+Are\+Strings\+Equal@{abs\+\_\+\+Are\+Strings\+Equal}!ab\+\_\+string.\+h@{ab\+\_\+string.\+h}}
+\subsubsection{\texorpdfstring{abs\+\_\+\+Are\+Strings\+Equal()}{abs\_AreStringsEqual()}\hspace{0.1cm}{\footnotesize\ttfamily [3/4]}}
+{\footnotesize\ttfamily \hyperlink{ab__common_8h_a70e369648385b50f2d0588e8e8745275}{b8} abs\+\_\+\+Are\+Strings\+Equal (\begin{DoxyParamCaption}\item[{\hyperlink{structabs__stringptr}{abs\+\_\+stringptr}}]{String1,  }\item[{\hyperlink{structabs__stringptr}{abs\+\_\+stringptr}}]{String2 }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{ab__string_8h_aa637bd04edb7399f6c884176469964fb}\label{ab__string_8h_aa637bd04edb7399f6c884176469964fb}} 
+\index{ab\+\_\+string.\+h@{ab\+\_\+string.\+h}!abs\+\_\+\+Are\+Strings\+Equal@{abs\+\_\+\+Are\+Strings\+Equal}}
+\index{abs\+\_\+\+Are\+Strings\+Equal@{abs\+\_\+\+Are\+Strings\+Equal}!ab\+\_\+string.\+h@{ab\+\_\+string.\+h}}
+\subsubsection{\texorpdfstring{abs\+\_\+\+Are\+Strings\+Equal()}{abs\_AreStringsEqual()}\hspace{0.1cm}{\footnotesize\ttfamily [4/4]}}
+{\footnotesize\ttfamily \hyperlink{ab__common_8h_a70e369648385b50f2d0588e8e8745275}{b8} abs\+\_\+\+Are\+Strings\+Equal (\begin{DoxyParamCaption}\item[{char const $\ast$}]{String,  }\item[{\hyperlink{ab__common_8h_afaa62991928fb9fb18ff0db62a040aba}{u32}}]{String\+Len,  }\item[{\hyperlink{structabs__stringptr}{abs\+\_\+stringptr}}]{String\+Ptr }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{ab__string_8h_a15334b77c2016e85e38a3c546cc1c40f}\label{ab__string_8h_a15334b77c2016e85e38a3c546cc1c40f}} 
+\index{ab\+\_\+string.\+h@{ab\+\_\+string.\+h}!abs\+\_\+\+Create\+String\+Ptr@{abs\+\_\+\+Create\+String\+Ptr}}
+\index{abs\+\_\+\+Create\+String\+Ptr@{abs\+\_\+\+Create\+String\+Ptr}!ab\+\_\+string.\+h@{ab\+\_\+string.\+h}}
+\subsubsection{\texorpdfstring{abs\+\_\+\+Create\+String\+Ptr()}{abs\_CreateStringPtr()}}
+{\footnotesize\ttfamily \hyperlink{structabs__stringptr}{abs\+\_\+stringptr} abs\+\_\+\+Create\+String\+Ptr (\begin{DoxyParamCaption}\item[{\hyperlink{structmemory__arena}{memory\+\_\+arena} $\ast$}]{Memory,  }\item[{const char $\ast$}]{String }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{ab__string_8h_ad3ba7ee7a5f4179224b326ca5811bd48}\label{ab__string_8h_ad3ba7ee7a5f4179224b326ca5811bd48}} 
+\index{ab\+\_\+string.\+h@{ab\+\_\+string.\+h}!abs\+\_\+\+Find\+In\+List@{abs\+\_\+\+Find\+In\+List}}
+\index{abs\+\_\+\+Find\+In\+List@{abs\+\_\+\+Find\+In\+List}!ab\+\_\+string.\+h@{ab\+\_\+string.\+h}}
+\subsubsection{\texorpdfstring{abs\+\_\+\+Find\+In\+List()}{abs\_FindInList()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \hyperlink{ab__common_8h_afaa62991928fb9fb18ff0db62a040aba}{u32} abs\+\_\+\+Find\+In\+List (\begin{DoxyParamCaption}\item[{\hyperlink{structabs__stringptr}{abs\+\_\+stringptr}}]{String,  }\item[{\hyperlink{ab__common_8h_afaa62991928fb9fb18ff0db62a040aba}{u32}}]{List\+Count,  }\item[{const \hyperlink{structabs__stringptr}{abs\+\_\+stringptr} $\ast$}]{List,  }\item[{\hyperlink{ab__common_8h_a70e369648385b50f2d0588e8e8745275}{b8}}]{is\+Case\+Insensitive = {\ttfamily false} }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{ab__string_8h_ad5396dbdc19da30fe3ae6403c164d8f5}\label{ab__string_8h_ad5396dbdc19da30fe3ae6403c164d8f5}} 
+\index{ab\+\_\+string.\+h@{ab\+\_\+string.\+h}!abs\+\_\+\+Find\+In\+List@{abs\+\_\+\+Find\+In\+List}}
+\index{abs\+\_\+\+Find\+In\+List@{abs\+\_\+\+Find\+In\+List}!ab\+\_\+string.\+h@{ab\+\_\+string.\+h}}
+\subsubsection{\texorpdfstring{abs\+\_\+\+Find\+In\+List()}{abs\_FindInList()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \hyperlink{ab__common_8h_afaa62991928fb9fb18ff0db62a040aba}{u32} abs\+\_\+\+Find\+In\+List (\begin{DoxyParamCaption}\item[{const char $\ast$}]{Search\+String,  }\item[{\hyperlink{ab__common_8h_afaa62991928fb9fb18ff0db62a040aba}{u32}}]{List\+Count,  }\item[{const \hyperlink{structabs__stringptr}{abs\+\_\+stringptr} $\ast$}]{List,  }\item[{\hyperlink{ab__common_8h_a70e369648385b50f2d0588e8e8745275}{b8}}]{is\+Case\+Insensitive = {\ttfamily false} }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{ab__string_8h_a0cec3ef782bbac23db935f3b67044f69}\label{ab__string_8h_a0cec3ef782bbac23db935f3b67044f69}} 
+\index{ab\+\_\+string.\+h@{ab\+\_\+string.\+h}!abs\+\_\+\+String\+Copy@{abs\+\_\+\+String\+Copy}}
+\index{abs\+\_\+\+String\+Copy@{abs\+\_\+\+String\+Copy}!ab\+\_\+string.\+h@{ab\+\_\+string.\+h}}
+\subsubsection{\texorpdfstring{abs\+\_\+\+String\+Copy()}{abs\_StringCopy()}}
+{\footnotesize\ttfamily \hyperlink{ab__common_8h_afaa62991928fb9fb18ff0db62a040aba}{u32} abs\+\_\+\+String\+Copy (\begin{DoxyParamCaption}\item[{char $\ast$}]{,  }\item[{const char $\ast$}]{,  }\item[{size\+\_\+t}]{,  }\item[{\hyperlink{ab__common_8h_a70e369648385b50f2d0588e8e8745275}{b8}}]{Add\+Terminator = {\ttfamily true} }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{ab__string_8h_a6e49c6fecc08f6ea95b2b2c6d905c690}\label{ab__string_8h_a6e49c6fecc08f6ea95b2b2c6d905c690}} 
+\index{ab\+\_\+string.\+h@{ab\+\_\+string.\+h}!abs\+\_\+\+String\+Length@{abs\+\_\+\+String\+Length}}
+\index{abs\+\_\+\+String\+Length@{abs\+\_\+\+String\+Length}!ab\+\_\+string.\+h@{ab\+\_\+string.\+h}}
+\subsubsection{\texorpdfstring{abs\+\_\+\+String\+Length()}{abs\_StringLength()}}
+{\footnotesize\ttfamily \hyperlink{ab__common_8h_afaa62991928fb9fb18ff0db62a040aba}{u32} abs\+\_\+\+String\+Length (\begin{DoxyParamCaption}\item[{char const $\ast$}]{x,  }\item[{\hyperlink{ab__common_8h_afaa62991928fb9fb18ff0db62a040aba}{u32}}]{Max\+Length }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{ab__string_8h_adcdb45de20e47308be39c40093dc89ae}\label{ab__string_8h_adcdb45de20e47308be39c40093dc89ae}} 
+\index{ab\+\_\+string.\+h@{ab\+\_\+string.\+h}!Create\+String\+Ptr@{Create\+String\+Ptr}}
+\index{Create\+String\+Ptr@{Create\+String\+Ptr}!ab\+\_\+string.\+h@{ab\+\_\+string.\+h}}
+\subsubsection{\texorpdfstring{Create\+String\+Ptr()}{CreateStringPtr()}}
+{\footnotesize\ttfamily \hyperlink{structabs__stringptr}{abs\+\_\+stringptr} Create\+String\+Ptr (\begin{DoxyParamCaption}\item[{char const $\ast$}]{String,  }\item[{\hyperlink{ab__common_8h_afaa62991928fb9fb18ff0db62a040aba}{u32}}]{Length }\end{DoxyParamCaption})}
+

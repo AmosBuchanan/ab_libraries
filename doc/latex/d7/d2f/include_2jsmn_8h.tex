@@ -1,0 +1,172 @@
+\hypertarget{include_2jsmn_8h}{}\section{jsmn.\+h File Reference}
+\label{include_2jsmn_8h}\index{jsmn.\+h@{jsmn.\+h}}
+{\ttfamily \#include $<$stddef.\+h$>$}\newline
+Include dependency graph for include/jsmn.h\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=132pt]{d7/de6/include_2jsmn_8h__incl}
+\end{center}
+\end{figure}
+This graph shows which files directly or indirectly include this file\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=175pt]{d5/d1b/include_2jsmn_8h__dep__incl}
+\end{center}
+\end{figure}
+\subsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \hyperlink{structjsmntok__t}{jsmntok\+\_\+t}
+\item 
+struct \hyperlink{structjsmn__parser}{jsmn\+\_\+parser}
+\end{DoxyCompactItemize}
+\subsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \hyperlink{include_2jsmn_8h_acc2ead0c277738a32734a4b5a09cf8cc}{J\+S\+M\+N\+\_\+\+A\+PI}~extern
+\end{DoxyCompactItemize}
+\subsection*{Enumerations}
+\begin{DoxyCompactItemize}
+\item 
+enum \hyperlink{include_2jsmn_8h_a065320719769f9dc1fbe30094e52802f}{jsmntype\+\_\+t} \{ \newline
+\hyperlink{include_2jsmn_8h_a065320719769f9dc1fbe30094e52802fa7bc5faeddd33197250cf352af984f185}{J\+S\+M\+N\+\_\+\+U\+N\+D\+E\+F\+I\+N\+ED} = 0, 
+\hyperlink{include_2jsmn_8h_a065320719769f9dc1fbe30094e52802fa416d6e733082bedc1166f0d66f571867}{J\+S\+M\+N\+\_\+\+O\+B\+J\+E\+CT} = 1, 
+\hyperlink{include_2jsmn_8h_a065320719769f9dc1fbe30094e52802fabc4c47216dacf36bd4f64ac3d649d471}{J\+S\+M\+N\+\_\+\+A\+R\+R\+AY} = 2, 
+\hyperlink{include_2jsmn_8h_a065320719769f9dc1fbe30094e52802fad4ea6277c135d9d3377bf8b719779539}{J\+S\+M\+N\+\_\+\+S\+T\+R\+I\+NG} = 3, 
+\newline
+\hyperlink{include_2jsmn_8h_a065320719769f9dc1fbe30094e52802fa2550c93fe929f81f30ea9b629ed98742}{J\+S\+M\+N\+\_\+\+P\+R\+I\+M\+I\+T\+I\+VE} = 4, 
+\hyperlink{preprocessor_2common_2jsmn_8h_a065320719769f9dc1fbe30094e52802fa7bc5faeddd33197250cf352af984f185}{J\+S\+M\+N\+\_\+\+U\+N\+D\+E\+F\+I\+N\+ED} = 0, 
+\hyperlink{preprocessor_2common_2jsmn_8h_a065320719769f9dc1fbe30094e52802fa416d6e733082bedc1166f0d66f571867}{J\+S\+M\+N\+\_\+\+O\+B\+J\+E\+CT} = 1, 
+\hyperlink{preprocessor_2common_2jsmn_8h_a065320719769f9dc1fbe30094e52802fabc4c47216dacf36bd4f64ac3d649d471}{J\+S\+M\+N\+\_\+\+A\+R\+R\+AY} = 2, 
+\newline
+\hyperlink{preprocessor_2common_2jsmn_8h_a065320719769f9dc1fbe30094e52802fad4ea6277c135d9d3377bf8b719779539}{J\+S\+M\+N\+\_\+\+S\+T\+R\+I\+NG} = 3, 
+\hyperlink{preprocessor_2common_2jsmn_8h_a065320719769f9dc1fbe30094e52802fa2550c93fe929f81f30ea9b629ed98742}{J\+S\+M\+N\+\_\+\+P\+R\+I\+M\+I\+T\+I\+VE} = 4
+ \}
+\item 
+enum \hyperlink{include_2jsmn_8h_afbbe22e63007677ec9e7837b5c1b80ea}{jsmnerr} \{ \newline
+\hyperlink{include_2jsmn_8h_afbbe22e63007677ec9e7837b5c1b80eaafa350a2c19cc5fddbfb7c90309d3fe41}{J\+S\+M\+N\+\_\+\+E\+R\+R\+O\+R\+\_\+\+N\+O\+M\+EM} = -\/1, 
+\hyperlink{include_2jsmn_8h_afbbe22e63007677ec9e7837b5c1b80eaa3297b1c54d926ce497b7a20530689171}{J\+S\+M\+N\+\_\+\+E\+R\+R\+O\+R\+\_\+\+I\+N\+V\+AL} = -\/2, 
+\hyperlink{include_2jsmn_8h_afbbe22e63007677ec9e7837b5c1b80eaa851a0e75343c14a13c6893b3727ead16}{J\+S\+M\+N\+\_\+\+E\+R\+R\+O\+R\+\_\+\+P\+A\+RT} = -\/3, 
+\hyperlink{preprocessor_2common_2jsmn_8h_afbbe22e63007677ec9e7837b5c1b80eaafa350a2c19cc5fddbfb7c90309d3fe41}{J\+S\+M\+N\+\_\+\+E\+R\+R\+O\+R\+\_\+\+N\+O\+M\+EM} = -\/1, 
+\newline
+\hyperlink{preprocessor_2common_2jsmn_8h_afbbe22e63007677ec9e7837b5c1b80eaa3297b1c54d926ce497b7a20530689171}{J\+S\+M\+N\+\_\+\+E\+R\+R\+O\+R\+\_\+\+I\+N\+V\+AL} = -\/2, 
+\hyperlink{preprocessor_2common_2jsmn_8h_afbbe22e63007677ec9e7837b5c1b80eaa851a0e75343c14a13c6893b3727ead16}{J\+S\+M\+N\+\_\+\+E\+R\+R\+O\+R\+\_\+\+P\+A\+RT} = -\/3
+ \}
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{preprocessor_2common_2jsmn_8h_acc2ead0c277738a32734a4b5a09cf8cc}{J\+S\+M\+N\+\_\+\+A\+PI} void \hyperlink{include_2jsmn_8h_ac18a603f0737ecb4e953b4335d9652bb}{jsmn\+\_\+init} (\hyperlink{structjsmn__parser}{jsmn\+\_\+parser} $\ast$\hyperlink{structparser}{parser})
+\item 
+\hyperlink{preprocessor_2common_2jsmn_8h_acc2ead0c277738a32734a4b5a09cf8cc}{J\+S\+M\+N\+\_\+\+A\+PI} int \hyperlink{include_2jsmn_8h_a5e34c2b99133f3b538bf8a12a6313184}{jsmn\+\_\+parse} (\hyperlink{structjsmn__parser}{jsmn\+\_\+parser} $\ast$\hyperlink{structparser}{parser}, const char $\ast$js, const size\+\_\+t len, \hyperlink{structjsmntok__t}{jsmntok\+\_\+t} $\ast$tokens, const unsigned int num\+\_\+tokens)
+\end{DoxyCompactItemize}
+
+
+\subsection{Macro Definition Documentation}
+\mbox{\Hypertarget{include_2jsmn_8h_acc2ead0c277738a32734a4b5a09cf8cc}\label{include_2jsmn_8h_acc2ead0c277738a32734a4b5a09cf8cc}} 
+\index{include/jsmn.\+h@{include/jsmn.\+h}!J\+S\+M\+N\+\_\+\+A\+PI@{J\+S\+M\+N\+\_\+\+A\+PI}}
+\index{J\+S\+M\+N\+\_\+\+A\+PI@{J\+S\+M\+N\+\_\+\+A\+PI}!include/jsmn.\+h@{include/jsmn.\+h}}
+\subsubsection{\texorpdfstring{J\+S\+M\+N\+\_\+\+A\+PI}{JSMN\_API}}
+{\footnotesize\ttfamily \#define J\+S\+M\+N\+\_\+\+A\+PI~extern}
+
+
+
+\subsection{Enumeration Type Documentation}
+\mbox{\Hypertarget{include_2jsmn_8h_afbbe22e63007677ec9e7837b5c1b80ea}\label{include_2jsmn_8h_afbbe22e63007677ec9e7837b5c1b80ea}} 
+\index{include/jsmn.\+h@{include/jsmn.\+h}!jsmnerr@{jsmnerr}}
+\index{jsmnerr@{jsmnerr}!include/jsmn.\+h@{include/jsmn.\+h}}
+\subsubsection{\texorpdfstring{jsmnerr}{jsmnerr}}
+{\footnotesize\ttfamily enum \hyperlink{include_2jsmn_8h_afbbe22e63007677ec9e7837b5c1b80ea}{jsmnerr}}
+
+\begin{DoxyEnumFields}{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{J\+S\+M\+N\+\_\+\+E\+R\+R\+O\+R\+\_\+\+N\+O\+M\+EM@{J\+S\+M\+N\+\_\+\+E\+R\+R\+O\+R\+\_\+\+N\+O\+M\+EM}!include/jsmn.\+h@{include/jsmn.\+h}}\index{include/jsmn.\+h@{include/jsmn.\+h}!J\+S\+M\+N\+\_\+\+E\+R\+R\+O\+R\+\_\+\+N\+O\+M\+EM@{J\+S\+M\+N\+\_\+\+E\+R\+R\+O\+R\+\_\+\+N\+O\+M\+EM}}}\mbox{\Hypertarget{include_2jsmn_8h_afbbe22e63007677ec9e7837b5c1b80eaafa350a2c19cc5fddbfb7c90309d3fe41}\label{include_2jsmn_8h_afbbe22e63007677ec9e7837b5c1b80eaafa350a2c19cc5fddbfb7c90309d3fe41}} 
+J\+S\+M\+N\+\_\+\+E\+R\+R\+O\+R\+\_\+\+N\+O\+M\+EM&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{J\+S\+M\+N\+\_\+\+E\+R\+R\+O\+R\+\_\+\+I\+N\+V\+AL@{J\+S\+M\+N\+\_\+\+E\+R\+R\+O\+R\+\_\+\+I\+N\+V\+AL}!include/jsmn.\+h@{include/jsmn.\+h}}\index{include/jsmn.\+h@{include/jsmn.\+h}!J\+S\+M\+N\+\_\+\+E\+R\+R\+O\+R\+\_\+\+I\+N\+V\+AL@{J\+S\+M\+N\+\_\+\+E\+R\+R\+O\+R\+\_\+\+I\+N\+V\+AL}}}\mbox{\Hypertarget{include_2jsmn_8h_afbbe22e63007677ec9e7837b5c1b80eaa3297b1c54d926ce497b7a20530689171}\label{include_2jsmn_8h_afbbe22e63007677ec9e7837b5c1b80eaa3297b1c54d926ce497b7a20530689171}} 
+J\+S\+M\+N\+\_\+\+E\+R\+R\+O\+R\+\_\+\+I\+N\+V\+AL&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{J\+S\+M\+N\+\_\+\+E\+R\+R\+O\+R\+\_\+\+P\+A\+RT@{J\+S\+M\+N\+\_\+\+E\+R\+R\+O\+R\+\_\+\+P\+A\+RT}!include/jsmn.\+h@{include/jsmn.\+h}}\index{include/jsmn.\+h@{include/jsmn.\+h}!J\+S\+M\+N\+\_\+\+E\+R\+R\+O\+R\+\_\+\+P\+A\+RT@{J\+S\+M\+N\+\_\+\+E\+R\+R\+O\+R\+\_\+\+P\+A\+RT}}}\mbox{\Hypertarget{include_2jsmn_8h_afbbe22e63007677ec9e7837b5c1b80eaa851a0e75343c14a13c6893b3727ead16}\label{include_2jsmn_8h_afbbe22e63007677ec9e7837b5c1b80eaa851a0e75343c14a13c6893b3727ead16}} 
+J\+S\+M\+N\+\_\+\+E\+R\+R\+O\+R\+\_\+\+P\+A\+RT&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{J\+S\+M\+N\+\_\+\+E\+R\+R\+O\+R\+\_\+\+N\+O\+M\+EM@{J\+S\+M\+N\+\_\+\+E\+R\+R\+O\+R\+\_\+\+N\+O\+M\+EM}!include/jsmn.\+h@{include/jsmn.\+h}}\index{include/jsmn.\+h@{include/jsmn.\+h}!J\+S\+M\+N\+\_\+\+E\+R\+R\+O\+R\+\_\+\+N\+O\+M\+EM@{J\+S\+M\+N\+\_\+\+E\+R\+R\+O\+R\+\_\+\+N\+O\+M\+EM}}}\mbox{\Hypertarget{include_2jsmn_8h_afbbe22e63007677ec9e7837b5c1b80eaafa350a2c19cc5fddbfb7c90309d3fe41}\label{include_2jsmn_8h_afbbe22e63007677ec9e7837b5c1b80eaafa350a2c19cc5fddbfb7c90309d3fe41}} 
+J\+S\+M\+N\+\_\+\+E\+R\+R\+O\+R\+\_\+\+N\+O\+M\+EM&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{J\+S\+M\+N\+\_\+\+E\+R\+R\+O\+R\+\_\+\+I\+N\+V\+AL@{J\+S\+M\+N\+\_\+\+E\+R\+R\+O\+R\+\_\+\+I\+N\+V\+AL}!include/jsmn.\+h@{include/jsmn.\+h}}\index{include/jsmn.\+h@{include/jsmn.\+h}!J\+S\+M\+N\+\_\+\+E\+R\+R\+O\+R\+\_\+\+I\+N\+V\+AL@{J\+S\+M\+N\+\_\+\+E\+R\+R\+O\+R\+\_\+\+I\+N\+V\+AL}}}\mbox{\Hypertarget{include_2jsmn_8h_afbbe22e63007677ec9e7837b5c1b80eaa3297b1c54d926ce497b7a20530689171}\label{include_2jsmn_8h_afbbe22e63007677ec9e7837b5c1b80eaa3297b1c54d926ce497b7a20530689171}} 
+J\+S\+M\+N\+\_\+\+E\+R\+R\+O\+R\+\_\+\+I\+N\+V\+AL&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{J\+S\+M\+N\+\_\+\+E\+R\+R\+O\+R\+\_\+\+P\+A\+RT@{J\+S\+M\+N\+\_\+\+E\+R\+R\+O\+R\+\_\+\+P\+A\+RT}!include/jsmn.\+h@{include/jsmn.\+h}}\index{include/jsmn.\+h@{include/jsmn.\+h}!J\+S\+M\+N\+\_\+\+E\+R\+R\+O\+R\+\_\+\+P\+A\+RT@{J\+S\+M\+N\+\_\+\+E\+R\+R\+O\+R\+\_\+\+P\+A\+RT}}}\mbox{\Hypertarget{include_2jsmn_8h_afbbe22e63007677ec9e7837b5c1b80eaa851a0e75343c14a13c6893b3727ead16}\label{include_2jsmn_8h_afbbe22e63007677ec9e7837b5c1b80eaa851a0e75343c14a13c6893b3727ead16}} 
+J\+S\+M\+N\+\_\+\+E\+R\+R\+O\+R\+\_\+\+P\+A\+RT&\\
+\hline
+
+\end{DoxyEnumFields}
+\mbox{\Hypertarget{include_2jsmn_8h_a065320719769f9dc1fbe30094e52802f}\label{include_2jsmn_8h_a065320719769f9dc1fbe30094e52802f}} 
+\index{include/jsmn.\+h@{include/jsmn.\+h}!jsmntype\+\_\+t@{jsmntype\+\_\+t}}
+\index{jsmntype\+\_\+t@{jsmntype\+\_\+t}!include/jsmn.\+h@{include/jsmn.\+h}}
+\subsubsection{\texorpdfstring{jsmntype\+\_\+t}{jsmntype\_t}}
+{\footnotesize\ttfamily enum \hyperlink{include_2jsmn_8h_a065320719769f9dc1fbe30094e52802f}{jsmntype\+\_\+t}}
+
+J\+S\+ON type identifier. Basic types are\+: o Object o Array o String o Other primitive\+: number, boolean (true/false) or null \begin{DoxyEnumFields}{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{J\+S\+M\+N\+\_\+\+U\+N\+D\+E\+F\+I\+N\+ED@{J\+S\+M\+N\+\_\+\+U\+N\+D\+E\+F\+I\+N\+ED}!include/jsmn.\+h@{include/jsmn.\+h}}\index{include/jsmn.\+h@{include/jsmn.\+h}!J\+S\+M\+N\+\_\+\+U\+N\+D\+E\+F\+I\+N\+ED@{J\+S\+M\+N\+\_\+\+U\+N\+D\+E\+F\+I\+N\+ED}}}\mbox{\Hypertarget{include_2jsmn_8h_a065320719769f9dc1fbe30094e52802fa7bc5faeddd33197250cf352af984f185}\label{include_2jsmn_8h_a065320719769f9dc1fbe30094e52802fa7bc5faeddd33197250cf352af984f185}} 
+J\+S\+M\+N\+\_\+\+U\+N\+D\+E\+F\+I\+N\+ED&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{J\+S\+M\+N\+\_\+\+O\+B\+J\+E\+CT@{J\+S\+M\+N\+\_\+\+O\+B\+J\+E\+CT}!include/jsmn.\+h@{include/jsmn.\+h}}\index{include/jsmn.\+h@{include/jsmn.\+h}!J\+S\+M\+N\+\_\+\+O\+B\+J\+E\+CT@{J\+S\+M\+N\+\_\+\+O\+B\+J\+E\+CT}}}\mbox{\Hypertarget{include_2jsmn_8h_a065320719769f9dc1fbe30094e52802fa416d6e733082bedc1166f0d66f571867}\label{include_2jsmn_8h_a065320719769f9dc1fbe30094e52802fa416d6e733082bedc1166f0d66f571867}} 
+J\+S\+M\+N\+\_\+\+O\+B\+J\+E\+CT&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{J\+S\+M\+N\+\_\+\+A\+R\+R\+AY@{J\+S\+M\+N\+\_\+\+A\+R\+R\+AY}!include/jsmn.\+h@{include/jsmn.\+h}}\index{include/jsmn.\+h@{include/jsmn.\+h}!J\+S\+M\+N\+\_\+\+A\+R\+R\+AY@{J\+S\+M\+N\+\_\+\+A\+R\+R\+AY}}}\mbox{\Hypertarget{include_2jsmn_8h_a065320719769f9dc1fbe30094e52802fabc4c47216dacf36bd4f64ac3d649d471}\label{include_2jsmn_8h_a065320719769f9dc1fbe30094e52802fabc4c47216dacf36bd4f64ac3d649d471}} 
+J\+S\+M\+N\+\_\+\+A\+R\+R\+AY&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{J\+S\+M\+N\+\_\+\+S\+T\+R\+I\+NG@{J\+S\+M\+N\+\_\+\+S\+T\+R\+I\+NG}!include/jsmn.\+h@{include/jsmn.\+h}}\index{include/jsmn.\+h@{include/jsmn.\+h}!J\+S\+M\+N\+\_\+\+S\+T\+R\+I\+NG@{J\+S\+M\+N\+\_\+\+S\+T\+R\+I\+NG}}}\mbox{\Hypertarget{include_2jsmn_8h_a065320719769f9dc1fbe30094e52802fad4ea6277c135d9d3377bf8b719779539}\label{include_2jsmn_8h_a065320719769f9dc1fbe30094e52802fad4ea6277c135d9d3377bf8b719779539}} 
+J\+S\+M\+N\+\_\+\+S\+T\+R\+I\+NG&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{J\+S\+M\+N\+\_\+\+P\+R\+I\+M\+I\+T\+I\+VE@{J\+S\+M\+N\+\_\+\+P\+R\+I\+M\+I\+T\+I\+VE}!include/jsmn.\+h@{include/jsmn.\+h}}\index{include/jsmn.\+h@{include/jsmn.\+h}!J\+S\+M\+N\+\_\+\+P\+R\+I\+M\+I\+T\+I\+VE@{J\+S\+M\+N\+\_\+\+P\+R\+I\+M\+I\+T\+I\+VE}}}\mbox{\Hypertarget{include_2jsmn_8h_a065320719769f9dc1fbe30094e52802fa2550c93fe929f81f30ea9b629ed98742}\label{include_2jsmn_8h_a065320719769f9dc1fbe30094e52802fa2550c93fe929f81f30ea9b629ed98742}} 
+J\+S\+M\+N\+\_\+\+P\+R\+I\+M\+I\+T\+I\+VE&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{J\+S\+M\+N\+\_\+\+U\+N\+D\+E\+F\+I\+N\+ED@{J\+S\+M\+N\+\_\+\+U\+N\+D\+E\+F\+I\+N\+ED}!include/jsmn.\+h@{include/jsmn.\+h}}\index{include/jsmn.\+h@{include/jsmn.\+h}!J\+S\+M\+N\+\_\+\+U\+N\+D\+E\+F\+I\+N\+ED@{J\+S\+M\+N\+\_\+\+U\+N\+D\+E\+F\+I\+N\+ED}}}\mbox{\Hypertarget{include_2jsmn_8h_a065320719769f9dc1fbe30094e52802fa7bc5faeddd33197250cf352af984f185}\label{include_2jsmn_8h_a065320719769f9dc1fbe30094e52802fa7bc5faeddd33197250cf352af984f185}} 
+J\+S\+M\+N\+\_\+\+U\+N\+D\+E\+F\+I\+N\+ED&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{J\+S\+M\+N\+\_\+\+O\+B\+J\+E\+CT@{J\+S\+M\+N\+\_\+\+O\+B\+J\+E\+CT}!include/jsmn.\+h@{include/jsmn.\+h}}\index{include/jsmn.\+h@{include/jsmn.\+h}!J\+S\+M\+N\+\_\+\+O\+B\+J\+E\+CT@{J\+S\+M\+N\+\_\+\+O\+B\+J\+E\+CT}}}\mbox{\Hypertarget{include_2jsmn_8h_a065320719769f9dc1fbe30094e52802fa416d6e733082bedc1166f0d66f571867}\label{include_2jsmn_8h_a065320719769f9dc1fbe30094e52802fa416d6e733082bedc1166f0d66f571867}} 
+J\+S\+M\+N\+\_\+\+O\+B\+J\+E\+CT&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{J\+S\+M\+N\+\_\+\+A\+R\+R\+AY@{J\+S\+M\+N\+\_\+\+A\+R\+R\+AY}!include/jsmn.\+h@{include/jsmn.\+h}}\index{include/jsmn.\+h@{include/jsmn.\+h}!J\+S\+M\+N\+\_\+\+A\+R\+R\+AY@{J\+S\+M\+N\+\_\+\+A\+R\+R\+AY}}}\mbox{\Hypertarget{include_2jsmn_8h_a065320719769f9dc1fbe30094e52802fabc4c47216dacf36bd4f64ac3d649d471}\label{include_2jsmn_8h_a065320719769f9dc1fbe30094e52802fabc4c47216dacf36bd4f64ac3d649d471}} 
+J\+S\+M\+N\+\_\+\+A\+R\+R\+AY&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{J\+S\+M\+N\+\_\+\+S\+T\+R\+I\+NG@{J\+S\+M\+N\+\_\+\+S\+T\+R\+I\+NG}!include/jsmn.\+h@{include/jsmn.\+h}}\index{include/jsmn.\+h@{include/jsmn.\+h}!J\+S\+M\+N\+\_\+\+S\+T\+R\+I\+NG@{J\+S\+M\+N\+\_\+\+S\+T\+R\+I\+NG}}}\mbox{\Hypertarget{include_2jsmn_8h_a065320719769f9dc1fbe30094e52802fad4ea6277c135d9d3377bf8b719779539}\label{include_2jsmn_8h_a065320719769f9dc1fbe30094e52802fad4ea6277c135d9d3377bf8b719779539}} 
+J\+S\+M\+N\+\_\+\+S\+T\+R\+I\+NG&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{J\+S\+M\+N\+\_\+\+P\+R\+I\+M\+I\+T\+I\+VE@{J\+S\+M\+N\+\_\+\+P\+R\+I\+M\+I\+T\+I\+VE}!include/jsmn.\+h@{include/jsmn.\+h}}\index{include/jsmn.\+h@{include/jsmn.\+h}!J\+S\+M\+N\+\_\+\+P\+R\+I\+M\+I\+T\+I\+VE@{J\+S\+M\+N\+\_\+\+P\+R\+I\+M\+I\+T\+I\+VE}}}\mbox{\Hypertarget{include_2jsmn_8h_a065320719769f9dc1fbe30094e52802fa2550c93fe929f81f30ea9b629ed98742}\label{include_2jsmn_8h_a065320719769f9dc1fbe30094e52802fa2550c93fe929f81f30ea9b629ed98742}} 
+J\+S\+M\+N\+\_\+\+P\+R\+I\+M\+I\+T\+I\+VE&\\
+\hline
+
+\end{DoxyEnumFields}
+
+
+\subsection{Function Documentation}
+\mbox{\Hypertarget{include_2jsmn_8h_ac18a603f0737ecb4e953b4335d9652bb}\label{include_2jsmn_8h_ac18a603f0737ecb4e953b4335d9652bb}} 
+\index{include/jsmn.\+h@{include/jsmn.\+h}!jsmn\+\_\+init@{jsmn\+\_\+init}}
+\index{jsmn\+\_\+init@{jsmn\+\_\+init}!include/jsmn.\+h@{include/jsmn.\+h}}
+\subsubsection{\texorpdfstring{jsmn\+\_\+init()}{jsmn\_init()}}
+{\footnotesize\ttfamily \hyperlink{preprocessor_2common_2jsmn_8h_acc2ead0c277738a32734a4b5a09cf8cc}{J\+S\+M\+N\+\_\+\+A\+PI} void jsmn\+\_\+init (\begin{DoxyParamCaption}\item[{\hyperlink{structjsmn__parser}{jsmn\+\_\+parser} $\ast$}]{parser }\end{DoxyParamCaption})}
+
+Create J\+S\+ON parser over an array of tokens \mbox{\Hypertarget{include_2jsmn_8h_a5e34c2b99133f3b538bf8a12a6313184}\label{include_2jsmn_8h_a5e34c2b99133f3b538bf8a12a6313184}} 
+\index{include/jsmn.\+h@{include/jsmn.\+h}!jsmn\+\_\+parse@{jsmn\+\_\+parse}}
+\index{jsmn\+\_\+parse@{jsmn\+\_\+parse}!include/jsmn.\+h@{include/jsmn.\+h}}
+\subsubsection{\texorpdfstring{jsmn\+\_\+parse()}{jsmn\_parse()}}
+{\footnotesize\ttfamily \hyperlink{preprocessor_2common_2jsmn_8h_acc2ead0c277738a32734a4b5a09cf8cc}{J\+S\+M\+N\+\_\+\+A\+PI} int jsmn\+\_\+parse (\begin{DoxyParamCaption}\item[{\hyperlink{structjsmn__parser}{jsmn\+\_\+parser} $\ast$}]{parser,  }\item[{const char $\ast$}]{js,  }\item[{const size\+\_\+t}]{len,  }\item[{\hyperlink{structjsmntok__t}{jsmntok\+\_\+t} $\ast$}]{tokens,  }\item[{const unsigned int}]{num\+\_\+tokens }\end{DoxyParamCaption})}
+
+Run J\+S\+ON parser. It parses a J\+S\+ON data string into and array of tokens, each describing a single J\+S\+ON object. 

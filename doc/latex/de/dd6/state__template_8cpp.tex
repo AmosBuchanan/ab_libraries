@@ -1,0 +1,145 @@
+\hypertarget{state__template_8cpp}{}\section{state\+\_\+template.\+cpp File Reference}
+\label{state__template_8cpp}\index{state\+\_\+template.\+cpp@{state\+\_\+template.\+cpp}}
+\subsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \hyperlink{structn}{n}
+\end{DoxyCompactItemize}
+\subsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \hyperlink{state__template_8cpp_a87c4a6c4f8c51a4925e96cdfcee04ab1}{S\+M\+\_\+\+S\+O\+M\+E\+\_\+\+S\+T\+A\+T\+E\+M\+A\+C\+H\+I\+NE}(name)~void name(state\+\_\+type State, state\+\_\+cmd Cmd, my\+\_\+type $\ast$Type, int Int, char const $\ast$String)
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+typedef \hyperlink{state__template_8cpp_a6da14d2fca67fb2b3a2f3b5ca03f7e7b}{S\+M\+\_\+\+S\+O\+M\+E\+\_\+\+S\+T\+A\+T\+E\+M\+A\+C\+H\+I\+NE} (sm\+\_\+some\+\_\+statemachine)
+\item 
+\hyperlink{ab__common_8h_a70e369648385b50f2d0588e8e8745275}{b8} \hyperlink{state__template_8cpp_a11b8b08bdc840c29901b8a242082eecd}{Go\+To\+State} (state\+\_\+type $\ast$State, sm\+\_\+some\+\_\+statemachine $\ast$New\+State)
+\item 
+char const  $\ast$ \hyperlink{state__template_8cpp_abdfef695a4183a702635e7a905a9ed36}{Get\+State\+Name} (sm\+\_\+some\+\_\+statemachine $\ast$State\+Name) \hyperlink{state__template_8cpp_a68c4589bbbd1951cb24e86d04dde0ea3}{S\+M\+\_\+\+S\+O\+M\+E\+\_\+\+S\+T\+A\+T\+E\+M\+A\+C\+H\+I\+NE}(Idle)
+\item 
+\hyperlink{state__template_8cpp_a68c4589bbbd1951cb24e86d04dde0ea3}{S\+M\+\_\+\+S\+O\+M\+E\+\_\+\+S\+T\+A\+T\+E\+M\+A\+C\+H\+I\+NE} (Running)
+\item 
+\hyperlink{structn}{n} struct \hyperlink{structstate__cmd__queue}{state\+\_\+cmd\+\_\+queue} \hyperlink{structn}{n} \hyperlink{state__template_8cpp_a3ed1cb6d37025f81b23bade29907b58d}{Initialize\+Queue} (\hyperlink{structstate__cmd__queue}{state\+\_\+cmd\+\_\+queue} $\ast$Queue)\textbackslash{}\hyperlink{structn}{n}\char`\"{} \char`\"{}
+\item 
+\hyperlink{structn}{n} \hyperlink{structn}{n} \hyperlink{ab__common_8h_a70e369648385b50f2d0588e8e8745275}{b8} \hyperlink{structn}{n} \hyperlink{state__template_8cpp_a80d40a5f6daf31395ef6c5195cde1b1a}{is\+Queue\+Empty} (\hyperlink{structstate__cmd__queue}{state\+\_\+cmd\+\_\+queue} $\ast$Queue)\textbackslash{}\hyperlink{structn}{n}\char`\"{} \char`\"{}
+\item 
+\hyperlink{structn}{n} \hyperlink{structn}{n} \hyperlink{ab__common_8h_a70e369648385b50f2d0588e8e8745275}{b8} \hyperlink{structn}{n} \hyperlink{state__template_8cpp_a03f5d95af16dd7aec696622bb2768dfa}{is\+Queue\+Full} (\hyperlink{structstate__cmd__queue}{state\+\_\+cmd\+\_\+queue} $\ast$Queue)\textbackslash{}\hyperlink{structn}{n}\char`\"{} \char`\"{}
+\item 
+\hyperlink{structn}{n} \hyperlink{structn}{n} \hyperlink{ab__common_8h_a70e369648385b50f2d0588e8e8745275}{b8} \hyperlink{structn}{n} \hyperlink{state__template_8cpp_ada8385f4b09223a620092bf76887684a}{Enqueue\+Command} (\hyperlink{structstate__cmd__queue}{state\+\_\+cmd\+\_\+queue} $\ast$Queue, state\+\_\+cmd Cmd)\textbackslash{}\hyperlink{structn}{n}\char`\"{} \char`\"{}
+\item 
+\hyperlink{structn}{n} \hyperlink{structn}{n} state\+\_\+cmd \hyperlink{structn}{n} \hyperlink{state__template_8cpp_a323edb2b20744ade48328deb63868b60}{Dequeue\+Command} (\hyperlink{structstate__cmd__queue}{state\+\_\+cmd\+\_\+queue} $\ast$Queue)\textbackslash{}\hyperlink{structn}{n}\char`\"{} \char`\"{}
+\item 
+\hyperlink{structn}{n} \hyperlink{structn}{n} \hyperlink{ab__common_8h_a70e369648385b50f2d0588e8e8745275}{b8} \hyperlink{structn}{n} \hyperlink{state__template_8cpp_a76dd1b65beaf71b70357b0759098bcb9}{Enqueue\+Command} (state\+\_\+type $\ast$State, state\+\_\+cmd Cmd)\textbackslash{}\hyperlink{structn}{n}\char`\"{} \char`\"{}
+\item 
+\hyperlink{structn}{n} \hyperlink{structn}{n} state\+\_\+cmd \hyperlink{structn}{n} \hyperlink{state__template_8cpp_a5291c0e22ee4574cc4f91567424c24a1}{Dequeue\+Command} (state\+\_\+type $\ast$State)\textbackslash{}\hyperlink{structn}{n}\char`\"{} \char`\"{}
+\end{DoxyCompactItemize}
+\subsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{structn}{n} state\+\_\+cmd \hyperlink{state__template_8cpp_a8dbb11e631f5fffa9a593e33f5831ed9}{Items} \mbox{[}10\mbox{]}
+\item 
+\hyperlink{structn}{n} \hyperlink{ab__common_8h_ae9b1af5c037e57a98884758875d3a7c4}{s32} \hyperlink{state__template_8cpp_afb0397e8798aa6a6e51e96ef747c57be}{Front}
+\item 
+\hyperlink{structn}{n} \hyperlink{ab__common_8h_ae9b1af5c037e57a98884758875d3a7c4}{s32} \hyperlink{state__template_8cpp_ab334bee7c72436f2d94d87e722656116}{Rear}
+\end{DoxyCompactItemize}
+
+
+\subsection{Macro Definition Documentation}
+\mbox{\Hypertarget{state__template_8cpp_a87c4a6c4f8c51a4925e96cdfcee04ab1}\label{state__template_8cpp_a87c4a6c4f8c51a4925e96cdfcee04ab1}} 
+\index{state\+\_\+template.\+cpp@{state\+\_\+template.\+cpp}!S\+M\+\_\+\+S\+O\+M\+E\+\_\+\+S\+T\+A\+T\+E\+M\+A\+C\+H\+I\+NE@{S\+M\+\_\+\+S\+O\+M\+E\+\_\+\+S\+T\+A\+T\+E\+M\+A\+C\+H\+I\+NE}}
+\index{S\+M\+\_\+\+S\+O\+M\+E\+\_\+\+S\+T\+A\+T\+E\+M\+A\+C\+H\+I\+NE@{S\+M\+\_\+\+S\+O\+M\+E\+\_\+\+S\+T\+A\+T\+E\+M\+A\+C\+H\+I\+NE}!state\+\_\+template.\+cpp@{state\+\_\+template.\+cpp}}
+\subsubsection{\texorpdfstring{S\+M\+\_\+\+S\+O\+M\+E\+\_\+\+S\+T\+A\+T\+E\+M\+A\+C\+H\+I\+NE}{SM\_SOME\_STATEMACHINE}}
+{\footnotesize\ttfamily \#define S\+M\+\_\+\+S\+O\+M\+E\+\_\+\+S\+T\+A\+T\+E\+M\+A\+C\+H\+I\+NE(\begin{DoxyParamCaption}\item[{}]{name }\end{DoxyParamCaption})~void name(state\+\_\+type State, state\+\_\+cmd Cmd, my\+\_\+type $\ast$Type, int Int, char const $\ast$String)}
+
+
+
+\subsection{Function Documentation}
+\mbox{\Hypertarget{state__template_8cpp_a323edb2b20744ade48328deb63868b60}\label{state__template_8cpp_a323edb2b20744ade48328deb63868b60}} 
+\index{state\+\_\+template.\+cpp@{state\+\_\+template.\+cpp}!Dequeue\+Command@{Dequeue\+Command}}
+\index{Dequeue\+Command@{Dequeue\+Command}!state\+\_\+template.\+cpp@{state\+\_\+template.\+cpp}}
+\subsubsection{\texorpdfstring{Dequeue\+Command()}{DequeueCommand()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \hyperlink{structn}{n} \hyperlink{structn}{n} state\+\_\+cmd \hyperlink{structn}{n} Dequeue\+Command (\begin{DoxyParamCaption}\item[{\hyperlink{structstate__cmd__queue}{state\+\_\+cmd\+\_\+queue} $\ast$}]{Queue }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{state__template_8cpp_a5291c0e22ee4574cc4f91567424c24a1}\label{state__template_8cpp_a5291c0e22ee4574cc4f91567424c24a1}} 
+\index{state\+\_\+template.\+cpp@{state\+\_\+template.\+cpp}!Dequeue\+Command@{Dequeue\+Command}}
+\index{Dequeue\+Command@{Dequeue\+Command}!state\+\_\+template.\+cpp@{state\+\_\+template.\+cpp}}
+\subsubsection{\texorpdfstring{Dequeue\+Command()}{DequeueCommand()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \hyperlink{structn}{n} \hyperlink{structn}{n} state\+\_\+cmd \hyperlink{structn}{n} Dequeue\+Command (\begin{DoxyParamCaption}\item[{state\+\_\+type $\ast$}]{State }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{state__template_8cpp_ada8385f4b09223a620092bf76887684a}\label{state__template_8cpp_ada8385f4b09223a620092bf76887684a}} 
+\index{state\+\_\+template.\+cpp@{state\+\_\+template.\+cpp}!Enqueue\+Command@{Enqueue\+Command}}
+\index{Enqueue\+Command@{Enqueue\+Command}!state\+\_\+template.\+cpp@{state\+\_\+template.\+cpp}}
+\subsubsection{\texorpdfstring{Enqueue\+Command()}{EnqueueCommand()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \hyperlink{structn}{n} \hyperlink{structn}{n} \hyperlink{ab__common_8h_a70e369648385b50f2d0588e8e8745275}{b8} \hyperlink{structn}{n} Enqueue\+Command (\begin{DoxyParamCaption}\item[{\hyperlink{structstate__cmd__queue}{state\+\_\+cmd\+\_\+queue} $\ast$}]{Queue,  }\item[{state\+\_\+cmd}]{Cmd }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{state__template_8cpp_a76dd1b65beaf71b70357b0759098bcb9}\label{state__template_8cpp_a76dd1b65beaf71b70357b0759098bcb9}} 
+\index{state\+\_\+template.\+cpp@{state\+\_\+template.\+cpp}!Enqueue\+Command@{Enqueue\+Command}}
+\index{Enqueue\+Command@{Enqueue\+Command}!state\+\_\+template.\+cpp@{state\+\_\+template.\+cpp}}
+\subsubsection{\texorpdfstring{Enqueue\+Command()}{EnqueueCommand()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \hyperlink{structn}{n} \hyperlink{structn}{n} \hyperlink{ab__common_8h_a70e369648385b50f2d0588e8e8745275}{b8} \hyperlink{structn}{n} Enqueue\+Command (\begin{DoxyParamCaption}\item[{state\+\_\+type $\ast$}]{State,  }\item[{state\+\_\+cmd}]{Cmd }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{state__template_8cpp_abdfef695a4183a702635e7a905a9ed36}\label{state__template_8cpp_abdfef695a4183a702635e7a905a9ed36}} 
+\index{state\+\_\+template.\+cpp@{state\+\_\+template.\+cpp}!Get\+State\+Name@{Get\+State\+Name}}
+\index{Get\+State\+Name@{Get\+State\+Name}!state\+\_\+template.\+cpp@{state\+\_\+template.\+cpp}}
+\subsubsection{\texorpdfstring{Get\+State\+Name()}{GetStateName()}}
+{\footnotesize\ttfamily char const$\ast$ Get\+State\+Name (\begin{DoxyParamCaption}\item[{sm\+\_\+some\+\_\+statemachine $\ast$}]{State\+Name }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{state__template_8cpp_a11b8b08bdc840c29901b8a242082eecd}\label{state__template_8cpp_a11b8b08bdc840c29901b8a242082eecd}} 
+\index{state\+\_\+template.\+cpp@{state\+\_\+template.\+cpp}!Go\+To\+State@{Go\+To\+State}}
+\index{Go\+To\+State@{Go\+To\+State}!state\+\_\+template.\+cpp@{state\+\_\+template.\+cpp}}
+\subsubsection{\texorpdfstring{Go\+To\+State()}{GoToState()}}
+{\footnotesize\ttfamily \hyperlink{ab__common_8h_a70e369648385b50f2d0588e8e8745275}{b8} Go\+To\+State (\begin{DoxyParamCaption}\item[{state\+\_\+type $\ast$}]{State,  }\item[{sm\+\_\+some\+\_\+statemachine $\ast$}]{New\+State }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\mbox{\Hypertarget{state__template_8cpp_a3ed1cb6d37025f81b23bade29907b58d}\label{state__template_8cpp_a3ed1cb6d37025f81b23bade29907b58d}} 
+\index{state\+\_\+template.\+cpp@{state\+\_\+template.\+cpp}!Initialize\+Queue@{Initialize\+Queue}}
+\index{Initialize\+Queue@{Initialize\+Queue}!state\+\_\+template.\+cpp@{state\+\_\+template.\+cpp}}
+\subsubsection{\texorpdfstring{Initialize\+Queue()}{InitializeQueue()}}
+{\footnotesize\ttfamily \hyperlink{structn}{n} struct \hyperlink{structstate__cmd__queue}{state\+\_\+cmd\+\_\+queue} \hyperlink{structn}{n} Initialize\+Queue (\begin{DoxyParamCaption}\item[{\hyperlink{structstate__cmd__queue}{state\+\_\+cmd\+\_\+queue} $\ast$}]{Queue }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\mbox{\Hypertarget{state__template_8cpp_a80d40a5f6daf31395ef6c5195cde1b1a}\label{state__template_8cpp_a80d40a5f6daf31395ef6c5195cde1b1a}} 
+\index{state\+\_\+template.\+cpp@{state\+\_\+template.\+cpp}!is\+Queue\+Empty@{is\+Queue\+Empty}}
+\index{is\+Queue\+Empty@{is\+Queue\+Empty}!state\+\_\+template.\+cpp@{state\+\_\+template.\+cpp}}
+\subsubsection{\texorpdfstring{is\+Queue\+Empty()}{isQueueEmpty()}}
+{\footnotesize\ttfamily \hyperlink{structn}{n} \hyperlink{structn}{n} \hyperlink{ab__common_8h_a70e369648385b50f2d0588e8e8745275}{b8} \hyperlink{structn}{n} is\+Queue\+Empty (\begin{DoxyParamCaption}\item[{\hyperlink{structstate__cmd__queue}{state\+\_\+cmd\+\_\+queue} $\ast$}]{Queue }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\mbox{\Hypertarget{state__template_8cpp_a03f5d95af16dd7aec696622bb2768dfa}\label{state__template_8cpp_a03f5d95af16dd7aec696622bb2768dfa}} 
+\index{state\+\_\+template.\+cpp@{state\+\_\+template.\+cpp}!is\+Queue\+Full@{is\+Queue\+Full}}
+\index{is\+Queue\+Full@{is\+Queue\+Full}!state\+\_\+template.\+cpp@{state\+\_\+template.\+cpp}}
+\subsubsection{\texorpdfstring{is\+Queue\+Full()}{isQueueFull()}}
+{\footnotesize\ttfamily \hyperlink{structn}{n} \hyperlink{structn}{n} \hyperlink{ab__common_8h_a70e369648385b50f2d0588e8e8745275}{b8} \hyperlink{structn}{n} is\+Queue\+Full (\begin{DoxyParamCaption}\item[{\hyperlink{structstate__cmd__queue}{state\+\_\+cmd\+\_\+queue} $\ast$}]{Queue }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\mbox{\Hypertarget{state__template_8cpp_a6da14d2fca67fb2b3a2f3b5ca03f7e7b}\label{state__template_8cpp_a6da14d2fca67fb2b3a2f3b5ca03f7e7b}} 
+\index{state\+\_\+template.\+cpp@{state\+\_\+template.\+cpp}!S\+M\+\_\+\+S\+O\+M\+E\+\_\+\+S\+T\+A\+T\+E\+M\+A\+C\+H\+I\+NE@{S\+M\+\_\+\+S\+O\+M\+E\+\_\+\+S\+T\+A\+T\+E\+M\+A\+C\+H\+I\+NE}}
+\index{S\+M\+\_\+\+S\+O\+M\+E\+\_\+\+S\+T\+A\+T\+E\+M\+A\+C\+H\+I\+NE@{S\+M\+\_\+\+S\+O\+M\+E\+\_\+\+S\+T\+A\+T\+E\+M\+A\+C\+H\+I\+NE}!state\+\_\+template.\+cpp@{state\+\_\+template.\+cpp}}
+\subsubsection{\texorpdfstring{S\+M\+\_\+\+S\+O\+M\+E\+\_\+\+S\+T\+A\+T\+E\+M\+A\+C\+H\+I\+N\+E()}{SM\_SOME\_STATEMACHINE()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily typedef S\+M\+\_\+\+S\+O\+M\+E\+\_\+\+S\+T\+A\+T\+E\+M\+A\+C\+H\+I\+NE (\begin{DoxyParamCaption}\item[{sm\+\_\+some\+\_\+statemachine}]{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{state__template_8cpp_a68c4589bbbd1951cb24e86d04dde0ea3}\label{state__template_8cpp_a68c4589bbbd1951cb24e86d04dde0ea3}} 
+\index{state\+\_\+template.\+cpp@{state\+\_\+template.\+cpp}!S\+M\+\_\+\+S\+O\+M\+E\+\_\+\+S\+T\+A\+T\+E\+M\+A\+C\+H\+I\+NE@{S\+M\+\_\+\+S\+O\+M\+E\+\_\+\+S\+T\+A\+T\+E\+M\+A\+C\+H\+I\+NE}}
+\index{S\+M\+\_\+\+S\+O\+M\+E\+\_\+\+S\+T\+A\+T\+E\+M\+A\+C\+H\+I\+NE@{S\+M\+\_\+\+S\+O\+M\+E\+\_\+\+S\+T\+A\+T\+E\+M\+A\+C\+H\+I\+NE}!state\+\_\+template.\+cpp@{state\+\_\+template.\+cpp}}
+\subsubsection{\texorpdfstring{S\+M\+\_\+\+S\+O\+M\+E\+\_\+\+S\+T\+A\+T\+E\+M\+A\+C\+H\+I\+N\+E()}{SM\_SOME\_STATEMACHINE()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily S\+M\+\_\+\+S\+O\+M\+E\+\_\+\+S\+T\+A\+T\+E\+M\+A\+C\+H\+I\+NE (\begin{DoxyParamCaption}\item[{Running}]{ }\end{DoxyParamCaption})}
+
+
+
+\subsection{Variable Documentation}
+\mbox{\Hypertarget{state__template_8cpp_afb0397e8798aa6a6e51e96ef747c57be}\label{state__template_8cpp_afb0397e8798aa6a6e51e96ef747c57be}} 
+\index{state\+\_\+template.\+cpp@{state\+\_\+template.\+cpp}!Front@{Front}}
+\index{Front@{Front}!state\+\_\+template.\+cpp@{state\+\_\+template.\+cpp}}
+\subsubsection{\texorpdfstring{Front}{Front}}
+{\footnotesize\ttfamily \hyperlink{structn}{n} \hyperlink{ab__common_8h_ae9b1af5c037e57a98884758875d3a7c4}{s32} Front}
+
+\mbox{\Hypertarget{state__template_8cpp_a8dbb11e631f5fffa9a593e33f5831ed9}\label{state__template_8cpp_a8dbb11e631f5fffa9a593e33f5831ed9}} 
+\index{state\+\_\+template.\+cpp@{state\+\_\+template.\+cpp}!Items@{Items}}
+\index{Items@{Items}!state\+\_\+template.\+cpp@{state\+\_\+template.\+cpp}}
+\subsubsection{\texorpdfstring{Items}{Items}}
+{\footnotesize\ttfamily \hyperlink{structn}{n} state\+\_\+cmd Items\mbox{[}10\mbox{]}}
+
+\mbox{\Hypertarget{state__template_8cpp_ab334bee7c72436f2d94d87e722656116}\label{state__template_8cpp_ab334bee7c72436f2d94d87e722656116}} 
+\index{state\+\_\+template.\+cpp@{state\+\_\+template.\+cpp}!Rear@{Rear}}
+\index{Rear@{Rear}!state\+\_\+template.\+cpp@{state\+\_\+template.\+cpp}}
+\subsubsection{\texorpdfstring{Rear}{Rear}}
+{\footnotesize\ttfamily \hyperlink{structn}{n} \hyperlink{ab__common_8h_ae9b1af5c037e57a98884758875d3a7c4}{s32} Rear}
+

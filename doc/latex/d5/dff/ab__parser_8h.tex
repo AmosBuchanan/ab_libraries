@@ -1,0 +1,156 @@
+\hypertarget{ab__parser_8h}{}\section{ab\+\_\+parser.\+h File Reference}
+\label{ab__parser_8h}\index{ab\+\_\+parser.\+h@{ab\+\_\+parser.\+h}}
+{\ttfamily \#include \char`\"{}ab\+\_\+lexer.\+h\char`\"{}}\newline
+Include dependency graph for ab\+\_\+parser.\+h\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{d5/d94/ab__parser_8h__incl}
+\end{center}
+\end{figure}
+This graph shows which files directly or indirectly include this file\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=341pt]{d9/da1/ab__parser_8h__dep__incl}
+\end{center}
+\end{figure}
+\subsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \hyperlink{structtag}{tag}
+\item 
+struct \hyperlink{structterm__typeexpr}{term\+\_\+typeexpr}
+\item 
+struct \hyperlink{structterm__definedfunction}{term\+\_\+definedfunction}
+\item 
+struct \hyperlink{structterm__statemachine}{term\+\_\+statemachine}
+\item 
+struct \hyperlink{structterm__structitem}{term\+\_\+structitem}
+\item 
+struct \hyperlink{structterm__struct}{term\+\_\+struct}
+\item 
+struct \hyperlink{structterm__enumitem}{term\+\_\+enumitem}
+\item 
+struct \hyperlink{structterm__enum}{term\+\_\+enum}
+\item 
+struct \hyperlink{structterm__function}{term\+\_\+function}
+\item 
+struct \hyperlink{structterm__statefunction}{term\+\_\+statefunction}
+\item 
+struct \hyperlink{structparser}{parser}
+\item 
+struct \hyperlink{structoutput__data}{output\+\_\+data}
+\end{DoxyCompactItemize}
+\subsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \hyperlink{ab__parser_8h_aeabe8109eddf86b30deefb9d28837243}{Init\+List}(Sentinal)
+\item 
+\#define \hyperlink{ab__parser_8h_a5716e375532c2d8f503025f9deb10593}{Push\+Onto\+List}(Sentinal,  New\+Item)
+\item 
+\#define \hyperlink{ab__parser_8h_ad6441f2fd946e5baefda8733bc8ed744}{Push\+List\+Onto\+List}(To\+Sentinal,  From\+Sentinal)
+\end{DoxyCompactItemize}
+\subsection*{Enumerations}
+\begin{DoxyCompactItemize}
+\item 
+enum \hyperlink{ab__parser_8h_ac9039717ce4cccacf493ee306650a423}{custom\+\_\+type} \{ \newline
+\hyperlink{ab__parser_8h_ac9039717ce4cccacf493ee306650a423a365c11b5fcf955d07d55c017767c4658}{C\+T\+\_\+\+None}, 
+\hyperlink{ab__parser_8h_ac9039717ce4cccacf493ee306650a423a5d9c6244fb2275c721f1f348559f2c41}{C\+T\+\_\+\+Struct}, 
+\hyperlink{ab__parser_8h_ac9039717ce4cccacf493ee306650a423a0168fb837b6dd0ef60f59281336f297e}{C\+T\+\_\+\+Union}, 
+\hyperlink{ab__parser_8h_ac9039717ce4cccacf493ee306650a423a48f97ab3d4222611634d568b2b11fd9f}{C\+T\+\_\+\+Class}, 
+\newline
+\hyperlink{ab__parser_8h_ac9039717ce4cccacf493ee306650a423a45908c6d305646ca2e5e6395752c91d3}{C\+T\+\_\+\+Enum}
+ \}
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{structtag}{tag} \hyperlink{ab__parser_8h_a2087ae02cf60801129cd945b8a053a01}{Parse\+Tag} (\hyperlink{structlexer}{lexer} $\ast$Lexer, \hyperlink{structparser}{parser} $\ast$Parser)
+\end{DoxyCompactItemize}
+
+
+\subsection{Macro Definition Documentation}
+\mbox{\Hypertarget{ab__parser_8h_aeabe8109eddf86b30deefb9d28837243}\label{ab__parser_8h_aeabe8109eddf86b30deefb9d28837243}} 
+\index{ab\+\_\+parser.\+h@{ab\+\_\+parser.\+h}!Init\+List@{Init\+List}}
+\index{Init\+List@{Init\+List}!ab\+\_\+parser.\+h@{ab\+\_\+parser.\+h}}
+\subsubsection{\texorpdfstring{Init\+List}{InitList}}
+{\footnotesize\ttfamily \#define Init\+List(\begin{DoxyParamCaption}\item[{}]{Sentinal }\end{DoxyParamCaption})}
+
+{\bfseries Value\+:}
+\begin{DoxyCode}
+\{ \(\backslash\)
+Sentinal.Next = &Sentinal; \(\backslash\)
+Sentinal.Prev = &Sentinal; \(\backslash\)
+\}
+\end{DoxyCode}
+\mbox{\Hypertarget{ab__parser_8h_ad6441f2fd946e5baefda8733bc8ed744}\label{ab__parser_8h_ad6441f2fd946e5baefda8733bc8ed744}} 
+\index{ab\+\_\+parser.\+h@{ab\+\_\+parser.\+h}!Push\+List\+Onto\+List@{Push\+List\+Onto\+List}}
+\index{Push\+List\+Onto\+List@{Push\+List\+Onto\+List}!ab\+\_\+parser.\+h@{ab\+\_\+parser.\+h}}
+\subsubsection{\texorpdfstring{Push\+List\+Onto\+List}{PushListOntoList}}
+{\footnotesize\ttfamily \#define Push\+List\+Onto\+List(\begin{DoxyParamCaption}\item[{}]{To\+Sentinal,  }\item[{}]{From\+Sentinal }\end{DoxyParamCaption})}
+
+{\bfseries Value\+:}
+\begin{DoxyCode}
+\{ \(\backslash\)
+FromSentinal.Prev->Next = &ToSentinal; \(\backslash\)
+FromSentinal.Next->Prev = ToSentinal.Prev; \(\backslash\)
+ToSentinal.Prev->Next = FromSentinal.Next; \(\backslash\)
+ToSentinal.Prev = FromSentinal.Prev; \(\backslash\)
+\}
+\end{DoxyCode}
+\mbox{\Hypertarget{ab__parser_8h_a5716e375532c2d8f503025f9deb10593}\label{ab__parser_8h_a5716e375532c2d8f503025f9deb10593}} 
+\index{ab\+\_\+parser.\+h@{ab\+\_\+parser.\+h}!Push\+Onto\+List@{Push\+Onto\+List}}
+\index{Push\+Onto\+List@{Push\+Onto\+List}!ab\+\_\+parser.\+h@{ab\+\_\+parser.\+h}}
+\subsubsection{\texorpdfstring{Push\+Onto\+List}{PushOntoList}}
+{\footnotesize\ttfamily \#define Push\+Onto\+List(\begin{DoxyParamCaption}\item[{}]{Sentinal,  }\item[{}]{New\+Item }\end{DoxyParamCaption})}
+
+{\bfseries Value\+:}
+\begin{DoxyCode}
+\{ \(\backslash\)
+NewItem->Next = &Sentinal; \(\backslash\)
+NewItem->Prev = Sentinal.Prev; \(\backslash\)
+Sentinal.Prev->Next = NewItem; \(\backslash\)
+Sentinal.Prev = NewItem; \(\backslash\)
+\}
+\end{DoxyCode}
+
+
+\subsection{Enumeration Type Documentation}
+\mbox{\Hypertarget{ab__parser_8h_ac9039717ce4cccacf493ee306650a423}\label{ab__parser_8h_ac9039717ce4cccacf493ee306650a423}} 
+\index{ab\+\_\+parser.\+h@{ab\+\_\+parser.\+h}!custom\+\_\+type@{custom\+\_\+type}}
+\index{custom\+\_\+type@{custom\+\_\+type}!ab\+\_\+parser.\+h@{ab\+\_\+parser.\+h}}
+\subsubsection{\texorpdfstring{custom\+\_\+type}{custom\_type}}
+{\footnotesize\ttfamily enum \hyperlink{ab__parser_8h_ac9039717ce4cccacf493ee306650a423}{custom\+\_\+type}}
+
+\begin{DoxyEnumFields}{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{C\+T\+\_\+\+None@{C\+T\+\_\+\+None}!ab\+\_\+parser.\+h@{ab\+\_\+parser.\+h}}\index{ab\+\_\+parser.\+h@{ab\+\_\+parser.\+h}!C\+T\+\_\+\+None@{C\+T\+\_\+\+None}}}\mbox{\Hypertarget{ab__parser_8h_ac9039717ce4cccacf493ee306650a423a365c11b5fcf955d07d55c017767c4658}\label{ab__parser_8h_ac9039717ce4cccacf493ee306650a423a365c11b5fcf955d07d55c017767c4658}} 
+C\+T\+\_\+\+None&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{C\+T\+\_\+\+Struct@{C\+T\+\_\+\+Struct}!ab\+\_\+parser.\+h@{ab\+\_\+parser.\+h}}\index{ab\+\_\+parser.\+h@{ab\+\_\+parser.\+h}!C\+T\+\_\+\+Struct@{C\+T\+\_\+\+Struct}}}\mbox{\Hypertarget{ab__parser_8h_ac9039717ce4cccacf493ee306650a423a5d9c6244fb2275c721f1f348559f2c41}\label{ab__parser_8h_ac9039717ce4cccacf493ee306650a423a5d9c6244fb2275c721f1f348559f2c41}} 
+C\+T\+\_\+\+Struct&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{C\+T\+\_\+\+Union@{C\+T\+\_\+\+Union}!ab\+\_\+parser.\+h@{ab\+\_\+parser.\+h}}\index{ab\+\_\+parser.\+h@{ab\+\_\+parser.\+h}!C\+T\+\_\+\+Union@{C\+T\+\_\+\+Union}}}\mbox{\Hypertarget{ab__parser_8h_ac9039717ce4cccacf493ee306650a423a0168fb837b6dd0ef60f59281336f297e}\label{ab__parser_8h_ac9039717ce4cccacf493ee306650a423a0168fb837b6dd0ef60f59281336f297e}} 
+C\+T\+\_\+\+Union&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{C\+T\+\_\+\+Class@{C\+T\+\_\+\+Class}!ab\+\_\+parser.\+h@{ab\+\_\+parser.\+h}}\index{ab\+\_\+parser.\+h@{ab\+\_\+parser.\+h}!C\+T\+\_\+\+Class@{C\+T\+\_\+\+Class}}}\mbox{\Hypertarget{ab__parser_8h_ac9039717ce4cccacf493ee306650a423a48f97ab3d4222611634d568b2b11fd9f}\label{ab__parser_8h_ac9039717ce4cccacf493ee306650a423a48f97ab3d4222611634d568b2b11fd9f}} 
+C\+T\+\_\+\+Class&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{C\+T\+\_\+\+Enum@{C\+T\+\_\+\+Enum}!ab\+\_\+parser.\+h@{ab\+\_\+parser.\+h}}\index{ab\+\_\+parser.\+h@{ab\+\_\+parser.\+h}!C\+T\+\_\+\+Enum@{C\+T\+\_\+\+Enum}}}\mbox{\Hypertarget{ab__parser_8h_ac9039717ce4cccacf493ee306650a423a45908c6d305646ca2e5e6395752c91d3}\label{ab__parser_8h_ac9039717ce4cccacf493ee306650a423a45908c6d305646ca2e5e6395752c91d3}} 
+C\+T\+\_\+\+Enum&\\
+\hline
+
+\end{DoxyEnumFields}
+
+
+\subsection{Function Documentation}
+\mbox{\Hypertarget{ab__parser_8h_a2087ae02cf60801129cd945b8a053a01}\label{ab__parser_8h_a2087ae02cf60801129cd945b8a053a01}} 
+\index{ab\+\_\+parser.\+h@{ab\+\_\+parser.\+h}!Parse\+Tag@{Parse\+Tag}}
+\index{Parse\+Tag@{Parse\+Tag}!ab\+\_\+parser.\+h@{ab\+\_\+parser.\+h}}
+\subsubsection{\texorpdfstring{Parse\+Tag()}{ParseTag()}}
+{\footnotesize\ttfamily \hyperlink{structtag}{tag} Parse\+Tag (\begin{DoxyParamCaption}\item[{\hyperlink{structlexer}{lexer} $\ast$}]{Lexer,  }\item[{\hyperlink{structparser}{parser} $\ast$}]{Parser }\end{DoxyParamCaption})}
+

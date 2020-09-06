@@ -1,0 +1,70 @@
+\hypertarget{AmsJson_8cpp}{}\section{Ams\+Json.\+cpp File Reference}
+\label{AmsJson_8cpp}\index{Ams\+Json.\+cpp@{Ams\+Json.\+cpp}}
+{\ttfamily \#include \char`\"{}jsmn.\+h\char`\"{}}\newline
+Include dependency graph for Ams\+Json.\+cpp\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=157pt]{db/d40/AmsJson_8cpp__incl}
+\end{center}
+\end{figure}
+\subsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \hyperlink{AmsJson_8cpp_aeef9c3539ffb9ed912a2976b67b43d68}{J\+S\+M\+N\+\_\+\+H\+E\+A\+D\+ER}
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{ab__common_8h_ae9b1af5c037e57a98884758875d3a7c4}{s32} \hyperlink{AmsJson_8cpp_a2b3b6ac206a0ad8367ef1b795ae06d94}{Parse\+Json} (\hyperlink{structmemory__arena}{memory\+\_\+arena} $\ast$Volatile\+Memory, char const $\ast$Json, size\+\_\+t Json\+Length, \hyperlink{structjsmntok__t}{jsmntok\+\_\+t} $\ast$$\ast$Token\+Array)
+\item 
+\hyperlink{ab__common_8h_afaa62991928fb9fb18ff0db62a040aba}{u32} \hyperlink{AmsJson_8cpp_ab8ee50ded5a7a3e253b8f3216a357333}{Start\+Group} (char $\ast$Json, \hyperlink{ab__common_8h_afaa62991928fb9fb18ff0db62a040aba}{u32} Max\+Length)
+\item 
+\hyperlink{ab__common_8h_afaa62991928fb9fb18ff0db62a040aba}{u32} \hyperlink{AmsJson_8cpp_ade33aa1aa0ba6517a4cc1e6a687491b2}{End\+Group} (char $\ast$Json, \hyperlink{ab__common_8h_afaa62991928fb9fb18ff0db62a040aba}{u32} Max\+Length, \hyperlink{ab__common_8h_a70e369648385b50f2d0588e8e8745275}{b8} is\+Last=false)
+\item 
+stringptr \hyperlink{AmsJson_8cpp_afa4c116ebea35d7148e95c389ef7641f}{Token\+To\+String\+Ptr} (char const $\ast$Json, \hyperlink{structjsmntok__t}{jsmntok\+\_\+t} $\ast$Token)
+\item 
+\hyperlink{ab__common_8h_a70e369648385b50f2d0588e8e8745275}{b8} \hyperlink{AmsJson_8cpp_adc0dbd5f4b093577ebd0b4e252e17731}{Token\+Equals} (char const $\ast$Json, \hyperlink{structjsmntok__t}{jsmntok\+\_\+t} $\ast$Token, char const $\ast$Value)
+\end{DoxyCompactItemize}
+
+
+\subsection{Macro Definition Documentation}
+\mbox{\Hypertarget{AmsJson_8cpp_aeef9c3539ffb9ed912a2976b67b43d68}\label{AmsJson_8cpp_aeef9c3539ffb9ed912a2976b67b43d68}} 
+\index{Ams\+Json.\+cpp@{Ams\+Json.\+cpp}!J\+S\+M\+N\+\_\+\+H\+E\+A\+D\+ER@{J\+S\+M\+N\+\_\+\+H\+E\+A\+D\+ER}}
+\index{J\+S\+M\+N\+\_\+\+H\+E\+A\+D\+ER@{J\+S\+M\+N\+\_\+\+H\+E\+A\+D\+ER}!Ams\+Json.\+cpp@{Ams\+Json.\+cpp}}
+\subsubsection{\texorpdfstring{J\+S\+M\+N\+\_\+\+H\+E\+A\+D\+ER}{JSMN\_HEADER}}
+{\footnotesize\ttfamily \#define J\+S\+M\+N\+\_\+\+H\+E\+A\+D\+ER}
+
+
+
+\subsection{Function Documentation}
+\mbox{\Hypertarget{AmsJson_8cpp_ade33aa1aa0ba6517a4cc1e6a687491b2}\label{AmsJson_8cpp_ade33aa1aa0ba6517a4cc1e6a687491b2}} 
+\index{Ams\+Json.\+cpp@{Ams\+Json.\+cpp}!End\+Group@{End\+Group}}
+\index{End\+Group@{End\+Group}!Ams\+Json.\+cpp@{Ams\+Json.\+cpp}}
+\subsubsection{\texorpdfstring{End\+Group()}{EndGroup()}}
+{\footnotesize\ttfamily \hyperlink{ab__common_8h_afaa62991928fb9fb18ff0db62a040aba}{u32} End\+Group (\begin{DoxyParamCaption}\item[{char $\ast$}]{Json,  }\item[{\hyperlink{ab__common_8h_afaa62991928fb9fb18ff0db62a040aba}{u32}}]{Max\+Length,  }\item[{\hyperlink{ab__common_8h_a70e369648385b50f2d0588e8e8745275}{b8}}]{is\+Last = {\ttfamily false} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\mbox{\Hypertarget{AmsJson_8cpp_a2b3b6ac206a0ad8367ef1b795ae06d94}\label{AmsJson_8cpp_a2b3b6ac206a0ad8367ef1b795ae06d94}} 
+\index{Ams\+Json.\+cpp@{Ams\+Json.\+cpp}!Parse\+Json@{Parse\+Json}}
+\index{Parse\+Json@{Parse\+Json}!Ams\+Json.\+cpp@{Ams\+Json.\+cpp}}
+\subsubsection{\texorpdfstring{Parse\+Json()}{ParseJson()}}
+{\footnotesize\ttfamily \hyperlink{ab__common_8h_ae9b1af5c037e57a98884758875d3a7c4}{s32} Parse\+Json (\begin{DoxyParamCaption}\item[{\hyperlink{structmemory__arena}{memory\+\_\+arena} $\ast$}]{Volatile\+Memory,  }\item[{char const $\ast$}]{Json,  }\item[{size\+\_\+t}]{Json\+Length,  }\item[{\hyperlink{structjsmntok__t}{jsmntok\+\_\+t} $\ast$$\ast$}]{Token\+Array }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\mbox{\Hypertarget{AmsJson_8cpp_ab8ee50ded5a7a3e253b8f3216a357333}\label{AmsJson_8cpp_ab8ee50ded5a7a3e253b8f3216a357333}} 
+\index{Ams\+Json.\+cpp@{Ams\+Json.\+cpp}!Start\+Group@{Start\+Group}}
+\index{Start\+Group@{Start\+Group}!Ams\+Json.\+cpp@{Ams\+Json.\+cpp}}
+\subsubsection{\texorpdfstring{Start\+Group()}{StartGroup()}}
+{\footnotesize\ttfamily \hyperlink{ab__common_8h_afaa62991928fb9fb18ff0db62a040aba}{u32} Start\+Group (\begin{DoxyParamCaption}\item[{char $\ast$}]{Json,  }\item[{\hyperlink{ab__common_8h_afaa62991928fb9fb18ff0db62a040aba}{u32}}]{Max\+Length }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\mbox{\Hypertarget{AmsJson_8cpp_adc0dbd5f4b093577ebd0b4e252e17731}\label{AmsJson_8cpp_adc0dbd5f4b093577ebd0b4e252e17731}} 
+\index{Ams\+Json.\+cpp@{Ams\+Json.\+cpp}!Token\+Equals@{Token\+Equals}}
+\index{Token\+Equals@{Token\+Equals}!Ams\+Json.\+cpp@{Ams\+Json.\+cpp}}
+\subsubsection{\texorpdfstring{Token\+Equals()}{TokenEquals()}}
+{\footnotesize\ttfamily \hyperlink{ab__common_8h_a70e369648385b50f2d0588e8e8745275}{b8} Token\+Equals (\begin{DoxyParamCaption}\item[{char const $\ast$}]{Json,  }\item[{\hyperlink{structjsmntok__t}{jsmntok\+\_\+t} $\ast$}]{Token,  }\item[{char const $\ast$}]{Value }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\mbox{\Hypertarget{AmsJson_8cpp_afa4c116ebea35d7148e95c389ef7641f}\label{AmsJson_8cpp_afa4c116ebea35d7148e95c389ef7641f}} 
+\index{Ams\+Json.\+cpp@{Ams\+Json.\+cpp}!Token\+To\+String\+Ptr@{Token\+To\+String\+Ptr}}
+\index{Token\+To\+String\+Ptr@{Token\+To\+String\+Ptr}!Ams\+Json.\+cpp@{Ams\+Json.\+cpp}}
+\subsubsection{\texorpdfstring{Token\+To\+String\+Ptr()}{TokenToStringPtr()}}
+{\footnotesize\ttfamily stringptr Token\+To\+String\+Ptr (\begin{DoxyParamCaption}\item[{char const $\ast$}]{Json,  }\item[{\hyperlink{structjsmntok__t}{jsmntok\+\_\+t} $\ast$}]{Token }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+

@@ -1,0 +1,132 @@
+\hypertarget{stb__sprintf_8h}{}\section{stb\+\_\+sprintf.\+h File Reference}
+\label{stb__sprintf_8h}\index{stb\+\_\+sprintf.\+h@{stb\+\_\+sprintf.\+h}}
+{\ttfamily \#include $<$stdarg.\+h$>$}\newline
+{\ttfamily \#include $<$stddef.\+h$>$}\newline
+Include dependency graph for stb\+\_\+sprintf.\+h\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=202pt]{d3/d5a/stb__sprintf_8h__incl}
+\end{center}
+\end{figure}
+This graph shows which files directly or indirectly include this file\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{d5/d27/stb__sprintf_8h__dep__incl}
+\end{center}
+\end{figure}
+\subsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \hyperlink{stb__sprintf_8h_a67d262a089dc14ede948d3f9124de268}{S\+T\+B\+S\+P\+\_\+\+\_\+\+A\+S\+AN}
+\item 
+\#define \hyperlink{stb__sprintf_8h_a5fcae98d41a743f93ac74ca23ab5151e}{S\+T\+B\+S\+P\+\_\+\+\_\+\+P\+U\+B\+L\+I\+C\+D\+EC}~extern
+\item 
+\#define \hyperlink{stb__sprintf_8h_a0385a47e69ebb16d03176b698bb6e10a}{S\+T\+B\+S\+P\+\_\+\+\_\+\+P\+U\+B\+L\+I\+C\+D\+EF}~\hyperlink{stb__sprintf_8h_a67d262a089dc14ede948d3f9124de268}{S\+T\+B\+S\+P\+\_\+\+\_\+\+A\+S\+AN}
+\item 
+\#define \hyperlink{stb__sprintf_8h_aedf994065406c4849a79e2ae349179f5}{S\+T\+B\+\_\+\+S\+P\+R\+I\+N\+T\+F\+\_\+\+M\+IN}~512
+\item 
+\#define \hyperlink{stb__sprintf_8h_a18552b475bbdaf624249ce1bc678ec73}{S\+T\+B\+\_\+\+S\+P\+R\+I\+N\+T\+F\+\_\+\+D\+E\+C\+O\+R\+A\+TE}(name)~stbsp\+\_\+\#\#name
+\end{DoxyCompactItemize}
+\subsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+typedef char $\ast$ \hyperlink{stb__sprintf_8h_ada44bf77a4307f367a78f6b517a80452}{S\+T\+B\+S\+P\+\_\+\+S\+P\+R\+I\+N\+T\+F\+CB}(const char $\ast$buf, void $\ast$user, int len)
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{stb__sprintf_8h_a0385a47e69ebb16d03176b698bb6e10a}{S\+T\+B\+S\+P\+\_\+\+\_\+\+P\+U\+B\+L\+I\+C\+D\+EF} int \hyperlink{stb__sprintf_8h_a18552b475bbdaf624249ce1bc678ec73}{S\+T\+B\+\_\+\+S\+P\+R\+I\+N\+T\+F\+\_\+\+D\+E\+C\+O\+R\+A\+TE}() \hyperlink{stb__sprintf_8h_a5921ee084282c796114454863ebdb987}{vsprintf} (char $\ast$buf, char const $\ast$fmt, va\+\_\+list va)
+\item 
+\hyperlink{stb__sprintf_8h_a0385a47e69ebb16d03176b698bb6e10a}{S\+T\+B\+S\+P\+\_\+\+\_\+\+P\+U\+B\+L\+I\+C\+D\+EF} int \hyperlink{stb__sprintf_8h_a18552b475bbdaf624249ce1bc678ec73}{S\+T\+B\+\_\+\+S\+P\+R\+I\+N\+T\+F\+\_\+\+D\+E\+C\+O\+R\+A\+TE}() \hyperlink{stb__sprintf_8h_a6e681f47bc63d07fa62ae4815e11cdcb}{vsnprintf} (char $\ast$buf, int count, char const $\ast$fmt, va\+\_\+list va)
+\item 
+\hyperlink{stb__sprintf_8h_a0385a47e69ebb16d03176b698bb6e10a}{S\+T\+B\+S\+P\+\_\+\+\_\+\+P\+U\+B\+L\+I\+C\+D\+EF} int \hyperlink{stb__sprintf_8h_a18552b475bbdaf624249ce1bc678ec73}{S\+T\+B\+\_\+\+S\+P\+R\+I\+N\+T\+F\+\_\+\+D\+E\+C\+O\+R\+A\+TE}() \hyperlink{stb__sprintf_8h_a2d6aad80f7f147a33c0378d381782312}{sprintf} (char $\ast$buf, char const $\ast$fmt,...)
+\item 
+\hyperlink{stb__sprintf_8h_a0385a47e69ebb16d03176b698bb6e10a}{S\+T\+B\+S\+P\+\_\+\+\_\+\+P\+U\+B\+L\+I\+C\+D\+EF} int \hyperlink{stb__sprintf_8h_a18552b475bbdaf624249ce1bc678ec73}{S\+T\+B\+\_\+\+S\+P\+R\+I\+N\+T\+F\+\_\+\+D\+E\+C\+O\+R\+A\+TE}() \hyperlink{stb__sprintf_8h_a26ad87ea10d61ad98d8c0acfcf6cd77d}{snprintf} (char $\ast$buf, int count, char const $\ast$fmt,...)
+\item 
+\hyperlink{stb__sprintf_8h_a0385a47e69ebb16d03176b698bb6e10a}{S\+T\+B\+S\+P\+\_\+\+\_\+\+P\+U\+B\+L\+I\+C\+D\+EF} int \hyperlink{stb__sprintf_8h_a18552b475bbdaf624249ce1bc678ec73}{S\+T\+B\+\_\+\+S\+P\+R\+I\+N\+T\+F\+\_\+\+D\+E\+C\+O\+R\+A\+TE}() \hyperlink{stb__sprintf_8h_a8b263c74f48c751e4918b1852fb06380}{vsprintfcb} (\hyperlink{stb__sprintf_8h_ada44bf77a4307f367a78f6b517a80452}{S\+T\+B\+S\+P\+\_\+\+S\+P\+R\+I\+N\+T\+F\+CB} $\ast$callback, void $\ast$user, char $\ast$buf, char const $\ast$fmt, va\+\_\+list va)
+\item 
+\hyperlink{stb__sprintf_8h_a0385a47e69ebb16d03176b698bb6e10a}{S\+T\+B\+S\+P\+\_\+\+\_\+\+P\+U\+B\+L\+I\+C\+D\+EF} void \hyperlink{stb__sprintf_8h_a18552b475bbdaf624249ce1bc678ec73}{S\+T\+B\+\_\+\+S\+P\+R\+I\+N\+T\+F\+\_\+\+D\+E\+C\+O\+R\+A\+TE}() \hyperlink{stb__sprintf_8h_af08e839fb85363c68c7b1eae942d2955}{set\+\_\+separators} (char comma, char period)
+\end{DoxyCompactItemize}
+
+
+\subsection{Macro Definition Documentation}
+\mbox{\Hypertarget{stb__sprintf_8h_a18552b475bbdaf624249ce1bc678ec73}\label{stb__sprintf_8h_a18552b475bbdaf624249ce1bc678ec73}} 
+\index{stb\+\_\+sprintf.\+h@{stb\+\_\+sprintf.\+h}!S\+T\+B\+\_\+\+S\+P\+R\+I\+N\+T\+F\+\_\+\+D\+E\+C\+O\+R\+A\+TE@{S\+T\+B\+\_\+\+S\+P\+R\+I\+N\+T\+F\+\_\+\+D\+E\+C\+O\+R\+A\+TE}}
+\index{S\+T\+B\+\_\+\+S\+P\+R\+I\+N\+T\+F\+\_\+\+D\+E\+C\+O\+R\+A\+TE@{S\+T\+B\+\_\+\+S\+P\+R\+I\+N\+T\+F\+\_\+\+D\+E\+C\+O\+R\+A\+TE}!stb\+\_\+sprintf.\+h@{stb\+\_\+sprintf.\+h}}
+\subsubsection{\texorpdfstring{S\+T\+B\+\_\+\+S\+P\+R\+I\+N\+T\+F\+\_\+\+D\+E\+C\+O\+R\+A\+TE}{STB\_SPRINTF\_DECORATE}}
+{\footnotesize\ttfamily \#define S\+T\+B\+\_\+\+S\+P\+R\+I\+N\+T\+F\+\_\+\+D\+E\+C\+O\+R\+A\+TE(\begin{DoxyParamCaption}\item[{}]{name }\end{DoxyParamCaption})~stbsp\+\_\+\#\#name}
+
+\mbox{\Hypertarget{stb__sprintf_8h_aedf994065406c4849a79e2ae349179f5}\label{stb__sprintf_8h_aedf994065406c4849a79e2ae349179f5}} 
+\index{stb\+\_\+sprintf.\+h@{stb\+\_\+sprintf.\+h}!S\+T\+B\+\_\+\+S\+P\+R\+I\+N\+T\+F\+\_\+\+M\+IN@{S\+T\+B\+\_\+\+S\+P\+R\+I\+N\+T\+F\+\_\+\+M\+IN}}
+\index{S\+T\+B\+\_\+\+S\+P\+R\+I\+N\+T\+F\+\_\+\+M\+IN@{S\+T\+B\+\_\+\+S\+P\+R\+I\+N\+T\+F\+\_\+\+M\+IN}!stb\+\_\+sprintf.\+h@{stb\+\_\+sprintf.\+h}}
+\subsubsection{\texorpdfstring{S\+T\+B\+\_\+\+S\+P\+R\+I\+N\+T\+F\+\_\+\+M\+IN}{STB\_SPRINTF\_MIN}}
+{\footnotesize\ttfamily \#define S\+T\+B\+\_\+\+S\+P\+R\+I\+N\+T\+F\+\_\+\+M\+IN~512}
+
+\mbox{\Hypertarget{stb__sprintf_8h_a67d262a089dc14ede948d3f9124de268}\label{stb__sprintf_8h_a67d262a089dc14ede948d3f9124de268}} 
+\index{stb\+\_\+sprintf.\+h@{stb\+\_\+sprintf.\+h}!S\+T\+B\+S\+P\+\_\+\+\_\+\+A\+S\+AN@{S\+T\+B\+S\+P\+\_\+\+\_\+\+A\+S\+AN}}
+\index{S\+T\+B\+S\+P\+\_\+\+\_\+\+A\+S\+AN@{S\+T\+B\+S\+P\+\_\+\+\_\+\+A\+S\+AN}!stb\+\_\+sprintf.\+h@{stb\+\_\+sprintf.\+h}}
+\subsubsection{\texorpdfstring{S\+T\+B\+S\+P\+\_\+\+\_\+\+A\+S\+AN}{STBSP\_\_ASAN}}
+{\footnotesize\ttfamily \#define S\+T\+B\+S\+P\+\_\+\+\_\+\+A\+S\+AN}
+
+\mbox{\Hypertarget{stb__sprintf_8h_a5fcae98d41a743f93ac74ca23ab5151e}\label{stb__sprintf_8h_a5fcae98d41a743f93ac74ca23ab5151e}} 
+\index{stb\+\_\+sprintf.\+h@{stb\+\_\+sprintf.\+h}!S\+T\+B\+S\+P\+\_\+\+\_\+\+P\+U\+B\+L\+I\+C\+D\+EC@{S\+T\+B\+S\+P\+\_\+\+\_\+\+P\+U\+B\+L\+I\+C\+D\+EC}}
+\index{S\+T\+B\+S\+P\+\_\+\+\_\+\+P\+U\+B\+L\+I\+C\+D\+EC@{S\+T\+B\+S\+P\+\_\+\+\_\+\+P\+U\+B\+L\+I\+C\+D\+EC}!stb\+\_\+sprintf.\+h@{stb\+\_\+sprintf.\+h}}
+\subsubsection{\texorpdfstring{S\+T\+B\+S\+P\+\_\+\+\_\+\+P\+U\+B\+L\+I\+C\+D\+EC}{STBSP\_\_PUBLICDEC}}
+{\footnotesize\ttfamily \#define S\+T\+B\+S\+P\+\_\+\+\_\+\+P\+U\+B\+L\+I\+C\+D\+EC~extern}
+
+\mbox{\Hypertarget{stb__sprintf_8h_a0385a47e69ebb16d03176b698bb6e10a}\label{stb__sprintf_8h_a0385a47e69ebb16d03176b698bb6e10a}} 
+\index{stb\+\_\+sprintf.\+h@{stb\+\_\+sprintf.\+h}!S\+T\+B\+S\+P\+\_\+\+\_\+\+P\+U\+B\+L\+I\+C\+D\+EF@{S\+T\+B\+S\+P\+\_\+\+\_\+\+P\+U\+B\+L\+I\+C\+D\+EF}}
+\index{S\+T\+B\+S\+P\+\_\+\+\_\+\+P\+U\+B\+L\+I\+C\+D\+EF@{S\+T\+B\+S\+P\+\_\+\+\_\+\+P\+U\+B\+L\+I\+C\+D\+EF}!stb\+\_\+sprintf.\+h@{stb\+\_\+sprintf.\+h}}
+\subsubsection{\texorpdfstring{S\+T\+B\+S\+P\+\_\+\+\_\+\+P\+U\+B\+L\+I\+C\+D\+EF}{STBSP\_\_PUBLICDEF}}
+{\footnotesize\ttfamily \#define S\+T\+B\+S\+P\+\_\+\+\_\+\+P\+U\+B\+L\+I\+C\+D\+EF~\hyperlink{stb__sprintf_8h_a67d262a089dc14ede948d3f9124de268}{S\+T\+B\+S\+P\+\_\+\+\_\+\+A\+S\+AN}}
+
+
+
+\subsection{Typedef Documentation}
+\mbox{\Hypertarget{stb__sprintf_8h_ada44bf77a4307f367a78f6b517a80452}\label{stb__sprintf_8h_ada44bf77a4307f367a78f6b517a80452}} 
+\index{stb\+\_\+sprintf.\+h@{stb\+\_\+sprintf.\+h}!S\+T\+B\+S\+P\+\_\+\+S\+P\+R\+I\+N\+T\+F\+CB@{S\+T\+B\+S\+P\+\_\+\+S\+P\+R\+I\+N\+T\+F\+CB}}
+\index{S\+T\+B\+S\+P\+\_\+\+S\+P\+R\+I\+N\+T\+F\+CB@{S\+T\+B\+S\+P\+\_\+\+S\+P\+R\+I\+N\+T\+F\+CB}!stb\+\_\+sprintf.\+h@{stb\+\_\+sprintf.\+h}}
+\subsubsection{\texorpdfstring{S\+T\+B\+S\+P\+\_\+\+S\+P\+R\+I\+N\+T\+F\+CB}{STBSP\_SPRINTFCB}}
+{\footnotesize\ttfamily typedef char$\ast$ S\+T\+B\+S\+P\+\_\+\+S\+P\+R\+I\+N\+T\+F\+CB(const char $\ast$buf, void $\ast$user, int len)}
+
+
+
+\subsection{Function Documentation}
+\mbox{\Hypertarget{stb__sprintf_8h_af08e839fb85363c68c7b1eae942d2955}\label{stb__sprintf_8h_af08e839fb85363c68c7b1eae942d2955}} 
+\index{stb\+\_\+sprintf.\+h@{stb\+\_\+sprintf.\+h}!set\+\_\+separators@{set\+\_\+separators}}
+\index{set\+\_\+separators@{set\+\_\+separators}!stb\+\_\+sprintf.\+h@{stb\+\_\+sprintf.\+h}}
+\subsubsection{\texorpdfstring{set\+\_\+separators()}{set\_separators()}}
+{\footnotesize\ttfamily \hyperlink{stb__sprintf_8h_a0385a47e69ebb16d03176b698bb6e10a}{S\+T\+B\+S\+P\+\_\+\+\_\+\+P\+U\+B\+L\+I\+C\+D\+EF} void \hyperlink{stb__sprintf_8h_a18552b475bbdaf624249ce1bc678ec73}{S\+T\+B\+\_\+\+S\+P\+R\+I\+N\+T\+F\+\_\+\+D\+E\+C\+O\+R\+A\+TE}() set\+\_\+separators (\begin{DoxyParamCaption}\item[{char}]{comma,  }\item[{char}]{period }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{stb__sprintf_8h_a26ad87ea10d61ad98d8c0acfcf6cd77d}\label{stb__sprintf_8h_a26ad87ea10d61ad98d8c0acfcf6cd77d}} 
+\index{stb\+\_\+sprintf.\+h@{stb\+\_\+sprintf.\+h}!snprintf@{snprintf}}
+\index{snprintf@{snprintf}!stb\+\_\+sprintf.\+h@{stb\+\_\+sprintf.\+h}}
+\subsubsection{\texorpdfstring{snprintf()}{snprintf()}}
+{\footnotesize\ttfamily \hyperlink{stb__sprintf_8h_a0385a47e69ebb16d03176b698bb6e10a}{S\+T\+B\+S\+P\+\_\+\+\_\+\+P\+U\+B\+L\+I\+C\+D\+EF} int \hyperlink{stb__sprintf_8h_a18552b475bbdaf624249ce1bc678ec73}{S\+T\+B\+\_\+\+S\+P\+R\+I\+N\+T\+F\+\_\+\+D\+E\+C\+O\+R\+A\+TE}() snprintf (\begin{DoxyParamCaption}\item[{char $\ast$}]{buf,  }\item[{int}]{count,  }\item[{char const $\ast$}]{fmt,  }\item[{}]{... }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{stb__sprintf_8h_a2d6aad80f7f147a33c0378d381782312}\label{stb__sprintf_8h_a2d6aad80f7f147a33c0378d381782312}} 
+\index{stb\+\_\+sprintf.\+h@{stb\+\_\+sprintf.\+h}!sprintf@{sprintf}}
+\index{sprintf@{sprintf}!stb\+\_\+sprintf.\+h@{stb\+\_\+sprintf.\+h}}
+\subsubsection{\texorpdfstring{sprintf()}{sprintf()}}
+{\footnotesize\ttfamily \hyperlink{stb__sprintf_8h_a0385a47e69ebb16d03176b698bb6e10a}{S\+T\+B\+S\+P\+\_\+\+\_\+\+P\+U\+B\+L\+I\+C\+D\+EF} int \hyperlink{stb__sprintf_8h_a18552b475bbdaf624249ce1bc678ec73}{S\+T\+B\+\_\+\+S\+P\+R\+I\+N\+T\+F\+\_\+\+D\+E\+C\+O\+R\+A\+TE}() sprintf (\begin{DoxyParamCaption}\item[{char $\ast$}]{buf,  }\item[{char const $\ast$}]{fmt,  }\item[{}]{... }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{stb__sprintf_8h_a6e681f47bc63d07fa62ae4815e11cdcb}\label{stb__sprintf_8h_a6e681f47bc63d07fa62ae4815e11cdcb}} 
+\index{stb\+\_\+sprintf.\+h@{stb\+\_\+sprintf.\+h}!vsnprintf@{vsnprintf}}
+\index{vsnprintf@{vsnprintf}!stb\+\_\+sprintf.\+h@{stb\+\_\+sprintf.\+h}}
+\subsubsection{\texorpdfstring{vsnprintf()}{vsnprintf()}}
+{\footnotesize\ttfamily \hyperlink{stb__sprintf_8h_a0385a47e69ebb16d03176b698bb6e10a}{S\+T\+B\+S\+P\+\_\+\+\_\+\+P\+U\+B\+L\+I\+C\+D\+EF} int \hyperlink{stb__sprintf_8h_a18552b475bbdaf624249ce1bc678ec73}{S\+T\+B\+\_\+\+S\+P\+R\+I\+N\+T\+F\+\_\+\+D\+E\+C\+O\+R\+A\+TE}() vsnprintf (\begin{DoxyParamCaption}\item[{char $\ast$}]{buf,  }\item[{int}]{count,  }\item[{char const $\ast$}]{fmt,  }\item[{va\+\_\+list}]{va }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{stb__sprintf_8h_a5921ee084282c796114454863ebdb987}\label{stb__sprintf_8h_a5921ee084282c796114454863ebdb987}} 
+\index{stb\+\_\+sprintf.\+h@{stb\+\_\+sprintf.\+h}!vsprintf@{vsprintf}}
+\index{vsprintf@{vsprintf}!stb\+\_\+sprintf.\+h@{stb\+\_\+sprintf.\+h}}
+\subsubsection{\texorpdfstring{vsprintf()}{vsprintf()}}
+{\footnotesize\ttfamily \hyperlink{stb__sprintf_8h_a0385a47e69ebb16d03176b698bb6e10a}{S\+T\+B\+S\+P\+\_\+\+\_\+\+P\+U\+B\+L\+I\+C\+D\+EF} int \hyperlink{stb__sprintf_8h_a18552b475bbdaf624249ce1bc678ec73}{S\+T\+B\+\_\+\+S\+P\+R\+I\+N\+T\+F\+\_\+\+D\+E\+C\+O\+R\+A\+TE}() vsprintf (\begin{DoxyParamCaption}\item[{char $\ast$}]{buf,  }\item[{char const $\ast$}]{fmt,  }\item[{va\+\_\+list}]{va }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{stb__sprintf_8h_a8b263c74f48c751e4918b1852fb06380}\label{stb__sprintf_8h_a8b263c74f48c751e4918b1852fb06380}} 
+\index{stb\+\_\+sprintf.\+h@{stb\+\_\+sprintf.\+h}!vsprintfcb@{vsprintfcb}}
+\index{vsprintfcb@{vsprintfcb}!stb\+\_\+sprintf.\+h@{stb\+\_\+sprintf.\+h}}
+\subsubsection{\texorpdfstring{vsprintfcb()}{vsprintfcb()}}
+{\footnotesize\ttfamily \hyperlink{stb__sprintf_8h_a0385a47e69ebb16d03176b698bb6e10a}{S\+T\+B\+S\+P\+\_\+\+\_\+\+P\+U\+B\+L\+I\+C\+D\+EF} int \hyperlink{stb__sprintf_8h_a18552b475bbdaf624249ce1bc678ec73}{S\+T\+B\+\_\+\+S\+P\+R\+I\+N\+T\+F\+\_\+\+D\+E\+C\+O\+R\+A\+TE}() vsprintfcb (\begin{DoxyParamCaption}\item[{\hyperlink{stb__sprintf_8h_ada44bf77a4307f367a78f6b517a80452}{S\+T\+B\+S\+P\+\_\+\+S\+P\+R\+I\+N\+T\+F\+CB} $\ast$}]{callback,  }\item[{void $\ast$}]{user,  }\item[{char $\ast$}]{buf,  }\item[{char const $\ast$}]{fmt,  }\item[{va\+\_\+list}]{va }\end{DoxyParamCaption})}
+

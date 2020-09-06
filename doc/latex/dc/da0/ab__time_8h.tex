@@ -1,0 +1,102 @@
+\hypertarget{ab__time_8h}{}\section{ab\+\_\+time.\+h File Reference}
+\label{ab__time_8h}\index{ab\+\_\+time.\+h@{ab\+\_\+time.\+h}}
+{\ttfamily \#include $<$time.\+h$>$}\newline
+{\ttfamily \#include \char`\"{}ab\+\_\+common.\+h\char`\"{}}\newline
+Include dependency graph for ab\+\_\+time.\+h\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=241pt]{d7/d95/ab__time_8h__incl}
+\end{center}
+\end{figure}
+This graph shows which files directly or indirectly include this file\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=160pt]{df/d0d/ab__time_8h__dep__incl}
+\end{center}
+\end{figure}
+\subsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+typedef timespec \hyperlink{ab__time_8h_adc59735fd0d20e93fe3016c8b6a4f782}{abt\+\_\+time}
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{ab__time_8h_a55589396a22562f4037d2817a579e82e}{abt\+\_\+\+Get\+Current} (\hyperlink{ab__time_8h_adc59735fd0d20e93fe3016c8b6a4f782}{abt\+\_\+time} $\ast$Now)
+\item 
+\hyperlink{ab__time_8h_adc59735fd0d20e93fe3016c8b6a4f782}{abt\+\_\+time} \hyperlink{ab__time_8h_a410389a8363dbb7453520927331297d0}{abt\+\_\+\+Get\+Current} ()
+\item 
+\hyperlink{ab__time_8h_adc59735fd0d20e93fe3016c8b6a4f782}{abt\+\_\+time} \hyperlink{ab__time_8h_ad401e90e9886fe9e1fb5f49f2b11d8c0}{abt\+\_\+\+Get\+Monotonic} ()
+\item 
+\hyperlink{ab__common_8h_afaa62991928fb9fb18ff0db62a040aba}{u32} \hyperlink{ab__time_8h_ad3ab740dfcc9875efe4b1721fd374db4}{abt\+\_\+\+Get\+Elapsed\+Ms\+U32} (\hyperlink{ab__time_8h_adc59735fd0d20e93fe3016c8b6a4f782}{abt\+\_\+time} Start\+Time, \hyperlink{ab__time_8h_adc59735fd0d20e93fe3016c8b6a4f782}{abt\+\_\+time} Now)
+\item 
+\hyperlink{ab__common_8h_aafa04bc3cb166e826b75a23f4add4b59}{r32} \hyperlink{ab__time_8h_a9834c3b5b55da0fe4ae280550cf5d97f}{abt\+\_\+\+Get\+Elapsed\+Ms\+R32} (\hyperlink{ab__time_8h_adc59735fd0d20e93fe3016c8b6a4f782}{abt\+\_\+time} Start\+Time, \hyperlink{ab__time_8h_adc59735fd0d20e93fe3016c8b6a4f782}{abt\+\_\+time} Now)
+\item 
+\hyperlink{ab__time_8h_adc59735fd0d20e93fe3016c8b6a4f782}{abt\+\_\+time} \hyperlink{ab__time_8h_a126f380942c7e3e87802634893590928}{abt\+\_\+\+Get\+Wall\+Clock\+From\+Elapsed} (\hyperlink{ab__time_8h_adc59735fd0d20e93fe3016c8b6a4f782}{abt\+\_\+time} Start\+Time, \hyperlink{ab__common_8h_aafa04bc3cb166e826b75a23f4add4b59}{r32} Timestamp\+Ms)
+\item 
+\hyperlink{ab__common_8h_afaa62991928fb9fb18ff0db62a040aba}{u32} \hyperlink{ab__time_8h_ab8ae3038f353a3a59bc79abf35dcb4a4}{abt\+\_\+\+Get\+Ms\+From\+Time\+U32} (\hyperlink{ab__time_8h_adc59735fd0d20e93fe3016c8b6a4f782}{abt\+\_\+time} Time)
+\item 
+\hyperlink{ab__common_8h_afaa62991928fb9fb18ff0db62a040aba}{u32} \hyperlink{ab__time_8h_a05feba1d586786dad132d87c70acf336}{abt\+\_\+\+Get\+Ms\+From\+Time32} (\hyperlink{ab__time_8h_adc59735fd0d20e93fe3016c8b6a4f782}{abt\+\_\+time} Time)
+\end{DoxyCompactItemize}
+
+
+\subsection{Typedef Documentation}
+\mbox{\Hypertarget{ab__time_8h_adc59735fd0d20e93fe3016c8b6a4f782}\label{ab__time_8h_adc59735fd0d20e93fe3016c8b6a4f782}} 
+\index{ab\+\_\+time.\+h@{ab\+\_\+time.\+h}!abt\+\_\+time@{abt\+\_\+time}}
+\index{abt\+\_\+time@{abt\+\_\+time}!ab\+\_\+time.\+h@{ab\+\_\+time.\+h}}
+\subsubsection{\texorpdfstring{abt\+\_\+time}{abt\_time}}
+{\footnotesize\ttfamily typedef timespec \hyperlink{ab__time_8h_adc59735fd0d20e93fe3016c8b6a4f782}{abt\+\_\+time}}
+
+
+
+\subsection{Function Documentation}
+\mbox{\Hypertarget{ab__time_8h_a55589396a22562f4037d2817a579e82e}\label{ab__time_8h_a55589396a22562f4037d2817a579e82e}} 
+\index{ab\+\_\+time.\+h@{ab\+\_\+time.\+h}!abt\+\_\+\+Get\+Current@{abt\+\_\+\+Get\+Current}}
+\index{abt\+\_\+\+Get\+Current@{abt\+\_\+\+Get\+Current}!ab\+\_\+time.\+h@{ab\+\_\+time.\+h}}
+\subsubsection{\texorpdfstring{abt\+\_\+\+Get\+Current()}{abt\_GetCurrent()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily void abt\+\_\+\+Get\+Current (\begin{DoxyParamCaption}\item[{\hyperlink{ab__time_8h_adc59735fd0d20e93fe3016c8b6a4f782}{abt\+\_\+time} $\ast$}]{Now }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{ab__time_8h_a410389a8363dbb7453520927331297d0}\label{ab__time_8h_a410389a8363dbb7453520927331297d0}} 
+\index{ab\+\_\+time.\+h@{ab\+\_\+time.\+h}!abt\+\_\+\+Get\+Current@{abt\+\_\+\+Get\+Current}}
+\index{abt\+\_\+\+Get\+Current@{abt\+\_\+\+Get\+Current}!ab\+\_\+time.\+h@{ab\+\_\+time.\+h}}
+\subsubsection{\texorpdfstring{abt\+\_\+\+Get\+Current()}{abt\_GetCurrent()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \hyperlink{ab__time_8h_adc59735fd0d20e93fe3016c8b6a4f782}{abt\+\_\+time} abt\+\_\+\+Get\+Current (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{ab__time_8h_a9834c3b5b55da0fe4ae280550cf5d97f}\label{ab__time_8h_a9834c3b5b55da0fe4ae280550cf5d97f}} 
+\index{ab\+\_\+time.\+h@{ab\+\_\+time.\+h}!abt\+\_\+\+Get\+Elapsed\+Ms\+R32@{abt\+\_\+\+Get\+Elapsed\+Ms\+R32}}
+\index{abt\+\_\+\+Get\+Elapsed\+Ms\+R32@{abt\+\_\+\+Get\+Elapsed\+Ms\+R32}!ab\+\_\+time.\+h@{ab\+\_\+time.\+h}}
+\subsubsection{\texorpdfstring{abt\+\_\+\+Get\+Elapsed\+Ms\+R32()}{abt\_GetElapsedMsR32()}}
+{\footnotesize\ttfamily \hyperlink{ab__common_8h_aafa04bc3cb166e826b75a23f4add4b59}{r32} abt\+\_\+\+Get\+Elapsed\+Ms\+R32 (\begin{DoxyParamCaption}\item[{\hyperlink{ab__time_8h_adc59735fd0d20e93fe3016c8b6a4f782}{abt\+\_\+time}}]{Start\+Time,  }\item[{\hyperlink{ab__time_8h_adc59735fd0d20e93fe3016c8b6a4f782}{abt\+\_\+time}}]{Now }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{ab__time_8h_ad3ab740dfcc9875efe4b1721fd374db4}\label{ab__time_8h_ad3ab740dfcc9875efe4b1721fd374db4}} 
+\index{ab\+\_\+time.\+h@{ab\+\_\+time.\+h}!abt\+\_\+\+Get\+Elapsed\+Ms\+U32@{abt\+\_\+\+Get\+Elapsed\+Ms\+U32}}
+\index{abt\+\_\+\+Get\+Elapsed\+Ms\+U32@{abt\+\_\+\+Get\+Elapsed\+Ms\+U32}!ab\+\_\+time.\+h@{ab\+\_\+time.\+h}}
+\subsubsection{\texorpdfstring{abt\+\_\+\+Get\+Elapsed\+Ms\+U32()}{abt\_GetElapsedMsU32()}}
+{\footnotesize\ttfamily \hyperlink{ab__common_8h_afaa62991928fb9fb18ff0db62a040aba}{u32} abt\+\_\+\+Get\+Elapsed\+Ms\+U32 (\begin{DoxyParamCaption}\item[{\hyperlink{ab__time_8h_adc59735fd0d20e93fe3016c8b6a4f782}{abt\+\_\+time}}]{Start\+Time,  }\item[{\hyperlink{ab__time_8h_adc59735fd0d20e93fe3016c8b6a4f782}{abt\+\_\+time}}]{Now }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{ab__time_8h_ad401e90e9886fe9e1fb5f49f2b11d8c0}\label{ab__time_8h_ad401e90e9886fe9e1fb5f49f2b11d8c0}} 
+\index{ab\+\_\+time.\+h@{ab\+\_\+time.\+h}!abt\+\_\+\+Get\+Monotonic@{abt\+\_\+\+Get\+Monotonic}}
+\index{abt\+\_\+\+Get\+Monotonic@{abt\+\_\+\+Get\+Monotonic}!ab\+\_\+time.\+h@{ab\+\_\+time.\+h}}
+\subsubsection{\texorpdfstring{abt\+\_\+\+Get\+Monotonic()}{abt\_GetMonotonic()}}
+{\footnotesize\ttfamily \hyperlink{ab__time_8h_adc59735fd0d20e93fe3016c8b6a4f782}{abt\+\_\+time} abt\+\_\+\+Get\+Monotonic (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{ab__time_8h_a05feba1d586786dad132d87c70acf336}\label{ab__time_8h_a05feba1d586786dad132d87c70acf336}} 
+\index{ab\+\_\+time.\+h@{ab\+\_\+time.\+h}!abt\+\_\+\+Get\+Ms\+From\+Time32@{abt\+\_\+\+Get\+Ms\+From\+Time32}}
+\index{abt\+\_\+\+Get\+Ms\+From\+Time32@{abt\+\_\+\+Get\+Ms\+From\+Time32}!ab\+\_\+time.\+h@{ab\+\_\+time.\+h}}
+\subsubsection{\texorpdfstring{abt\+\_\+\+Get\+Ms\+From\+Time32()}{abt\_GetMsFromTime32()}}
+{\footnotesize\ttfamily \hyperlink{ab__common_8h_afaa62991928fb9fb18ff0db62a040aba}{u32} abt\+\_\+\+Get\+Ms\+From\+Time32 (\begin{DoxyParamCaption}\item[{\hyperlink{ab__time_8h_adc59735fd0d20e93fe3016c8b6a4f782}{abt\+\_\+time}}]{Time }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\mbox{\Hypertarget{ab__time_8h_ab8ae3038f353a3a59bc79abf35dcb4a4}\label{ab__time_8h_ab8ae3038f353a3a59bc79abf35dcb4a4}} 
+\index{ab\+\_\+time.\+h@{ab\+\_\+time.\+h}!abt\+\_\+\+Get\+Ms\+From\+Time\+U32@{abt\+\_\+\+Get\+Ms\+From\+Time\+U32}}
+\index{abt\+\_\+\+Get\+Ms\+From\+Time\+U32@{abt\+\_\+\+Get\+Ms\+From\+Time\+U32}!ab\+\_\+time.\+h@{ab\+\_\+time.\+h}}
+\subsubsection{\texorpdfstring{abt\+\_\+\+Get\+Ms\+From\+Time\+U32()}{abt\_GetMsFromTimeU32()}}
+{\footnotesize\ttfamily \hyperlink{ab__common_8h_afaa62991928fb9fb18ff0db62a040aba}{u32} abt\+\_\+\+Get\+Ms\+From\+Time\+U32 (\begin{DoxyParamCaption}\item[{\hyperlink{ab__time_8h_adc59735fd0d20e93fe3016c8b6a4f782}{abt\+\_\+time}}]{Time }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\mbox{\Hypertarget{ab__time_8h_a126f380942c7e3e87802634893590928}\label{ab__time_8h_a126f380942c7e3e87802634893590928}} 
+\index{ab\+\_\+time.\+h@{ab\+\_\+time.\+h}!abt\+\_\+\+Get\+Wall\+Clock\+From\+Elapsed@{abt\+\_\+\+Get\+Wall\+Clock\+From\+Elapsed}}
+\index{abt\+\_\+\+Get\+Wall\+Clock\+From\+Elapsed@{abt\+\_\+\+Get\+Wall\+Clock\+From\+Elapsed}!ab\+\_\+time.\+h@{ab\+\_\+time.\+h}}
+\subsubsection{\texorpdfstring{abt\+\_\+\+Get\+Wall\+Clock\+From\+Elapsed()}{abt\_GetWallClockFromElapsed()}}
+{\footnotesize\ttfamily \hyperlink{ab__time_8h_adc59735fd0d20e93fe3016c8b6a4f782}{abt\+\_\+time} abt\+\_\+\+Get\+Wall\+Clock\+From\+Elapsed (\begin{DoxyParamCaption}\item[{\hyperlink{ab__time_8h_adc59735fd0d20e93fe3016c8b6a4f782}{abt\+\_\+time}}]{Start\+Time,  }\item[{\hyperlink{ab__common_8h_aafa04bc3cb166e826b75a23f4add4b59}{r32}}]{Timestamp\+Ms }\end{DoxyParamCaption})}
+

@@ -1,9 +1,57 @@
+/** @file
+   @brief Enum Class Tags
+   @author Amos Buchanan
+   @version 1.0
+   @date 2020
+   @copyright [MIT Public License](https://opensource.org/licenses/MIT)
+
+   This is the source file for the tags used in enum class. All enum class tag definitions go here. There are no tags for C-style enums; any C-style enums with a TAG() will be ignored.
+
+   See the @ref index "Readme.md" file for more information on usage.
+
+   To add a new tag:
+   - Write a function to create the header and function portion of the enums.
+   - Update the @ref ProcessEnums function with the tag and new function.
+
+ # MIT License
+
+https://opensource.org/licenses/MIT
+
+   Copyright 2020 Amos Buchanan
+
+   Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
+
+   The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
+
+   THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+ **/
+
 #include "ab_parser.h"
 #include "ab_lexer.h"
 
+/**
+   @brief JSON tag processing.
+
+   This function processes the JSON tag. Usage:
+
+~~~c
+   TAG(JSON);
+   enum class SomeEnum
+   {
+    One,
+    Two,
+    Three
+   };
+~~~
+
+ */
+
 void
-CreateEnumJson(term_enum *Enum, tag *Tag,
-               memory_arena *Memory, output_data *DefinitionsOut, output_data *FunctionsOut)
+CreateEnumJson(term_enum *Enum,
+               tag *Tag,
+               memory_arena *Memory,
+               output_data *DefinitionsOut,
+               output_data *FunctionsOut)
 {
     temporary_memory TempMem = abm_BeginTemporaryMemory(Memory);
     const u32 MaxSectionSize = Kilobytes(5);
@@ -17,16 +65,61 @@ CreateEnumJson(term_enum *Enum, tag *Tag,
     
     if(Enum->ItemCount > 0)
     {
-        // NOTE(amos): the Unused item is so it matches the signature of the struct JSON.
-        HeaderCount += stbsp_snprintf(&HeaderScratch[HeaderCount], (MaxSectionSize - HeaderCount),
-                                      "#ifdef GEN_JSMN_HEADER\n"
-                                      "jsmntok_t *JsonToObject(memory_arena *VolatileMemory, char const *Json, size_t JsonLength, jsmntok_t *TokenArray, %.*s *ObjectOut, u32 Unused);\n",
-                                      Enum->Name.Length, Enum->Name.String);
+        WriteToOutput(DefinitionsOut, Memory,
+                      "#ifdef GEN_JSMN_HEADER\n");
+        
+        WriteToOutput(DefinitionsOut, Memory,
+                      "/** @brief Convert a JSON string to a %.*s enum.\n"
+                      "\n"
+                      "This function converts a given JSON string to an enum. Most often, this is called while parsing a struct JSON string. Example:\n"
+                      "\n"
+                      "~~~json\n"
+                      "\"{ \"SomeTagName\": \"%.*s\" }\"\n"
+                      "~~~\n"
+                      "\n"
+                      "will set ObjectOut to `%.*s::%.*s`. This function is usually called by the struct version of JsonToObject, rather than being called directly. \n"
+                      "if this enum is part of a struct.\n"
+                      "\n"
+                      "This function relies on the `Strings` tag to do the String To Enum conversion.\n"
+                      "@param VolatileMemory Memory that is used and is expected to be released elsewhere.\n"
+                      "@param Json The JSON string to parse.\n"
+                      "@param JsonLength The length of the Json String.\n"
+                      "@param TokenArray Set to NULL. This is used when parsing JSON structs.\n"
+                      "@param[out] ObjectOut This is the enum that was parsed.\n"
+                      "@param Unused This input is ignored; it is used in parsing JSON structs.\n"
+                      "@return Returns token array for the number of unused tokens in the JSON string.\n"
+                      "**/\n"
+                      "jsmntok_t *JsonToObject(memory_arena *VolatileMemory, char const *Json, size_t JsonLength, jsmntok_t *TokenArray, %.*s *ObjectOut, u32 Unused);\n",
+                      PSTRING(Enum->Name),
+                      PSTRING(Enum->ItemListSentinal.Next->Name),
+                      PSTRING(Enum->Name),
+                      PSTRING(Enum->ItemListSentinal.Next->Name),
+                      PSTRING(Enum->Name));
         
         HeaderCount += stbsp_snprintf(&HeaderScratch[HeaderCount], (MaxSectionSize - HeaderCount),
-                                      "u32\n"
+                                      "/** @brief Create a JSON string from a %.*s enum.\n"
+                                      "\n"
+                                      "This creates a JSON string from a given enum, in the form:\n"
+                                      "\n"
+                                      "~~~json\n"
+                                      "{ \"SomeTag\":\"%.*s\" }\n"
+                                      "~~~\n"
+                                      "\n"
+                                      "This function is usually called from the struct version JsonToObject. \n"
+                                      "\n"
+                                      "@param Json A string buffer to write the JSON to.\n"
+                                      "@param MaxLength The maximum length that may be written to the buffer.\n"
+                                      "@param Tag The tag or variable name to use for the JSON. (eg 'SomeTag')\n"
+                                      "@param Type The enum to convert to JSON.\n"
+                                      "@param JsonFlags Or'd list of flags. See @ref json_flags in @ref ab_json.h. \n"
+                                      "@return Number of characters written to the buffer, not including the null character.\n"
+                                      "**/\n"
+                                      "u32 "
                                       "PushJson(char *Json, u32 MaxLength, char const *Tag, %.*s Type, u32 JsonFlags);\n",
-                                      Enum->Name.Length, Enum->Name.String);
+                                      PSTRING(Enum->Name),
+                                      PSTRING(Enum->ItemListSentinal.Next->Name),
+                                      PSTRING(Enum->Name));
+        
         
         HeaderCount += stbsp_snprintf(&HeaderScratch[HeaderCount], (MaxSectionSize - HeaderCount),
                                       "#endif\n\n");
@@ -98,7 +191,29 @@ CreateEnumJson(term_enum *Enum, tag *Tag,
         CopyToOutput(FunctionsOut, Memory, FunctionScratch);
         abm_EndTemporaryMemory(TempMem);
     }
-}
+} // CreateEnumJson
+
+/**
+   @brief Enum Label processing.
+
+   This function processes enums for the Label tag.
+
+   Usage:
+
+~~~c
+   TAG(Label:Number);
+   enum class SomeEnum
+   {
+   TAG(Number:"1 - One")
+    One,
+   TAG(Number:"2 - Two")
+    Two,
+   TAG(Number:"3 - Three")
+    Three
+   };
+~~~
+
+ **/
 
 void
 CreateEnumLabels(term_enum *Enum, tag *LabelTag, memory_arena *Memory, output_data *DefinitionsOut, output_data *FunctionsOut)
@@ -115,11 +230,18 @@ CreateEnumLabels(term_enum *Enum, tag *LabelTag, memory_arena *Memory, output_da
     
     if(Enum->ItemCount > 0)
     {
-        /**
-const char *<Enum>Label_<Short> = {};
-const char *<Enum>ToLabelShort(<Enum>);
-**/
+        /*
+           const char *<Enum>Label_<Short> = {};
+           const char *<Enum>ToLabelShort(<Enum>);
+         */
         HeaderCount += stbsp_snprintf(&HeaderScratch[HeaderCount], (MaxSectionSize - HeaderCount),
+                                      "/** @brief Return a null-terminated string text for the defined label based on the enum.\n"
+                                      "\n"
+                                      "Labels are defined as part of the enum definition, see [the readme](@ref index) for information on how to create the labels.\n"
+                                      "\n"
+                                      "@param EnumToken The enum to convert.\n"
+                                      "@return A null-terminated const string.\n"
+                                      "**/\n"
                                       "const char *EnumToLabel_%.*s(%.*s EnumToken);\n"
                                       "//const char * %.*s_Label%.*s[%.*s_Count];\n",
                                       LabelTag->Option.Length, LabelTag->Option.String,
@@ -185,11 +307,35 @@ const char *<Enum>ToLabelShort(<Enum>);
         
     }
     abm_EndTemporaryMemory(TempMem);
-}
+} // CreateEnumLabels
 
+
+
+/**
+   @brief Enum Strings TAG processing.
+
+   This function processes enums for the Strings tag.
+
+   Usage:
+
+~~~c
+   TAG(Strings);
+   enum class SomeEnum
+   {
+    Unknown,
+    One,
+    Two,
+    Three
+   };
+~~~
+
+ **/
 void
-CreateEnumStrings(term_enum *Enum, tag *Tag,
-                  memory_arena *Memory, output_data *DefinitionsOut, output_data *FunctionsOut)
+CreateEnumStrings(term_enum *Enum,
+                  tag *Tag,
+                  memory_arena *Memory,
+                  output_data *DefinitionsOut,
+                  output_data *FunctionsOut)
 {
     temporary_memory TempMem = abm_BeginTemporaryMemory(Memory);
     const u32 MaxSectionSize = Kilobytes(10);
@@ -203,19 +349,63 @@ CreateEnumStrings(term_enum *Enum, tag *Tag,
     
     if(Enum->ItemCount > 0)
     {
-        HeaderCount += stbsp_snprintf(&HeaderScratch[HeaderCount], (MaxSectionSize - HeaderCount),
-                                      "template<>\n"
-                                      "auto StringToEnum<%.*s>(const char *String) -> %.*s;\n"
-                                      "template<>\n"
-                                      "auto StringToEnum<%.*s>(abs_stringptr String) -> %.*s;\n"
-                                      "constexpr abs_stringptr EnumToString(%.*s EnumToken);\n"
-                                      "constexpr char const* EnumToCString(%.*s EnumToken);\n",
-                                      Enum->Name.Length, Enum->Name.String,
-                                      Enum->Name.Length, Enum->Name.String,
-                                      Enum->Name.Length, Enum->Name.String,
-                                      Enum->Name.Length, Enum->Name.String,
-                                      Enum->Name.Length, Enum->Name.String,
-                                      Enum->Name.Length, Enum->Name.String);
+        
+        WriteToOutput(DefinitionsOut, Memory, 
+                      "/** @brief Convert a char * c-style string to a %.*s enum. \n"
+                      "\n"
+                      "If the string does not correspond to any of the enums, it will return the first value of the enum: `%.*s::%.*s`.\n"
+                      "\n"
+                      "@param String A null terminated string\n"
+                      "@return A %.*s enum value.\n"
+                      "**/\n"
+                      "template<>\n"
+                      "auto StringToEnum<%.*s>(const char *String) -> %.*s;\n",
+                      PSTRING(Enum->Name),
+                      PSTRING(Enum->Name),
+                      PSTRING(Enum->ItemListSentinal.Next->Name),
+                      PSTRING(Enum->Name),
+                      PSTRING(Enum->Name),
+                      PSTRING(Enum->Name));
+        
+        WriteToOutput(DefinitionsOut, Memory,
+                      "/** @brief Convert a abs_stringptr string to a %.*s enum. \n"
+                      "\n"
+                      "If the string does not correspond to any of the enums, it will return the first value of the enum: `%.*s::%.*s`.\n"
+                      "\n"
+                      "@param String An abs_stringptr string.\n"
+                      "@return A %.*s enum value.\n"
+                      "**/\n"
+                      "template<>\n"
+                      "auto StringToEnum<%.*s>(abs_stringptr String) -> %.*s;\n",
+                      PSTRING(Enum->Name),
+                      PSTRING(Enum->Name),
+                      PSTRING(Enum->ItemListSentinal.Next->Name),
+                      PSTRING(Enum->Name),
+                      PSTRING(Enum->Name),
+                      PSTRING(Enum->Name),
+                      PSTRING(Enum->Name));
+        
+        WriteToOutput(DefinitionsOut, Memory,
+                      "/** @brief Return a abs_stringptr corresponding for the given %.*s enum.\n"
+                      "\n"
+                      "@param EnumToken The enum to convert to a string.\n"
+                      "@return A constant abs_stringptr.\n"
+                      "**/\n"
+                      "constexpr abs_stringptr EnumToString(%.*s EnumToken);\n",
+                      PSTRING(Enum->Name),
+                      PSTRING(Enum->Name));
+        
+        WriteToOutput(DefinitionsOut, Memory,
+                      "/** @brief Return a const char* null-terminated string for the given %.*s enum.\n"
+                      "\n"
+                      "@param EnumToken The enum to convert to a string.\n"
+                      "@return A null-terminated string\n"
+                      "**/\n"
+                      "constexpr char const* EnumToCString(%.*s EnumToken);\n",
+                      PSTRING(Enum->Name),
+                      PSTRING(Enum->Name));
+        
+        
         FunctionCount += stbsp_snprintf(&FunctionScratch[FunctionCount], (MaxSectionSize - FunctionCount),
                                         "constexpr abs_stringptr %.*s_Strings[%.*s_Count] = \n{\n",
                                         Enum->Name.Length, Enum->Name.String,
@@ -319,8 +509,13 @@ CreateEnumStrings(term_enum *Enum, tag *Tag,
         
     }
     abm_EndTemporaryMemory(TempMem);
-}
+} // CreateEnumStrings
 
+/**
+   @brief Process all enums.
+
+   Process all of the tags in the enums. This calls out to the individual functions for each tag.
+ **/
 void
 ProcessEnums(term_enum *EnumListSentinal, memory_arena *Memory, output_data *Headers, output_data *Definitions)
 {
@@ -333,9 +528,13 @@ ProcessEnums(term_enum *EnumListSentinal, memory_arena *Memory, output_data *Hea
         
         WriteToOutput(Headers, Memory,
                       "enum class %.*s;\n",
-                      Enum->Name.Length, Enum->Name.String);
-        WriteToOutput(Headers, Memory, "const u32 %.*s_Count = %u;\n",
-                      Enum->Name.Length, Enum->Name.String,
+                      PSTRING(Enum->Name),
+                      PSTRING(Enum->Name));
+        WriteToOutput(Headers, Memory, 
+                      "/** @brief Number of items in %.*s enum. **/\n"
+                      "const u32 %.*s_Count = %u;\n",
+                      PSTRING(Enum->Name),
+                      PSTRING(Enum->Name),
                       Enum->ItemCount);
         
         WriteToOutput(Definitions, Memory,
@@ -367,5 +566,5 @@ ProcessEnums(term_enum *EnumListSentinal, memory_arena *Memory, output_data *Hea
         
         Enum = Enum->Next;
     }
-}
+} // ProcessEnums
 

@@ -1,7 +1,50 @@
+/** @file
+   @brief Struct/Union Class Tags
+   @author Amos Buchanan
+   @version 1.0
+   @date 2020
+   @copyright [MIT Public License](https://opensource.org/licenses/MIT)
+
+   This is the source file for the tags used in structs and unions. All struct/union tag definitions go here. There is no difference between struct and union for this purpose.
+
+   See the @ref index "Readme.md" file for more information on usage.
+
+   To add a new tag:
+   - Write a function to create the header and function portion of the struct functions and definitions..
+   - Update the @ref ProcessStructs function with the tag and new function.
+
+ # MIT License
+
+https://opensource.org/licenses/MIT
+
+   Copyright 2020 Amos Buchanan
+
+   Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
+
+   The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
+
+   THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+ **/
+
 #include "ab_string.h"
 #include "ab_memory.h"
 #include "stb_sprintf.h"
 
+/** @brief JSON tag processing.
+
+Processes the JSON tag. Usage:
+
+~~~c
+TAG(JSON);
+struct SomeStruct
+{
+    b8 isBoolean;
+    u32 UnsignedInt;
+    r32 Real32;
+};
+~~~
+
+**/
 void
 CreateStructJson(term_struct *Struct, tag *Tag, memory_arena *Memory, output_data *Headers, output_data *Definitions)
 {
@@ -9,16 +52,58 @@ CreateStructJson(term_struct *Struct, tag *Tag, memory_arena *Memory, output_dat
                   "#ifdef GEN_JSMN_HEADER\n");
     
     WriteToOutput(Headers, Memory,
+                  "/** @brief Convert a struct object into a JSON string.\n"
+                  "\n"
+                  "Converts an object into a string. This can be a named variable in JSON or it can be part of an array depending on the JsonFlags.\n"
+                  "The resulting JSON object uses the variable names for the tags. It supports basic types and arrays from @ref ab_common.h,\n"
+                  "as well as any enum or struct also tagged with JSON.\n"
+                  "\n"
+                  "@param Json The JSON string buffer to write to.\n"
+                  "@param MaxLength The maximum characters to write to the buffer.\n"
+                  "@param Tag The tag to use. Can be NULL if tag is not used. See JsonFlags.\n"
+                  "@param Value The struct to convert, passed as a reference.\n"
+                  "@param JsonFlags Or'd list of flags. See @ref json_flags in @ref ab_json.h.\n"
+                  "@return The number of characters written to the buffer, not including the null character.\n"
+                  "**/\n"
                   "u32 PushJson(char *Json, u32 MaxLength, char const *Tag, const %.*s &Value, u32 JsonFlags);\n",
                   PSTRING(Struct->Name));
-    WriteToOutput(Headers, Memory, "struct %.*s_existlist;\n", PSTRING(Struct->Name));
+    WriteToOutput(Headers, Memory, 
+                  "/** @brief Returns whether a variable was specified in the JSON string when converting back to a struct. See @ref JsonToObject. **/"
+                  "struct %.*s_existlist;\n", 
+                  PSTRING(Struct->Name));
     WriteToOutput(Headers, Memory,
+                  "/** @brief Convert a JSON string to an object.\n"
+                  "\n"
+                  "This takes a JSON string and converts it into an object. The tags in the JSON string correspond to the variable names in the struct.\n"
+                  "Unknown tags are ignored. It will also descend into enums and structs also tagged as JSON.\n"
+                  "\n"
+                  "@param VolatileMemory Memory that is used and is expected to be released elsewhere.\n"
+                  "@param Json The JSON string to parse.\n"
+                  "@param JsonLength The length of the Json String.\n"
+                  "@param TokenArray Set to NULL. This is used when descending through structs.\n"
+                  "@param[out] ObjectOut Location to put the struct information that is parsed.\n"
+                  "@param[out] ItemsExistOut If the variable exists, the corresponding item in this struct will be set to true.\n"
+                  "@return Returns token array for the number of unused tokens in the JSON string.\n"
+                  "**/\n"
                   "jsmntok_t *JsonToObject(memory_arena *VolatileMemory, char const *Json, size_t JsonLength, jsmntok_t *TokenArray, %.*s *ObjectOut, %.*s_existlist *ItemsExistOut);\n",
                   PSTRING(Struct->Name),
                   PSTRING(Struct->Name));
     WriteToOutput(Headers,Memory,
-                  "u32\n"
+                  "/** @brief Convert a JSON string to an array of objects.\n"
+                  "\n"
+                  "This takes a JSON string that consists of an array and converts it into an array of those objects. \n"
+                  "Each object is converted as per @ref JsonToObject.\n"
+                  "\n"
+                  "@param VolatileMemory Memory that is used and is expected to be released elsewhere.\n"
+                  "@param Json The JSON string to parse.\n"
+                  "@param JsonLength The length of the Json String.\n"
+                  "@param[out] ObjectArray Location to put the object array. Array memory is taken from VolatileMemory.\n"
+                  "@param[out] ObjectArrayExist Array of %.*s_existlist structs, as per @ref JsonToObject.\n"
+                  "@return Number of items in the array.\n"
+                  "**/\n"
+                  "u32 "
                   "JsonArrayToObjectArray(memory_arena *VolatileMemory, char const *Json, size_t JsonLength, %.*s **ObjectArray, %.*s_existlist **ObjectArrayExist);\n",
+                  PSTRING(Struct->Name),
                   PSTRING(Struct->Name),
                   PSTRING(Struct->Name));
     WriteToOutput(Headers,Memory,
@@ -454,6 +539,10 @@ CreateStructJson(term_struct *Struct, tag *Tag, memory_arena *Memory, output_dat
     CopyToOutput(Headers, Memory, ExistListScratch);
 } // CreateStructJson
 
+/** @brief Handle the tags and call the struct create functions.
+
+This is the main function for calling out to the functions that handle each tag.
+**/
 void
 ProcessStructs(term_struct *StructListSentinal, memory_arena *Memory, output_data *Headers, output_data *Definitions)
 {

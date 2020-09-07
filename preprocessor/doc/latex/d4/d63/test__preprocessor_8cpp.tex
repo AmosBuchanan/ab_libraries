@@ -1,0 +1,95 @@
+\hypertarget{test__preprocessor_8cpp}{}\section{test\+\_\+preprocessor.\+cpp File Reference}
+\label{test__preprocessor_8cpp}\index{test\+\_\+preprocessor.\+cpp@{test\+\_\+preprocessor.\+cpp}}
+{\ttfamily \#include \char`\"{}mwp\+\_\+302-\/preprocessor.\+h\char`\"{}}\newline
+{\ttfamily \#include $<$string.\+h$>$}\newline
+Include dependency graph for test\+\_\+preprocessor.\+cpp\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=274pt]{d0/dca/test__preprocessor_8cpp__incl}
+\end{center}
+\end{figure}
+\subsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \hyperlink{structtest__token__list__item}{test\+\_\+token\+\_\+list\+\_\+item}
+\item 
+struct \hyperlink{structtest__suite__token__list__item}{test\+\_\+suite\+\_\+token\+\_\+list\+\_\+item}
+\item 
+struct \hyperlink{structdata}{data}
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{test__preprocessor_8cpp_a8cf6633d3d75aceae72ac20116f1ea64}{Parse\+Test\+Function\+Name} (tokenizer $\ast$Tokenizer, memory\+\_\+arena $\ast$Memory, \hyperlink{structtest__token__list__item}{test\+\_\+token\+\_\+list\+\_\+item} $\ast$Tests\+Head)
+\begin{DoxyCompactList}\small\item\em Parsing Functions. \end{DoxyCompactList}\item 
+b8 \hyperlink{test__preprocessor_8cpp_a520eb11766981c66222227c38ec5dd64}{Parse\+Suite\+List} (tokenizer $\ast$Tokenizer, \hyperlink{structdata}{data} $\ast$Data, \hyperlink{structtest__suite__token__list__item}{test\+\_\+suite\+\_\+token\+\_\+list\+\_\+item} $\ast$$\ast$Current\+Suite\+Out)
+\item 
+void \hyperlink{test__preprocessor_8cpp_a1c60a3447e242ae37be6dd67dea3c2ad}{Parse\+Steps\+In\+Function} (tokenizer $\ast$Tokenizer, memory\+\_\+arena $\ast$Memory, token\+\_\+list\+\_\+item $\ast$Steps\+Head)
+\item 
+b8 \hyperlink{test__preprocessor_8cpp_afc4b46bb2585cb0823527d2f2d9b2ef1}{Parse\+Test\+Function} (tokenizer $\ast$Tokenizer, memory\+\_\+arena $\ast$Memory, \hyperlink{structtest__suite__token__list__item}{test\+\_\+suite\+\_\+token\+\_\+list\+\_\+item} $\ast$Current\+Suite)
+\item 
+b8 \hyperlink{test__preprocessor_8cpp_af44fc9931e29323dd32b922f8ebce6f6}{Get\+Token\+From\+Define} (tokenizer $\ast$Tokenizer, \hyperlink{structtoken}{token} $\ast$Function\+Name\+Out)
+\item 
+b8 \hyperlink{test__preprocessor_8cpp_a03c849c4aa8eac0edbed867344b6d7fd}{Parse\+Test\+Suite\+Init\+Function} (tokenizer $\ast$Tokenizer, memory\+\_\+arena $\ast$Memory, \hyperlink{structtest__suite__token__list__item}{test\+\_\+suite\+\_\+token\+\_\+list\+\_\+item} $\ast$Current\+Suite)
+\item 
+b8 \hyperlink{test__preprocessor_8cpp_ad8f61a6c142f245e827c7b22cd180764}{Parse\+Test\+Suite\+Shutdown\+Function} (tokenizer $\ast$Tokenizer, memory\+\_\+arena $\ast$Memory, \hyperlink{structtest__suite__token__list__item}{test\+\_\+suite\+\_\+token\+\_\+list\+\_\+item} $\ast$Current\+Suite)
+\item 
+int \hyperlink{test__preprocessor_8cpp_a3c04138a5bfe5d72780bb7e82a18e627}{main} (int argc, char $\ast$$\ast$argv)
+\end{DoxyCompactItemize}
+
+
+\subsection{Function Documentation}
+\mbox{\Hypertarget{test__preprocessor_8cpp_af44fc9931e29323dd32b922f8ebce6f6}\label{test__preprocessor_8cpp_af44fc9931e29323dd32b922f8ebce6f6}} 
+\index{test\+\_\+preprocessor.\+cpp@{test\+\_\+preprocessor.\+cpp}!Get\+Token\+From\+Define@{Get\+Token\+From\+Define}}
+\index{Get\+Token\+From\+Define@{Get\+Token\+From\+Define}!test\+\_\+preprocessor.\+cpp@{test\+\_\+preprocessor.\+cpp}}
+\subsubsection{\texorpdfstring{Get\+Token\+From\+Define()}{GetTokenFromDefine()}}
+{\footnotesize\ttfamily b8 Get\+Token\+From\+Define (\begin{DoxyParamCaption}\item[{tokenizer $\ast$}]{Tokenizer,  }\item[{\hyperlink{structtoken}{token} $\ast$}]{Function\+Name\+Out }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{test__preprocessor_8cpp_a3c04138a5bfe5d72780bb7e82a18e627}\label{test__preprocessor_8cpp_a3c04138a5bfe5d72780bb7e82a18e627}} 
+\index{test\+\_\+preprocessor.\+cpp@{test\+\_\+preprocessor.\+cpp}!main@{main}}
+\index{main@{main}!test\+\_\+preprocessor.\+cpp@{test\+\_\+preprocessor.\+cpp}}
+\subsubsection{\texorpdfstring{main()}{main()}}
+{\footnotesize\ttfamily int main (\begin{DoxyParamCaption}\item[{int}]{argc,  }\item[{char $\ast$$\ast$}]{argv }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{test__preprocessor_8cpp_a1c60a3447e242ae37be6dd67dea3c2ad}\label{test__preprocessor_8cpp_a1c60a3447e242ae37be6dd67dea3c2ad}} 
+\index{test\+\_\+preprocessor.\+cpp@{test\+\_\+preprocessor.\+cpp}!Parse\+Steps\+In\+Function@{Parse\+Steps\+In\+Function}}
+\index{Parse\+Steps\+In\+Function@{Parse\+Steps\+In\+Function}!test\+\_\+preprocessor.\+cpp@{test\+\_\+preprocessor.\+cpp}}
+\subsubsection{\texorpdfstring{Parse\+Steps\+In\+Function()}{ParseStepsInFunction()}}
+{\footnotesize\ttfamily void Parse\+Steps\+In\+Function (\begin{DoxyParamCaption}\item[{tokenizer $\ast$}]{Tokenizer,  }\item[{memory\+\_\+arena $\ast$}]{Memory,  }\item[{token\+\_\+list\+\_\+item $\ast$}]{Steps\+Head }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{test__preprocessor_8cpp_a520eb11766981c66222227c38ec5dd64}\label{test__preprocessor_8cpp_a520eb11766981c66222227c38ec5dd64}} 
+\index{test\+\_\+preprocessor.\+cpp@{test\+\_\+preprocessor.\+cpp}!Parse\+Suite\+List@{Parse\+Suite\+List}}
+\index{Parse\+Suite\+List@{Parse\+Suite\+List}!test\+\_\+preprocessor.\+cpp@{test\+\_\+preprocessor.\+cpp}}
+\subsubsection{\texorpdfstring{Parse\+Suite\+List()}{ParseSuiteList()}}
+{\footnotesize\ttfamily b8 Parse\+Suite\+List (\begin{DoxyParamCaption}\item[{tokenizer $\ast$}]{Tokenizer,  }\item[{\hyperlink{structdata}{data} $\ast$}]{Data,  }\item[{\hyperlink{structtest__suite__token__list__item}{test\+\_\+suite\+\_\+token\+\_\+list\+\_\+item} $\ast$$\ast$}]{Current\+Suite\+Out }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{test__preprocessor_8cpp_afc4b46bb2585cb0823527d2f2d9b2ef1}\label{test__preprocessor_8cpp_afc4b46bb2585cb0823527d2f2d9b2ef1}} 
+\index{test\+\_\+preprocessor.\+cpp@{test\+\_\+preprocessor.\+cpp}!Parse\+Test\+Function@{Parse\+Test\+Function}}
+\index{Parse\+Test\+Function@{Parse\+Test\+Function}!test\+\_\+preprocessor.\+cpp@{test\+\_\+preprocessor.\+cpp}}
+\subsubsection{\texorpdfstring{Parse\+Test\+Function()}{ParseTestFunction()}}
+{\footnotesize\ttfamily b8 Parse\+Test\+Function (\begin{DoxyParamCaption}\item[{tokenizer $\ast$}]{Tokenizer,  }\item[{memory\+\_\+arena $\ast$}]{Memory,  }\item[{\hyperlink{structtest__suite__token__list__item}{test\+\_\+suite\+\_\+token\+\_\+list\+\_\+item} $\ast$}]{Current\+Suite }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{test__preprocessor_8cpp_a8cf6633d3d75aceae72ac20116f1ea64}\label{test__preprocessor_8cpp_a8cf6633d3d75aceae72ac20116f1ea64}} 
+\index{test\+\_\+preprocessor.\+cpp@{test\+\_\+preprocessor.\+cpp}!Parse\+Test\+Function\+Name@{Parse\+Test\+Function\+Name}}
+\index{Parse\+Test\+Function\+Name@{Parse\+Test\+Function\+Name}!test\+\_\+preprocessor.\+cpp@{test\+\_\+preprocessor.\+cpp}}
+\subsubsection{\texorpdfstring{Parse\+Test\+Function\+Name()}{ParseTestFunctionName()}}
+{\footnotesize\ttfamily void Parse\+Test\+Function\+Name (\begin{DoxyParamCaption}\item[{tokenizer $\ast$}]{Tokenizer,  }\item[{memory\+\_\+arena $\ast$}]{Memory,  }\item[{\hyperlink{structtest__token__list__item}{test\+\_\+token\+\_\+list\+\_\+item} $\ast$}]{Tests\+Head }\end{DoxyParamCaption})}
+
+
+
+Parsing Functions. 
+
+\mbox{\Hypertarget{test__preprocessor_8cpp_a03c849c4aa8eac0edbed867344b6d7fd}\label{test__preprocessor_8cpp_a03c849c4aa8eac0edbed867344b6d7fd}} 
+\index{test\+\_\+preprocessor.\+cpp@{test\+\_\+preprocessor.\+cpp}!Parse\+Test\+Suite\+Init\+Function@{Parse\+Test\+Suite\+Init\+Function}}
+\index{Parse\+Test\+Suite\+Init\+Function@{Parse\+Test\+Suite\+Init\+Function}!test\+\_\+preprocessor.\+cpp@{test\+\_\+preprocessor.\+cpp}}
+\subsubsection{\texorpdfstring{Parse\+Test\+Suite\+Init\+Function()}{ParseTestSuiteInitFunction()}}
+{\footnotesize\ttfamily b8 Parse\+Test\+Suite\+Init\+Function (\begin{DoxyParamCaption}\item[{tokenizer $\ast$}]{Tokenizer,  }\item[{memory\+\_\+arena $\ast$}]{Memory,  }\item[{\hyperlink{structtest__suite__token__list__item}{test\+\_\+suite\+\_\+token\+\_\+list\+\_\+item} $\ast$}]{Current\+Suite }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{test__preprocessor_8cpp_ad8f61a6c142f245e827c7b22cd180764}\label{test__preprocessor_8cpp_ad8f61a6c142f245e827c7b22cd180764}} 
+\index{test\+\_\+preprocessor.\+cpp@{test\+\_\+preprocessor.\+cpp}!Parse\+Test\+Suite\+Shutdown\+Function@{Parse\+Test\+Suite\+Shutdown\+Function}}
+\index{Parse\+Test\+Suite\+Shutdown\+Function@{Parse\+Test\+Suite\+Shutdown\+Function}!test\+\_\+preprocessor.\+cpp@{test\+\_\+preprocessor.\+cpp}}
+\subsubsection{\texorpdfstring{Parse\+Test\+Suite\+Shutdown\+Function()}{ParseTestSuiteShutdownFunction()}}
+{\footnotesize\ttfamily b8 Parse\+Test\+Suite\+Shutdown\+Function (\begin{DoxyParamCaption}\item[{tokenizer $\ast$}]{Tokenizer,  }\item[{memory\+\_\+arena $\ast$}]{Memory,  }\item[{\hyperlink{structtest__suite__token__list__item}{test\+\_\+suite\+\_\+token\+\_\+list\+\_\+item} $\ast$}]{Current\+Suite }\end{DoxyParamCaption})}
+

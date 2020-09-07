@@ -1,5 +1,4 @@
 var searchData=
 [
-  ['option',['Option',['../d1/d09/structtag.html#aa52b4f28c97f8ff006a5fe50d6623a7e',1,'tag']]],
-  ['outputstring',['OutputString',['../dd/dd3/structoutput__data.html#a4b5cddf8fc02cfb5219eafd71e3b3645',1,'output_data']]]
+  ['used',['Used',['../d1/d39/structmemory__arena.html#abbc4860a3014af6eae9d663a4e1e12d9',1,'memory_arena::Used()'],['../de/d22/structtemporary__memory.html#af2ea8e067d881e044fbecd269e59a556',1,'temporary_memory::Used()']]]
 ];

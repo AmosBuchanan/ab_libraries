@@ -72,6 +72,9 @@ $(function() {
 <div class="title">ab_common.h File Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
+
+<p>Common macros and typedefs.  
+<a href="#details">More...</a></p>
 <div class="textblock"><code>#include &lt;stdint.h&gt;</code><br />
 <code>#include &lt;wchar.h&gt;</code><br />
 </div><div class="textblock"><div class="dynheader">
@@ -84,26 +87,13 @@ This graph shows which files directly or indirectly include this file:</div>
 <div class="dyncontent">
 <div class="center"><img src="../../d8/da5/ab__common_8h__dep__incl.png" border="0" usemap="#ab__common_8hdep" alt=""/></div>
 <map name="ab__common_8hdep" id="ab__common_8hdep">
-<area shape="rect" id="node2" href="../../d0/d0a/ab__memory_8h.html" title="ab_memory.h" alt="" coords="645,80,747,107"/>
-<area shape="rect" id="node6" href="../../da/daf/ab__preprocessor_8cpp.html" title="ab_preprocessor &#45; Public Domain preprocessor. " alt="" coords="265,528,407,555"/>
-<area shape="rect" id="node11" href="../../d3/d96/dio__machine_8h.html" title="dio_machine.h" alt="" coords="1157,304,1264,331"/>
-<area shape="rect" id="node13" href="../../d7/deb/ab__file__win32_8h.html" title="ab_file_win32.h" alt="" coords="1136,229,1248,256"/>
-<area shape="rect" id="node15" href="../../d2/d40/ab__json_8h.html" title="ab_json.h" alt="" coords="1033,229,1111,256"/>
-<area shape="rect" id="node17" href="../../df/d20/PreprocTest_8cpp.html" title="PreprocTest.cpp" alt="" coords="1171,379,1290,405"/>
-<area shape="rect" id="node20" href="../../d4/d4b/ab__logger_8h.html" title="ab_logger.h" alt="" coords="1430,80,1519,107"/>
-<area shape="rect" id="node21" href="../../dc/da0/ab__time_8h.html" title="ab_time.h" alt="" coords="1225,155,1303,181"/>
-<area shape="rect" id="node3" href="../../d7/dcc/ab__file_8h.html" title="ab_file.h" alt="" coords="369,155,439,181"/>
-<area shape="rect" id="node10" href="../../d2/d1b/Generated__001_8h.html" title="Generated_001.h" alt="" coords="835,229,957,256"/>
-<area shape="rect" id="node12" href="../../d2/ddc/test_8h.html" title="test.h" alt="" coords="283,229,338,256"/>
-<area shape="rect" id="node14" href="../../d0/d57/ab__string_8h.html" title="ab_string.h" alt="" coords="653,155,739,181"/>
-<area shape="rect" id="node16" href="../../dc/d12/Generated__Test_8h.html" title="Generated_Test.h" alt="" coords="969,304,1095,331"/>
-<area shape="rect" id="node18" href="../../d0/da3/abp__structs_8cpp.html" title="abp_structs.cpp" alt="" coords="144,229,259,256"/>
-<area shape="rect" id="node19" href="../../dd/db5/GeneratedSample_8h.html" title="GeneratedSample.h" alt="" coords="470,229,607,256"/>
-<area shape="rect" id="node4" href="../../d4/df9/ab__lexer_8h.html" title="ab_lexer.h" alt="" coords="363,229,445,256"/>
-<area shape="rect" id="node5" href="../../d5/dff/ab__parser_8h.html" title="ab_parser.h" alt="" coords="285,304,376,331"/>
-<area shape="rect" id="node9" href="../../d8/dae/abp__enums_8cpp.html" title="abp_enums.cpp" alt="" coords="211,379,325,405"/>
-<area shape="rect" id="node7" href="../../da/d39/abp__queue_8h.html" title="abp_queue.h" alt="" coords="492,379,588,405"/>
-<area shape="rect" id="node8" href="../../dc/d8a/abp__statefunctions_8cpp.html" title="abp_statefunctions.cpp" alt="" coords="501,453,659,480"/>
+<area shape="rect" id="node2" href="../../d0/d0a/ab__memory_8h.html" title="ab_memory.h" alt="" coords="170,80,271,107"/>
+<area shape="rect" id="node4" href="../../d7/deb/ab__file__win32_8h.html" title="ab_file_win32.h" alt="" coords="246,229,358,256"/>
+<area shape="rect" id="node6" href="../../d2/d40/ab__json_8h.html" title="ab_json.h" alt="" coords="5,229,84,256"/>
+<area shape="rect" id="node7" href="../../d4/d4b/ab__logger_8h.html" title="ab_logger.h" alt="" coords="391,80,480,107"/>
+<area shape="rect" id="node8" href="../../dc/da0/ab__time_8h.html" title="ab_time.h" alt="" coords="504,80,583,107"/>
+<area shape="rect" id="node3" href="../../d7/dcc/ab__file_8h.html" title="ab_file.h" alt="" coords="83,155,153,181"/>
+<area shape="rect" id="node5" href="../../d0/d57/ab__string_8h.html" title="ab_string.h" alt="" coords="177,155,264,181"/>
 </map>
 </div>
 </div>
@@ -111,17 +101,22 @@ This graph shows which files directly or indirectly include this file:</div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="define-members"></a>
 Macros</h2></td></tr>
-<tr class="memitem:a49450bdfb96baf39e5679e3749dd6648"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d7/d05/ab__common_8h.html#a49450bdfb96baf39e5679e3749dd6648">ArrayCount</a>(Array)&#160;&#160;&#160;(sizeof(Array)) / (sizeof(Array[1]))</td></tr>
+<tr class="memitem:a49450bdfb96baf39e5679e3749dd6648"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d7/d05/ab__common_8h.html#a49450bdfb96baf39e5679e3749dd6648">ArrayCount</a>(Array)&#160;&#160;&#160;(sizeof(Array)) / (sizeof(Array[0]))</td></tr>
+<tr class="memdesc:a49450bdfb96baf39e5679e3749dd6648"><td class="mdescLeft">&#160;</td><td class="mdescRight">Macro that can be used anywhere with a pre-defined array.  <a href="#a49450bdfb96baf39e5679e3749dd6648">More...</a><br /></td></tr>
 <tr class="separator:a49450bdfb96baf39e5679e3749dd6648"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a1da41d527b391b557b30acdc9e2cf425"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d7/d05/ab__common_8h.html#a1da41d527b391b557b30acdc9e2cf425">MAX_FILENAME_SIZE</a>&#160;&#160;&#160;200</td></tr>
+<tr class="memitem:a1da41d527b391b557b30acdc9e2cf425"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d7/d05/ab__common_8h.html#a1da41d527b391b557b30acdc9e2cf425">MAX_FILENAME_SIZE</a>&#160;&#160;&#160;255</td></tr>
 <tr class="separator:a1da41d527b391b557b30acdc9e2cf425"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ab569440ccd9ea3398cfc4d514fb5493f"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d7/d05/ab__common_8h.html#ab569440ccd9ea3398cfc4d514fb5493f">MINIMUM</a>(Value1,  Value2)&#160;&#160;&#160;(((Value1) &lt; (Value2)) ? (Value1) : (Value2))</td></tr>
+<tr class="memdesc:ab569440ccd9ea3398cfc4d514fb5493f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return the minimum of a value.  <a href="#ab569440ccd9ea3398cfc4d514fb5493f">More...</a><br /></td></tr>
 <tr class="separator:ab569440ccd9ea3398cfc4d514fb5493f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa0dcb9de6453c0e93a7d4c26739380e2"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d7/d05/ab__common_8h.html#aa0dcb9de6453c0e93a7d4c26739380e2">MAXIMUM</a>(Value1,  Value2)&#160;&#160;&#160;(((Value1) &gt; (Value2)) ? (Value1) : (Value2))</td></tr>
+<tr class="memdesc:aa0dcb9de6453c0e93a7d4c26739380e2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return the maximum of a value.  <a href="#aa0dcb9de6453c0e93a7d4c26739380e2">More...</a><br /></td></tr>
 <tr class="separator:aa0dcb9de6453c0e93a7d4c26739380e2"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a20bc847a34a521a2e6fa125621be9bfc"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d7/d05/ab__common_8h.html#a20bc847a34a521a2e6fa125621be9bfc">BitReset</a>(Value,  Bit)&#160;&#160;&#160;((Value) &amp;= ~(1 &lt;&lt; (Bit)))</td></tr>
+<tr class="memdesc:a20bc847a34a521a2e6fa125621be9bfc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Reset the bit to zero.  <a href="#a20bc847a34a521a2e6fa125621be9bfc">More...</a><br /></td></tr>
 <tr class="separator:a20bc847a34a521a2e6fa125621be9bfc"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a1eeb0506b4ddd8d37c817456de87f052"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d7/d05/ab__common_8h.html#a1eeb0506b4ddd8d37c817456de87f052">BitSet</a>(Value,  Bit)&#160;&#160;&#160;((Value) |= (1 &lt;&lt; (Bit)))</td></tr>
+<tr class="memdesc:a1eeb0506b4ddd8d37c817456de87f052"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set the bit to one.  <a href="#a1eeb0506b4ddd8d37c817456de87f052">More...</a><br /></td></tr>
 <tr class="separator:a1eeb0506b4ddd8d37c817456de87f052"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a9e89c74d1fedd0a954107d7ab01481cc"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d7/d05/ab__common_8h.html#a9e89c74d1fedd0a954107d7ab01481cc">Kilobytes</a>(num)&#160;&#160;&#160;(1024ULL * (num))</td></tr>
 <tr class="separator:a9e89c74d1fedd0a954107d7ab01481cc"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -144,6 +139,7 @@ Macros</h2></td></tr>
 <tr class="memitem:a323127aaf9260b4e2092a8734886379a"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d7/d05/ab__common_8h.html#a323127aaf9260b4e2092a8734886379a">NS_TO_MS</a>(num)&#160;&#160;&#160;((num) * 1e-6f)</td></tr>
 <tr class="separator:a323127aaf9260b4e2092a8734886379a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af2b46bb19c7d3d91950a9f971d443ccd"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d7/d05/ab__common_8h.html#af2b46bb19c7d3d91950a9f971d443ccd">Assert</a>(test)</td></tr>
+<tr class="memdesc:af2b46bb19c7d3d91950a9f971d443ccd"><td class="mdescLeft">&#160;</td><td class="mdescRight">Assert causes a hard-fault, useful when debugging. Don't use this is production code.  <a href="#af2b46bb19c7d3d91950a9f971d443ccd">More...</a><br /></td></tr>
 <tr class="separator:af2b46bb19c7d3d91950a9f971d443ccd"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="typedef-members"></a>
@@ -178,7 +174,19 @@ Variables</h2></td></tr>
 <tr class="memitem:a680f0d86b7fc8e450b05875fc7e2cee7"><td class="memItemLeft" align="right" valign="top">const <a class="el" href="../../d7/d05/ab__common_8h.html#aafa04bc3cb166e826b75a23f4add4b59">r32</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d7/d05/ab__common_8h.html#a680f0d86b7fc8e450b05875fc7e2cee7">TAU</a> = 6.2831853071f</td></tr>
 <tr class="separator:a680f0d86b7fc8e450b05875fc7e2cee7"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<h2 class="groupheader">Macro Definition Documentation</h2>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>Common macros and typedefs. </p>
+<dl class="section author"><dt>Author</dt><dd>Amos Buchanan </dd></dl>
+<dl class="section version"><dt>Version</dt><dd>1.0 </dd></dl>
+<dl class="section date"><dt>Date</dt><dd>2020 </dd></dl>
+<dl class="section copyright"><dt>Copyright</dt><dd>MIT Public License.</dd></dl>
+<p>This file has the common macros and typedefs I use everywhere. Every other library is dependent on this one.</p>
+<h1>MIT License</h1>
+<p>Copyright 2020 Amos Buchanan</p>
+<p>Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:</p>
+<p>The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.</p>
+<p>THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE. </p>
+</div><h2 class="groupheader">Macro Definition Documentation</h2>
 <a id="a49450bdfb96baf39e5679e3749dd6648"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a49450bdfb96baf39e5679e3749dd6648">&#9670;&nbsp;</a></span>ArrayCount</h2>
 
@@ -190,10 +198,12 @@ Variables</h2></td></tr>
           <td>(</td>
           <td class="paramtype">&#160;</td>
           <td class="paramname">Array</td><td>)</td>
-          <td>&#160;&#160;&#160;(sizeof(Array)) / (sizeof(Array[1]))</td>
+          <td>&#160;&#160;&#160;(sizeof(Array)) / (sizeof(Array[0]))</td>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Macro that can be used anywhere with a pre-defined array. </p>
 
 </div>
 </div>
@@ -212,6 +222,8 @@ Variables</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Assert causes a hard-fault, useful when debugging. Don't use this is production code. </p>
 
 </div>
 </div>
@@ -241,6 +253,8 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Reset the bit to zero. </p>
+
 </div>
 </div>
 <a id="a1eeb0506b4ddd8d37c817456de87f052"></a>
@@ -268,6 +282,8 @@ Variables</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Set the bit to one. </p>
 
 </div>
 </div>
@@ -314,7 +330,7 @@ Variables</h2></td></tr>
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">#define MAX_FILENAME_SIZE&#160;&#160;&#160;200</td>
+          <td class="memname">#define MAX_FILENAME_SIZE&#160;&#160;&#160;255</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -346,6 +362,8 @@ Variables</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Return the maximum of a value. </p>
 
 </div>
 </div>
@@ -392,6 +410,8 @@ Variables</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Return the minimum of a value. </p>
 
 </div>
 </div>

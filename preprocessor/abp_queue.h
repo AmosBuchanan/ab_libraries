@@ -20,8 +20,10 @@ WriteQueueFunctions(abs_stringptr QueueItemName, u32 QueueSize,
 {
     WriteToOutput(Headers, Memory, 
                   "/***** Queue: %.*s ****/\n"
-                  "// Creating a circular queue of %u elements.\n", 
-                  QueueItemName.Length, QueueItemName.String, QueueSize);
+                  "/** @brief A circular queue of %u elements for the state command %.*s. */\n", 
+                  PSTRING(QueueItemName), 
+                  QueueSize,
+                  PSTRING(QueueItemName));
     
     WriteToOutput(Headers, Memory,
                   "struct %.*s_queue\n"
@@ -37,22 +39,60 @@ WriteQueueFunctions(abs_stringptr QueueItemName, u32 QueueSize,
                   );
     
     WriteToOutput(Headers, Memory, 
-                  "inline void InitializeQueue(%.*s_queue *Queue);\n"
+                  "/** @brief Initialize the command queue.\n"
+                  "\n"
+                  "This must be run to initialize the queue before it may be used for the first time. Usually done in the state machine \n"
+                  "initialization.\n"
+                  "\n"
+                  "@param Queue The queue to initialize, usually `&State->CommandQueue`.\n"
+                  "**/\n"
+                  "inline void InitializeQueue(%.*s_queue *Queue);\n",
+                  PSTRING(QueueItemName));
+    
+    WriteToOutput(Headers, Memory,
+                  "/** @brief Check if queue is empty.\n"
+                  "\n"
+                  "@param Queue Queue to check.\n"
+                  "@return True if queue is empty.\n"
+                  "**/\n"
                   "inline b8 "
-                  "isQueueEmpty(%.*s_queue *Queue);\n"
+                  "isQueueEmpty(%.*s_queue *Queue);\n",
+                  PSTRING(QueueItemName));
+    
+    WriteToOutput(Headers, Memory,
+                  "/** @brief Check if queue is full.\n"
+                  "\n"
+                  "@param Queue Queue to check.\n"
+                  "@return True if queue is full.\n"
+                  "**/\n"
                   "inline b8 "
-                  "isQueueFull(%.*s_queue *Queue);\n"
+                  "isQueueFull(%.*s_queue *Queue);\n",
+                  PSTRING(QueueItemName));
+    
+    WriteToOutput(Headers, Memory, 
+                  "/** @brief Add an item to the back of the queue.\n"
+                  "\n"
+                  "@param Queue The queue to add to.\n"
+                  "@param The command to add.\n"
+                  "@return True if successful.\n"
+                  "**/\n"
                   "b8 "
-                  "EnqueueCommand(%.*s_queue *Queue, %.*s Cmd);\n"
+                  "EnqueueCommand(%.*s_queue *Queue, %.*s Cmd);\n",
+                  PSTRING(QueueItemName),
+                  PSTRING(QueueItemName));
+    
+    WriteToOutput(Headers, Memory, 
+                  "/** @brief Dequeue from the front of the queue.\n"
+                  "\n"
+                  "@param The queue to pull a command from.\n"
+                  "@return The command that was queued. If the queue is empty, returns the first element of %.*s. The first element is usually reserved for a NOP command.\n"
+                  "**/\n"
                   "%.*s "
                   "DequeueCommand(%.*s_queue *Queue);\n",
-                  QueueItemName.Length, QueueItemName.String,
-                  QueueItemName.Length, QueueItemName.String,
-                  QueueItemName.Length, QueueItemName.String,
-                  QueueItemName.Length, QueueItemName.String,
-                  QueueItemName.Length, QueueItemName.String,
-                  QueueItemName.Length, QueueItemName.String,
-                  QueueItemName.Length, QueueItemName.String);
+                  PSTRING(QueueItemName),
+                  
+                  PSTRING(QueueItemName),
+                  PSTRING(QueueItemName));
     
     WriteToOutput(Headers, Memory, 
                   "/***********/\n\n");

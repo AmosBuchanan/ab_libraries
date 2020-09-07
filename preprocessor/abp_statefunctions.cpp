@@ -1,3 +1,32 @@
+/** @file
+   @brief Struct/Union Class Tags
+   @author Amos Buchanan
+   @version 1.0
+   @date 2020
+   @copyright [MIT Public License](https://opensource.org/licenses/MIT)
+
+   This is the source file for creating the statemachine functions. This creates a number of functions and defines for 
+the state machines. 
+
+   See the @ref index "Readme.md" file for more information on usage.
+
+   To add a new tag:
+   - Write a function to create the header and function portion of the struct functions and definitions..
+   - Update the @ref ProcessStructs function with the tag and new function.
+
+ # MIT License
+
+https://opensource.org/licenses/MIT
+
+   Copyright 2020 Amos Buchanan
+
+   Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
+
+   The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
+
+   THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+ **/
+
 #include "abp_queue.h"
 
 void
@@ -10,8 +39,8 @@ ProcessStateFunctions(term_statemachine *MachineListSentinal, term_definedfuncti
     {
         abs_stringptr Capitalize = abs_Capitalize(CurrentMachine->Function, Memory);
         abs_stringptr Lowercase = abs_Lowercase(CurrentMachine->Function, Memory);
-        const u32 BufferSize = 300;
-        char Buffer[BufferSize] = {};
+        const u32 BufferSize = Kilobytes(1);
+        char *Buffer = abm_PushArray(Memory, BufferSize, char);
         int Index = 0;
         
         WriteToOutput(Headers, Memory, 
@@ -26,38 +55,36 @@ ProcessStateFunctions(term_statemachine *MachineListSentinal, term_definedfuncti
         
         WriteQueueFunctions(CurrentMachine->Cmd, 10, Memory, Headers, Definitions);
         
-        Index += stbsp_snprintf(&Buffer[Index], (BufferSize - Index),
-                                "#define %.*s(name) void name(%.*s *State, %.*s Cmd",
-                                Capitalize.Length, Capitalize.String,
-                                CurrentMachine->Type.Length, CurrentMachine->Type.String,
-                                CurrentMachine->Cmd.Length, CurrentMachine->Cmd.String);
+        u32 StateParamsSize = Kilobytes(1);
+        char *StateParams = abm_PushArray(Memory, StateParamsSize, char);
+        u32 StateParamIndex = 0;
         
         term_typeexpr *CurrentType = CurrentMachine->TypeListSentinal.Next;
         while(CurrentType != &CurrentMachine->TypeListSentinal)
         {
-            Index += stbsp_snprintf(&Buffer[Index], (BufferSize - Index),
-                                    ", %.*s ", 
-                                    CurrentType->Type.Length, CurrentType->Type.String);
+            StateParamIndex += stbsp_snprintf(&StateParams[StateParamIndex], (StateParamsSize - StateParamIndex),
+                                              ", %.*s ", 
+                                              CurrentType->Type.Length, CurrentType->Type.String);
             if(CurrentType->isConst) 
             {
-                Index += stbsp_snprintf(&Buffer[Index], (BufferSize - Index), "const ");
+                StateParamIndex += stbsp_snprintf(&StateParams[StateParamIndex], (StateParamsSize - StateParamIndex), "const ");
             }
             if(CurrentType->isPtr)
             {
-                Index += stbsp_snprintf(&Buffer[Index], (BufferSize - Index), "*");
+                StateParamIndex += stbsp_snprintf(&StateParams[StateParamIndex], (StateParamsSize - StateParamIndex), "*");
             }
             else if(CurrentType->isReference)
             {
-                Index += stbsp_snprintf(&Buffer[Index], (BufferSize - Index), "&");
+                StateParamIndex += stbsp_snprintf(&StateParams[StateParamIndex], (StateParamsSize - StateParamIndex), "&");
             }
-            Index += stbsp_snprintf(&Buffer[Index], (BufferSize - Index),
-                                    "%.*s", 
-                                    CurrentType->Name.Length, CurrentType->Name.String);
+            StateParamIndex += stbsp_snprintf(&StateParams[StateParamIndex], (StateParamsSize - StateParamIndex),
+                                              "%.*s", 
+                                              CurrentType->Name.Length, CurrentType->Name.String);
             if(CurrentType->isArray)
             {
-                Index += stbsp_snprintf(&Buffer[Index], (BufferSize - Index),
-                                        "[%d]", 
-                                        CurrentType->ArrayLength);
+                StateParamIndex += stbsp_snprintf(&StateParams[StateParamIndex], (StateParamsSize - StateParamIndex),
+                                                  "[%d]", 
+                                                  CurrentType->ArrayLength);
             }
             
             switch(CurrentType->CustomType)
@@ -88,23 +115,107 @@ ProcessStateFunctions(term_statemachine *MachineListSentinal, term_definedfuncti
             CurrentType = CurrentType->Next;
         }
         
+        Index += stbsp_snprintf(&Buffer[Index], (BufferSize - Index),
+                                "/** @brief Used to create statemachine functions.\n"
+                                " Usage:\n"
+                                "~~~c\n"
+                                "%.*s(FuntionForState)\n"
+                                "{\n"
+                                "    // Function Code\n"
+                                "}\n"
+                                "~~~\n"
+                                "\n"
+                                "This expands out to the function signature: \n"
+                                "~~~c\n\n"
+                                "void FunctionForState(%.*s *State, %.*s Cmd%.*s)\n\n"
+                                "~~~\n"
+                                "\n"
+                                "The `%.*s` struct must have the following basic definition. See @ref index for more details.\n"
+                                "\n"
+                                "Usage:\n"
+                                "~~~c\n"
+                                "struct %.*s \n"
+                                "{\n"
+                                "    %.*s CurrentState;\n"
+                                "    b8 isNewState;\n"
+                                "    %.*s_queue CommandQueue;\n"
+                                "\n"
+                                "    // Rest of variables in struct\n"
+                                "};\n"
+                                "~~~\n"
+                                "\n"
+                                "See @ref index for more details.\n"
+                                "**/\n"
+                                "#define %.*s(name) void name(%.*s *State, %.*s Cmd",
+                                PSTRING(Capitalize),
+                                PSTRING(CurrentMachine->Type),
+                                PSTRING(CurrentMachine->Cmd),
+                                StateParamIndex, StateParams,
+                                PSTRING(CurrentMachine->Type),
+                                PSTRING(CurrentMachine->Type),
+                                PSTRING(Lowercase),
+                                PSTRING(CurrentMachine->Cmd),
+                                PSTRING(Capitalize),
+                                PSTRING(CurrentMachine->Type),
+                                PSTRING(CurrentMachine->Cmd));
+        
+        
+        Index += stbsp_snprintf(&Buffer[Index], (BufferSize - Index), "%.*s", StateParamIndex, StateParams);
         Index += stbsp_snprintf(&Buffer[Index], (BufferSize - Index), ")\n");
         CopyToOutput(Headers, Memory, Buffer);
-        WriteToOutput(Headers, Memory, "typedef %.*s(%.*s);\n\n",
-                      Capitalize.Length, Capitalize.String,
-                      Lowercase.Length, Lowercase.String);
         WriteToOutput(Headers, Memory, 
-                      "inline b8 GoToState(%.*s *State, %.*s *NewState);\n"
-                      "char const *GetStateName(%.*s *StateName);\n"
-                      "b8 EnqueueCommand(%.*s *State, %.*s Cmd);\n"
+                      "/** @brief typedef to use in the state struct. **/\n"
+                      "typedef %.*s(%.*s);\n\n",
+                      PSTRING(Capitalize),
+                      PSTRING(Lowercase));
+        
+        WriteToOutput(Headers, Memory, 
+                      "/** @brief Go to the state specified.\n"
+                      "\n"
+                      "Use this function to go to the next state after this state has completed. If you call this multiple times in a function,\n"
+                      "only the last target state will be used. It also sets up the next state. This function should be used for changing states.\n"
+                      "\n"
+                      "@params State The state struct corresponding to this state.\n"
+                      "@params NewState The function name of the target state, generated by `%.*s()`.\n"
+                      "@return True if the state change was successful.\n"
+                      "**/\n"
+                      "inline b8 GoToState(%.*s *State, %.*s *NewState);\n",
+                      PSTRING(Capitalize),
+                      PSTRING(CurrentMachine->Type),
+                      PSTRING(Lowercase));
+        
+        WriteToOutput(Headers, Memory,
+                      "/** @brief Gets a string representation of the state name.\n"
+                      "\n"
+                      "This is usually used for logging or displaying to the user.\n"
+                      "\n"
+                      "@param StateName The state to retrieve a string for, generated by `%.*s()`.\n"
+                      "@return a null-terminated c string.\n"
+                      "**/\n"
+                      "char const *GetStateName(%.*s *StateName);\n",
+                      PSTRING(Capitalize),
+                      PSTRING(Lowercase));
+        
+        WriteToOutput(Headers, Memory,
+                      "/** @brief Enqueue a command for the state.\n"
+                      "\n"
+                      "@params State The state struct corresponding to this state.\n"
+                      "@params Cmd The Cmd to enqueue.\n"
+                      "**/\n"
+                      "b8 EnqueueCommand(%.*s *State, %.*s Cmd);\n",
+                      PSTRING(CurrentMachine->Type),
+                      PSTRING(CurrentMachine->Cmd));
+        
+        WriteToOutput(Headers, Memory,
+                      "/** @brief Dequeue the the command.\n"
+                      "\n"
+                      "Corresponds to a first in, first out queue.\n"
+                      "@params State The state struct corresponding to this state.\n"
+                      "@return The first command in the queue..\n"
+                      "**/\n"
                       "%.*s DequeueCommand(%.*s *State);\n",
-                      CurrentMachine->Type.Length, CurrentMachine->Type.String,
-                      Lowercase.Length, Lowercase.String,
-                      Lowercase.Length, Lowercase.String,
-                      CurrentMachine->Type.Length, CurrentMachine->Type.String,
-                      CurrentMachine->Cmd.Length, CurrentMachine->Cmd.String,
-                      CurrentMachine->Cmd.Length, CurrentMachine->Cmd.String,
-                      CurrentMachine->Type.Length, CurrentMachine->Type.String);
+                      PSTRING(CurrentMachine->Cmd),
+                      PSTRING(CurrentMachine->Type));
         
         WriteToOutput(Headers, Memory, "\n");
         
@@ -142,7 +253,9 @@ ProcessStateFunctions(term_statemachine *MachineListSentinal, term_definedfuncti
             if(abs_AreStringsEqual(CurrentMachine->Function, CurrentFunction->Define, true))
             {
                 WriteToOutput(Headers, Memory, 
+                              "/** @brief Forward declaration for %.*s(). **/\n"
                               "%.*s(%.*s);\n", 
+                              PSTRING(CurrentFunction->Name),
                               Capitalize.Length, Capitalize.String,
                               CurrentFunction->Name.Length, CurrentFunction->Name.String);
                 

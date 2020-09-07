@@ -1,5 +1,4 @@
 var searchData=
 [
-  ['file_5fdata',['file_data',['../d3/d67/structfile__data.html',1,'']]],
-  ['file_5flist',['file_list',['../da/d40/structfile__list.html',1,'']]]
+  ['memory_5farena',['memory_arena',['../d1/d39/structmemory__arena.html',1,'']]]
 ];

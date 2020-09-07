@@ -16,6 +16,10 @@ STATEMACHINE(test_statemachine, test_type, test_cmd, int Int, char const *String
 #define JSMN_SRC
 #include "jsmn.h"
 
+#define STB_SPRINTF_IMPLEMENTATION
+#include "stb_sprintf.h"
+#undef STB_SPRINTF_IMPLEMENTATION
+
 
 TEST_STATEMACHINE(Idle)
 {

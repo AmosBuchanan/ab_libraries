@@ -258,7 +258,7 @@ This creates a JSON string from a given enum, in the form:
 { "SomeTag":"Red" }
 ~~~
 
-This function is usually called from the struct version PushJson. 
+This function is usually called from the struct version of PushJson. 
 
 @param Json A string buffer to write the JSON to.
 @param MaxLength The maximum length that may be written to the buffer.
@@ -359,10 +359,10 @@ u32 JsonArrayToObjectArray(memory_arena *VolatileMemory, char const *Json, size_
 
 struct my_json_test_existlist
 {
-    b8 TestUnsigned;
-    b8 TestString;
-    b8 MyColour;
-    b8 isValue;
+   b8 TestUnsigned;
+   b8 TestString;
+   b8 MyColour;
+   b8 isValue;
 };
 
 #include "PreprocTest.h"
@@ -376,61 +376,61 @@ struct my_json_test_existlist
 inline void
 InitializeQueue(test_cmd_queue *Queue)
 {
-    Queue->Front = Queue->Rear = -1;
+  Queue->Front = Queue->Rear = -1;
 }
 
 inline b8
 isQueueEmpty(test_cmd_queue *Queue)
 {
-    b8 Result = (Queue->Front == -1);
-    return Result;
+  b8 Result = (Queue->Front == -1);
+  return Result;
 }
 
 inline b8 
 isQueueFull(test_cmd_queue *Queue)
 {
-    b8 Result = (Queue->Front == Queue->Rear + 1) ||
-        (Queue->Front == 0 && Queue->Rear == (10-1));
-    
-    return Result;
+  b8 Result = (Queue->Front == Queue->Rear + 1) ||
+  (Queue->Front == 0 && Queue->Rear == (10-1));
+
+  return Result;
 }
 
 b8
 Enqueue(test_cmd_queue *Queue, test_cmd Cmd)
 {
-    b8 Result = false;
-    if(!isQueueFull(Queue))
+  b8 Result = false;
+  if(!isQueueFull(Queue))
+  {
+    if(Queue->Front == -1)
     {
-        if(Queue->Front == -1)
-        {
-            Queue->Front = 0;
-        }
-        Queue->Rear = (Queue->Rear + 1) % 10;
-        Queue->Items[Queue->Rear] = Cmd;
-        
-        Result = true;
+      Queue->Front = 0;
     }
-    return Result;    
+    Queue->Rear = (Queue->Rear + 1) % 10;
+    Queue->Items[Queue->Rear] = Cmd;
+
+    Result = true;
+  }
+  return Result;    
 }
 
 test_cmd
 Dequeue(test_cmd_queue *Queue)
 {
-    test_cmd Result = (test_cmd)0;
-    if(!isQueueEmpty(Queue))
-    {
-        Result = Queue->Items[Queue->Front];
-        if(Queue->Front == Queue->Rear)
-        {
-            Queue->Front = Queue->Rear = -1;
-        }
-        else 
-        {
-            Queue->Front = (Queue->Front + 1) % 10;
-        }
-    }
-    
-    return Result;
+test_cmd Result = (test_cmd)0;
+if(!isQueueEmpty(Queue))
+{
+Result = Queue->Items[Queue->Front];
+if(Queue->Front == Queue->Rear)
+{
+Queue->Front = Queue->Rear = -1;
+}
+else 
+{
+Queue->Front = (Queue->Front + 1) % 10;
+}
+}
+
+return Result;
 }
 
 /***********/
@@ -446,28 +446,28 @@ GoToState(test_type *State, test_statemachine *NewState)
         State->CurrentState = NewState;
         State->isNewState = true;
     }
-    
+
     return isChanged;
 }
 
 char const*
 GetStateName(test_statemachine *StateName)
 {
-    if(StateName == Idle) {return "Idle";}
-    if(StateName == Running) {return "Running";}
-    return "Unknown";
+if(StateName == Idle) {return "Idle";}
+if(StateName == Running) {return "Running";}
+return "Unknown";
 }
 
 b8
 EnqueueCommand(test_type *State, test_cmd Cmd)
 {
-    return Enqueue(&State->CommandQueue, Cmd);
+return Enqueue(&State->CommandQueue, Cmd);
 }
 
 test_cmd
 DequeueCommand(test_type *State)
 {
-    return Dequeue(&State->CommandQueue);
+return Dequeue(&State->CommandQueue);
 }
 
 
@@ -476,12 +476,12 @@ DequeueCommand(test_type *State)
 /****** Enum test_cmd Functions *****/
 constexpr abs_stringptr test_cmd_Strings[test_cmd_Count] = 
 {
-    {"NOP", 3},
-    {"Command1", 8},
-    {"Command2", 8},
-    {"Command3", 8},
-    {"Command4", 8},
-    {"Last", 4},
+   {"NOP", 3},
+   {"Command1", 8},
+   {"Command2", 8},
+   {"Command3", 8},
+   {"Command4", 8},
+   {"Last", 4},
 };
 
 template<>
@@ -565,9 +565,9 @@ jsmntok_t *JsonToObject(memory_arena *VolatileMemory, char const *Json, size_t J
 
 constexpr abs_stringptr enColours_Strings[enColours_Count] = 
 {
-    {"Red", 3},
-    {"Green", 5},
-    {"Blue", 4},
+   {"Red", 3},
+   {"Green", 5},
+   {"Blue", 4},
 };
 
 template<>
@@ -630,16 +630,16 @@ u32 PushJson(char *Json, u32 MaxLength, char const*Tag, const my_json_test &Valu
     }
     if(!(JsonFlags & JSON_DontUseTag))
     {
-        Length += stbsp_snprintf(&Json[Length], MaxLength, "\"%s\":", Tag);
+          Length += stbsp_snprintf(&Json[Length], MaxLength, "\"%s\":", Tag);
     }
     Length += StartGroup(&Json[Length], (MaxLength - Length));
-    Length += stbsp_snprintf(&Json[Length], (MaxLength - Length), "\"TestUnsigned\":%u,",  (Value.TestUnsigned));
-    {
-        size_t StringLen = abs_StringLength(Value.TestString, 50);
-        Length += stbsp_snprintf(&Json[Length], (MaxLength - Length), "\"TestString\":\"%.*s\",", (s32)StringLen, Value.TestString);
-    }
-    Length += PushJson(&Json[Length], (MaxLength - Length), "MyColour",  (Value.MyColour), JSON_Null);
-    Length += stbsp_snprintf(&Json[Length], (MaxLength - Length), "\"isValue\":%s ", ( (Value.isValue) ? "true" : "false"));
+Length += stbsp_snprintf(&Json[Length], (MaxLength - Length), "\"TestUnsigned\":%u,",  (Value.TestUnsigned));
+{
+size_t StringLen = abs_StringLength(Value.TestString, 50);
+Length += stbsp_snprintf(&Json[Length], (MaxLength - Length), "\"TestString\":\"%.*s\",", (s32)StringLen, Value.TestString);
+}
+Length += PushJson(&Json[Length], (MaxLength - Length), "MyColour",  (Value.MyColour), JSON_Null);
+Length += stbsp_snprintf(&Json[Length], (MaxLength - Length), "\"isValue\":%s ", ( (Value.isValue) ? "true" : "false"));
     Length += EndGroup(&Json[Length], (MaxLength - Length), isLast);
     if(JsonFlags & JSON_BaseObject)
     {
@@ -664,53 +664,53 @@ jsmntok_t *JsonToObject(memory_arena *VolatileMemory, char const *Json, size_t J
             
             if((abs_AreStringsEqual(&Json[Token->start], TokenLength, "TestUnsigned",(ArrayCount("TestUnsigned")-1), true)) && 
                ((Token+1)->type == JSMN_PRIMITIVE)) 
-            {
-                ItemExists->TestUnsigned = true;
-                ++Token;
-                (ObjectOut->TestUnsigned) = (u8)atoi(&Json[Token->start]);
-            }
-            
+{
+            ItemExists->TestUnsigned = true;
+    ++Token;
+     (ObjectOut->TestUnsigned) = (u8)atoi(&Json[Token->start]);
+}
+
             if((abs_AreStringsEqual(&Json[Token->start], TokenLength, "TestString",(ArrayCount("TestString")-1), true)) && 
                ((Token+1)->type == JSMN_STRING)) 
-            {
-                ItemExists->TestString = true;
-                ++Token;
-                TokenLength = Token->end - Token->start;
-                s32 Length = MINIMUM(TokenLength, (50-1));
-                strncpy(ObjectOut->TestString, &Json[Token->start], Length);
-                ObjectOut->TestString[Length] = 0;
-            }
-            
+{
+            ItemExists->TestString = true;
+    ++Token;
+    TokenLength = Token->end - Token->start;
+    s32 Length = MINIMUM(TokenLength, (50-1));
+    strncpy(ObjectOut->TestString, &Json[Token->start], Length);
+    ObjectOut->TestString[Length] = 0;
+}
+
             if((abs_AreStringsEqual(&Json[Token->start], TokenLength, "MyColour",(ArrayCount("MyColour")-1), true)) && 
                (((Token+1)->type == JSMN_STRING) || ((Token+1)->type == JSMN_OBJECT))) 
-            {
-                ItemExists->MyColour = true;
-                Token = JsonToObject(VolatileMemory, Json, JsonLength, ++Token,  &ObjectOut->MyColour,0);
-            }
-            
+{
+            ItemExists->MyColour = true;
+Token = JsonToObject(VolatileMemory, Json, JsonLength, ++Token,  &ObjectOut->MyColour,0);
+}
+
             if((abs_AreStringsEqual(&Json[Token->start], TokenLength, "isValue",(ArrayCount("isValue")-1), true)) && 
                ((Token+1)->type == JSMN_PRIMITIVE)) 
-            {
-                ItemExists->isValue = true;
-                ++Token;
-                (ObjectOut->isValue) = (strncmp(&Json[Token->start],"true",4) == 0);
-            }
-            
-            
-        }
-    }
-    if(ItemsExistOut)
-    {
-        *ItemsExistOut = *ItemExists;
-    }
-    return Token;
+{
+            ItemExists->isValue = true;
+    ++Token;
+     (ObjectOut->isValue) = (strncmp(&Json[Token->start],"true",4) == 0);
+}
+
+
+}
+}
+if(ItemsExistOut)
+{
+    *ItemsExistOut = *ItemExists;
+}
+return Token;
 }
 
 u32
 JsonArrayToObjectArray(memory_arena *VolatileMemory, char const *Json, size_t JsonLength, my_json_test **ObjectArray, my_json_test_existlist **ObjectArrayExists)
 {
-    u32 NumberOfObjects = 0;
-    
+   u32 NumberOfObjects = 0;
+            
     jsmntok_t *TokenArray = 0;
     s32 NumTokensParsed = ParseJson(VolatileMemory, Json, JsonLength, &TokenArray);
     

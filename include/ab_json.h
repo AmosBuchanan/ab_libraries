@@ -38,7 +38,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 #include "jsmn.h"
 #undef JSMN_HEADER
 
-/** @brief Flags for how to create a JSON string from a struct/enum **/
+/** @brief Flags for how to create a JSON string from a struct/enum 
 
 These flags may be or'd together for input.
 **/

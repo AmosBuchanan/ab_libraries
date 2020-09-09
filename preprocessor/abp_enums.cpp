@@ -105,7 +105,7 @@ CreateEnumJson(term_enum *Enum,
                                       "{ \"SomeTag\":\"%.*s\" }\n"
                                       "~~~\n"
                                       "\n"
-                                      "This function is usually called from the struct version JsonToObject. \n"
+                                      "This function is usually called from the struct version of PushJson. \n"
                                       "\n"
                                       "@param Json A string buffer to write the JSON to.\n"
                                       "@param MaxLength The maximum length that may be written to the buffer.\n"

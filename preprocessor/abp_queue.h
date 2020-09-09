@@ -73,7 +73,7 @@ WriteQueueFunctions(abs_stringptr QueueItemName, u32 QueueSize,
                   "/** @brief Add an item to the back of the queue.\n"
                   "\n"
                   "@param Queue The queue to add to.\n"
-                  "@param The command to add.\n"
+                  "@param Cmd The command to add.\n"
                   "@return True if successful.\n"
                   "**/\n"
                   "b8 "
@@ -84,7 +84,7 @@ WriteQueueFunctions(abs_stringptr QueueItemName, u32 QueueSize,
     WriteToOutput(Headers, Memory, 
                   "/** @brief Dequeue from the front of the queue.\n"
                   "\n"
-                  "@param The queue to pull a command from.\n"
+                  "@param Queue The queue to pull a command from.\n"
                   "@return The command that was queued. If the queue is empty, returns the first element of %.*s. The first element is usually reserved for a NOP command.\n"
                   "**/\n"
                   "%.*s "

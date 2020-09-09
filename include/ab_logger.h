@@ -20,17 +20,22 @@ Basically, use a different ab_log for each thread and you should be ok.
 
 This is a single-file-library. You may include the file anywhere in your source. Only once in your code, define the following:
 
+~~~c
 #define AB_LOGGER_SRC
 #include "ab_logger.h"
+~~~
 
 This will include the source.
 
 There's a single-thread use that uses a global logger. Define the following:
+~~~c
 #define AB_LOGGER_SINGLETHREAD
+~~~
 
 To use color on STDERR:
+~~~c
 #define AB_LOGGER_USE_COLOR
-
+~~~
 Available levels:
 ABL_TRACE, 
     ABL_DEBUG, 

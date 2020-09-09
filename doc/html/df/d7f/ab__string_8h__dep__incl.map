@@ -1,4 +1,4 @@
 <map id="ab_string.h" name="ab_string.h">
-<area shape="rect" id="node2" href="$d7/deb/ab__file__win32_8h.html" title="ab_file_win32.h" alt="" coords="5,80,117,107"/>
-<area shape="rect" id="node3" href="$d2/d40/ab__json_8h.html" title="ab_json.h" alt="" coords="142,80,221,107"/>
+<area shape="rect" id="node1" title="Using string fragments, usually but not exclusively sections of larger strings." alt="" coords="5,5,92,32"/>
+<area shape="rect" id="node2" href="$d2/d40/ab__json_8h.html" title="JSON functions, mostly used by pre&#45;generated files." alt="" coords="9,80,88,107"/>
 </map>

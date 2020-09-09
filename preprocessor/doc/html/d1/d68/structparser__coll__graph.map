@@ -1,11 +1,12 @@
 <map id="parser" name="parser">
-<area shape="rect" id="node2" href="$de/d2f/structterm__enum.html" title="term_enum" alt="" coords="123,205,210,232"/>
-<area shape="rect" id="node3" href="$d2/d83/structterm__enumitem.html" title="term_enumitem" alt="" coords="121,99,233,125"/>
-<area shape="rect" id="node4" href="$d1/d09/structtag.html" title="tag" alt="" coords="317,7,357,33"/>
-<area shape="rect" id="node5" href="$d1/dd7/structterm__struct.html" title="term_struct" alt="" coords="291,205,379,232"/>
-<area shape="rect" id="node6" href="$d5/d7c/structterm__structitem.html" title="term_structitem" alt="" coords="457,99,570,125"/>
-<area shape="rect" id="node9" href="$dc/dfe/structterm__function.html" title="term_function" alt="" coords="655,99,756,125"/>
-<area shape="rect" id="node7" href="$d7/d22/structterm__typeexpr.html" title="term_typeexpr" alt="" coords="653,7,758,33"/>
-<area shape="rect" id="node10" href="$db/df7/structterm__statemachine.html" title="term_statemachine" alt="" coords="803,152,936,179"/>
-<area shape="rect" id="node8" href="$d4/d18/structterm__definedfunction.html" title="term_definedfunction" alt="" coords="459,205,602,232"/>
+<area shape="rect" id="node1" title=" " alt="" coords="493,296,552,323"/>
+<area shape="rect" id="node2" href="$de/d2f/structterm__enum.html" title=" " alt="" coords="123,205,210,232"/>
+<area shape="rect" id="node3" href="$d2/d83/structterm__enumitem.html" title=" " alt="" coords="121,99,233,125"/>
+<area shape="rect" id="node4" href="$d1/d09/structtag.html" title=" " alt="" coords="319,7,359,33"/>
+<area shape="rect" id="node5" href="$d1/dd7/structterm__struct.html" title=" " alt="" coords="292,205,380,232"/>
+<area shape="rect" id="node6" href="$d5/d7c/structterm__structitem.html" title=" " alt="" coords="458,99,571,125"/>
+<area shape="rect" id="node9" href="$dc/dfe/structterm__function.html" title=" " alt="" coords="657,99,759,125"/>
+<area shape="rect" id="node7" href="$d7/d22/structterm__typeexpr.html" title=" " alt="" coords="655,7,761,33"/>
+<area shape="rect" id="node10" href="$db/df7/structterm__statemachine.html" title=" " alt="" coords="807,152,940,179"/>
+<area shape="rect" id="node8" href="$d4/d18/structterm__definedfunction.html" title=" " alt="" coords="462,205,605,232"/>
 </map>

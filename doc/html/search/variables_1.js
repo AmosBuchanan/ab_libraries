@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['currentfile',['CurrentFile',['../da/d40/structfile__list.html#a8103a737b7c8edc9da8dfa5c75abe242',1,'file_list']]]
+  ['string_141',['String',['../d2/db7/structabs__stringptr.html#ac7296c8ae75a6cf987961712b55acaa5',1,'abs_stringptr']]]
 ];

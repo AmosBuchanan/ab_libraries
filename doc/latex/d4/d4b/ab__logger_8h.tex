@@ -1,104 +1,105 @@
-\hypertarget{ab__logger_8h}{}\section{ab\+\_\+logger.\+h File Reference}
-\label{ab__logger_8h}\index{ab\+\_\+logger.\+h@{ab\+\_\+logger.\+h}}
+\hypertarget{ab__logger_8h}{}\doxysection{ab\+\_\+logger.\+h File Reference}
+\label{ab__logger_8h}\index{ab\_logger.h@{ab\_logger.h}}
 {\ttfamily \#include \char`\"{}czmq.\+h\char`\"{}}\newline
 {\ttfamily \#include \char`\"{}ab\+\_\+common.\+h\char`\"{}}\newline
-Include dependency graph for ab\+\_\+logger.\+h\+:\nopagebreak
+Include dependency graph for ab\+\_\+logger.\+h\+:
+\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
 \includegraphics[width=246pt]{d3/d74/ab__logger_8h__incl}
 \end{center}
 \end{figure}
-\subsection*{Macros}
+\doxysubsection*{Macros}
 \begin{DoxyCompactItemize}
 \item 
-\#define \hyperlink{ab__logger_8h_a1c3af1ceb74203276ce7ca7ec60b6e63}{abl\+\_\+trace}(Logger,  Fmt, ...)~\hyperlink{ab__logger_8h_a7d0be7575c2768d56ad5bdc391d3d769}{abl\+\_\+log}(Logger, L\+O\+G\+\_\+\+T\+R\+A\+CE, \+\_\+\+\_\+\+F\+I\+L\+E\+\_\+\+\_\+, \+\_\+\+\_\+\+L\+I\+N\+E\+\_\+\+\_\+, Fmt, \+\_\+\+\_\+\+V\+A\+\_\+\+A\+R\+G\+S\+\_\+\+\_\+)
+\#define \mbox{\hyperlink{ab__logger_8h_a1c3af1ceb74203276ce7ca7ec60b6e63}{abl\+\_\+trace}}(Logger,  Fmt, ...)~\mbox{\hyperlink{ab__logger_8h_a7d0be7575c2768d56ad5bdc391d3d769}{abl\+\_\+log}}(Logger, L\+O\+G\+\_\+\+T\+R\+A\+CE, \+\_\+\+\_\+\+F\+I\+L\+E\+\_\+\+\_\+, \+\_\+\+\_\+\+L\+I\+N\+E\+\_\+\+\_\+, Fmt, \+\_\+\+\_\+\+V\+A\+\_\+\+A\+R\+G\+S\+\_\+\+\_\+)
 \item 
-\#define \hyperlink{ab__logger_8h_af0d95724956482b6abce967bec5bca6d}{abl\+\_\+debug}(Logger,  Fmt, ...)~\hyperlink{ab__logger_8h_a7d0be7575c2768d56ad5bdc391d3d769}{abl\+\_\+log}(Logger, L\+O\+G\+\_\+\+D\+E\+B\+UG, \+\_\+\+\_\+\+F\+I\+L\+E\+\_\+\+\_\+, \+\_\+\+\_\+\+L\+I\+N\+E\+\_\+\+\_\+, Fmt, \+\_\+\+\_\+\+V\+A\+\_\+\+A\+R\+G\+S\+\_\+\+\_\+)
+\#define \mbox{\hyperlink{ab__logger_8h_af0d95724956482b6abce967bec5bca6d}{abl\+\_\+debug}}(Logger,  Fmt, ...)~\mbox{\hyperlink{ab__logger_8h_a7d0be7575c2768d56ad5bdc391d3d769}{abl\+\_\+log}}(Logger, L\+O\+G\+\_\+\+D\+E\+B\+UG, \+\_\+\+\_\+\+F\+I\+L\+E\+\_\+\+\_\+, \+\_\+\+\_\+\+L\+I\+N\+E\+\_\+\+\_\+, Fmt, \+\_\+\+\_\+\+V\+A\+\_\+\+A\+R\+G\+S\+\_\+\+\_\+)
 \item 
-\#define \hyperlink{ab__logger_8h_a0e01c4cfce56ca553e16e2f85bb9f0fe}{abl\+\_\+info}(Logger,  Fmt, ...)~\hyperlink{ab__logger_8h_a7d0be7575c2768d56ad5bdc391d3d769}{abl\+\_\+log}(Logger, L\+O\+G\+\_\+\+I\+N\+FO,  \+\_\+\+\_\+\+F\+I\+L\+E\+\_\+\+\_\+, \+\_\+\+\_\+\+L\+I\+N\+E\+\_\+\+\_\+, Fmt, \+\_\+\+\_\+\+V\+A\+\_\+\+A\+R\+G\+S\+\_\+\+\_\+)
+\#define \mbox{\hyperlink{ab__logger_8h_a0e01c4cfce56ca553e16e2f85bb9f0fe}{abl\+\_\+info}}(Logger,  Fmt, ...)~\mbox{\hyperlink{ab__logger_8h_a7d0be7575c2768d56ad5bdc391d3d769}{abl\+\_\+log}}(Logger, L\+O\+G\+\_\+\+I\+N\+FO,  \+\_\+\+\_\+\+F\+I\+L\+E\+\_\+\+\_\+, \+\_\+\+\_\+\+L\+I\+N\+E\+\_\+\+\_\+, Fmt, \+\_\+\+\_\+\+V\+A\+\_\+\+A\+R\+G\+S\+\_\+\+\_\+)
 \item 
-\#define \hyperlink{ab__logger_8h_ace87fcfe98d7bb16ff20b09002b0f41b}{abl\+\_\+warn}(Logger,  Fmt, ...)~\hyperlink{ab__logger_8h_a7d0be7575c2768d56ad5bdc391d3d769}{abl\+\_\+log}(Logger, L\+O\+G\+\_\+\+W\+A\+RN,  \+\_\+\+\_\+\+F\+I\+L\+E\+\_\+\+\_\+, \+\_\+\+\_\+\+L\+I\+N\+E\+\_\+\+\_\+, Fmt, \+\_\+\+\_\+\+V\+A\+\_\+\+A\+R\+G\+S\+\_\+\+\_\+)
+\#define \mbox{\hyperlink{ab__logger_8h_ace87fcfe98d7bb16ff20b09002b0f41b}{abl\+\_\+warn}}(Logger,  Fmt, ...)~\mbox{\hyperlink{ab__logger_8h_a7d0be7575c2768d56ad5bdc391d3d769}{abl\+\_\+log}}(Logger, L\+O\+G\+\_\+\+W\+A\+RN,  \+\_\+\+\_\+\+F\+I\+L\+E\+\_\+\+\_\+, \+\_\+\+\_\+\+L\+I\+N\+E\+\_\+\+\_\+, Fmt, \+\_\+\+\_\+\+V\+A\+\_\+\+A\+R\+G\+S\+\_\+\+\_\+)
 \item 
-\#define \hyperlink{ab__logger_8h_a9701d37f9ea32885eb4435456b54380c}{abl\+\_\+error}(Logger,  Fmt, ...)~\hyperlink{ab__logger_8h_a7d0be7575c2768d56ad5bdc391d3d769}{abl\+\_\+log}(Logger, L\+O\+G\+\_\+\+E\+R\+R\+OR, \+\_\+\+\_\+\+F\+I\+L\+E\+\_\+\+\_\+, \+\_\+\+\_\+\+L\+I\+N\+E\+\_\+\+\_\+, Fmt, \+\_\+\+\_\+\+V\+A\+\_\+\+A\+R\+G\+S\+\_\+\+\_\+)
+\#define \mbox{\hyperlink{ab__logger_8h_a9701d37f9ea32885eb4435456b54380c}{abl\+\_\+error}}(Logger,  Fmt, ...)~\mbox{\hyperlink{ab__logger_8h_a7d0be7575c2768d56ad5bdc391d3d769}{abl\+\_\+log}}(Logger, L\+O\+G\+\_\+\+E\+R\+R\+OR, \+\_\+\+\_\+\+F\+I\+L\+E\+\_\+\+\_\+, \+\_\+\+\_\+\+L\+I\+N\+E\+\_\+\+\_\+, Fmt, \+\_\+\+\_\+\+V\+A\+\_\+\+A\+R\+G\+S\+\_\+\+\_\+)
 \item 
-\#define \hyperlink{ab__logger_8h_a56cde45c39126f008262c3d94e03e9b8}{abl\+\_\+fatal}(Logger,  Fmt, ...)~\hyperlink{ab__logger_8h_a7d0be7575c2768d56ad5bdc391d3d769}{abl\+\_\+log}(Logger, L\+O\+G\+\_\+\+F\+A\+T\+AL, \+\_\+\+\_\+\+F\+I\+L\+E\+\_\+\+\_\+, \+\_\+\+\_\+\+L\+I\+N\+E\+\_\+\+\_\+, Fmt, \+\_\+\+\_\+\+V\+A\+\_\+\+A\+R\+G\+S\+\_\+\+\_\+)
+\#define \mbox{\hyperlink{ab__logger_8h_a56cde45c39126f008262c3d94e03e9b8}{abl\+\_\+fatal}}(Logger,  Fmt, ...)~\mbox{\hyperlink{ab__logger_8h_a7d0be7575c2768d56ad5bdc391d3d769}{abl\+\_\+log}}(Logger, L\+O\+G\+\_\+\+F\+A\+T\+AL, \+\_\+\+\_\+\+F\+I\+L\+E\+\_\+\+\_\+, \+\_\+\+\_\+\+L\+I\+N\+E\+\_\+\+\_\+, Fmt, \+\_\+\+\_\+\+V\+A\+\_\+\+A\+R\+G\+S\+\_\+\+\_\+)
 \end{DoxyCompactItemize}
-\subsection*{Enumerations}
+\doxysubsection*{Enumerations}
 \begin{DoxyCompactItemize}
 \item 
-enum \hyperlink{ab__logger_8h_ad09c15c023f4bd204786f7c031c45787}{abl\+\_\+log\+\_\+level} \{ \newline
-\hyperlink{ab__logger_8h_ad09c15c023f4bd204786f7c031c45787a7fccde42da961232bd100be86f2c32b1}{A\+B\+L\+\_\+\+T\+R\+A\+CE}, 
-\hyperlink{ab__logger_8h_ad09c15c023f4bd204786f7c031c45787a4a4d2ab22d6f6be96611dfc75021117e}{A\+B\+L\+\_\+\+D\+E\+B\+UG}, 
-\hyperlink{ab__logger_8h_ad09c15c023f4bd204786f7c031c45787a72e995c24ee1e50bfa27759c4c2c0bee}{A\+B\+L\+\_\+\+I\+N\+FO}, 
-\hyperlink{ab__logger_8h_ad09c15c023f4bd204786f7c031c45787af4a847c0c5d6fe01ec92ab29b2d21144}{A\+B\+L\+\_\+\+W\+A\+RN}, 
+enum \mbox{\hyperlink{ab__logger_8h_ad09c15c023f4bd204786f7c031c45787}{abl\+\_\+log\+\_\+level}} \{ \newline
+\mbox{\hyperlink{ab__logger_8h_ad09c15c023f4bd204786f7c031c45787a7fccde42da961232bd100be86f2c32b1}{A\+B\+L\+\_\+\+T\+R\+A\+CE}}, 
+\mbox{\hyperlink{ab__logger_8h_ad09c15c023f4bd204786f7c031c45787a4a4d2ab22d6f6be96611dfc75021117e}{A\+B\+L\+\_\+\+D\+E\+B\+UG}}, 
+\mbox{\hyperlink{ab__logger_8h_ad09c15c023f4bd204786f7c031c45787a72e995c24ee1e50bfa27759c4c2c0bee}{A\+B\+L\+\_\+\+I\+N\+FO}}, 
+\mbox{\hyperlink{ab__logger_8h_ad09c15c023f4bd204786f7c031c45787af4a847c0c5d6fe01ec92ab29b2d21144}{A\+B\+L\+\_\+\+W\+A\+RN}}, 
 \newline
-\hyperlink{ab__logger_8h_ad09c15c023f4bd204786f7c031c45787a11c5fd338567ea5a3cdff6dfec3b7b5f}{A\+B\+L\+\_\+\+E\+R\+R\+OR}, 
-\hyperlink{ab__logger_8h_ad09c15c023f4bd204786f7c031c45787a3c083097aaf5d4784c9513b0eba01e75}{A\+B\+L\+\_\+\+F\+A\+T\+AL}
+\mbox{\hyperlink{ab__logger_8h_ad09c15c023f4bd204786f7c031c45787a11c5fd338567ea5a3cdff6dfec3b7b5f}{A\+B\+L\+\_\+\+E\+R\+R\+OR}}, 
+\mbox{\hyperlink{ab__logger_8h_ad09c15c023f4bd204786f7c031c45787a3c083097aaf5d4784c9513b0eba01e75}{A\+B\+L\+\_\+\+F\+A\+T\+AL}}
  \}
 \end{DoxyCompactItemize}
-\subsection*{Functions}
+\doxysubsection*{Functions}
 \begin{DoxyCompactItemize}
 \item 
-void \hyperlink{ab__logger_8h_adc94b6d140adcd78c7f0bb2fce524667}{abl\+\_\+start\+\_\+server} (ab\+\_\+log $\ast$Logger, \hyperlink{ab__common_8h_ae9b1af5c037e57a98884758875d3a7c4}{s32} Port)
+void \mbox{\hyperlink{ab__logger_8h_adc94b6d140adcd78c7f0bb2fce524667}{abl\+\_\+start\+\_\+server}} (ab\+\_\+log $\ast$Logger, \mbox{\hyperlink{ab__common_8h_ae9b1af5c037e57a98884758875d3a7c4}{s32}} Port)
 \item 
-void \hyperlink{ab__logger_8h_adce1f3ea2b2bd6eea7e33b63fd8c0499}{abl\+\_\+set\+\_\+fp} (ab\+\_\+log $\ast$Logger, F\+I\+LE $\ast$fp)
+void \mbox{\hyperlink{ab__logger_8h_adce1f3ea2b2bd6eea7e33b63fd8c0499}{abl\+\_\+set\+\_\+fp}} (ab\+\_\+log $\ast$Logger, F\+I\+LE $\ast$fp)
 \item 
-void \hyperlink{ab__logger_8h_ad9700e7478bc6850a033e6c1cc6eeaa1}{abl\+\_\+set\+\_\+level} (ab\+\_\+log $\ast$Logger, \hyperlink{ab__logger_8h_ad09c15c023f4bd204786f7c031c45787}{abl\+\_\+log\+\_\+level} Level)
+void \mbox{\hyperlink{ab__logger_8h_ad9700e7478bc6850a033e6c1cc6eeaa1}{abl\+\_\+set\+\_\+level}} (ab\+\_\+log $\ast$Logger, \mbox{\hyperlink{ab__logger_8h_ad09c15c023f4bd204786f7c031c45787}{abl\+\_\+log\+\_\+level}} Level)
 \item 
-void \hyperlink{ab__logger_8h_af26d8d70a5083e1d9c994c3e3f0b5622}{abl\+\_\+set\+\_\+quiet} (ab\+\_\+log $\ast$Logger, \hyperlink{ab__common_8h_a70e369648385b50f2d0588e8e8745275}{b8} is\+Quiet)
+void \mbox{\hyperlink{ab__logger_8h_af26d8d70a5083e1d9c994c3e3f0b5622}{abl\+\_\+set\+\_\+quiet}} (ab\+\_\+log $\ast$Logger, \mbox{\hyperlink{ab__common_8h_a70e369648385b50f2d0588e8e8745275}{b8}} is\+Quiet)
 \item 
-void \hyperlink{ab__logger_8h_a830f7af6399163b2ac8c6443042f97c7}{abl\+\_\+stop\+\_\+server} (ab\+\_\+log $\ast$Logger)
+void \mbox{\hyperlink{ab__logger_8h_a830f7af6399163b2ac8c6443042f97c7}{abl\+\_\+stop\+\_\+server}} (ab\+\_\+log $\ast$Logger)
 \item 
-void \hyperlink{ab__logger_8h_a7d0be7575c2768d56ad5bdc391d3d769}{abl\+\_\+log} (ab\+\_\+log $\ast$Logger, \hyperlink{ab__logger_8h_ad09c15c023f4bd204786f7c031c45787}{abl\+\_\+log\+\_\+level} Level, const char $\ast$File, \hyperlink{ab__common_8h_ae9b1af5c037e57a98884758875d3a7c4}{s32} Line, const char $\ast$Fmt,...)
+void \mbox{\hyperlink{ab__logger_8h_a7d0be7575c2768d56ad5bdc391d3d769}{abl\+\_\+log}} (ab\+\_\+log $\ast$Logger, \mbox{\hyperlink{ab__logger_8h_ad09c15c023f4bd204786f7c031c45787}{abl\+\_\+log\+\_\+level}} Level, const char $\ast$File, \mbox{\hyperlink{ab__common_8h_ae9b1af5c037e57a98884758875d3a7c4}{s32}} Line, const char $\ast$Fmt,...)
 \end{DoxyCompactItemize}
 
 
-\subsection{Macro Definition Documentation}
+\doxysubsection{Macro Definition Documentation}
 \mbox{\Hypertarget{ab__logger_8h_af0d95724956482b6abce967bec5bca6d}\label{ab__logger_8h_af0d95724956482b6abce967bec5bca6d}} 
-\index{ab\+\_\+logger.\+h@{ab\+\_\+logger.\+h}!abl\+\_\+debug@{abl\+\_\+debug}}
-\index{abl\+\_\+debug@{abl\+\_\+debug}!ab\+\_\+logger.\+h@{ab\+\_\+logger.\+h}}
-\subsubsection{\texorpdfstring{abl\+\_\+debug}{abl\_debug}}
-{\footnotesize\ttfamily \#define abl\+\_\+debug(\begin{DoxyParamCaption}\item[{}]{Logger,  }\item[{}]{Fmt,  }\item[{}]{... }\end{DoxyParamCaption})~\hyperlink{ab__logger_8h_a7d0be7575c2768d56ad5bdc391d3d769}{abl\+\_\+log}(Logger, L\+O\+G\+\_\+\+D\+E\+B\+UG, \+\_\+\+\_\+\+F\+I\+L\+E\+\_\+\+\_\+, \+\_\+\+\_\+\+L\+I\+N\+E\+\_\+\+\_\+, Fmt, \+\_\+\+\_\+\+V\+A\+\_\+\+A\+R\+G\+S\+\_\+\+\_\+)}
+\index{ab\_logger.h@{ab\_logger.h}!abl\_debug@{abl\_debug}}
+\index{abl\_debug@{abl\_debug}!ab\_logger.h@{ab\_logger.h}}
+\doxysubsubsection{\texorpdfstring{abl\_debug}{abl\_debug}}
+{\footnotesize\ttfamily \#define abl\+\_\+debug(\begin{DoxyParamCaption}\item[{}]{Logger,  }\item[{}]{Fmt,  }\item[{}]{... }\end{DoxyParamCaption})~\mbox{\hyperlink{ab__logger_8h_a7d0be7575c2768d56ad5bdc391d3d769}{abl\+\_\+log}}(Logger, L\+O\+G\+\_\+\+D\+E\+B\+UG, \+\_\+\+\_\+\+F\+I\+L\+E\+\_\+\+\_\+, \+\_\+\+\_\+\+L\+I\+N\+E\+\_\+\+\_\+, Fmt, \+\_\+\+\_\+\+V\+A\+\_\+\+A\+R\+G\+S\+\_\+\+\_\+)}
 
 \mbox{\Hypertarget{ab__logger_8h_a9701d37f9ea32885eb4435456b54380c}\label{ab__logger_8h_a9701d37f9ea32885eb4435456b54380c}} 
-\index{ab\+\_\+logger.\+h@{ab\+\_\+logger.\+h}!abl\+\_\+error@{abl\+\_\+error}}
-\index{abl\+\_\+error@{abl\+\_\+error}!ab\+\_\+logger.\+h@{ab\+\_\+logger.\+h}}
-\subsubsection{\texorpdfstring{abl\+\_\+error}{abl\_error}}
-{\footnotesize\ttfamily \#define abl\+\_\+error(\begin{DoxyParamCaption}\item[{}]{Logger,  }\item[{}]{Fmt,  }\item[{}]{... }\end{DoxyParamCaption})~\hyperlink{ab__logger_8h_a7d0be7575c2768d56ad5bdc391d3d769}{abl\+\_\+log}(Logger, L\+O\+G\+\_\+\+E\+R\+R\+OR, \+\_\+\+\_\+\+F\+I\+L\+E\+\_\+\+\_\+, \+\_\+\+\_\+\+L\+I\+N\+E\+\_\+\+\_\+, Fmt, \+\_\+\+\_\+\+V\+A\+\_\+\+A\+R\+G\+S\+\_\+\+\_\+)}
+\index{ab\_logger.h@{ab\_logger.h}!abl\_error@{abl\_error}}
+\index{abl\_error@{abl\_error}!ab\_logger.h@{ab\_logger.h}}
+\doxysubsubsection{\texorpdfstring{abl\_error}{abl\_error}}
+{\footnotesize\ttfamily \#define abl\+\_\+error(\begin{DoxyParamCaption}\item[{}]{Logger,  }\item[{}]{Fmt,  }\item[{}]{... }\end{DoxyParamCaption})~\mbox{\hyperlink{ab__logger_8h_a7d0be7575c2768d56ad5bdc391d3d769}{abl\+\_\+log}}(Logger, L\+O\+G\+\_\+\+E\+R\+R\+OR, \+\_\+\+\_\+\+F\+I\+L\+E\+\_\+\+\_\+, \+\_\+\+\_\+\+L\+I\+N\+E\+\_\+\+\_\+, Fmt, \+\_\+\+\_\+\+V\+A\+\_\+\+A\+R\+G\+S\+\_\+\+\_\+)}
 
 \mbox{\Hypertarget{ab__logger_8h_a56cde45c39126f008262c3d94e03e9b8}\label{ab__logger_8h_a56cde45c39126f008262c3d94e03e9b8}} 
-\index{ab\+\_\+logger.\+h@{ab\+\_\+logger.\+h}!abl\+\_\+fatal@{abl\+\_\+fatal}}
-\index{abl\+\_\+fatal@{abl\+\_\+fatal}!ab\+\_\+logger.\+h@{ab\+\_\+logger.\+h}}
-\subsubsection{\texorpdfstring{abl\+\_\+fatal}{abl\_fatal}}
-{\footnotesize\ttfamily \#define abl\+\_\+fatal(\begin{DoxyParamCaption}\item[{}]{Logger,  }\item[{}]{Fmt,  }\item[{}]{... }\end{DoxyParamCaption})~\hyperlink{ab__logger_8h_a7d0be7575c2768d56ad5bdc391d3d769}{abl\+\_\+log}(Logger, L\+O\+G\+\_\+\+F\+A\+T\+AL, \+\_\+\+\_\+\+F\+I\+L\+E\+\_\+\+\_\+, \+\_\+\+\_\+\+L\+I\+N\+E\+\_\+\+\_\+, Fmt, \+\_\+\+\_\+\+V\+A\+\_\+\+A\+R\+G\+S\+\_\+\+\_\+)}
+\index{ab\_logger.h@{ab\_logger.h}!abl\_fatal@{abl\_fatal}}
+\index{abl\_fatal@{abl\_fatal}!ab\_logger.h@{ab\_logger.h}}
+\doxysubsubsection{\texorpdfstring{abl\_fatal}{abl\_fatal}}
+{\footnotesize\ttfamily \#define abl\+\_\+fatal(\begin{DoxyParamCaption}\item[{}]{Logger,  }\item[{}]{Fmt,  }\item[{}]{... }\end{DoxyParamCaption})~\mbox{\hyperlink{ab__logger_8h_a7d0be7575c2768d56ad5bdc391d3d769}{abl\+\_\+log}}(Logger, L\+O\+G\+\_\+\+F\+A\+T\+AL, \+\_\+\+\_\+\+F\+I\+L\+E\+\_\+\+\_\+, \+\_\+\+\_\+\+L\+I\+N\+E\+\_\+\+\_\+, Fmt, \+\_\+\+\_\+\+V\+A\+\_\+\+A\+R\+G\+S\+\_\+\+\_\+)}
 
 \mbox{\Hypertarget{ab__logger_8h_a0e01c4cfce56ca553e16e2f85bb9f0fe}\label{ab__logger_8h_a0e01c4cfce56ca553e16e2f85bb9f0fe}} 
-\index{ab\+\_\+logger.\+h@{ab\+\_\+logger.\+h}!abl\+\_\+info@{abl\+\_\+info}}
-\index{abl\+\_\+info@{abl\+\_\+info}!ab\+\_\+logger.\+h@{ab\+\_\+logger.\+h}}
-\subsubsection{\texorpdfstring{abl\+\_\+info}{abl\_info}}
-{\footnotesize\ttfamily \#define abl\+\_\+info(\begin{DoxyParamCaption}\item[{}]{Logger,  }\item[{}]{Fmt,  }\item[{}]{... }\end{DoxyParamCaption})~\hyperlink{ab__logger_8h_a7d0be7575c2768d56ad5bdc391d3d769}{abl\+\_\+log}(Logger, L\+O\+G\+\_\+\+I\+N\+FO,  \+\_\+\+\_\+\+F\+I\+L\+E\+\_\+\+\_\+, \+\_\+\+\_\+\+L\+I\+N\+E\+\_\+\+\_\+, Fmt, \+\_\+\+\_\+\+V\+A\+\_\+\+A\+R\+G\+S\+\_\+\+\_\+)}
+\index{ab\_logger.h@{ab\_logger.h}!abl\_info@{abl\_info}}
+\index{abl\_info@{abl\_info}!ab\_logger.h@{ab\_logger.h}}
+\doxysubsubsection{\texorpdfstring{abl\_info}{abl\_info}}
+{\footnotesize\ttfamily \#define abl\+\_\+info(\begin{DoxyParamCaption}\item[{}]{Logger,  }\item[{}]{Fmt,  }\item[{}]{... }\end{DoxyParamCaption})~\mbox{\hyperlink{ab__logger_8h_a7d0be7575c2768d56ad5bdc391d3d769}{abl\+\_\+log}}(Logger, L\+O\+G\+\_\+\+I\+N\+FO,  \+\_\+\+\_\+\+F\+I\+L\+E\+\_\+\+\_\+, \+\_\+\+\_\+\+L\+I\+N\+E\+\_\+\+\_\+, Fmt, \+\_\+\+\_\+\+V\+A\+\_\+\+A\+R\+G\+S\+\_\+\+\_\+)}
 
 \mbox{\Hypertarget{ab__logger_8h_a1c3af1ceb74203276ce7ca7ec60b6e63}\label{ab__logger_8h_a1c3af1ceb74203276ce7ca7ec60b6e63}} 
-\index{ab\+\_\+logger.\+h@{ab\+\_\+logger.\+h}!abl\+\_\+trace@{abl\+\_\+trace}}
-\index{abl\+\_\+trace@{abl\+\_\+trace}!ab\+\_\+logger.\+h@{ab\+\_\+logger.\+h}}
-\subsubsection{\texorpdfstring{abl\+\_\+trace}{abl\_trace}}
-{\footnotesize\ttfamily \#define abl\+\_\+trace(\begin{DoxyParamCaption}\item[{}]{Logger,  }\item[{}]{Fmt,  }\item[{}]{... }\end{DoxyParamCaption})~\hyperlink{ab__logger_8h_a7d0be7575c2768d56ad5bdc391d3d769}{abl\+\_\+log}(Logger, L\+O\+G\+\_\+\+T\+R\+A\+CE, \+\_\+\+\_\+\+F\+I\+L\+E\+\_\+\+\_\+, \+\_\+\+\_\+\+L\+I\+N\+E\+\_\+\+\_\+, Fmt, \+\_\+\+\_\+\+V\+A\+\_\+\+A\+R\+G\+S\+\_\+\+\_\+)}
+\index{ab\_logger.h@{ab\_logger.h}!abl\_trace@{abl\_trace}}
+\index{abl\_trace@{abl\_trace}!ab\_logger.h@{ab\_logger.h}}
+\doxysubsubsection{\texorpdfstring{abl\_trace}{abl\_trace}}
+{\footnotesize\ttfamily \#define abl\+\_\+trace(\begin{DoxyParamCaption}\item[{}]{Logger,  }\item[{}]{Fmt,  }\item[{}]{... }\end{DoxyParamCaption})~\mbox{\hyperlink{ab__logger_8h_a7d0be7575c2768d56ad5bdc391d3d769}{abl\+\_\+log}}(Logger, L\+O\+G\+\_\+\+T\+R\+A\+CE, \+\_\+\+\_\+\+F\+I\+L\+E\+\_\+\+\_\+, \+\_\+\+\_\+\+L\+I\+N\+E\+\_\+\+\_\+, Fmt, \+\_\+\+\_\+\+V\+A\+\_\+\+A\+R\+G\+S\+\_\+\+\_\+)}
 
 If multi-\/threaded, must declare a logger for use. \mbox{\Hypertarget{ab__logger_8h_ace87fcfe98d7bb16ff20b09002b0f41b}\label{ab__logger_8h_ace87fcfe98d7bb16ff20b09002b0f41b}} 
-\index{ab\+\_\+logger.\+h@{ab\+\_\+logger.\+h}!abl\+\_\+warn@{abl\+\_\+warn}}
-\index{abl\+\_\+warn@{abl\+\_\+warn}!ab\+\_\+logger.\+h@{ab\+\_\+logger.\+h}}
-\subsubsection{\texorpdfstring{abl\+\_\+warn}{abl\_warn}}
-{\footnotesize\ttfamily \#define abl\+\_\+warn(\begin{DoxyParamCaption}\item[{}]{Logger,  }\item[{}]{Fmt,  }\item[{}]{... }\end{DoxyParamCaption})~\hyperlink{ab__logger_8h_a7d0be7575c2768d56ad5bdc391d3d769}{abl\+\_\+log}(Logger, L\+O\+G\+\_\+\+W\+A\+RN,  \+\_\+\+\_\+\+F\+I\+L\+E\+\_\+\+\_\+, \+\_\+\+\_\+\+L\+I\+N\+E\+\_\+\+\_\+, Fmt, \+\_\+\+\_\+\+V\+A\+\_\+\+A\+R\+G\+S\+\_\+\+\_\+)}
+\index{ab\_logger.h@{ab\_logger.h}!abl\_warn@{abl\_warn}}
+\index{abl\_warn@{abl\_warn}!ab\_logger.h@{ab\_logger.h}}
+\doxysubsubsection{\texorpdfstring{abl\_warn}{abl\_warn}}
+{\footnotesize\ttfamily \#define abl\+\_\+warn(\begin{DoxyParamCaption}\item[{}]{Logger,  }\item[{}]{Fmt,  }\item[{}]{... }\end{DoxyParamCaption})~\mbox{\hyperlink{ab__logger_8h_a7d0be7575c2768d56ad5bdc391d3d769}{abl\+\_\+log}}(Logger, L\+O\+G\+\_\+\+W\+A\+RN,  \+\_\+\+\_\+\+F\+I\+L\+E\+\_\+\+\_\+, \+\_\+\+\_\+\+L\+I\+N\+E\+\_\+\+\_\+, Fmt, \+\_\+\+\_\+\+V\+A\+\_\+\+A\+R\+G\+S\+\_\+\+\_\+)}
 
 
 
-\subsection{Enumeration Type Documentation}
+\doxysubsection{Enumeration Type Documentation}
 \mbox{\Hypertarget{ab__logger_8h_ad09c15c023f4bd204786f7c031c45787}\label{ab__logger_8h_ad09c15c023f4bd204786f7c031c45787}} 
-\index{ab\+\_\+logger.\+h@{ab\+\_\+logger.\+h}!abl\+\_\+log\+\_\+level@{abl\+\_\+log\+\_\+level}}
-\index{abl\+\_\+log\+\_\+level@{abl\+\_\+log\+\_\+level}!ab\+\_\+logger.\+h@{ab\+\_\+logger.\+h}}
-\subsubsection{\texorpdfstring{abl\+\_\+log\+\_\+level}{abl\_log\_level}}
-{\footnotesize\ttfamily enum \hyperlink{ab__logger_8h_ad09c15c023f4bd204786f7c031c45787}{abl\+\_\+log\+\_\+level}}
+\index{ab\_logger.h@{ab\_logger.h}!abl\_log\_level@{abl\_log\_level}}
+\index{abl\_log\_level@{abl\_log\_level}!ab\_logger.h@{ab\_logger.h}}
+\doxysubsubsection{\texorpdfstring{abl\_log\_level}{abl\_log\_level}}
+{\footnotesize\ttfamily enum \mbox{\hyperlink{ab__logger_8h_ad09c15c023f4bd204786f7c031c45787}{abl\+\_\+log\+\_\+level}}}
 
 Logger. Version\+: 1.\+0 Network logger using czmq. Will log to S\+T\+D\+E\+RR, a file and/or to a czmq network, depending on setup. S\+T\+D\+E\+RR logging not garunteed to be threadsafe, don\textquotesingle{}t do it. Logging multiple threads to the same file not garunteed to be threadsafe. C\+Z\+MQ logging is threadsafe subject to the restrictions of C\+Z\+MQ.
 
@@ -106,79 +107,92 @@ Basically, use a different ab\+\_\+log for each thread and you should be ok.
 
 This is a single-\/file-\/library. You may include the file anywhere in your source. Only once in your code, define the following\+:
 
-\#define A\+B\+\_\+\+L\+O\+G\+G\+E\+R\+\_\+\+S\+RC \#include \char`\"{}ab\+\_\+logger.\+h\char`\"{}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\textcolor{preprocessor}{\#define AB\_LOGGER\_SRC}}
+\DoxyCodeLine{\textcolor{preprocessor}{\#include "{}ab\_logger.h"{}}}
+\end{DoxyCode}
+
 
 This will include the source.
 
-There\textquotesingle{}s a single-\/thread use that uses a global logger. Define the following\+: \#define A\+B\+\_\+\+L\+O\+G\+G\+E\+R\+\_\+\+S\+I\+N\+G\+L\+E\+T\+H\+R\+E\+AD
+There\textquotesingle{}s a single-\/thread use that uses a global logger. Define the following\+: 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\textcolor{preprocessor}{\#define AB\_LOGGER\_SINGLETHREAD}}
+\end{DoxyCode}
 
-To use color on S\+T\+D\+E\+RR\+: \#define A\+B\+\_\+\+L\+O\+G\+G\+E\+R\+\_\+\+U\+S\+E\+\_\+\+C\+O\+L\+OR
+
+To use color on S\+T\+D\+E\+RR\+: 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\textcolor{preprocessor}{\#define AB\_LOGGER\_USE\_COLOR}}
+\end{DoxyCode}
+
 
 Available levels\+: A\+B\+L\+\_\+\+T\+R\+A\+CE, A\+B\+L\+\_\+\+D\+E\+B\+UG, A\+B\+L\+\_\+\+I\+N\+FO, A\+B\+L\+\_\+\+W\+A\+RN, A\+B\+L\+\_\+\+E\+R\+R\+OR, A\+B\+L\+\_\+\+F\+A\+T\+AL
 
 example usage\+: abl\+\_\+log Logger = \{\}; abl\+\_\+set\+\_\+level(\&\+Logger, A\+B\+L\+\_\+\+I\+N\+F\+O); abl\+\_\+start\+\_\+server(\&\+Logger, 555); abl\+\_\+info(\&Logger, \char`\"{}\+Some log\char`\"{}); abl\+\_\+info(\&Logger, \char`\"{}\+More Info, \%d\char`\"{}, errno); abl\+\_\+stop\+\_\+server(\&\+Logger); \begin{DoxyEnumFields}{Enumerator}
-\raisebox{\heightof{T}}[0pt][0pt]{\index{A\+B\+L\+\_\+\+T\+R\+A\+CE@{A\+B\+L\+\_\+\+T\+R\+A\+CE}!ab\+\_\+logger.\+h@{ab\+\_\+logger.\+h}}\index{ab\+\_\+logger.\+h@{ab\+\_\+logger.\+h}!A\+B\+L\+\_\+\+T\+R\+A\+CE@{A\+B\+L\+\_\+\+T\+R\+A\+CE}}}\mbox{\Hypertarget{ab__logger_8h_ad09c15c023f4bd204786f7c031c45787a7fccde42da961232bd100be86f2c32b1}\label{ab__logger_8h_ad09c15c023f4bd204786f7c031c45787a7fccde42da961232bd100be86f2c32b1}} 
+\raisebox{\heightof{T}}[0pt][0pt]{\index{ABL\_TRACE@{ABL\_TRACE}!ab\_logger.h@{ab\_logger.h}}\index{ab\_logger.h@{ab\_logger.h}!ABL\_TRACE@{ABL\_TRACE}}}\mbox{\Hypertarget{ab__logger_8h_ad09c15c023f4bd204786f7c031c45787a7fccde42da961232bd100be86f2c32b1}\label{ab__logger_8h_ad09c15c023f4bd204786f7c031c45787a7fccde42da961232bd100be86f2c32b1}} 
 A\+B\+L\+\_\+\+T\+R\+A\+CE&\\
 \hline
 
-\raisebox{\heightof{T}}[0pt][0pt]{\index{A\+B\+L\+\_\+\+D\+E\+B\+UG@{A\+B\+L\+\_\+\+D\+E\+B\+UG}!ab\+\_\+logger.\+h@{ab\+\_\+logger.\+h}}\index{ab\+\_\+logger.\+h@{ab\+\_\+logger.\+h}!A\+B\+L\+\_\+\+D\+E\+B\+UG@{A\+B\+L\+\_\+\+D\+E\+B\+UG}}}\mbox{\Hypertarget{ab__logger_8h_ad09c15c023f4bd204786f7c031c45787a4a4d2ab22d6f6be96611dfc75021117e}\label{ab__logger_8h_ad09c15c023f4bd204786f7c031c45787a4a4d2ab22d6f6be96611dfc75021117e}} 
+\raisebox{\heightof{T}}[0pt][0pt]{\index{ABL\_DEBUG@{ABL\_DEBUG}!ab\_logger.h@{ab\_logger.h}}\index{ab\_logger.h@{ab\_logger.h}!ABL\_DEBUG@{ABL\_DEBUG}}}\mbox{\Hypertarget{ab__logger_8h_ad09c15c023f4bd204786f7c031c45787a4a4d2ab22d6f6be96611dfc75021117e}\label{ab__logger_8h_ad09c15c023f4bd204786f7c031c45787a4a4d2ab22d6f6be96611dfc75021117e}} 
 A\+B\+L\+\_\+\+D\+E\+B\+UG&\\
 \hline
 
-\raisebox{\heightof{T}}[0pt][0pt]{\index{A\+B\+L\+\_\+\+I\+N\+FO@{A\+B\+L\+\_\+\+I\+N\+FO}!ab\+\_\+logger.\+h@{ab\+\_\+logger.\+h}}\index{ab\+\_\+logger.\+h@{ab\+\_\+logger.\+h}!A\+B\+L\+\_\+\+I\+N\+FO@{A\+B\+L\+\_\+\+I\+N\+FO}}}\mbox{\Hypertarget{ab__logger_8h_ad09c15c023f4bd204786f7c031c45787a72e995c24ee1e50bfa27759c4c2c0bee}\label{ab__logger_8h_ad09c15c023f4bd204786f7c031c45787a72e995c24ee1e50bfa27759c4c2c0bee}} 
+\raisebox{\heightof{T}}[0pt][0pt]{\index{ABL\_INFO@{ABL\_INFO}!ab\_logger.h@{ab\_logger.h}}\index{ab\_logger.h@{ab\_logger.h}!ABL\_INFO@{ABL\_INFO}}}\mbox{\Hypertarget{ab__logger_8h_ad09c15c023f4bd204786f7c031c45787a72e995c24ee1e50bfa27759c4c2c0bee}\label{ab__logger_8h_ad09c15c023f4bd204786f7c031c45787a72e995c24ee1e50bfa27759c4c2c0bee}} 
 A\+B\+L\+\_\+\+I\+N\+FO&\\
 \hline
 
-\raisebox{\heightof{T}}[0pt][0pt]{\index{A\+B\+L\+\_\+\+W\+A\+RN@{A\+B\+L\+\_\+\+W\+A\+RN}!ab\+\_\+logger.\+h@{ab\+\_\+logger.\+h}}\index{ab\+\_\+logger.\+h@{ab\+\_\+logger.\+h}!A\+B\+L\+\_\+\+W\+A\+RN@{A\+B\+L\+\_\+\+W\+A\+RN}}}\mbox{\Hypertarget{ab__logger_8h_ad09c15c023f4bd204786f7c031c45787af4a847c0c5d6fe01ec92ab29b2d21144}\label{ab__logger_8h_ad09c15c023f4bd204786f7c031c45787af4a847c0c5d6fe01ec92ab29b2d21144}} 
+\raisebox{\heightof{T}}[0pt][0pt]{\index{ABL\_WARN@{ABL\_WARN}!ab\_logger.h@{ab\_logger.h}}\index{ab\_logger.h@{ab\_logger.h}!ABL\_WARN@{ABL\_WARN}}}\mbox{\Hypertarget{ab__logger_8h_ad09c15c023f4bd204786f7c031c45787af4a847c0c5d6fe01ec92ab29b2d21144}\label{ab__logger_8h_ad09c15c023f4bd204786f7c031c45787af4a847c0c5d6fe01ec92ab29b2d21144}} 
 A\+B\+L\+\_\+\+W\+A\+RN&\\
 \hline
 
-\raisebox{\heightof{T}}[0pt][0pt]{\index{A\+B\+L\+\_\+\+E\+R\+R\+OR@{A\+B\+L\+\_\+\+E\+R\+R\+OR}!ab\+\_\+logger.\+h@{ab\+\_\+logger.\+h}}\index{ab\+\_\+logger.\+h@{ab\+\_\+logger.\+h}!A\+B\+L\+\_\+\+E\+R\+R\+OR@{A\+B\+L\+\_\+\+E\+R\+R\+OR}}}\mbox{\Hypertarget{ab__logger_8h_ad09c15c023f4bd204786f7c031c45787a11c5fd338567ea5a3cdff6dfec3b7b5f}\label{ab__logger_8h_ad09c15c023f4bd204786f7c031c45787a11c5fd338567ea5a3cdff6dfec3b7b5f}} 
+\raisebox{\heightof{T}}[0pt][0pt]{\index{ABL\_ERROR@{ABL\_ERROR}!ab\_logger.h@{ab\_logger.h}}\index{ab\_logger.h@{ab\_logger.h}!ABL\_ERROR@{ABL\_ERROR}}}\mbox{\Hypertarget{ab__logger_8h_ad09c15c023f4bd204786f7c031c45787a11c5fd338567ea5a3cdff6dfec3b7b5f}\label{ab__logger_8h_ad09c15c023f4bd204786f7c031c45787a11c5fd338567ea5a3cdff6dfec3b7b5f}} 
 A\+B\+L\+\_\+\+E\+R\+R\+OR&\\
 \hline
 
-\raisebox{\heightof{T}}[0pt][0pt]{\index{A\+B\+L\+\_\+\+F\+A\+T\+AL@{A\+B\+L\+\_\+\+F\+A\+T\+AL}!ab\+\_\+logger.\+h@{ab\+\_\+logger.\+h}}\index{ab\+\_\+logger.\+h@{ab\+\_\+logger.\+h}!A\+B\+L\+\_\+\+F\+A\+T\+AL@{A\+B\+L\+\_\+\+F\+A\+T\+AL}}}\mbox{\Hypertarget{ab__logger_8h_ad09c15c023f4bd204786f7c031c45787a3c083097aaf5d4784c9513b0eba01e75}\label{ab__logger_8h_ad09c15c023f4bd204786f7c031c45787a3c083097aaf5d4784c9513b0eba01e75}} 
+\raisebox{\heightof{T}}[0pt][0pt]{\index{ABL\_FATAL@{ABL\_FATAL}!ab\_logger.h@{ab\_logger.h}}\index{ab\_logger.h@{ab\_logger.h}!ABL\_FATAL@{ABL\_FATAL}}}\mbox{\Hypertarget{ab__logger_8h_ad09c15c023f4bd204786f7c031c45787a3c083097aaf5d4784c9513b0eba01e75}\label{ab__logger_8h_ad09c15c023f4bd204786f7c031c45787a3c083097aaf5d4784c9513b0eba01e75}} 
 A\+B\+L\+\_\+\+F\+A\+T\+AL&\\
 \hline
 
 \end{DoxyEnumFields}
 
 
-\subsection{Function Documentation}
+\doxysubsection{Function Documentation}
 \mbox{\Hypertarget{ab__logger_8h_a7d0be7575c2768d56ad5bdc391d3d769}\label{ab__logger_8h_a7d0be7575c2768d56ad5bdc391d3d769}} 
-\index{ab\+\_\+logger.\+h@{ab\+\_\+logger.\+h}!abl\+\_\+log@{abl\+\_\+log}}
-\index{abl\+\_\+log@{abl\+\_\+log}!ab\+\_\+logger.\+h@{ab\+\_\+logger.\+h}}
-\subsubsection{\texorpdfstring{abl\+\_\+log()}{abl\_log()}}
-{\footnotesize\ttfamily void abl\+\_\+log (\begin{DoxyParamCaption}\item[{ab\+\_\+log $\ast$}]{Logger,  }\item[{\hyperlink{ab__logger_8h_ad09c15c023f4bd204786f7c031c45787}{abl\+\_\+log\+\_\+level}}]{Level,  }\item[{const char $\ast$}]{File,  }\item[{\hyperlink{ab__common_8h_ae9b1af5c037e57a98884758875d3a7c4}{s32}}]{Line,  }\item[{const char $\ast$}]{Fmt,  }\item[{}]{... }\end{DoxyParamCaption})}
+\index{ab\_logger.h@{ab\_logger.h}!abl\_log@{abl\_log}}
+\index{abl\_log@{abl\_log}!ab\_logger.h@{ab\_logger.h}}
+\doxysubsubsection{\texorpdfstring{abl\_log()}{abl\_log()}}
+{\footnotesize\ttfamily void abl\+\_\+log (\begin{DoxyParamCaption}\item[{ab\+\_\+log $\ast$}]{Logger,  }\item[{\mbox{\hyperlink{ab__logger_8h_ad09c15c023f4bd204786f7c031c45787}{abl\+\_\+log\+\_\+level}}}]{Level,  }\item[{const char $\ast$}]{File,  }\item[{\mbox{\hyperlink{ab__common_8h_ae9b1af5c037e57a98884758875d3a7c4}{s32}}}]{Line,  }\item[{const char $\ast$}]{Fmt,  }\item[{}]{... }\end{DoxyParamCaption})}
 
 \mbox{\Hypertarget{ab__logger_8h_adce1f3ea2b2bd6eea7e33b63fd8c0499}\label{ab__logger_8h_adce1f3ea2b2bd6eea7e33b63fd8c0499}} 
-\index{ab\+\_\+logger.\+h@{ab\+\_\+logger.\+h}!abl\+\_\+set\+\_\+fp@{abl\+\_\+set\+\_\+fp}}
-\index{abl\+\_\+set\+\_\+fp@{abl\+\_\+set\+\_\+fp}!ab\+\_\+logger.\+h@{ab\+\_\+logger.\+h}}
-\subsubsection{\texorpdfstring{abl\+\_\+set\+\_\+fp()}{abl\_set\_fp()}}
+\index{ab\_logger.h@{ab\_logger.h}!abl\_set\_fp@{abl\_set\_fp}}
+\index{abl\_set\_fp@{abl\_set\_fp}!ab\_logger.h@{ab\_logger.h}}
+\doxysubsubsection{\texorpdfstring{abl\_set\_fp()}{abl\_set\_fp()}}
 {\footnotesize\ttfamily void abl\+\_\+set\+\_\+fp (\begin{DoxyParamCaption}\item[{ab\+\_\+log $\ast$}]{Logger,  }\item[{F\+I\+LE $\ast$}]{fp }\end{DoxyParamCaption})}
 
 \mbox{\Hypertarget{ab__logger_8h_ad9700e7478bc6850a033e6c1cc6eeaa1}\label{ab__logger_8h_ad9700e7478bc6850a033e6c1cc6eeaa1}} 
-\index{ab\+\_\+logger.\+h@{ab\+\_\+logger.\+h}!abl\+\_\+set\+\_\+level@{abl\+\_\+set\+\_\+level}}
-\index{abl\+\_\+set\+\_\+level@{abl\+\_\+set\+\_\+level}!ab\+\_\+logger.\+h@{ab\+\_\+logger.\+h}}
-\subsubsection{\texorpdfstring{abl\+\_\+set\+\_\+level()}{abl\_set\_level()}}
-{\footnotesize\ttfamily void abl\+\_\+set\+\_\+level (\begin{DoxyParamCaption}\item[{ab\+\_\+log $\ast$}]{Logger,  }\item[{\hyperlink{ab__logger_8h_ad09c15c023f4bd204786f7c031c45787}{abl\+\_\+log\+\_\+level}}]{Level }\end{DoxyParamCaption})}
+\index{ab\_logger.h@{ab\_logger.h}!abl\_set\_level@{abl\_set\_level}}
+\index{abl\_set\_level@{abl\_set\_level}!ab\_logger.h@{ab\_logger.h}}
+\doxysubsubsection{\texorpdfstring{abl\_set\_level()}{abl\_set\_level()}}
+{\footnotesize\ttfamily void abl\+\_\+set\+\_\+level (\begin{DoxyParamCaption}\item[{ab\+\_\+log $\ast$}]{Logger,  }\item[{\mbox{\hyperlink{ab__logger_8h_ad09c15c023f4bd204786f7c031c45787}{abl\+\_\+log\+\_\+level}}}]{Level }\end{DoxyParamCaption})}
 
 \mbox{\Hypertarget{ab__logger_8h_af26d8d70a5083e1d9c994c3e3f0b5622}\label{ab__logger_8h_af26d8d70a5083e1d9c994c3e3f0b5622}} 
-\index{ab\+\_\+logger.\+h@{ab\+\_\+logger.\+h}!abl\+\_\+set\+\_\+quiet@{abl\+\_\+set\+\_\+quiet}}
-\index{abl\+\_\+set\+\_\+quiet@{abl\+\_\+set\+\_\+quiet}!ab\+\_\+logger.\+h@{ab\+\_\+logger.\+h}}
-\subsubsection{\texorpdfstring{abl\+\_\+set\+\_\+quiet()}{abl\_set\_quiet()}}
-{\footnotesize\ttfamily void abl\+\_\+set\+\_\+quiet (\begin{DoxyParamCaption}\item[{ab\+\_\+log $\ast$}]{Logger,  }\item[{\hyperlink{ab__common_8h_a70e369648385b50f2d0588e8e8745275}{b8}}]{is\+Quiet }\end{DoxyParamCaption})}
+\index{ab\_logger.h@{ab\_logger.h}!abl\_set\_quiet@{abl\_set\_quiet}}
+\index{abl\_set\_quiet@{abl\_set\_quiet}!ab\_logger.h@{ab\_logger.h}}
+\doxysubsubsection{\texorpdfstring{abl\_set\_quiet()}{abl\_set\_quiet()}}
+{\footnotesize\ttfamily void abl\+\_\+set\+\_\+quiet (\begin{DoxyParamCaption}\item[{ab\+\_\+log $\ast$}]{Logger,  }\item[{\mbox{\hyperlink{ab__common_8h_a70e369648385b50f2d0588e8e8745275}{b8}}}]{is\+Quiet }\end{DoxyParamCaption})}
 
 \mbox{\Hypertarget{ab__logger_8h_adc94b6d140adcd78c7f0bb2fce524667}\label{ab__logger_8h_adc94b6d140adcd78c7f0bb2fce524667}} 
-\index{ab\+\_\+logger.\+h@{ab\+\_\+logger.\+h}!abl\+\_\+start\+\_\+server@{abl\+\_\+start\+\_\+server}}
-\index{abl\+\_\+start\+\_\+server@{abl\+\_\+start\+\_\+server}!ab\+\_\+logger.\+h@{ab\+\_\+logger.\+h}}
-\subsubsection{\texorpdfstring{abl\+\_\+start\+\_\+server()}{abl\_start\_server()}}
-{\footnotesize\ttfamily void abl\+\_\+start\+\_\+server (\begin{DoxyParamCaption}\item[{ab\+\_\+log $\ast$}]{Logger,  }\item[{\hyperlink{ab__common_8h_ae9b1af5c037e57a98884758875d3a7c4}{s32}}]{Port }\end{DoxyParamCaption})}
+\index{ab\_logger.h@{ab\_logger.h}!abl\_start\_server@{abl\_start\_server}}
+\index{abl\_start\_server@{abl\_start\_server}!ab\_logger.h@{ab\_logger.h}}
+\doxysubsubsection{\texorpdfstring{abl\_start\_server()}{abl\_start\_server()}}
+{\footnotesize\ttfamily void abl\+\_\+start\+\_\+server (\begin{DoxyParamCaption}\item[{ab\+\_\+log $\ast$}]{Logger,  }\item[{\mbox{\hyperlink{ab__common_8h_ae9b1af5c037e57a98884758875d3a7c4}{s32}}}]{Port }\end{DoxyParamCaption})}
 
 \mbox{\Hypertarget{ab__logger_8h_a830f7af6399163b2ac8c6443042f97c7}\label{ab__logger_8h_a830f7af6399163b2ac8c6443042f97c7}} 
-\index{ab\+\_\+logger.\+h@{ab\+\_\+logger.\+h}!abl\+\_\+stop\+\_\+server@{abl\+\_\+stop\+\_\+server}}
-\index{abl\+\_\+stop\+\_\+server@{abl\+\_\+stop\+\_\+server}!ab\+\_\+logger.\+h@{ab\+\_\+logger.\+h}}
-\subsubsection{\texorpdfstring{abl\+\_\+stop\+\_\+server()}{abl\_stop\_server()}}
+\index{ab\_logger.h@{ab\_logger.h}!abl\_stop\_server@{abl\_stop\_server}}
+\index{abl\_stop\_server@{abl\_stop\_server}!ab\_logger.h@{ab\_logger.h}}
+\doxysubsubsection{\texorpdfstring{abl\_stop\_server()}{abl\_stop\_server()}}
 {\footnotesize\ttfamily void abl\+\_\+stop\+\_\+server (\begin{DoxyParamCaption}\item[{ab\+\_\+log $\ast$}]{Logger }\end{DoxyParamCaption})}
 
 set is\+Quiet = true -\/$>$ true to disable logging to S\+T\+D\+E\+RR. 

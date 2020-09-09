@@ -1,132 +1,365 @@
-\hypertarget{ab__memory_8h}{}\section{ab\+\_\+memory.\+h File Reference}
-\label{ab__memory_8h}\index{ab\+\_\+memory.\+h@{ab\+\_\+memory.\+h}}
+\hypertarget{ab__memory_8h}{}\doxysection{ab\+\_\+memory.\+h File Reference}
+\label{ab__memory_8h}\index{ab\_memory.h@{ab\_memory.h}}
+
+
+Memory handling.  
+
+
 {\ttfamily \#include \char`\"{}ab\+\_\+common.\+h\char`\"{}}\newline
-Include dependency graph for ab\+\_\+memory.\+h\+:\nopagebreak
+Include dependency graph for ab\+\_\+memory.\+h\+:
+\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
 \includegraphics[width=198pt]{d7/d5f/ab__memory_8h__incl}
 \end{center}
 \end{figure}
-This graph shows which files directly or indirectly include this file\+:\nopagebreak
+This graph shows which files directly or indirectly include this file\+:
+\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
-\includegraphics[width=305pt]{d4/d8c/ab__memory_8h__dep__incl}
+\includegraphics[width=182pt]{d4/d8c/ab__memory_8h__dep__incl}
 \end{center}
 \end{figure}
-\subsection*{Classes}
+\doxysubsection*{Macros}
 \begin{DoxyCompactItemize}
 \item 
-struct \hyperlink{structmemory__arena}{memory\+\_\+arena}
-\item 
-struct \hyperlink{structtemporary__memory}{temporary\+\_\+memory}
-\end{DoxyCompactItemize}
-\subsection*{Macros}
+\#define \mbox{\hyperlink{ab__memory_8h_a0436d3ae4dac7362742c35ea6a146fea}{abm\+\_\+\+Push\+Struct}}(Arena,  Type)~(Type$\ast$)abm\+\_\+\+Push\+Size\+\_\+(Arena, sizeof(Type))
+\begin{DoxyCompactList}\small\item\em Get memory for the type or struct and return a pointer to the struct type. \end{DoxyCompactList}\item 
+\#define \mbox{\hyperlink{ab__memory_8h_ab8d45b257f787efccb8a928176cc2c88}{abm\+\_\+\+Push\+Size}}(Arena,  Size)~abm\+\_\+\+Push\+Size\+\_\+(Arena, Size)
+\begin{DoxyCompactList}\small\item\em Get memory of given size and return a pointer to memory. \end{DoxyCompactList}\item 
+\#define \mbox{\hyperlink{ab__memory_8h_a89df166532e625eea593369a7997139d}{abm\+\_\+\+Push\+Array}}(Arena,  Count,  Type)~(Type$\ast$)abm\+\_\+\+Push\+Size\+\_\+(Arena, (Count)$\ast$sizeof(Type))
+\begin{DoxyCompactList}\small\item\em Get memory for an array of types specified. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Functions}
 \begin{DoxyCompactItemize}
 \item 
-\#define \hyperlink{ab__memory_8h_a0436d3ae4dac7362742c35ea6a146fea}{abm\+\_\+\+Push\+Struct}(Arena,  Type)~(Type$\ast$)\hyperlink{ab__memory_8h_a15270c8569eb858cdb20ee45c3bb46f7}{abm\+\_\+\+Push\+Size\+\_\+}(Arena, sizeof(Type))
-\item 
-\#define \hyperlink{ab__memory_8h_ab8d45b257f787efccb8a928176cc2c88}{abm\+\_\+\+Push\+Size}(Arena,  Size)~\hyperlink{ab__memory_8h_a15270c8569eb858cdb20ee45c3bb46f7}{abm\+\_\+\+Push\+Size\+\_\+}(Arena, Size)
-\item 
-\#define \hyperlink{ab__memory_8h_a89df166532e625eea593369a7997139d}{abm\+\_\+\+Push\+Array}(Arena,  Count,  Type)~(Type$\ast$)\hyperlink{ab__memory_8h_a15270c8569eb858cdb20ee45c3bb46f7}{abm\+\_\+\+Push\+Size\+\_\+}(Arena, (Count)$\ast$sizeof(Type))
-\end{DoxyCompactItemize}
-\subsection*{Functions}
-\begin{DoxyCompactItemize}
-\item 
-void $\ast$ \hyperlink{ab__memory_8h_a20bffb2c2335745a56275b6094b6dcad}{abm\+\_\+\+Allocate\+Os\+Memory} (void $\ast$Address, size\+\_\+t Size)
-\item 
-void \hyperlink{ab__memory_8h_ad393d506412ba1d8d6fe25e8e16253b4}{abm\+\_\+\+Deallocate\+Os\+Memory} (void $\ast$Address, size\+\_\+t Size)
-\item 
-void $\ast$ \hyperlink{ab__memory_8h_a15270c8569eb858cdb20ee45c3bb46f7}{abm\+\_\+\+Push\+Size\+\_\+} (\hyperlink{structmemory__arena}{memory\+\_\+arena} $\ast$Memory, size\+\_\+t Size, \hyperlink{ab__common_8h_a70e369648385b50f2d0588e8e8745275}{b8} Clear\+Memory=true)
-\item 
-\hyperlink{structmemory__arena}{memory\+\_\+arena} \hyperlink{ab__memory_8h_a5f2fa70a405694492db91b26ed884207}{abm\+\_\+\+Init\+Memory} (void $\ast$Start, size\+\_\+t Size)
-\item 
-void \hyperlink{ab__memory_8h_a8ca432174a01c886b3c834cbb140c5ab}{abm\+\_\+\+Reset\+Memory} (\hyperlink{structmemory__arena}{memory\+\_\+arena} $\ast$Memory)
-\item 
-size\+\_\+t \hyperlink{ab__memory_8h_a9061bfb19b910033ab211832bc593fed}{abm\+\_\+\+Get\+Memory\+Left} (\hyperlink{structmemory__arena}{memory\+\_\+arena} $\ast$Memory)
-\item 
-\hyperlink{structtemporary__memory}{temporary\+\_\+memory} \hyperlink{ab__memory_8h_a77b6adde3ba40f7f3777bcc01c396ccd}{abm\+\_\+\+Begin\+Temporary\+Memory} (\hyperlink{structmemory__arena}{memory\+\_\+arena} $\ast$Memory)
-\item 
-void \hyperlink{ab__memory_8h_a8dbf22e067d85b9ad8422126755d23df}{abm\+\_\+\+End\+Temporary\+Memory} (\hyperlink{structtemporary__memory}{temporary\+\_\+memory} Temp\+Mem)
-\item 
-\hyperlink{structmemory__arena}{memory\+\_\+arena} \hyperlink{ab__memory_8h_a1b0ab8d04e6309ae31b1b2f8282dc085}{abm\+\_\+\+Create\+Sub\+Arena} (\hyperlink{structmemory__arena}{memory\+\_\+arena} $\ast$Memory, size\+\_\+t Size)
-\end{DoxyCompactItemize}
+void $\ast$ \mbox{\hyperlink{ab__memory_8h_a20bffb2c2335745a56275b6094b6dcad}{abm\+\_\+\+Allocate\+Os\+Memory}} (void $\ast$Address, size\+\_\+t Size)
+\begin{DoxyCompactList}\small\item\em Get memory from the OS. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{ab__memory_8h_ad393d506412ba1d8d6fe25e8e16253b4}{abm\+\_\+\+Deallocate\+Os\+Memory}} (void $\ast$Address, size\+\_\+t Size)
+\begin{DoxyCompactList}\small\item\em Return memory to the OS. \end{DoxyCompactList}\item 
+memory\+\_\+arena \mbox{\hyperlink{ab__memory_8h_a5f2fa70a405694492db91b26ed884207}{abm\+\_\+\+Init\+Memory}} (void $\ast$Start, size\+\_\+t Size)
+\begin{DoxyCompactList}\small\item\em Initialize a memory\+\_\+arena. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{ab__memory_8h_a8ca432174a01c886b3c834cbb140c5ab}{abm\+\_\+\+Reset\+Memory}} (memory\+\_\+arena $\ast$Memory)
+\begin{DoxyCompactList}\small\item\em Delete everything in a {\ttfamily memory\+\_\+arena} and set the amount of memory used to 0. \end{DoxyCompactList}\item 
+size\+\_\+t \mbox{\hyperlink{ab__memory_8h_a9061bfb19b910033ab211832bc593fed}{abm\+\_\+\+Get\+Memory\+Left}} (memory\+\_\+arena $\ast$Memory)
+\begin{DoxyCompactList}\small\item\em Get the amount of memory left in an arena. \end{DoxyCompactList}\item 
+temporary\+\_\+memory \mbox{\hyperlink{ab__memory_8h_a77b6adde3ba40f7f3777bcc01c396ccd}{abm\+\_\+\+Begin\+Temporary\+Memory}} (memory\+\_\+arena $\ast$Memory)
+\begin{DoxyCompactList}\small\item\em Indicates the next section of memory is scratch, and will be cleared quickly. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{ab__memory_8h_a8dbf22e067d85b9ad8422126755d23df}{abm\+\_\+\+End\+Temporary\+Memory}} (temporary\+\_\+memory Temp\+Mem)
+\begin{DoxyCompactList}\small\item\em Ends the section of temporary memory. \end{DoxyCompactList}\item 
+memory\+\_\+arena \mbox{\hyperlink{ab__memory_8h_a1b0ab8d04e6309ae31b1b2f8282dc085}{abm\+\_\+\+Create\+Sub\+Arena}} (memory\+\_\+arena $\ast$Memory, size\+\_\+t Size)
+\begin{DoxyCompactList}\small\item\em Create a {\ttfamily memory\+\_\+arena} inside an existing arena. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
-\subsection{Macro Definition Documentation}
+\doxysubsection{Detailed Description}
+Memory handling. 
+
+\begin{DoxyAuthor}{Author}
+Amos Buchanan 
+\end{DoxyAuthor}
+\begin{DoxyVersion}{Version}
+1.\+0 
+\end{DoxyVersion}
+\begin{DoxyDate}{Date}
+2020 
+\end{DoxyDate}
+\begin{DoxyCopyright}{Copyright}
+\href{https://opensource.org/licenses/MIT}{\texttt{ M\+IT Public License}}
+\end{DoxyCopyright}
+Getting and using blocks of memory, as oppossed to malloc/free anytime memory is desired. Works with Windows and Linux, with the OS specific implementation broken out into separate files. Generally, you grab a chunk of memory from the OS and use that chunk rather than constantly going out to the OS to get more when needed.
+
+It is not advised to use the arena structs directly; the functions should be used to manipulate the memory.
+
+The code here is heavily influenced by Casey Muratori and \href{https://handmadehero.org/}{\texttt{ Handmade Hero}}.
+
+Example Usage\+: 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\textcolor{keyword}{const} \textcolor{keywordtype}{size\_t} MemorySize = \mbox{\hyperlink{ab__common_8h_a9e89c74d1fedd0a954107d7ab01481cc}{Kilobytes}}(150);}
+\DoxyCodeLine{\textcolor{keywordtype}{void} *OsMemory = \mbox{\hyperlink{ab__memory_8h_a20bffb2c2335745a56275b6094b6dcad}{abm\_AllocateOsMemory}}(NULL, MemorySize);}
+\DoxyCodeLine{memory\_arena MainMemory = \mbox{\hyperlink{ab__memory_8h_a5f2fa70a405694492db91b26ed884207}{abm\_InitMemory}}(OsMemory, MemorySize);}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{comment}{// Begin initialization code here.}}
+\DoxyCodeLine{my\_struct *MyStruct = \mbox{\hyperlink{ab__memory_8h_a0436d3ae4dac7362742c35ea6a146fea}{abm\_PushStruct}}(\&MainMemory, my\_struct);}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{keyword}{const} \mbox{\hyperlink{ab__common_8h_afaa62991928fb9fb18ff0db62a040aba}{u32}} MyStructArrayLength = 50;}
+\DoxyCodeLine{my\_struct *MyStructArray = \mbox{\hyperlink{ab__memory_8h_a89df166532e625eea593369a7997139d}{abm\_PushArray}}(\&MainMemory, my\_struct, MyStructArrayLength);}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{keyword}{const} \textcolor{keywordtype}{size\_t} EmptyMemorySize = \mbox{\hyperlink{ab__common_8h_a9e89c74d1fedd0a954107d7ab01481cc}{Kilobytes}}(1);}
+\DoxyCodeLine{\textcolor{keywordtype}{void} *EmptyMemory = \mbox{\hyperlink{ab__memory_8h_ab8d45b257f787efccb8a928176cc2c88}{abm\_PushSize}}(\&MainMemory, EmptyMemorySize);}
+\DoxyCodeLine{}
+\DoxyCodeLine{memory\_arena VolatileMemory = \mbox{\hyperlink{ab__memory_8h_a1b0ab8d04e6309ae31b1b2f8282dc085}{abm\_CreateSubArena}}(\&MainMemory, \mbox{\hyperlink{ab__common_8h_a9e89c74d1fedd0a954107d7ab01481cc}{Kilobytes}}(50));}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{comment}{// End initialization.}}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{keywordflow}{while}(isRunning)}
+\DoxyCodeLine{\{}
+\DoxyCodeLine{    \mbox{\hyperlink{ab__memory_8h_a8ca432174a01c886b3c834cbb140c5ab}{abm\_ResetMemory}}(\&VolatileMemory);}
+\DoxyCodeLine{}
+\DoxyCodeLine{    volatile\_struct *VolatileStruct = PushStruct(\&VolatileMemory, volatile\_struct);}
+\DoxyCodeLine{    \textcolor{comment}{// Do Stuff Here.}}
+\DoxyCodeLine{}
+\DoxyCodeLine{    temporary\_memory ScratchMemory = \mbox{\hyperlink{ab__memory_8h_a77b6adde3ba40f7f3777bcc01c396ccd}{abm\_BeginTemporaryMemory}}(\&VolatileMemory);}
+\DoxyCodeLine{}
+\DoxyCodeLine{    \textcolor{comment}{// Use the ScratchMemory for something here.}}
+\DoxyCodeLine{}
+\DoxyCodeLine{    \mbox{\hyperlink{ab__memory_8h_a8dbf22e067d85b9ad8422126755d23df}{abm\_EndTemporaryMemory}}(ScratchMemory);}
+\DoxyCodeLine{\}}
+\DoxyCodeLine{}
+\DoxyCodeLine{\mbox{\hyperlink{ab__memory_8h_ad393d506412ba1d8d6fe25e8e16253b4}{abm\_DeallocateOsMemory}}(OsMemory, MemorySize);}
+\end{DoxyCode}
+
+
+See also\+:
+\begin{DoxyItemize}
+\item \mbox{\hyperlink{ab__memory__linux_8h}{ab\+\_\+memory\+\_\+linux.\+h}}
+\item \mbox{\hyperlink{ab__memory__win32_8h}{ab\+\_\+memory\+\_\+win32.\+h}}
+\end{DoxyItemize}
+
+\doxysubsection*{M\+IT License}
+
+\href{https://opensource.org/licenses/MIT}{\texttt{ M\+IT Public License}}
+
+Copyright 2020 Amos Buchanan
+
+Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the \char`\"{}\+Software\char`\"{}), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions\+:
+
+The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
+
+T\+HE S\+O\+F\+T\+W\+A\+RE IS P\+R\+O\+V\+I\+D\+ED \char`\"{}\+A\+S I\+S\char`\"{}, W\+I\+T\+H\+O\+UT W\+A\+R\+R\+A\+N\+TY OF A\+NY K\+I\+ND, E\+X\+P\+R\+E\+SS OR I\+M\+P\+L\+I\+ED, I\+N\+C\+L\+U\+D\+I\+NG B\+UT N\+OT L\+I\+M\+I\+T\+ED TO T\+HE W\+A\+R\+R\+A\+N\+T\+I\+ES OF M\+E\+R\+C\+H\+A\+N\+T\+A\+B\+I\+L\+I\+TY, F\+I\+T\+N\+E\+SS F\+OR A P\+A\+R\+T\+I\+C\+U\+L\+AR P\+U\+R\+P\+O\+SE A\+ND N\+O\+N\+I\+N\+F\+R\+I\+N\+G\+E\+M\+E\+NT. IN NO E\+V\+E\+NT S\+H\+A\+LL T\+HE A\+U\+T\+H\+O\+RS OR C\+O\+P\+Y\+R\+I\+G\+HT H\+O\+L\+D\+E\+RS BE L\+I\+A\+B\+LE F\+OR A\+NY C\+L\+A\+IM, D\+A\+M\+A\+G\+ES OR O\+T\+H\+ER L\+I\+A\+B\+I\+L\+I\+TY, W\+H\+E\+T\+H\+ER IN AN A\+C\+T\+I\+ON OF C\+O\+N\+T\+R\+A\+CT, T\+O\+RT OR O\+T\+H\+E\+R\+W\+I\+SE, A\+R\+I\+S\+I\+NG F\+R\+OM, O\+UT OF OR IN C\+O\+N\+N\+E\+C\+T\+I\+ON W\+I\+TH T\+HE S\+O\+F\+T\+W\+A\+RE OR T\+HE U\+SE OR O\+T\+H\+ER D\+E\+A\+L\+I\+N\+GS IN T\+HE S\+O\+F\+T\+W\+A\+RE. 
+
+\doxysubsection{Macro Definition Documentation}
 \mbox{\Hypertarget{ab__memory_8h_a89df166532e625eea593369a7997139d}\label{ab__memory_8h_a89df166532e625eea593369a7997139d}} 
-\index{ab\+\_\+memory.\+h@{ab\+\_\+memory.\+h}!abm\+\_\+\+Push\+Array@{abm\+\_\+\+Push\+Array}}
-\index{abm\+\_\+\+Push\+Array@{abm\+\_\+\+Push\+Array}!ab\+\_\+memory.\+h@{ab\+\_\+memory.\+h}}
-\subsubsection{\texorpdfstring{abm\+\_\+\+Push\+Array}{abm\_PushArray}}
-{\footnotesize\ttfamily \#define abm\+\_\+\+Push\+Array(\begin{DoxyParamCaption}\item[{}]{Arena,  }\item[{}]{Count,  }\item[{}]{Type }\end{DoxyParamCaption})~(Type$\ast$)\hyperlink{ab__memory_8h_a15270c8569eb858cdb20ee45c3bb46f7}{abm\+\_\+\+Push\+Size\+\_\+}(Arena, (Count)$\ast$sizeof(Type))}
+\index{ab\_memory.h@{ab\_memory.h}!abm\_PushArray@{abm\_PushArray}}
+\index{abm\_PushArray@{abm\_PushArray}!ab\_memory.h@{ab\_memory.h}}
+\doxysubsubsection{\texorpdfstring{abm\_PushArray}{abm\_PushArray}}
+{\footnotesize\ttfamily \#define abm\+\_\+\+Push\+Array(\begin{DoxyParamCaption}\item[{}]{Arena,  }\item[{}]{Count,  }\item[{}]{Type }\end{DoxyParamCaption})~(Type$\ast$)abm\+\_\+\+Push\+Size\+\_\+(Arena, (Count)$\ast$sizeof(Type))}
 
+
+
+Get memory for an array of types specified. 
+
+This will clear the memory to 0.
+
+
+\begin{DoxyParams}{Parameters}
+{\em Arena} & A pointer to a {\ttfamily memory\+\_\+arena} to hold the array. \\
+\hline
+{\em Count} & Number of array elements to allocate. \\
+\hline
+{\em Type} & The type of array to allocate. Can be any type. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A pointer to the first element in the array. 
+\end{DoxyReturn}
 \mbox{\Hypertarget{ab__memory_8h_ab8d45b257f787efccb8a928176cc2c88}\label{ab__memory_8h_ab8d45b257f787efccb8a928176cc2c88}} 
-\index{ab\+\_\+memory.\+h@{ab\+\_\+memory.\+h}!abm\+\_\+\+Push\+Size@{abm\+\_\+\+Push\+Size}}
-\index{abm\+\_\+\+Push\+Size@{abm\+\_\+\+Push\+Size}!ab\+\_\+memory.\+h@{ab\+\_\+memory.\+h}}
-\subsubsection{\texorpdfstring{abm\+\_\+\+Push\+Size}{abm\_PushSize}}
-{\footnotesize\ttfamily \#define abm\+\_\+\+Push\+Size(\begin{DoxyParamCaption}\item[{}]{Arena,  }\item[{}]{Size }\end{DoxyParamCaption})~\hyperlink{ab__memory_8h_a15270c8569eb858cdb20ee45c3bb46f7}{abm\+\_\+\+Push\+Size\+\_\+}(Arena, Size)}
+\index{ab\_memory.h@{ab\_memory.h}!abm\_PushSize@{abm\_PushSize}}
+\index{abm\_PushSize@{abm\_PushSize}!ab\_memory.h@{ab\_memory.h}}
+\doxysubsubsection{\texorpdfstring{abm\_PushSize}{abm\_PushSize}}
+{\footnotesize\ttfamily \#define abm\+\_\+\+Push\+Size(\begin{DoxyParamCaption}\item[{}]{Arena,  }\item[{}]{Size }\end{DoxyParamCaption})~abm\+\_\+\+Push\+Size\+\_\+(Arena, Size)}
 
+
+
+Get memory of given size and return a pointer to memory. 
+
+This will clear the memory to 0.
+
+
+\begin{DoxyParams}{Parameters}
+{\em Arena} & A pointer to the memory\+\_\+arena. \\
+\hline
+{\em Size} & {\ttfamily size\+\_\+t} amount of memory to create. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\textquotesingle{}void$\ast$\`{} pointer to the start of the memory. 
+\end{DoxyReturn}
 \mbox{\Hypertarget{ab__memory_8h_a0436d3ae4dac7362742c35ea6a146fea}\label{ab__memory_8h_a0436d3ae4dac7362742c35ea6a146fea}} 
-\index{ab\+\_\+memory.\+h@{ab\+\_\+memory.\+h}!abm\+\_\+\+Push\+Struct@{abm\+\_\+\+Push\+Struct}}
-\index{abm\+\_\+\+Push\+Struct@{abm\+\_\+\+Push\+Struct}!ab\+\_\+memory.\+h@{ab\+\_\+memory.\+h}}
-\subsubsection{\texorpdfstring{abm\+\_\+\+Push\+Struct}{abm\_PushStruct}}
-{\footnotesize\ttfamily \#define abm\+\_\+\+Push\+Struct(\begin{DoxyParamCaption}\item[{}]{Arena,  }\item[{}]{Type }\end{DoxyParamCaption})~(Type$\ast$)\hyperlink{ab__memory_8h_a15270c8569eb858cdb20ee45c3bb46f7}{abm\+\_\+\+Push\+Size\+\_\+}(Arena, sizeof(Type))}
+\index{ab\_memory.h@{ab\_memory.h}!abm\_PushStruct@{abm\_PushStruct}}
+\index{abm\_PushStruct@{abm\_PushStruct}!ab\_memory.h@{ab\_memory.h}}
+\doxysubsubsection{\texorpdfstring{abm\_PushStruct}{abm\_PushStruct}}
+{\footnotesize\ttfamily \#define abm\+\_\+\+Push\+Struct(\begin{DoxyParamCaption}\item[{}]{Arena,  }\item[{}]{Type }\end{DoxyParamCaption})~(Type$\ast$)abm\+\_\+\+Push\+Size\+\_\+(Arena, sizeof(Type))}
 
 
 
-\subsection{Function Documentation}
+Get memory for the type or struct and return a pointer to the struct type. 
+
+This will clear the memory to 0.
+
+
+\begin{DoxyParams}{Parameters}
+{\em Arena} & A pointer to the memory arena. \\
+\hline
+{\em Type} & The struct type to allocate. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A pointer to the struct type. 
+\end{DoxyReturn}
+
+
+\doxysubsection{Function Documentation}
 \mbox{\Hypertarget{ab__memory_8h_a20bffb2c2335745a56275b6094b6dcad}\label{ab__memory_8h_a20bffb2c2335745a56275b6094b6dcad}} 
-\index{ab\+\_\+memory.\+h@{ab\+\_\+memory.\+h}!abm\+\_\+\+Allocate\+Os\+Memory@{abm\+\_\+\+Allocate\+Os\+Memory}}
-\index{abm\+\_\+\+Allocate\+Os\+Memory@{abm\+\_\+\+Allocate\+Os\+Memory}!ab\+\_\+memory.\+h@{ab\+\_\+memory.\+h}}
-\subsubsection{\texorpdfstring{abm\+\_\+\+Allocate\+Os\+Memory()}{abm\_AllocateOsMemory()}}
+\index{ab\_memory.h@{ab\_memory.h}!abm\_AllocateOsMemory@{abm\_AllocateOsMemory}}
+\index{abm\_AllocateOsMemory@{abm\_AllocateOsMemory}!ab\_memory.h@{ab\_memory.h}}
+\doxysubsubsection{\texorpdfstring{abm\_AllocateOsMemory()}{abm\_AllocateOsMemory()}}
 {\footnotesize\ttfamily void$\ast$ abm\+\_\+\+Allocate\+Os\+Memory (\begin{DoxyParamCaption}\item[{void $\ast$}]{Address,  }\item[{size\+\_\+t}]{Size }\end{DoxyParamCaption})}
 
+
+
+Get memory from the OS. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em Address} & The start address of the memory. Generally used for debugging. \\
+\hline
+{\em Size} & Amount of memory you want from the OS. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A void$\ast$ pointer to the start of the memory; 0 if memory allocation failed. 
+\end{DoxyReturn}
 \mbox{\Hypertarget{ab__memory_8h_a77b6adde3ba40f7f3777bcc01c396ccd}\label{ab__memory_8h_a77b6adde3ba40f7f3777bcc01c396ccd}} 
-\index{ab\+\_\+memory.\+h@{ab\+\_\+memory.\+h}!abm\+\_\+\+Begin\+Temporary\+Memory@{abm\+\_\+\+Begin\+Temporary\+Memory}}
-\index{abm\+\_\+\+Begin\+Temporary\+Memory@{abm\+\_\+\+Begin\+Temporary\+Memory}!ab\+\_\+memory.\+h@{ab\+\_\+memory.\+h}}
-\subsubsection{\texorpdfstring{abm\+\_\+\+Begin\+Temporary\+Memory()}{abm\_BeginTemporaryMemory()}}
-{\footnotesize\ttfamily \hyperlink{structtemporary__memory}{temporary\+\_\+memory} abm\+\_\+\+Begin\+Temporary\+Memory (\begin{DoxyParamCaption}\item[{\hyperlink{structmemory__arena}{memory\+\_\+arena} $\ast$}]{Memory }\end{DoxyParamCaption})}
+\index{ab\_memory.h@{ab\_memory.h}!abm\_BeginTemporaryMemory@{abm\_BeginTemporaryMemory}}
+\index{abm\_BeginTemporaryMemory@{abm\_BeginTemporaryMemory}!ab\_memory.h@{ab\_memory.h}}
+\doxysubsubsection{\texorpdfstring{abm\_BeginTemporaryMemory()}{abm\_BeginTemporaryMemory()}}
+{\footnotesize\ttfamily temporary\+\_\+memory abm\+\_\+\+Begin\+Temporary\+Memory (\begin{DoxyParamCaption}\item[{memory\+\_\+arena $\ast$}]{Memory }\end{DoxyParamCaption})}
 
+
+
+Indicates the next section of memory is scratch, and will be cleared quickly. 
+
+This must be paired with {\ttfamily \mbox{\hyperlink{ab__memory_8h_a8dbf22e067d85b9ad8422126755d23df}{abm\+\_\+\+End\+Temporary\+Memory()}}}. Memory used between {\ttfamily abm\+\_\+\+Begin\+Tempory\+Memory()} and {\ttfamily \mbox{\hyperlink{ab__memory_8h_a8dbf22e067d85b9ad8422126755d23df}{abm\+\_\+\+End\+Temporary\+Memory()}}} will be wiped. This is generally used for brief scratch memory that\textquotesingle{}s needed within a single function, but is not otherwise needed.
+
+Example Usage\+: 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{temporary\_memory TempMem = \mbox{\hyperlink{ab__memory_8h_a77b6adde3ba40f7f3777bcc01c396ccd}{abm\_BeginTemporaryMemory}}(\&MemoryArena);}
+\DoxyCodeLine{}
+\DoxyCodeLine{my\_struct *MyStruct = \mbox{\hyperlink{ab__memory_8h_a0436d3ae4dac7362742c35ea6a146fea}{abm\_PushStruct}}(\&MemoryArena, my\_struct);}
+\DoxyCodeLine{\textcolor{comment}{// Do some scratch work here, using the memory as normal.}}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{comment}{// Any memory used since abm\_BeginTemporaryMemory() will be wiped out here.}}
+\DoxyCodeLine{\mbox{\hyperlink{ab__memory_8h_a8dbf22e067d85b9ad8422126755d23df}{abm\_EndTemporaryMemory}}(TempMem);}
+\end{DoxyCode}
+
+
+
+\begin{DoxyParams}{Parameters}
+{\em Memory} & A pointer to the {\ttfamily memory\+\_\+arena} to use. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A {\ttfamily temporary\+\_\+memory} struct that is used again to end the memory. 
+\end{DoxyReturn}
 \mbox{\Hypertarget{ab__memory_8h_a1b0ab8d04e6309ae31b1b2f8282dc085}\label{ab__memory_8h_a1b0ab8d04e6309ae31b1b2f8282dc085}} 
-\index{ab\+\_\+memory.\+h@{ab\+\_\+memory.\+h}!abm\+\_\+\+Create\+Sub\+Arena@{abm\+\_\+\+Create\+Sub\+Arena}}
-\index{abm\+\_\+\+Create\+Sub\+Arena@{abm\+\_\+\+Create\+Sub\+Arena}!ab\+\_\+memory.\+h@{ab\+\_\+memory.\+h}}
-\subsubsection{\texorpdfstring{abm\+\_\+\+Create\+Sub\+Arena()}{abm\_CreateSubArena()}}
-{\footnotesize\ttfamily \hyperlink{structmemory__arena}{memory\+\_\+arena} abm\+\_\+\+Create\+Sub\+Arena (\begin{DoxyParamCaption}\item[{\hyperlink{structmemory__arena}{memory\+\_\+arena} $\ast$}]{Memory,  }\item[{size\+\_\+t}]{Size }\end{DoxyParamCaption})}
+\index{ab\_memory.h@{ab\_memory.h}!abm\_CreateSubArena@{abm\_CreateSubArena}}
+\index{abm\_CreateSubArena@{abm\_CreateSubArena}!ab\_memory.h@{ab\_memory.h}}
+\doxysubsubsection{\texorpdfstring{abm\_CreateSubArena()}{abm\_CreateSubArena()}}
+{\footnotesize\ttfamily memory\+\_\+arena abm\+\_\+\+Create\+Sub\+Arena (\begin{DoxyParamCaption}\item[{memory\+\_\+arena $\ast$}]{Memory,  }\item[{size\+\_\+t}]{Size }\end{DoxyParamCaption})}
 
+
+
+Create a {\ttfamily memory\+\_\+arena} inside an existing arena. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em Memory} & A pointer to the existing {\ttfamily memory\+\_\+arena} within which to create a new arena. \\
+\hline
+{\em Size} & The amount of memory to use for the arena. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A new {\ttfamily memory\+\_\+arena} that may be used just as the parent arena. 
+\end{DoxyReturn}
 \mbox{\Hypertarget{ab__memory_8h_ad393d506412ba1d8d6fe25e8e16253b4}\label{ab__memory_8h_ad393d506412ba1d8d6fe25e8e16253b4}} 
-\index{ab\+\_\+memory.\+h@{ab\+\_\+memory.\+h}!abm\+\_\+\+Deallocate\+Os\+Memory@{abm\+\_\+\+Deallocate\+Os\+Memory}}
-\index{abm\+\_\+\+Deallocate\+Os\+Memory@{abm\+\_\+\+Deallocate\+Os\+Memory}!ab\+\_\+memory.\+h@{ab\+\_\+memory.\+h}}
-\subsubsection{\texorpdfstring{abm\+\_\+\+Deallocate\+Os\+Memory()}{abm\_DeallocateOsMemory()}}
+\index{ab\_memory.h@{ab\_memory.h}!abm\_DeallocateOsMemory@{abm\_DeallocateOsMemory}}
+\index{abm\_DeallocateOsMemory@{abm\_DeallocateOsMemory}!ab\_memory.h@{ab\_memory.h}}
+\doxysubsubsection{\texorpdfstring{abm\_DeallocateOsMemory()}{abm\_DeallocateOsMemory()}}
 {\footnotesize\ttfamily void abm\+\_\+\+Deallocate\+Os\+Memory (\begin{DoxyParamCaption}\item[{void $\ast$}]{Address,  }\item[{size\+\_\+t}]{Size }\end{DoxyParamCaption})}
 
+
+
+Return memory to the OS. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em Address} & of the memory from the OS, the return value of \mbox{\hyperlink{ab__memory_8h_a20bffb2c2335745a56275b6094b6dcad}{abm\+\_\+\+Allocate\+Os\+Memory()}}. \\
+\hline
+{\em Size} & Size of the memory to return (Some OS\textquotesingle{}s need this.), should be the same as the parameter from {\ttfamily \mbox{\hyperlink{ab__memory_8h_a20bffb2c2335745a56275b6094b6dcad}{abm\+\_\+\+Allocate\+Os\+Memory()}}}. \\
+\hline
+\end{DoxyParams}
 \mbox{\Hypertarget{ab__memory_8h_a8dbf22e067d85b9ad8422126755d23df}\label{ab__memory_8h_a8dbf22e067d85b9ad8422126755d23df}} 
-\index{ab\+\_\+memory.\+h@{ab\+\_\+memory.\+h}!abm\+\_\+\+End\+Temporary\+Memory@{abm\+\_\+\+End\+Temporary\+Memory}}
-\index{abm\+\_\+\+End\+Temporary\+Memory@{abm\+\_\+\+End\+Temporary\+Memory}!ab\+\_\+memory.\+h@{ab\+\_\+memory.\+h}}
-\subsubsection{\texorpdfstring{abm\+\_\+\+End\+Temporary\+Memory()}{abm\_EndTemporaryMemory()}}
-{\footnotesize\ttfamily void abm\+\_\+\+End\+Temporary\+Memory (\begin{DoxyParamCaption}\item[{\hyperlink{structtemporary__memory}{temporary\+\_\+memory}}]{Temp\+Mem }\end{DoxyParamCaption})}
+\index{ab\_memory.h@{ab\_memory.h}!abm\_EndTemporaryMemory@{abm\_EndTemporaryMemory}}
+\index{abm\_EndTemporaryMemory@{abm\_EndTemporaryMemory}!ab\_memory.h@{ab\_memory.h}}
+\doxysubsubsection{\texorpdfstring{abm\_EndTemporaryMemory()}{abm\_EndTemporaryMemory()}}
+{\footnotesize\ttfamily void abm\+\_\+\+End\+Temporary\+Memory (\begin{DoxyParamCaption}\item[{temporary\+\_\+memory}]{Temp\+Mem }\end{DoxyParamCaption})}
 
+
+
+Ends the section of temporary memory. 
+
+This will free all the memory used since {\ttfamily \mbox{\hyperlink{ab__memory_8h_a77b6adde3ba40f7f3777bcc01c396ccd}{abm\+\_\+\+Begin\+Temporary\+Memory()}}}. See \mbox{\hyperlink{ab__memory_8h_a77b6adde3ba40f7f3777bcc01c396ccd}{abm\+\_\+\+Begin\+Temporary\+Memory()}} for more details on usage.
+
+
+\begin{DoxyParams}{Parameters}
+{\em Temp\+Mem} & The {\ttfamily temporary\+\_\+memory} struct created with {\ttfamily \mbox{\hyperlink{ab__memory_8h_a77b6adde3ba40f7f3777bcc01c396ccd}{abm\+\_\+\+Begin\+Temporary\+Memory()}}}. \\
+\hline
+\end{DoxyParams}
 \mbox{\Hypertarget{ab__memory_8h_a9061bfb19b910033ab211832bc593fed}\label{ab__memory_8h_a9061bfb19b910033ab211832bc593fed}} 
-\index{ab\+\_\+memory.\+h@{ab\+\_\+memory.\+h}!abm\+\_\+\+Get\+Memory\+Left@{abm\+\_\+\+Get\+Memory\+Left}}
-\index{abm\+\_\+\+Get\+Memory\+Left@{abm\+\_\+\+Get\+Memory\+Left}!ab\+\_\+memory.\+h@{ab\+\_\+memory.\+h}}
-\subsubsection{\texorpdfstring{abm\+\_\+\+Get\+Memory\+Left()}{abm\_GetMemoryLeft()}}
-{\footnotesize\ttfamily size\+\_\+t abm\+\_\+\+Get\+Memory\+Left (\begin{DoxyParamCaption}\item[{\hyperlink{structmemory__arena}{memory\+\_\+arena} $\ast$}]{Memory }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+\index{ab\_memory.h@{ab\_memory.h}!abm\_GetMemoryLeft@{abm\_GetMemoryLeft}}
+\index{abm\_GetMemoryLeft@{abm\_GetMemoryLeft}!ab\_memory.h@{ab\_memory.h}}
+\doxysubsubsection{\texorpdfstring{abm\_GetMemoryLeft()}{abm\_GetMemoryLeft()}}
+{\footnotesize\ttfamily size\+\_\+t abm\+\_\+\+Get\+Memory\+Left (\begin{DoxyParamCaption}\item[{memory\+\_\+arena $\ast$}]{Memory }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
 
+
+
+Get the amount of memory left in an arena. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em Memory} & A pointer to the {\ttfamily memory\+\_\+arena} to check. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The amount of unused memory in the arena. 
+\end{DoxyReturn}
 \mbox{\Hypertarget{ab__memory_8h_a5f2fa70a405694492db91b26ed884207}\label{ab__memory_8h_a5f2fa70a405694492db91b26ed884207}} 
-\index{ab\+\_\+memory.\+h@{ab\+\_\+memory.\+h}!abm\+\_\+\+Init\+Memory@{abm\+\_\+\+Init\+Memory}}
-\index{abm\+\_\+\+Init\+Memory@{abm\+\_\+\+Init\+Memory}!ab\+\_\+memory.\+h@{ab\+\_\+memory.\+h}}
-\subsubsection{\texorpdfstring{abm\+\_\+\+Init\+Memory()}{abm\_InitMemory()}}
-{\footnotesize\ttfamily \hyperlink{structmemory__arena}{memory\+\_\+arena} abm\+\_\+\+Init\+Memory (\begin{DoxyParamCaption}\item[{void $\ast$}]{Start,  }\item[{size\+\_\+t}]{Size }\end{DoxyParamCaption})}
+\index{ab\_memory.h@{ab\_memory.h}!abm\_InitMemory@{abm\_InitMemory}}
+\index{abm\_InitMemory@{abm\_InitMemory}!ab\_memory.h@{ab\_memory.h}}
+\doxysubsubsection{\texorpdfstring{abm\_InitMemory()}{abm\_InitMemory()}}
+{\footnotesize\ttfamily memory\+\_\+arena abm\+\_\+\+Init\+Memory (\begin{DoxyParamCaption}\item[{void $\ast$}]{Start,  }\item[{size\+\_\+t}]{Size }\end{DoxyParamCaption})}
 
-\mbox{\Hypertarget{ab__memory_8h_a15270c8569eb858cdb20ee45c3bb46f7}\label{ab__memory_8h_a15270c8569eb858cdb20ee45c3bb46f7}} 
-\index{ab\+\_\+memory.\+h@{ab\+\_\+memory.\+h}!abm\+\_\+\+Push\+Size\+\_\+@{abm\+\_\+\+Push\+Size\+\_\+}}
-\index{abm\+\_\+\+Push\+Size\+\_\+@{abm\+\_\+\+Push\+Size\+\_\+}!ab\+\_\+memory.\+h@{ab\+\_\+memory.\+h}}
-\subsubsection{\texorpdfstring{abm\+\_\+\+Push\+Size\+\_\+()}{abm\_PushSize\_()}}
-{\footnotesize\ttfamily void$\ast$ abm\+\_\+\+Push\+Size\+\_\+ (\begin{DoxyParamCaption}\item[{\hyperlink{structmemory__arena}{memory\+\_\+arena} $\ast$}]{Memory,  }\item[{size\+\_\+t}]{Size,  }\item[{\hyperlink{ab__common_8h_a70e369648385b50f2d0588e8e8745275}{b8}}]{Clear\+Memory = {\ttfamily true} }\end{DoxyParamCaption})}
 
+
+Initialize a memory\+\_\+arena. 
+
+Create a new {\ttfamily memory\+\_\+arena} object from the memory block in the OS. This may be the entire block requested, or part of one.
+
+
+\begin{DoxyParams}{Parameters}
+{\em Start} & The start of the memory block. \\
+\hline
+{\em Size} & The size of the memory arena. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A new memory\+\_\+arena. 
+\end{DoxyReturn}
 \mbox{\Hypertarget{ab__memory_8h_a8ca432174a01c886b3c834cbb140c5ab}\label{ab__memory_8h_a8ca432174a01c886b3c834cbb140c5ab}} 
-\index{ab\+\_\+memory.\+h@{ab\+\_\+memory.\+h}!abm\+\_\+\+Reset\+Memory@{abm\+\_\+\+Reset\+Memory}}
-\index{abm\+\_\+\+Reset\+Memory@{abm\+\_\+\+Reset\+Memory}!ab\+\_\+memory.\+h@{ab\+\_\+memory.\+h}}
-\subsubsection{\texorpdfstring{abm\+\_\+\+Reset\+Memory()}{abm\_ResetMemory()}}
-{\footnotesize\ttfamily void abm\+\_\+\+Reset\+Memory (\begin{DoxyParamCaption}\item[{\hyperlink{structmemory__arena}{memory\+\_\+arena} $\ast$}]{Memory }\end{DoxyParamCaption})}
+\index{ab\_memory.h@{ab\_memory.h}!abm\_ResetMemory@{abm\_ResetMemory}}
+\index{abm\_ResetMemory@{abm\_ResetMemory}!ab\_memory.h@{ab\_memory.h}}
+\doxysubsubsection{\texorpdfstring{abm\_ResetMemory()}{abm\_ResetMemory()}}
+{\footnotesize\ttfamily void abm\+\_\+\+Reset\+Memory (\begin{DoxyParamCaption}\item[{memory\+\_\+arena $\ast$}]{Memory }\end{DoxyParamCaption})}
 
+
+
+Delete everything in a {\ttfamily memory\+\_\+arena} and set the amount of memory used to 0. 
+
+This is used to wipe out everything in a memory arena. This is usually used at the beginning of a control loop to clear the volatile memory.
+
+
+\begin{DoxyParams}{Parameters}
+{\em Memory} & The {\ttfamily memory\+\_\+arena} to wipe. \\
+\hline
+\end{DoxyParams}

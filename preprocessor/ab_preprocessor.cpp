@@ -8,6 +8,8 @@
 This is a basic pre-preprocessor that reads in the source files in a directory and outputs a generated source file with a number of standard functions. For usage, see the project Readme.md file.
 
 # MIT License
+
+[MIT Public License](https://opensource.org/licenses/MIT)
                                                                                                                                       
 Copyright 2020 Amos Buchanan
 

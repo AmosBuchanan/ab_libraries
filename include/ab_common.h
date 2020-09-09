@@ -3,11 +3,13 @@
 @author Amos Buchanan
 @version 1.0
 @date 2020
-@copyright MIT Public License.
+@copyright [MIT Public License](https://opensource.org/licenses/MIT)
 
 This file has the common macros and typedefs I use everywhere. Every other library is dependent on this one.
 
 # MIT License
+
+ [MIT Public License](https://opensource.org/licenses/MIT)
 
 Copyright 2020 Amos Buchanan
 

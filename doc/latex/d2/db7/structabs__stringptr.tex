@@ -1,98 +1,152 @@
-\hypertarget{structabs__stringptr}{}\section{abs\+\_\+stringptr Struct Reference}
-\label{structabs__stringptr}\index{abs\+\_\+stringptr@{abs\+\_\+stringptr}}
+\hypertarget{structabs__stringptr}{}\doxysection{abs\+\_\+stringptr Struct Reference}
+\label{structabs__stringptr}\index{abs\_stringptr@{abs\_stringptr}}
+
+
+Pointer and length of a character array.  
+
+
 
 
 {\ttfamily \#include $<$ab\+\_\+string.\+h$>$}
 
-\subsection*{Public Member Functions}
+\doxysubsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-\hyperlink{structabs__stringptr_ad400c488075a59de415ec98ef84aa6fe}{abs\+\_\+stringptr} (void)=default
-\item 
-constexpr \hyperlink{structabs__stringptr_a9ff62a81f8c16dafb50defa61bd05717}{abs\+\_\+stringptr} (char const $\ast$S, \hyperlink{ab__common_8h_afaa62991928fb9fb18ff0db62a040aba}{u32} L)
-\item 
-constexpr \hyperlink{structabs__stringptr_ac4b4f641fcefaef4c44e5f9ac7e8d7c9}{abs\+\_\+stringptr} (char const $\ast$S, \hyperlink{ab__common_8h_ae9b1af5c037e57a98884758875d3a7c4}{s32} L)
-\item 
-\hyperlink{structabs__stringptr_af2ace78c334e1a27966aaf6fd57103e9}{abs\+\_\+stringptr} (char const $\ast$x)
-\item 
-\hyperlink{structabs__stringptr_acd3fbc548742cd5fc66a8fc6e98b6cdd}{abs\+\_\+stringptr} (char $\ast$const x)
-\item 
-\hyperlink{structabs__stringptr_a9faeea5e2f5123e1adb68c8da62dc2b9}{abs\+\_\+stringptr} (const char \&x)
-\item 
-\hyperlink{structabs__stringptr_a7b4d6615fda233343f26a21179f856b7}{operator char const $\ast$} () const
-\end{DoxyCompactItemize}
-\subsection*{Public Attributes}
+\mbox{\hyperlink{structabs__stringptr_ad400c488075a59de415ec98ef84aa6fe}{abs\+\_\+stringptr}} (void)=default
+\begin{DoxyCompactList}\small\item\em Default Constructor. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{structabs__stringptr_a9faeea5e2f5123e1adb68c8da62dc2b9}{abs\+\_\+stringptr}} (const char \&x)
+\begin{DoxyCompactList}\small\item\em convert a const char directly into an \mbox{\hyperlink{structabs__stringptr}{abs\+\_\+stringptr}}. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{structabs__stringptr_a7b4d6615fda233343f26a21179f856b7}{operator char const $\ast$}} () const
+\begin{DoxyCompactList}\small\item\em Convert from \mbox{\hyperlink{structabs__stringptr}{abs\+\_\+stringptr}} directly into a char const$\ast$. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\textbf{ }\par
 \begin{DoxyCompactItemize}
 \item 
-char const  $\ast$ \hyperlink{structabs__stringptr_ac7296c8ae75a6cf987961712b55acaa5}{String}
+constexpr \mbox{\hyperlink{structabs__stringptr_a9ff62a81f8c16dafb50defa61bd05717}{abs\+\_\+stringptr}} (char const $\ast$S, \mbox{\hyperlink{ab__common_8h_afaa62991928fb9fb18ff0db62a040aba}{u32}} L)
+\begin{DoxyCompactList}\small\item\em Constructor including string and length. \end{DoxyCompactList}\item 
+constexpr \mbox{\hyperlink{structabs__stringptr_ac4b4f641fcefaef4c44e5f9ac7e8d7c9}{abs\+\_\+stringptr}} (char const $\ast$S, \mbox{\hyperlink{ab__common_8h_ae9b1af5c037e57a98884758875d3a7c4}{s32}} L)
+\begin{DoxyCompactList}\small\item\em Constructor including string and length. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+\textbf{ }\par
+\begin{DoxyCompactItemize}
 \item 
-\hyperlink{ab__common_8h_afaa62991928fb9fb18ff0db62a040aba}{u32} \hyperlink{structabs__stringptr_a4b736aa24a8e4591c4efbaac10bd7e9f}{Length}
-\end{DoxyCompactItemize}
+\mbox{\hyperlink{structabs__stringptr_af2ace78c334e1a27966aaf6fd57103e9}{abs\+\_\+stringptr}} (char const $\ast$x)
+\begin{DoxyCompactList}\small\item\em Convert a null-\/terminated constant string directly into an \mbox{\hyperlink{structabs__stringptr}{abs\+\_\+stringptr}}, up to 1024 characters. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{structabs__stringptr_acd3fbc548742cd5fc66a8fc6e98b6cdd}{abs\+\_\+stringptr}} (char $\ast$const x)
+\begin{DoxyCompactList}\small\item\em Convert a null-\/terminated constant string directly into an \mbox{\hyperlink{structabs__stringptr}{abs\+\_\+stringptr}}, up to 1024 characters. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+\doxysubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+char const  $\ast$ \mbox{\hyperlink{structabs__stringptr_ac7296c8ae75a6cf987961712b55acaa5}{String}}
+\begin{DoxyCompactList}\small\item\em Pointer to the string. This is either a constant or a fragment in a larger string. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{ab__common_8h_afaa62991928fb9fb18ff0db62a040aba}{u32}} \mbox{\hyperlink{structabs__stringptr_a4b736aa24a8e4591c4efbaac10bd7e9f}{Length}}
+\begin{DoxyCompactList}\small\item\em Length of the string. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
-\subsection{Constructor \& Destructor Documentation}
+\doxysubsection{Detailed Description}
+Pointer and length of a character array. 
+
+This is often used for string fragments within a larger block of text. It combines the string pointer with the string length. All \mbox{\hyperlink{structabs__stringptr}{abs\+\_\+stringptr}} structs are const char$\ast$ strings. They are not necessarily null terminated. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
 \mbox{\Hypertarget{structabs__stringptr_ad400c488075a59de415ec98ef84aa6fe}\label{structabs__stringptr_ad400c488075a59de415ec98ef84aa6fe}} 
-\index{abs\+\_\+stringptr@{abs\+\_\+stringptr}!abs\+\_\+stringptr@{abs\+\_\+stringptr}}
-\index{abs\+\_\+stringptr@{abs\+\_\+stringptr}!abs\+\_\+stringptr@{abs\+\_\+stringptr}}
-\subsubsection{\texorpdfstring{abs\+\_\+stringptr()}{abs\_stringptr()}\hspace{0.1cm}{\footnotesize\ttfamily [1/6]}}
+\index{abs\_stringptr@{abs\_stringptr}!abs\_stringptr@{abs\_stringptr}}
+\index{abs\_stringptr@{abs\_stringptr}!abs\_stringptr@{abs\_stringptr}}
+\doxysubsubsection{\texorpdfstring{abs\_stringptr()}{abs\_stringptr()}\hspace{0.1cm}{\footnotesize\ttfamily [1/6]}}
 {\footnotesize\ttfamily abs\+\_\+stringptr\+::abs\+\_\+stringptr (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [default]}}
 
+
+
+Default Constructor. 
+
 \mbox{\Hypertarget{structabs__stringptr_a9ff62a81f8c16dafb50defa61bd05717}\label{structabs__stringptr_a9ff62a81f8c16dafb50defa61bd05717}} 
-\index{abs\+\_\+stringptr@{abs\+\_\+stringptr}!abs\+\_\+stringptr@{abs\+\_\+stringptr}}
-\index{abs\+\_\+stringptr@{abs\+\_\+stringptr}!abs\+\_\+stringptr@{abs\+\_\+stringptr}}
-\subsubsection{\texorpdfstring{abs\+\_\+stringptr()}{abs\_stringptr()}\hspace{0.1cm}{\footnotesize\ttfamily [2/6]}}
-{\footnotesize\ttfamily constexpr abs\+\_\+stringptr\+::abs\+\_\+stringptr (\begin{DoxyParamCaption}\item[{char const $\ast$}]{S,  }\item[{\hyperlink{ab__common_8h_afaa62991928fb9fb18ff0db62a040aba}{u32}}]{L }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+\index{abs\_stringptr@{abs\_stringptr}!abs\_stringptr@{abs\_stringptr}}
+\index{abs\_stringptr@{abs\_stringptr}!abs\_stringptr@{abs\_stringptr}}
+\doxysubsubsection{\texorpdfstring{abs\_stringptr()}{abs\_stringptr()}\hspace{0.1cm}{\footnotesize\ttfamily [2/6]}}
+{\footnotesize\ttfamily constexpr abs\+\_\+stringptr\+::abs\+\_\+stringptr (\begin{DoxyParamCaption}\item[{char const $\ast$}]{S,  }\item[{\mbox{\hyperlink{ab__common_8h_afaa62991928fb9fb18ff0db62a040aba}{u32}}}]{L }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [constexpr]}}
+
+
+
+Constructor including string and length. 
 
 \mbox{\Hypertarget{structabs__stringptr_ac4b4f641fcefaef4c44e5f9ac7e8d7c9}\label{structabs__stringptr_ac4b4f641fcefaef4c44e5f9ac7e8d7c9}} 
-\index{abs\+\_\+stringptr@{abs\+\_\+stringptr}!abs\+\_\+stringptr@{abs\+\_\+stringptr}}
-\index{abs\+\_\+stringptr@{abs\+\_\+stringptr}!abs\+\_\+stringptr@{abs\+\_\+stringptr}}
-\subsubsection{\texorpdfstring{abs\+\_\+stringptr()}{abs\_stringptr()}\hspace{0.1cm}{\footnotesize\ttfamily [3/6]}}
-{\footnotesize\ttfamily constexpr abs\+\_\+stringptr\+::abs\+\_\+stringptr (\begin{DoxyParamCaption}\item[{char const $\ast$}]{S,  }\item[{\hyperlink{ab__common_8h_ae9b1af5c037e57a98884758875d3a7c4}{s32}}]{L }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+\index{abs\_stringptr@{abs\_stringptr}!abs\_stringptr@{abs\_stringptr}}
+\index{abs\_stringptr@{abs\_stringptr}!abs\_stringptr@{abs\_stringptr}}
+\doxysubsubsection{\texorpdfstring{abs\_stringptr()}{abs\_stringptr()}\hspace{0.1cm}{\footnotesize\ttfamily [3/6]}}
+{\footnotesize\ttfamily constexpr abs\+\_\+stringptr\+::abs\+\_\+stringptr (\begin{DoxyParamCaption}\item[{char const $\ast$}]{S,  }\item[{\mbox{\hyperlink{ab__common_8h_ae9b1af5c037e57a98884758875d3a7c4}{s32}}}]{L }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [constexpr]}}
+
+
+
+Constructor including string and length. 
 
 \mbox{\Hypertarget{structabs__stringptr_af2ace78c334e1a27966aaf6fd57103e9}\label{structabs__stringptr_af2ace78c334e1a27966aaf6fd57103e9}} 
-\index{abs\+\_\+stringptr@{abs\+\_\+stringptr}!abs\+\_\+stringptr@{abs\+\_\+stringptr}}
-\index{abs\+\_\+stringptr@{abs\+\_\+stringptr}!abs\+\_\+stringptr@{abs\+\_\+stringptr}}
-\subsubsection{\texorpdfstring{abs\+\_\+stringptr()}{abs\_stringptr()}\hspace{0.1cm}{\footnotesize\ttfamily [4/6]}}
+\index{abs\_stringptr@{abs\_stringptr}!abs\_stringptr@{abs\_stringptr}}
+\index{abs\_stringptr@{abs\_stringptr}!abs\_stringptr@{abs\_stringptr}}
+\doxysubsubsection{\texorpdfstring{abs\_stringptr()}{abs\_stringptr()}\hspace{0.1cm}{\footnotesize\ttfamily [4/6]}}
 {\footnotesize\ttfamily abs\+\_\+stringptr\+::abs\+\_\+stringptr (\begin{DoxyParamCaption}\item[{char const $\ast$}]{x }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
 
+
+
+Convert a null-\/terminated constant string directly into an \mbox{\hyperlink{structabs__stringptr}{abs\+\_\+stringptr}}, up to 1024 characters. 
+
 \mbox{\Hypertarget{structabs__stringptr_acd3fbc548742cd5fc66a8fc6e98b6cdd}\label{structabs__stringptr_acd3fbc548742cd5fc66a8fc6e98b6cdd}} 
-\index{abs\+\_\+stringptr@{abs\+\_\+stringptr}!abs\+\_\+stringptr@{abs\+\_\+stringptr}}
-\index{abs\+\_\+stringptr@{abs\+\_\+stringptr}!abs\+\_\+stringptr@{abs\+\_\+stringptr}}
-\subsubsection{\texorpdfstring{abs\+\_\+stringptr()}{abs\_stringptr()}\hspace{0.1cm}{\footnotesize\ttfamily [5/6]}}
+\index{abs\_stringptr@{abs\_stringptr}!abs\_stringptr@{abs\_stringptr}}
+\index{abs\_stringptr@{abs\_stringptr}!abs\_stringptr@{abs\_stringptr}}
+\doxysubsubsection{\texorpdfstring{abs\_stringptr()}{abs\_stringptr()}\hspace{0.1cm}{\footnotesize\ttfamily [5/6]}}
 {\footnotesize\ttfamily abs\+\_\+stringptr\+::abs\+\_\+stringptr (\begin{DoxyParamCaption}\item[{char $\ast$const}]{x }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
 
+
+
+Convert a null-\/terminated constant string directly into an \mbox{\hyperlink{structabs__stringptr}{abs\+\_\+stringptr}}, up to 1024 characters. 
+
 \mbox{\Hypertarget{structabs__stringptr_a9faeea5e2f5123e1adb68c8da62dc2b9}\label{structabs__stringptr_a9faeea5e2f5123e1adb68c8da62dc2b9}} 
-\index{abs\+\_\+stringptr@{abs\+\_\+stringptr}!abs\+\_\+stringptr@{abs\+\_\+stringptr}}
-\index{abs\+\_\+stringptr@{abs\+\_\+stringptr}!abs\+\_\+stringptr@{abs\+\_\+stringptr}}
-\subsubsection{\texorpdfstring{abs\+\_\+stringptr()}{abs\_stringptr()}\hspace{0.1cm}{\footnotesize\ttfamily [6/6]}}
+\index{abs\_stringptr@{abs\_stringptr}!abs\_stringptr@{abs\_stringptr}}
+\index{abs\_stringptr@{abs\_stringptr}!abs\_stringptr@{abs\_stringptr}}
+\doxysubsubsection{\texorpdfstring{abs\_stringptr()}{abs\_stringptr()}\hspace{0.1cm}{\footnotesize\ttfamily [6/6]}}
 {\footnotesize\ttfamily abs\+\_\+stringptr\+::abs\+\_\+stringptr (\begin{DoxyParamCaption}\item[{const char \&}]{x }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
 
 
 
-\subsection{Member Function Documentation}
+convert a const char directly into an \mbox{\hyperlink{structabs__stringptr}{abs\+\_\+stringptr}}. 
+
+
+
+\doxysubsection{Member Function Documentation}
 \mbox{\Hypertarget{structabs__stringptr_a7b4d6615fda233343f26a21179f856b7}\label{structabs__stringptr_a7b4d6615fda233343f26a21179f856b7}} 
-\index{abs\+\_\+stringptr@{abs\+\_\+stringptr}!operator char const $\ast$@{operator char const $\ast$}}
-\index{operator char const $\ast$@{operator char const $\ast$}!abs\+\_\+stringptr@{abs\+\_\+stringptr}}
-\subsubsection{\texorpdfstring{operator char const $\ast$()}{operator char const *()}}
+\index{abs\_stringptr@{abs\_stringptr}!operator char const $\ast$@{operator char const $\ast$}}
+\index{operator char const $\ast$@{operator char const $\ast$}!abs\_stringptr@{abs\_stringptr}}
+\doxysubsubsection{\texorpdfstring{operator char const $\ast$()}{operator char const *()}}
 {\footnotesize\ttfamily abs\+\_\+stringptr\+::operator char const $\ast$ (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
 
 
 
-\subsection{Member Data Documentation}
+Convert from \mbox{\hyperlink{structabs__stringptr}{abs\+\_\+stringptr}} directly into a char const$\ast$. 
+
+Note that this only really works if the string is null-\/terminated. 
+
+\doxysubsection{Member Data Documentation}
 \mbox{\Hypertarget{structabs__stringptr_a4b736aa24a8e4591c4efbaac10bd7e9f}\label{structabs__stringptr_a4b736aa24a8e4591c4efbaac10bd7e9f}} 
-\index{abs\+\_\+stringptr@{abs\+\_\+stringptr}!Length@{Length}}
-\index{Length@{Length}!abs\+\_\+stringptr@{abs\+\_\+stringptr}}
-\subsubsection{\texorpdfstring{Length}{Length}}
-{\footnotesize\ttfamily \hyperlink{ab__common_8h_afaa62991928fb9fb18ff0db62a040aba}{u32} abs\+\_\+stringptr\+::\+Length}
+\index{abs\_stringptr@{abs\_stringptr}!Length@{Length}}
+\index{Length@{Length}!abs\_stringptr@{abs\_stringptr}}
+\doxysubsubsection{\texorpdfstring{Length}{Length}}
+{\footnotesize\ttfamily \mbox{\hyperlink{ab__common_8h_afaa62991928fb9fb18ff0db62a040aba}{u32}} abs\+\_\+stringptr\+::\+Length}
+
+
+
+Length of the string. 
 
 \mbox{\Hypertarget{structabs__stringptr_ac7296c8ae75a6cf987961712b55acaa5}\label{structabs__stringptr_ac7296c8ae75a6cf987961712b55acaa5}} 
-\index{abs\+\_\+stringptr@{abs\+\_\+stringptr}!String@{String}}
-\index{String@{String}!abs\+\_\+stringptr@{abs\+\_\+stringptr}}
-\subsubsection{\texorpdfstring{String}{String}}
+\index{abs\_stringptr@{abs\_stringptr}!String@{String}}
+\index{String@{String}!abs\_stringptr@{abs\_stringptr}}
+\doxysubsubsection{\texorpdfstring{String}{String}}
 {\footnotesize\ttfamily char const$\ast$ abs\+\_\+stringptr\+::\+String}
 
 
 
+Pointer to the string. This is either a constant or a fragment in a larger string. 
+
+Ignores nulls. 
+
 The documentation for this struct was generated from the following file\+:\begin{DoxyCompactItemize}
 \item 
-\hyperlink{ab__string_8h}{ab\+\_\+string.\+h}\end{DoxyCompactItemize}
+\mbox{\hyperlink{ab__string_8h}{ab\+\_\+string.\+h}}\end{DoxyCompactItemize}

@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['isdirexists',['isDirExists',['../d7/dcc/ab__file_8h.html#a4421ce1243877d8cc9082aae558db83f',1,'ab_file.h']]]
+  ['operator_20char_20const_20_2a_135',['operator char const *',['../d2/db7/structabs__stringptr.html#a7b4d6615fda233343f26a21179f856b7',1,'abs_stringptr']]]
 ];

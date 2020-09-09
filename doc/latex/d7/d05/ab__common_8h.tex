@@ -1,5 +1,5 @@
-\hypertarget{ab__common_8h}{}\section{ab\+\_\+common.\+h File Reference}
-\label{ab__common_8h}\index{ab\+\_\+common.\+h@{ab\+\_\+common.\+h}}
+\hypertarget{ab__common_8h}{}\doxysection{ab\+\_\+common.\+h File Reference}
+\label{ab__common_8h}\index{ab\_common.h@{ab\_common.h}}
 
 
 Common macros and typedefs.  
@@ -7,92 +7,94 @@ Common macros and typedefs.
 
 {\ttfamily \#include $<$stdint.\+h$>$}\newline
 {\ttfamily \#include $<$wchar.\+h$>$}\newline
-Include dependency graph for ab\+\_\+common.\+h\+:\nopagebreak
+Include dependency graph for ab\+\_\+common.\+h\+:
+\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
 \includegraphics[width=198pt]{d1/dd0/ab__common_8h__incl}
 \end{center}
 \end{figure}
-This graph shows which files directly or indirectly include this file\+:\nopagebreak
+This graph shows which files directly or indirectly include this file\+:
+\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
-\includegraphics[width=350pt]{d8/da5/ab__common_8h__dep__incl}
+\includegraphics[width=335pt]{d8/da5/ab__common_8h__dep__incl}
 \end{center}
 \end{figure}
-\subsection*{Macros}
+\doxysubsection*{Macros}
 \begin{DoxyCompactItemize}
 \item 
-\#define \hyperlink{ab__common_8h_a49450bdfb96baf39e5679e3749dd6648}{Array\+Count}(Array)~(sizeof(Array)) / (sizeof(Array\mbox{[}0\mbox{]}))
+\#define \mbox{\hyperlink{ab__common_8h_a49450bdfb96baf39e5679e3749dd6648}{Array\+Count}}(Array)~(sizeof(Array)) / (sizeof(Array\mbox{[}0\mbox{]}))
 \begin{DoxyCompactList}\small\item\em Macro that can be used anywhere with a pre-\/defined array. \end{DoxyCompactList}\item 
-\#define \hyperlink{ab__common_8h_a1da41d527b391b557b30acdc9e2cf425}{M\+A\+X\+\_\+\+F\+I\+L\+E\+N\+A\+M\+E\+\_\+\+S\+I\+ZE}~255
+\#define \mbox{\hyperlink{ab__common_8h_a1da41d527b391b557b30acdc9e2cf425}{M\+A\+X\+\_\+\+F\+I\+L\+E\+N\+A\+M\+E\+\_\+\+S\+I\+ZE}}~255
 \item 
-\#define \hyperlink{ab__common_8h_ab569440ccd9ea3398cfc4d514fb5493f}{M\+I\+N\+I\+M\+UM}(Value1,  Value2)~(((Value1) $<$ (Value2)) ? (Value1) \+: (Value2))
+\#define \mbox{\hyperlink{ab__common_8h_ab569440ccd9ea3398cfc4d514fb5493f}{M\+I\+N\+I\+M\+UM}}(Value1,  Value2)~(((Value1) $<$ (Value2)) ? (Value1) \+: (Value2))
 \begin{DoxyCompactList}\small\item\em Return the minimum of a value. \end{DoxyCompactList}\item 
-\#define \hyperlink{ab__common_8h_aa0dcb9de6453c0e93a7d4c26739380e2}{M\+A\+X\+I\+M\+UM}(Value1,  Value2)~(((Value1) $>$ (Value2)) ? (Value1) \+: (Value2))
+\#define \mbox{\hyperlink{ab__common_8h_aa0dcb9de6453c0e93a7d4c26739380e2}{M\+A\+X\+I\+M\+UM}}(Value1,  Value2)~(((Value1) $>$ (Value2)) ? (Value1) \+: (Value2))
 \begin{DoxyCompactList}\small\item\em Return the maximum of a value. \end{DoxyCompactList}\item 
-\#define \hyperlink{ab__common_8h_a20bc847a34a521a2e6fa125621be9bfc}{Bit\+Reset}(Value,  Bit)~((Value) \&= $\sim$(1 $<$$<$ (Bit)))
+\#define \mbox{\hyperlink{ab__common_8h_a20bc847a34a521a2e6fa125621be9bfc}{Bit\+Reset}}(Value,  Bit)~((Value) \&= $\sim$(1 $<$$<$ (Bit)))
 \begin{DoxyCompactList}\small\item\em Reset the bit to zero. \end{DoxyCompactList}\item 
-\#define \hyperlink{ab__common_8h_a1eeb0506b4ddd8d37c817456de87f052}{Bit\+Set}(Value,  Bit)~((Value) $\vert$= (1 $<$$<$ (Bit)))
+\#define \mbox{\hyperlink{ab__common_8h_a1eeb0506b4ddd8d37c817456de87f052}{Bit\+Set}}(Value,  Bit)~((Value) $\vert$= (1 $<$$<$ (Bit)))
 \begin{DoxyCompactList}\small\item\em Set the bit to one. \end{DoxyCompactList}\item 
-\#define \hyperlink{ab__common_8h_a9e89c74d1fedd0a954107d7ab01481cc}{Kilobytes}(num)~(1024\+U\+L\+L $\ast$ (num))
+\#define \mbox{\hyperlink{ab__common_8h_a9e89c74d1fedd0a954107d7ab01481cc}{Kilobytes}}(num)~(1024U\+LL $\ast$ (num))
 \item 
-\#define \hyperlink{ab__common_8h_a2617ed135c31ace7205aae9398392eca}{Megabytes}(num)~(1024\+U\+L\+L $\ast$ Kilobytes(num))
+\#define \mbox{\hyperlink{ab__common_8h_a2617ed135c31ace7205aae9398392eca}{Megabytes}}(num)~(1024U\+LL $\ast$ \mbox{\hyperlink{ab__common_8h_a9e89c74d1fedd0a954107d7ab01481cc}{Kilobytes}}(num))
 \item 
-\#define \hyperlink{ab__common_8h_ae0b63ae9651c6178680d84f4900e0a0d}{Gigabytes}(num)~(1024\+U\+L\+L $\ast$ Megabytes(num))
+\#define \mbox{\hyperlink{ab__common_8h_ae0b63ae9651c6178680d84f4900e0a0d}{Gigabytes}}(num)~(1024U\+LL $\ast$ \mbox{\hyperlink{ab__common_8h_a2617ed135c31ace7205aae9398392eca}{Megabytes}}(num))
 \item 
-\#define \hyperlink{ab__common_8h_aa01ae46693c8d6cada0f39d78e8da9f8}{Terabytes}(num)~(1024\+U\+L\+L $\ast$ Gigabytes(num))
+\#define \mbox{\hyperlink{ab__common_8h_aa01ae46693c8d6cada0f39d78e8da9f8}{Terabytes}}(num)~(1024U\+LL $\ast$ \mbox{\hyperlink{ab__common_8h_ae0b63ae9651c6178680d84f4900e0a0d}{Gigabytes}}(num))
 \item 
-\#define \hyperlink{ab__common_8h_a20fa811b86f3ecd1f72ae57753c26d56}{S\+\_\+\+T\+O\+\_\+\+MS}(num)~((num) $\ast$ 1000\+L)
+\#define \mbox{\hyperlink{ab__common_8h_a20fa811b86f3ecd1f72ae57753c26d56}{S\+\_\+\+T\+O\+\_\+\+MS}}(num)~((num) $\ast$ 1000L)
 \item 
-\#define \hyperlink{ab__common_8h_ad8619bfe2bde192cdb90aaa749de313a}{S\+\_\+\+T\+O\+\_\+\+NS}(num)~((num) $\ast$ 1e9\+L)
+\#define \mbox{\hyperlink{ab__common_8h_ad8619bfe2bde192cdb90aaa749de313a}{S\+\_\+\+T\+O\+\_\+\+NS}}(num)~((num) $\ast$ 1e9L)
 \item 
-\#define \hyperlink{ab__common_8h_af99d895a4fb9ef16b8773bfb4682cb0b}{M\+S\+\_\+\+T\+O\+\_\+S}(num)~((num) $\ast$ 0.\+001f)
+\#define \mbox{\hyperlink{ab__common_8h_af99d895a4fb9ef16b8773bfb4682cb0b}{M\+S\+\_\+\+T\+O\+\_\+S}}(num)~((num) $\ast$ 0.\+001f)
 \item 
-\#define \hyperlink{ab__common_8h_a830e4dd55a9d1f281527e77f61993194}{M\+S\+\_\+\+T\+O\+\_\+\+NS}(num)~((num) $\ast$ 1000000.\+0f)
+\#define \mbox{\hyperlink{ab__common_8h_a830e4dd55a9d1f281527e77f61993194}{M\+S\+\_\+\+T\+O\+\_\+\+NS}}(num)~((num) $\ast$ 1000000.\+0f)
 \item 
-\#define \hyperlink{ab__common_8h_a5ea52ba9d4cb9e553e52d1c7283b58a7}{N\+S\+\_\+\+T\+O\+\_\+S}(num)~((num) $\ast$ 1e-\/9f)
+\#define \mbox{\hyperlink{ab__common_8h_a5ea52ba9d4cb9e553e52d1c7283b58a7}{N\+S\+\_\+\+T\+O\+\_\+S}}(num)~((num) $\ast$ 1e-\/9f)
 \item 
-\#define \hyperlink{ab__common_8h_a323127aaf9260b4e2092a8734886379a}{N\+S\+\_\+\+T\+O\+\_\+\+MS}(num)~((num) $\ast$ 1e-\/6f)
+\#define \mbox{\hyperlink{ab__common_8h_a323127aaf9260b4e2092a8734886379a}{N\+S\+\_\+\+T\+O\+\_\+\+MS}}(num)~((num) $\ast$ 1e-\/6f)
 \item 
-\#define \hyperlink{ab__common_8h_af2b46bb19c7d3d91950a9f971d443ccd}{Assert}(test)
+\#define \mbox{\hyperlink{ab__common_8h_af2b46bb19c7d3d91950a9f971d443ccd}{Assert}}(test)
 \begin{DoxyCompactList}\small\item\em Assert causes a hard-\/fault, useful when debugging. Don\textquotesingle{}t use this is production code. \end{DoxyCompactList}\end{DoxyCompactItemize}
-\subsection*{Typedefs}
+\doxysubsection*{Typedefs}
 \begin{DoxyCompactItemize}
 \item 
-typedef wchar\+\_\+t \hyperlink{ab__common_8h_a59dcfa356b98a549d778585b6b0388e3}{wchar}
+typedef wchar\+\_\+t \mbox{\hyperlink{ab__common_8h_a59dcfa356b98a549d778585b6b0388e3}{wchar}}
 \item 
-typedef int8\+\_\+t \hyperlink{ab__common_8h_a70e369648385b50f2d0588e8e8745275}{b8}
+typedef int8\+\_\+t \mbox{\hyperlink{ab__common_8h_a70e369648385b50f2d0588e8e8745275}{b8}}
 \item 
-typedef int8\+\_\+t \hyperlink{ab__common_8h_a9e382f207c65ca13ab4ae98363aeda80}{s8}
+typedef int8\+\_\+t \mbox{\hyperlink{ab__common_8h_a9e382f207c65ca13ab4ae98363aeda80}{s8}}
 \item 
-typedef uint8\+\_\+t \hyperlink{ab__common_8h_a92c50087ca0e64fa93fc59402c55f8ca}{u8}
+typedef uint8\+\_\+t \mbox{\hyperlink{ab__common_8h_a92c50087ca0e64fa93fc59402c55f8ca}{u8}}
 \item 
-typedef int16\+\_\+t \hyperlink{ab__common_8h_aa980e2c02ba2305e0f489d5650655425}{s16}
+typedef int16\+\_\+t \mbox{\hyperlink{ab__common_8h_aa980e2c02ba2305e0f489d5650655425}{s16}}
 \item 
-typedef uint16\+\_\+t \hyperlink{ab__common_8h_ace9d960e74685e2cd84b36132dbbf8aa}{u16}
+typedef uint16\+\_\+t \mbox{\hyperlink{ab__common_8h_ace9d960e74685e2cd84b36132dbbf8aa}{u16}}
 \item 
-typedef int32\+\_\+t \hyperlink{ab__common_8h_ae9b1af5c037e57a98884758875d3a7c4}{s32}
+typedef int32\+\_\+t \mbox{\hyperlink{ab__common_8h_ae9b1af5c037e57a98884758875d3a7c4}{s32}}
 \item 
-typedef uint32\+\_\+t \hyperlink{ab__common_8h_afaa62991928fb9fb18ff0db62a040aba}{u32}
+typedef uint32\+\_\+t \mbox{\hyperlink{ab__common_8h_afaa62991928fb9fb18ff0db62a040aba}{u32}}
 \item 
-typedef int64\+\_\+t \hyperlink{ab__common_8h_a350c6fc928e3bdc6c6486268ac8fb269}{s64}
+typedef int64\+\_\+t \mbox{\hyperlink{ab__common_8h_a350c6fc928e3bdc6c6486268ac8fb269}{s64}}
 \item 
-typedef uint64\+\_\+t \hyperlink{ab__common_8h_a3f7e2bcbb0b4c338f3c4f6c937cd4234}{u64}
+typedef uint64\+\_\+t \mbox{\hyperlink{ab__common_8h_a3f7e2bcbb0b4c338f3c4f6c937cd4234}{u64}}
 \item 
-typedef float \hyperlink{ab__common_8h_aafa04bc3cb166e826b75a23f4add4b59}{r32}
+typedef float \mbox{\hyperlink{ab__common_8h_aafa04bc3cb166e826b75a23f4add4b59}{r32}}
 \item 
-typedef double \hyperlink{ab__common_8h_af3fb0780dd5bc8ff8740028f077610e7}{r64}
+typedef double \mbox{\hyperlink{ab__common_8h_af3fb0780dd5bc8ff8740028f077610e7}{r64}}
 \end{DoxyCompactItemize}
-\subsection*{Variables}
+\doxysubsection*{Variables}
 \begin{DoxyCompactItemize}
 \item 
-const \hyperlink{ab__common_8h_aafa04bc3cb166e826b75a23f4add4b59}{r32} \hyperlink{ab__common_8h_a680f0d86b7fc8e450b05875fc7e2cee7}{T\+AU} = 6.\+2831853071f
+const \mbox{\hyperlink{ab__common_8h_aafa04bc3cb166e826b75a23f4add4b59}{r32}} \mbox{\hyperlink{ab__common_8h_a680f0d86b7fc8e450b05875fc7e2cee7}{T\+AU}} = 6.\+2831853071f
 \end{DoxyCompactItemize}
 
 
-\subsection{Detailed Description}
+\doxysubsection{Detailed Description}
 Common macros and typedefs. 
 
 \begin{DoxyAuthor}{Author}
@@ -105,11 +107,13 @@ Amos Buchanan
 2020 
 \end{DoxyDate}
 \begin{DoxyCopyright}{Copyright}
-M\+IT Public License.
+\href{https://opensource.org/licenses/MIT}{\texttt{ M\+IT Public License}}
 \end{DoxyCopyright}
 This file has the common macros and typedefs I use everywhere. Every other library is dependent on this one.
 
-\subsection*{M\+IT License}
+\doxysubsection*{M\+IT License}
+
+\href{https://opensource.org/licenses/MIT}{\texttt{ M\+IT Public License}}
 
 Copyright 2020 Amos Buchanan
 
@@ -119,11 +123,11 @@ The above copyright notice and this permission notice shall be included in all c
 
 T\+HE S\+O\+F\+T\+W\+A\+RE IS P\+R\+O\+V\+I\+D\+ED \char`\"{}\+A\+S I\+S\char`\"{}, W\+I\+T\+H\+O\+UT W\+A\+R\+R\+A\+N\+TY OF A\+NY K\+I\+ND, E\+X\+P\+R\+E\+SS OR I\+M\+P\+L\+I\+ED, I\+N\+C\+L\+U\+D\+I\+NG B\+UT N\+OT L\+I\+M\+I\+T\+ED TO T\+HE W\+A\+R\+R\+A\+N\+T\+I\+ES OF M\+E\+R\+C\+H\+A\+N\+T\+A\+B\+I\+L\+I\+TY, F\+I\+T\+N\+E\+SS F\+OR A P\+A\+R\+T\+I\+C\+U\+L\+AR P\+U\+R\+P\+O\+SE A\+ND N\+O\+N\+I\+N\+F\+R\+I\+N\+G\+E\+M\+E\+NT. IN NO E\+V\+E\+NT S\+H\+A\+LL T\+HE A\+U\+T\+H\+O\+RS OR C\+O\+P\+Y\+R\+I\+G\+HT H\+O\+L\+D\+E\+RS BE L\+I\+A\+B\+LE F\+OR A\+NY C\+L\+A\+IM, D\+A\+M\+A\+G\+ES OR O\+T\+H\+ER L\+I\+A\+B\+I\+L\+I\+TY, W\+H\+E\+T\+H\+ER IN AN A\+C\+T\+I\+ON OF C\+O\+N\+T\+R\+A\+CT, T\+O\+RT OR O\+T\+H\+E\+R\+W\+I\+SE, A\+R\+I\+S\+I\+NG F\+R\+OM, O\+UT OF OR IN C\+O\+N\+N\+E\+C\+T\+I\+ON W\+I\+TH T\+HE S\+O\+F\+T\+W\+A\+RE OR T\+HE U\+SE OR O\+T\+H\+ER D\+E\+A\+L\+I\+N\+GS IN T\+HE S\+O\+F\+T\+W\+A\+RE. 
 
-\subsection{Macro Definition Documentation}
+\doxysubsection{Macro Definition Documentation}
 \mbox{\Hypertarget{ab__common_8h_a49450bdfb96baf39e5679e3749dd6648}\label{ab__common_8h_a49450bdfb96baf39e5679e3749dd6648}} 
-\index{ab\+\_\+common.\+h@{ab\+\_\+common.\+h}!Array\+Count@{Array\+Count}}
-\index{Array\+Count@{Array\+Count}!ab\+\_\+common.\+h@{ab\+\_\+common.\+h}}
-\subsubsection{\texorpdfstring{Array\+Count}{ArrayCount}}
+\index{ab\_common.h@{ab\_common.h}!ArrayCount@{ArrayCount}}
+\index{ArrayCount@{ArrayCount}!ab\_common.h@{ab\_common.h}}
+\doxysubsubsection{\texorpdfstring{ArrayCount}{ArrayCount}}
 {\footnotesize\ttfamily \#define Array\+Count(\begin{DoxyParamCaption}\item[{}]{Array }\end{DoxyParamCaption})~(sizeof(Array)) / (sizeof(Array\mbox{[}0\mbox{]}))}
 
 
@@ -131,9 +135,9 @@ T\+HE S\+O\+F\+T\+W\+A\+RE IS P\+R\+O\+V\+I\+D\+ED \char`\"{}\+A\+S I\+S\char`\"
 Macro that can be used anywhere with a pre-\/defined array. 
 
 \mbox{\Hypertarget{ab__common_8h_af2b46bb19c7d3d91950a9f971d443ccd}\label{ab__common_8h_af2b46bb19c7d3d91950a9f971d443ccd}} 
-\index{ab\+\_\+common.\+h@{ab\+\_\+common.\+h}!Assert@{Assert}}
-\index{Assert@{Assert}!ab\+\_\+common.\+h@{ab\+\_\+common.\+h}}
-\subsubsection{\texorpdfstring{Assert}{Assert}}
+\index{ab\_common.h@{ab\_common.h}!Assert@{Assert}}
+\index{Assert@{Assert}!ab\_common.h@{ab\_common.h}}
+\doxysubsubsection{\texorpdfstring{Assert}{Assert}}
 {\footnotesize\ttfamily \#define Assert(\begin{DoxyParamCaption}\item[{}]{test }\end{DoxyParamCaption})}
 
 
@@ -141,9 +145,9 @@ Macro that can be used anywhere with a pre-\/defined array.
 Assert causes a hard-\/fault, useful when debugging. Don\textquotesingle{}t use this is production code. 
 
 \mbox{\Hypertarget{ab__common_8h_a20bc847a34a521a2e6fa125621be9bfc}\label{ab__common_8h_a20bc847a34a521a2e6fa125621be9bfc}} 
-\index{ab\+\_\+common.\+h@{ab\+\_\+common.\+h}!Bit\+Reset@{Bit\+Reset}}
-\index{Bit\+Reset@{Bit\+Reset}!ab\+\_\+common.\+h@{ab\+\_\+common.\+h}}
-\subsubsection{\texorpdfstring{Bit\+Reset}{BitReset}}
+\index{ab\_common.h@{ab\_common.h}!BitReset@{BitReset}}
+\index{BitReset@{BitReset}!ab\_common.h@{ab\_common.h}}
+\doxysubsubsection{\texorpdfstring{BitReset}{BitReset}}
 {\footnotesize\ttfamily \#define Bit\+Reset(\begin{DoxyParamCaption}\item[{}]{Value,  }\item[{}]{Bit }\end{DoxyParamCaption})~((Value) \&= $\sim$(1 $<$$<$ (Bit)))}
 
 
@@ -151,9 +155,9 @@ Assert causes a hard-\/fault, useful when debugging. Don\textquotesingle{}t use 
 Reset the bit to zero. 
 
 \mbox{\Hypertarget{ab__common_8h_a1eeb0506b4ddd8d37c817456de87f052}\label{ab__common_8h_a1eeb0506b4ddd8d37c817456de87f052}} 
-\index{ab\+\_\+common.\+h@{ab\+\_\+common.\+h}!Bit\+Set@{Bit\+Set}}
-\index{Bit\+Set@{Bit\+Set}!ab\+\_\+common.\+h@{ab\+\_\+common.\+h}}
-\subsubsection{\texorpdfstring{Bit\+Set}{BitSet}}
+\index{ab\_common.h@{ab\_common.h}!BitSet@{BitSet}}
+\index{BitSet@{BitSet}!ab\_common.h@{ab\_common.h}}
+\doxysubsubsection{\texorpdfstring{BitSet}{BitSet}}
 {\footnotesize\ttfamily \#define Bit\+Set(\begin{DoxyParamCaption}\item[{}]{Value,  }\item[{}]{Bit }\end{DoxyParamCaption})~((Value) $\vert$= (1 $<$$<$ (Bit)))}
 
 
@@ -161,27 +165,27 @@ Reset the bit to zero.
 Set the bit to one. 
 
 \mbox{\Hypertarget{ab__common_8h_ae0b63ae9651c6178680d84f4900e0a0d}\label{ab__common_8h_ae0b63ae9651c6178680d84f4900e0a0d}} 
-\index{ab\+\_\+common.\+h@{ab\+\_\+common.\+h}!Gigabytes@{Gigabytes}}
-\index{Gigabytes@{Gigabytes}!ab\+\_\+common.\+h@{ab\+\_\+common.\+h}}
-\subsubsection{\texorpdfstring{Gigabytes}{Gigabytes}}
-{\footnotesize\ttfamily \#define Gigabytes(\begin{DoxyParamCaption}\item[{}]{num }\end{DoxyParamCaption})~(1024\+U\+L\+L $\ast$ Megabytes(num))}
+\index{ab\_common.h@{ab\_common.h}!Gigabytes@{Gigabytes}}
+\index{Gigabytes@{Gigabytes}!ab\_common.h@{ab\_common.h}}
+\doxysubsubsection{\texorpdfstring{Gigabytes}{Gigabytes}}
+{\footnotesize\ttfamily \#define Gigabytes(\begin{DoxyParamCaption}\item[{}]{num }\end{DoxyParamCaption})~(1024U\+LL $\ast$ \mbox{\hyperlink{ab__common_8h_a2617ed135c31ace7205aae9398392eca}{Megabytes}}(num))}
 
 \mbox{\Hypertarget{ab__common_8h_a9e89c74d1fedd0a954107d7ab01481cc}\label{ab__common_8h_a9e89c74d1fedd0a954107d7ab01481cc}} 
-\index{ab\+\_\+common.\+h@{ab\+\_\+common.\+h}!Kilobytes@{Kilobytes}}
-\index{Kilobytes@{Kilobytes}!ab\+\_\+common.\+h@{ab\+\_\+common.\+h}}
-\subsubsection{\texorpdfstring{Kilobytes}{Kilobytes}}
-{\footnotesize\ttfamily \#define Kilobytes(\begin{DoxyParamCaption}\item[{}]{num }\end{DoxyParamCaption})~(1024\+U\+L\+L $\ast$ (num))}
+\index{ab\_common.h@{ab\_common.h}!Kilobytes@{Kilobytes}}
+\index{Kilobytes@{Kilobytes}!ab\_common.h@{ab\_common.h}}
+\doxysubsubsection{\texorpdfstring{Kilobytes}{Kilobytes}}
+{\footnotesize\ttfamily \#define Kilobytes(\begin{DoxyParamCaption}\item[{}]{num }\end{DoxyParamCaption})~(1024U\+LL $\ast$ (num))}
 
 \mbox{\Hypertarget{ab__common_8h_a1da41d527b391b557b30acdc9e2cf425}\label{ab__common_8h_a1da41d527b391b557b30acdc9e2cf425}} 
-\index{ab\+\_\+common.\+h@{ab\+\_\+common.\+h}!M\+A\+X\+\_\+\+F\+I\+L\+E\+N\+A\+M\+E\+\_\+\+S\+I\+ZE@{M\+A\+X\+\_\+\+F\+I\+L\+E\+N\+A\+M\+E\+\_\+\+S\+I\+ZE}}
-\index{M\+A\+X\+\_\+\+F\+I\+L\+E\+N\+A\+M\+E\+\_\+\+S\+I\+ZE@{M\+A\+X\+\_\+\+F\+I\+L\+E\+N\+A\+M\+E\+\_\+\+S\+I\+ZE}!ab\+\_\+common.\+h@{ab\+\_\+common.\+h}}
-\subsubsection{\texorpdfstring{M\+A\+X\+\_\+\+F\+I\+L\+E\+N\+A\+M\+E\+\_\+\+S\+I\+ZE}{MAX\_FILENAME\_SIZE}}
+\index{ab\_common.h@{ab\_common.h}!MAX\_FILENAME\_SIZE@{MAX\_FILENAME\_SIZE}}
+\index{MAX\_FILENAME\_SIZE@{MAX\_FILENAME\_SIZE}!ab\_common.h@{ab\_common.h}}
+\doxysubsubsection{\texorpdfstring{MAX\_FILENAME\_SIZE}{MAX\_FILENAME\_SIZE}}
 {\footnotesize\ttfamily \#define M\+A\+X\+\_\+\+F\+I\+L\+E\+N\+A\+M\+E\+\_\+\+S\+I\+ZE~255}
 
 \mbox{\Hypertarget{ab__common_8h_aa0dcb9de6453c0e93a7d4c26739380e2}\label{ab__common_8h_aa0dcb9de6453c0e93a7d4c26739380e2}} 
-\index{ab\+\_\+common.\+h@{ab\+\_\+common.\+h}!M\+A\+X\+I\+M\+UM@{M\+A\+X\+I\+M\+UM}}
-\index{M\+A\+X\+I\+M\+UM@{M\+A\+X\+I\+M\+UM}!ab\+\_\+common.\+h@{ab\+\_\+common.\+h}}
-\subsubsection{\texorpdfstring{M\+A\+X\+I\+M\+UM}{MAXIMUM}}
+\index{ab\_common.h@{ab\_common.h}!MAXIMUM@{MAXIMUM}}
+\index{MAXIMUM@{MAXIMUM}!ab\_common.h@{ab\_common.h}}
+\doxysubsubsection{\texorpdfstring{MAXIMUM}{MAXIMUM}}
 {\footnotesize\ttfamily \#define M\+A\+X\+I\+M\+UM(\begin{DoxyParamCaption}\item[{}]{Value1,  }\item[{}]{Value2 }\end{DoxyParamCaption})~(((Value1) $>$ (Value2)) ? (Value1) \+: (Value2))}
 
 
@@ -189,15 +193,15 @@ Set the bit to one.
 Return the maximum of a value. 
 
 \mbox{\Hypertarget{ab__common_8h_a2617ed135c31ace7205aae9398392eca}\label{ab__common_8h_a2617ed135c31ace7205aae9398392eca}} 
-\index{ab\+\_\+common.\+h@{ab\+\_\+common.\+h}!Megabytes@{Megabytes}}
-\index{Megabytes@{Megabytes}!ab\+\_\+common.\+h@{ab\+\_\+common.\+h}}
-\subsubsection{\texorpdfstring{Megabytes}{Megabytes}}
-{\footnotesize\ttfamily \#define Megabytes(\begin{DoxyParamCaption}\item[{}]{num }\end{DoxyParamCaption})~(1024\+U\+L\+L $\ast$ Kilobytes(num))}
+\index{ab\_common.h@{ab\_common.h}!Megabytes@{Megabytes}}
+\index{Megabytes@{Megabytes}!ab\_common.h@{ab\_common.h}}
+\doxysubsubsection{\texorpdfstring{Megabytes}{Megabytes}}
+{\footnotesize\ttfamily \#define Megabytes(\begin{DoxyParamCaption}\item[{}]{num }\end{DoxyParamCaption})~(1024U\+LL $\ast$ \mbox{\hyperlink{ab__common_8h_a9e89c74d1fedd0a954107d7ab01481cc}{Kilobytes}}(num))}
 
 \mbox{\Hypertarget{ab__common_8h_ab569440ccd9ea3398cfc4d514fb5493f}\label{ab__common_8h_ab569440ccd9ea3398cfc4d514fb5493f}} 
-\index{ab\+\_\+common.\+h@{ab\+\_\+common.\+h}!M\+I\+N\+I\+M\+UM@{M\+I\+N\+I\+M\+UM}}
-\index{M\+I\+N\+I\+M\+UM@{M\+I\+N\+I\+M\+UM}!ab\+\_\+common.\+h@{ab\+\_\+common.\+h}}
-\subsubsection{\texorpdfstring{M\+I\+N\+I\+M\+UM}{MINIMUM}}
+\index{ab\_common.h@{ab\_common.h}!MINIMUM@{MINIMUM}}
+\index{MINIMUM@{MINIMUM}!ab\_common.h@{ab\_common.h}}
+\doxysubsubsection{\texorpdfstring{MINIMUM}{MINIMUM}}
 {\footnotesize\ttfamily \#define M\+I\+N\+I\+M\+UM(\begin{DoxyParamCaption}\item[{}]{Value1,  }\item[{}]{Value2 }\end{DoxyParamCaption})~(((Value1) $<$ (Value2)) ? (Value1) \+: (Value2))}
 
 
@@ -205,128 +209,128 @@ Return the maximum of a value.
 Return the minimum of a value. 
 
 \mbox{\Hypertarget{ab__common_8h_a830e4dd55a9d1f281527e77f61993194}\label{ab__common_8h_a830e4dd55a9d1f281527e77f61993194}} 
-\index{ab\+\_\+common.\+h@{ab\+\_\+common.\+h}!M\+S\+\_\+\+T\+O\+\_\+\+NS@{M\+S\+\_\+\+T\+O\+\_\+\+NS}}
-\index{M\+S\+\_\+\+T\+O\+\_\+\+NS@{M\+S\+\_\+\+T\+O\+\_\+\+NS}!ab\+\_\+common.\+h@{ab\+\_\+common.\+h}}
-\subsubsection{\texorpdfstring{M\+S\+\_\+\+T\+O\+\_\+\+NS}{MS\_TO\_NS}}
+\index{ab\_common.h@{ab\_common.h}!MS\_TO\_NS@{MS\_TO\_NS}}
+\index{MS\_TO\_NS@{MS\_TO\_NS}!ab\_common.h@{ab\_common.h}}
+\doxysubsubsection{\texorpdfstring{MS\_TO\_NS}{MS\_TO\_NS}}
 {\footnotesize\ttfamily \#define M\+S\+\_\+\+T\+O\+\_\+\+NS(\begin{DoxyParamCaption}\item[{}]{num }\end{DoxyParamCaption})~((num) $\ast$ 1000000.\+0f)}
 
 \mbox{\Hypertarget{ab__common_8h_af99d895a4fb9ef16b8773bfb4682cb0b}\label{ab__common_8h_af99d895a4fb9ef16b8773bfb4682cb0b}} 
-\index{ab\+\_\+common.\+h@{ab\+\_\+common.\+h}!M\+S\+\_\+\+T\+O\+\_\+S@{M\+S\+\_\+\+T\+O\+\_\+S}}
-\index{M\+S\+\_\+\+T\+O\+\_\+S@{M\+S\+\_\+\+T\+O\+\_\+S}!ab\+\_\+common.\+h@{ab\+\_\+common.\+h}}
-\subsubsection{\texorpdfstring{M\+S\+\_\+\+T\+O\+\_\+S}{MS\_TO\_S}}
+\index{ab\_common.h@{ab\_common.h}!MS\_TO\_S@{MS\_TO\_S}}
+\index{MS\_TO\_S@{MS\_TO\_S}!ab\_common.h@{ab\_common.h}}
+\doxysubsubsection{\texorpdfstring{MS\_TO\_S}{MS\_TO\_S}}
 {\footnotesize\ttfamily \#define M\+S\+\_\+\+T\+O\+\_\+S(\begin{DoxyParamCaption}\item[{}]{num }\end{DoxyParamCaption})~((num) $\ast$ 0.\+001f)}
 
 \mbox{\Hypertarget{ab__common_8h_a323127aaf9260b4e2092a8734886379a}\label{ab__common_8h_a323127aaf9260b4e2092a8734886379a}} 
-\index{ab\+\_\+common.\+h@{ab\+\_\+common.\+h}!N\+S\+\_\+\+T\+O\+\_\+\+MS@{N\+S\+\_\+\+T\+O\+\_\+\+MS}}
-\index{N\+S\+\_\+\+T\+O\+\_\+\+MS@{N\+S\+\_\+\+T\+O\+\_\+\+MS}!ab\+\_\+common.\+h@{ab\+\_\+common.\+h}}
-\subsubsection{\texorpdfstring{N\+S\+\_\+\+T\+O\+\_\+\+MS}{NS\_TO\_MS}}
+\index{ab\_common.h@{ab\_common.h}!NS\_TO\_MS@{NS\_TO\_MS}}
+\index{NS\_TO\_MS@{NS\_TO\_MS}!ab\_common.h@{ab\_common.h}}
+\doxysubsubsection{\texorpdfstring{NS\_TO\_MS}{NS\_TO\_MS}}
 {\footnotesize\ttfamily \#define N\+S\+\_\+\+T\+O\+\_\+\+MS(\begin{DoxyParamCaption}\item[{}]{num }\end{DoxyParamCaption})~((num) $\ast$ 1e-\/6f)}
 
 \mbox{\Hypertarget{ab__common_8h_a5ea52ba9d4cb9e553e52d1c7283b58a7}\label{ab__common_8h_a5ea52ba9d4cb9e553e52d1c7283b58a7}} 
-\index{ab\+\_\+common.\+h@{ab\+\_\+common.\+h}!N\+S\+\_\+\+T\+O\+\_\+S@{N\+S\+\_\+\+T\+O\+\_\+S}}
-\index{N\+S\+\_\+\+T\+O\+\_\+S@{N\+S\+\_\+\+T\+O\+\_\+S}!ab\+\_\+common.\+h@{ab\+\_\+common.\+h}}
-\subsubsection{\texorpdfstring{N\+S\+\_\+\+T\+O\+\_\+S}{NS\_TO\_S}}
+\index{ab\_common.h@{ab\_common.h}!NS\_TO\_S@{NS\_TO\_S}}
+\index{NS\_TO\_S@{NS\_TO\_S}!ab\_common.h@{ab\_common.h}}
+\doxysubsubsection{\texorpdfstring{NS\_TO\_S}{NS\_TO\_S}}
 {\footnotesize\ttfamily \#define N\+S\+\_\+\+T\+O\+\_\+S(\begin{DoxyParamCaption}\item[{}]{num }\end{DoxyParamCaption})~((num) $\ast$ 1e-\/9f)}
 
 \mbox{\Hypertarget{ab__common_8h_a20fa811b86f3ecd1f72ae57753c26d56}\label{ab__common_8h_a20fa811b86f3ecd1f72ae57753c26d56}} 
-\index{ab\+\_\+common.\+h@{ab\+\_\+common.\+h}!S\+\_\+\+T\+O\+\_\+\+MS@{S\+\_\+\+T\+O\+\_\+\+MS}}
-\index{S\+\_\+\+T\+O\+\_\+\+MS@{S\+\_\+\+T\+O\+\_\+\+MS}!ab\+\_\+common.\+h@{ab\+\_\+common.\+h}}
-\subsubsection{\texorpdfstring{S\+\_\+\+T\+O\+\_\+\+MS}{S\_TO\_MS}}
-{\footnotesize\ttfamily \#define S\+\_\+\+T\+O\+\_\+\+MS(\begin{DoxyParamCaption}\item[{}]{num }\end{DoxyParamCaption})~((num) $\ast$ 1000\+L)}
+\index{ab\_common.h@{ab\_common.h}!S\_TO\_MS@{S\_TO\_MS}}
+\index{S\_TO\_MS@{S\_TO\_MS}!ab\_common.h@{ab\_common.h}}
+\doxysubsubsection{\texorpdfstring{S\_TO\_MS}{S\_TO\_MS}}
+{\footnotesize\ttfamily \#define S\+\_\+\+T\+O\+\_\+\+MS(\begin{DoxyParamCaption}\item[{}]{num }\end{DoxyParamCaption})~((num) $\ast$ 1000L)}
 
 \mbox{\Hypertarget{ab__common_8h_ad8619bfe2bde192cdb90aaa749de313a}\label{ab__common_8h_ad8619bfe2bde192cdb90aaa749de313a}} 
-\index{ab\+\_\+common.\+h@{ab\+\_\+common.\+h}!S\+\_\+\+T\+O\+\_\+\+NS@{S\+\_\+\+T\+O\+\_\+\+NS}}
-\index{S\+\_\+\+T\+O\+\_\+\+NS@{S\+\_\+\+T\+O\+\_\+\+NS}!ab\+\_\+common.\+h@{ab\+\_\+common.\+h}}
-\subsubsection{\texorpdfstring{S\+\_\+\+T\+O\+\_\+\+NS}{S\_TO\_NS}}
-{\footnotesize\ttfamily \#define S\+\_\+\+T\+O\+\_\+\+NS(\begin{DoxyParamCaption}\item[{}]{num }\end{DoxyParamCaption})~((num) $\ast$ 1e9\+L)}
+\index{ab\_common.h@{ab\_common.h}!S\_TO\_NS@{S\_TO\_NS}}
+\index{S\_TO\_NS@{S\_TO\_NS}!ab\_common.h@{ab\_common.h}}
+\doxysubsubsection{\texorpdfstring{S\_TO\_NS}{S\_TO\_NS}}
+{\footnotesize\ttfamily \#define S\+\_\+\+T\+O\+\_\+\+NS(\begin{DoxyParamCaption}\item[{}]{num }\end{DoxyParamCaption})~((num) $\ast$ 1e9L)}
 
 \mbox{\Hypertarget{ab__common_8h_aa01ae46693c8d6cada0f39d78e8da9f8}\label{ab__common_8h_aa01ae46693c8d6cada0f39d78e8da9f8}} 
-\index{ab\+\_\+common.\+h@{ab\+\_\+common.\+h}!Terabytes@{Terabytes}}
-\index{Terabytes@{Terabytes}!ab\+\_\+common.\+h@{ab\+\_\+common.\+h}}
-\subsubsection{\texorpdfstring{Terabytes}{Terabytes}}
-{\footnotesize\ttfamily \#define Terabytes(\begin{DoxyParamCaption}\item[{}]{num }\end{DoxyParamCaption})~(1024\+U\+L\+L $\ast$ Gigabytes(num))}
+\index{ab\_common.h@{ab\_common.h}!Terabytes@{Terabytes}}
+\index{Terabytes@{Terabytes}!ab\_common.h@{ab\_common.h}}
+\doxysubsubsection{\texorpdfstring{Terabytes}{Terabytes}}
+{\footnotesize\ttfamily \#define Terabytes(\begin{DoxyParamCaption}\item[{}]{num }\end{DoxyParamCaption})~(1024U\+LL $\ast$ \mbox{\hyperlink{ab__common_8h_ae0b63ae9651c6178680d84f4900e0a0d}{Gigabytes}}(num))}
 
 
 
-\subsection{Typedef Documentation}
+\doxysubsection{Typedef Documentation}
 \mbox{\Hypertarget{ab__common_8h_a70e369648385b50f2d0588e8e8745275}\label{ab__common_8h_a70e369648385b50f2d0588e8e8745275}} 
-\index{ab\+\_\+common.\+h@{ab\+\_\+common.\+h}!b8@{b8}}
-\index{b8@{b8}!ab\+\_\+common.\+h@{ab\+\_\+common.\+h}}
-\subsubsection{\texorpdfstring{b8}{b8}}
-{\footnotesize\ttfamily typedef int8\+\_\+t \hyperlink{ab__common_8h_a70e369648385b50f2d0588e8e8745275}{b8}}
+\index{ab\_common.h@{ab\_common.h}!b8@{b8}}
+\index{b8@{b8}!ab\_common.h@{ab\_common.h}}
+\doxysubsubsection{\texorpdfstring{b8}{b8}}
+{\footnotesize\ttfamily typedef int8\+\_\+t \mbox{\hyperlink{ab__common_8h_a70e369648385b50f2d0588e8e8745275}{b8}}}
 
 \mbox{\Hypertarget{ab__common_8h_aafa04bc3cb166e826b75a23f4add4b59}\label{ab__common_8h_aafa04bc3cb166e826b75a23f4add4b59}} 
-\index{ab\+\_\+common.\+h@{ab\+\_\+common.\+h}!r32@{r32}}
-\index{r32@{r32}!ab\+\_\+common.\+h@{ab\+\_\+common.\+h}}
-\subsubsection{\texorpdfstring{r32}{r32}}
-{\footnotesize\ttfamily typedef float \hyperlink{ab__common_8h_aafa04bc3cb166e826b75a23f4add4b59}{r32}}
+\index{ab\_common.h@{ab\_common.h}!r32@{r32}}
+\index{r32@{r32}!ab\_common.h@{ab\_common.h}}
+\doxysubsubsection{\texorpdfstring{r32}{r32}}
+{\footnotesize\ttfamily typedef float \mbox{\hyperlink{ab__common_8h_aafa04bc3cb166e826b75a23f4add4b59}{r32}}}
 
 \mbox{\Hypertarget{ab__common_8h_af3fb0780dd5bc8ff8740028f077610e7}\label{ab__common_8h_af3fb0780dd5bc8ff8740028f077610e7}} 
-\index{ab\+\_\+common.\+h@{ab\+\_\+common.\+h}!r64@{r64}}
-\index{r64@{r64}!ab\+\_\+common.\+h@{ab\+\_\+common.\+h}}
-\subsubsection{\texorpdfstring{r64}{r64}}
-{\footnotesize\ttfamily typedef double \hyperlink{ab__common_8h_af3fb0780dd5bc8ff8740028f077610e7}{r64}}
+\index{ab\_common.h@{ab\_common.h}!r64@{r64}}
+\index{r64@{r64}!ab\_common.h@{ab\_common.h}}
+\doxysubsubsection{\texorpdfstring{r64}{r64}}
+{\footnotesize\ttfamily typedef double \mbox{\hyperlink{ab__common_8h_af3fb0780dd5bc8ff8740028f077610e7}{r64}}}
 
 \mbox{\Hypertarget{ab__common_8h_aa980e2c02ba2305e0f489d5650655425}\label{ab__common_8h_aa980e2c02ba2305e0f489d5650655425}} 
-\index{ab\+\_\+common.\+h@{ab\+\_\+common.\+h}!s16@{s16}}
-\index{s16@{s16}!ab\+\_\+common.\+h@{ab\+\_\+common.\+h}}
-\subsubsection{\texorpdfstring{s16}{s16}}
-{\footnotesize\ttfamily typedef int16\+\_\+t \hyperlink{ab__common_8h_aa980e2c02ba2305e0f489d5650655425}{s16}}
+\index{ab\_common.h@{ab\_common.h}!s16@{s16}}
+\index{s16@{s16}!ab\_common.h@{ab\_common.h}}
+\doxysubsubsection{\texorpdfstring{s16}{s16}}
+{\footnotesize\ttfamily typedef int16\+\_\+t \mbox{\hyperlink{ab__common_8h_aa980e2c02ba2305e0f489d5650655425}{s16}}}
 
 \mbox{\Hypertarget{ab__common_8h_ae9b1af5c037e57a98884758875d3a7c4}\label{ab__common_8h_ae9b1af5c037e57a98884758875d3a7c4}} 
-\index{ab\+\_\+common.\+h@{ab\+\_\+common.\+h}!s32@{s32}}
-\index{s32@{s32}!ab\+\_\+common.\+h@{ab\+\_\+common.\+h}}
-\subsubsection{\texorpdfstring{s32}{s32}}
-{\footnotesize\ttfamily typedef int32\+\_\+t \hyperlink{ab__common_8h_ae9b1af5c037e57a98884758875d3a7c4}{s32}}
+\index{ab\_common.h@{ab\_common.h}!s32@{s32}}
+\index{s32@{s32}!ab\_common.h@{ab\_common.h}}
+\doxysubsubsection{\texorpdfstring{s32}{s32}}
+{\footnotesize\ttfamily typedef int32\+\_\+t \mbox{\hyperlink{ab__common_8h_ae9b1af5c037e57a98884758875d3a7c4}{s32}}}
 
 \mbox{\Hypertarget{ab__common_8h_a350c6fc928e3bdc6c6486268ac8fb269}\label{ab__common_8h_a350c6fc928e3bdc6c6486268ac8fb269}} 
-\index{ab\+\_\+common.\+h@{ab\+\_\+common.\+h}!s64@{s64}}
-\index{s64@{s64}!ab\+\_\+common.\+h@{ab\+\_\+common.\+h}}
-\subsubsection{\texorpdfstring{s64}{s64}}
-{\footnotesize\ttfamily typedef int64\+\_\+t \hyperlink{ab__common_8h_a350c6fc928e3bdc6c6486268ac8fb269}{s64}}
+\index{ab\_common.h@{ab\_common.h}!s64@{s64}}
+\index{s64@{s64}!ab\_common.h@{ab\_common.h}}
+\doxysubsubsection{\texorpdfstring{s64}{s64}}
+{\footnotesize\ttfamily typedef int64\+\_\+t \mbox{\hyperlink{ab__common_8h_a350c6fc928e3bdc6c6486268ac8fb269}{s64}}}
 
 \mbox{\Hypertarget{ab__common_8h_a9e382f207c65ca13ab4ae98363aeda80}\label{ab__common_8h_a9e382f207c65ca13ab4ae98363aeda80}} 
-\index{ab\+\_\+common.\+h@{ab\+\_\+common.\+h}!s8@{s8}}
-\index{s8@{s8}!ab\+\_\+common.\+h@{ab\+\_\+common.\+h}}
-\subsubsection{\texorpdfstring{s8}{s8}}
-{\footnotesize\ttfamily typedef int8\+\_\+t \hyperlink{ab__common_8h_a9e382f207c65ca13ab4ae98363aeda80}{s8}}
+\index{ab\_common.h@{ab\_common.h}!s8@{s8}}
+\index{s8@{s8}!ab\_common.h@{ab\_common.h}}
+\doxysubsubsection{\texorpdfstring{s8}{s8}}
+{\footnotesize\ttfamily typedef int8\+\_\+t \mbox{\hyperlink{ab__common_8h_a9e382f207c65ca13ab4ae98363aeda80}{s8}}}
 
 \mbox{\Hypertarget{ab__common_8h_ace9d960e74685e2cd84b36132dbbf8aa}\label{ab__common_8h_ace9d960e74685e2cd84b36132dbbf8aa}} 
-\index{ab\+\_\+common.\+h@{ab\+\_\+common.\+h}!u16@{u16}}
-\index{u16@{u16}!ab\+\_\+common.\+h@{ab\+\_\+common.\+h}}
-\subsubsection{\texorpdfstring{u16}{u16}}
-{\footnotesize\ttfamily typedef uint16\+\_\+t \hyperlink{ab__common_8h_ace9d960e74685e2cd84b36132dbbf8aa}{u16}}
+\index{ab\_common.h@{ab\_common.h}!u16@{u16}}
+\index{u16@{u16}!ab\_common.h@{ab\_common.h}}
+\doxysubsubsection{\texorpdfstring{u16}{u16}}
+{\footnotesize\ttfamily typedef uint16\+\_\+t \mbox{\hyperlink{ab__common_8h_ace9d960e74685e2cd84b36132dbbf8aa}{u16}}}
 
 \mbox{\Hypertarget{ab__common_8h_afaa62991928fb9fb18ff0db62a040aba}\label{ab__common_8h_afaa62991928fb9fb18ff0db62a040aba}} 
-\index{ab\+\_\+common.\+h@{ab\+\_\+common.\+h}!u32@{u32}}
-\index{u32@{u32}!ab\+\_\+common.\+h@{ab\+\_\+common.\+h}}
-\subsubsection{\texorpdfstring{u32}{u32}}
-{\footnotesize\ttfamily typedef uint32\+\_\+t \hyperlink{ab__common_8h_afaa62991928fb9fb18ff0db62a040aba}{u32}}
+\index{ab\_common.h@{ab\_common.h}!u32@{u32}}
+\index{u32@{u32}!ab\_common.h@{ab\_common.h}}
+\doxysubsubsection{\texorpdfstring{u32}{u32}}
+{\footnotesize\ttfamily typedef uint32\+\_\+t \mbox{\hyperlink{ab__common_8h_afaa62991928fb9fb18ff0db62a040aba}{u32}}}
 
 \mbox{\Hypertarget{ab__common_8h_a3f7e2bcbb0b4c338f3c4f6c937cd4234}\label{ab__common_8h_a3f7e2bcbb0b4c338f3c4f6c937cd4234}} 
-\index{ab\+\_\+common.\+h@{ab\+\_\+common.\+h}!u64@{u64}}
-\index{u64@{u64}!ab\+\_\+common.\+h@{ab\+\_\+common.\+h}}
-\subsubsection{\texorpdfstring{u64}{u64}}
-{\footnotesize\ttfamily typedef uint64\+\_\+t \hyperlink{ab__common_8h_a3f7e2bcbb0b4c338f3c4f6c937cd4234}{u64}}
+\index{ab\_common.h@{ab\_common.h}!u64@{u64}}
+\index{u64@{u64}!ab\_common.h@{ab\_common.h}}
+\doxysubsubsection{\texorpdfstring{u64}{u64}}
+{\footnotesize\ttfamily typedef uint64\+\_\+t \mbox{\hyperlink{ab__common_8h_a3f7e2bcbb0b4c338f3c4f6c937cd4234}{u64}}}
 
 \mbox{\Hypertarget{ab__common_8h_a92c50087ca0e64fa93fc59402c55f8ca}\label{ab__common_8h_a92c50087ca0e64fa93fc59402c55f8ca}} 
-\index{ab\+\_\+common.\+h@{ab\+\_\+common.\+h}!u8@{u8}}
-\index{u8@{u8}!ab\+\_\+common.\+h@{ab\+\_\+common.\+h}}
-\subsubsection{\texorpdfstring{u8}{u8}}
-{\footnotesize\ttfamily typedef uint8\+\_\+t \hyperlink{ab__common_8h_a92c50087ca0e64fa93fc59402c55f8ca}{u8}}
+\index{ab\_common.h@{ab\_common.h}!u8@{u8}}
+\index{u8@{u8}!ab\_common.h@{ab\_common.h}}
+\doxysubsubsection{\texorpdfstring{u8}{u8}}
+{\footnotesize\ttfamily typedef uint8\+\_\+t \mbox{\hyperlink{ab__common_8h_a92c50087ca0e64fa93fc59402c55f8ca}{u8}}}
 
 \mbox{\Hypertarget{ab__common_8h_a59dcfa356b98a549d778585b6b0388e3}\label{ab__common_8h_a59dcfa356b98a549d778585b6b0388e3}} 
-\index{ab\+\_\+common.\+h@{ab\+\_\+common.\+h}!wchar@{wchar}}
-\index{wchar@{wchar}!ab\+\_\+common.\+h@{ab\+\_\+common.\+h}}
-\subsubsection{\texorpdfstring{wchar}{wchar}}
-{\footnotesize\ttfamily typedef wchar\+\_\+t \hyperlink{ab__common_8h_a59dcfa356b98a549d778585b6b0388e3}{wchar}}
+\index{ab\_common.h@{ab\_common.h}!wchar@{wchar}}
+\index{wchar@{wchar}!ab\_common.h@{ab\_common.h}}
+\doxysubsubsection{\texorpdfstring{wchar}{wchar}}
+{\footnotesize\ttfamily typedef wchar\+\_\+t \mbox{\hyperlink{ab__common_8h_a59dcfa356b98a549d778585b6b0388e3}{wchar}}}
 
 
 
-\subsection{Variable Documentation}
+\doxysubsection{Variable Documentation}
 \mbox{\Hypertarget{ab__common_8h_a680f0d86b7fc8e450b05875fc7e2cee7}\label{ab__common_8h_a680f0d86b7fc8e450b05875fc7e2cee7}} 
-\index{ab\+\_\+common.\+h@{ab\+\_\+common.\+h}!T\+AU@{T\+AU}}
-\index{T\+AU@{T\+AU}!ab\+\_\+common.\+h@{ab\+\_\+common.\+h}}
-\subsubsection{\texorpdfstring{T\+AU}{TAU}}
-{\footnotesize\ttfamily const \hyperlink{ab__common_8h_aafa04bc3cb166e826b75a23f4add4b59}{r32} T\+AU = 6.\+2831853071f}
+\index{ab\_common.h@{ab\_common.h}!TAU@{TAU}}
+\index{TAU@{TAU}!ab\_common.h@{ab\_common.h}}
+\doxysubsubsection{\texorpdfstring{TAU}{TAU}}
+{\footnotesize\ttfamily const \mbox{\hyperlink{ab__common_8h_aafa04bc3cb166e826b75a23f4add4b59}{r32}} T\+AU = 6.\+2831853071f}
 

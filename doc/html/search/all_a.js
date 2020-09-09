@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['length',['Length',['../d2/db7/structabs__stringptr.html#a4b736aa24a8e4591c4efbaac10bd7e9f',1,'abs_stringptr']]]
+  ['operator_20char_20const_20_2a_72',['operator char const *',['../d2/db7/structabs__stringptr.html#a7b4d6615fda233343f26a21179f856b7',1,'abs_stringptr']]]
 ];

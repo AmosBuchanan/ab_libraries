@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['operator_20char_20const_20_2a',['operator char const *',['../d2/db7/structabs__stringptr.html#a7b4d6615fda233343f26a21179f856b7',1,'abs_stringptr']]]
+  ['parsejson_136',['ParseJson',['../d2/d40/ab__json_8h.html#a2b3b6ac206a0ad8367ef1b795ae06d94',1,'ab_json.h']]]
 ];

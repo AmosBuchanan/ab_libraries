@@ -1,109 +1,226 @@
-\hypertarget{ab__json_8h}{}\section{ab\+\_\+json.\+h File Reference}
-\label{ab__json_8h}\index{ab\+\_\+json.\+h@{ab\+\_\+json.\+h}}
+\hypertarget{ab__json_8h}{}\doxysection{ab\+\_\+json.\+h File Reference}
+\label{ab__json_8h}\index{ab\_json.h@{ab\_json.h}}
+
+
+J\+S\+ON functions, mostly used by pre-\/generated files.  
+
+
 {\ttfamily \#include \char`\"{}ab\+\_\+common.\+h\char`\"{}}\newline
 {\ttfamily \#include \char`\"{}ab\+\_\+memory.\+h\char`\"{}}\newline
 {\ttfamily \#include \char`\"{}ab\+\_\+string.\+h\char`\"{}}\newline
 {\ttfamily \#include \char`\"{}jsmn.\+h\char`\"{}}\newline
-Include dependency graph for ab\+\_\+json.\+h\+:\nopagebreak
+Include dependency graph for ab\+\_\+json.\+h\+:
+\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
-\includegraphics[width=350pt]{d2/d00/ab__json_8h__incl}
+\includegraphics[width=302pt]{d2/d00/ab__json_8h__incl}
 \end{center}
 \end{figure}
-\subsection*{Macros}
+\doxysubsection*{Macros}
 \begin{DoxyCompactItemize}
 \item 
-\#define \hyperlink{ab__json_8h_aeef9c3539ffb9ed912a2976b67b43d68}{J\+S\+M\+N\+\_\+\+H\+E\+A\+D\+ER}
+\#define \mbox{\hyperlink{ab__json_8h_aeef9c3539ffb9ed912a2976b67b43d68}{J\+S\+M\+N\+\_\+\+H\+E\+A\+D\+ER}}
 \end{DoxyCompactItemize}
-\subsection*{Enumerations}
+\doxysubsection*{Enumerations}
 \begin{DoxyCompactItemize}
 \item 
-enum \hyperlink{ab__json_8h_a23451be0e28c552e70c19429684f83cb}{json\+\_\+flags} \{ \hyperlink{ab__json_8h_a23451be0e28c552e70c19429684f83cba12d51163882c2f3f659bf2d2560969b6}{J\+S\+O\+N\+\_\+\+Null} = 0, 
-\hyperlink{ab__json_8h_a23451be0e28c552e70c19429684f83cbab892e8229f95855a30a2c10fde71f78e}{J\+S\+O\+N\+\_\+\+Is\+Last\+In\+List} = 1 $<$$<$ 0, 
-\hyperlink{ab__json_8h_a23451be0e28c552e70c19429684f83cba4f2bc16d9f2cb38d0e0354342bcd07c1}{J\+S\+O\+N\+\_\+\+Dont\+Use\+Tag} = 1 $<$$<$ 1, 
-\hyperlink{ab__json_8h_a23451be0e28c552e70c19429684f83cba508ef51fa6f4677dd0ba7b242f0d269f}{J\+S\+O\+N\+\_\+\+Base\+Object} = 1 $<$$<$ 2
+enum \mbox{\hyperlink{ab__json_8h_a23451be0e28c552e70c19429684f83cb}{json\+\_\+flags}} \{ \mbox{\hyperlink{ab__json_8h_a23451be0e28c552e70c19429684f83cba12d51163882c2f3f659bf2d2560969b6}{J\+S\+O\+N\+\_\+\+Null}} = 0, 
+\mbox{\hyperlink{ab__json_8h_a23451be0e28c552e70c19429684f83cbab892e8229f95855a30a2c10fde71f78e}{J\+S\+O\+N\+\_\+\+Is\+Last\+In\+List}} = 1 $<$$<$ 0, 
+\mbox{\hyperlink{ab__json_8h_a23451be0e28c552e70c19429684f83cba4f2bc16d9f2cb38d0e0354342bcd07c1}{J\+S\+O\+N\+\_\+\+Dont\+Use\+Tag}} = 1 $<$$<$ 1, 
+\mbox{\hyperlink{ab__json_8h_a23451be0e28c552e70c19429684f83cba508ef51fa6f4677dd0ba7b242f0d269f}{J\+S\+O\+N\+\_\+\+Base\+Object}} = 1 $<$$<$ 2
  \}
-\end{DoxyCompactItemize}
-\subsection*{Functions}
+\begin{DoxyCompactList}\small\item\em Flags for how to create a J\+S\+ON string from a struct/enum. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Functions}
 \begin{DoxyCompactItemize}
 \item 
-\hyperlink{ab__common_8h_ae9b1af5c037e57a98884758875d3a7c4}{s32} \hyperlink{ab__json_8h_a2b3b6ac206a0ad8367ef1b795ae06d94}{Parse\+Json} (\hyperlink{structmemory__arena}{memory\+\_\+arena} $\ast$Volatile\+Memory, char const $\ast$Json, size\+\_\+t Json\+Length, jsmntok\+\_\+t $\ast$$\ast$Token\+Array)
-\item 
-\hyperlink{ab__common_8h_afaa62991928fb9fb18ff0db62a040aba}{u32} \hyperlink{ab__json_8h_a2c85de19a5702595393c516b1637896b}{Start\+Group} (char $\ast$, \hyperlink{ab__common_8h_afaa62991928fb9fb18ff0db62a040aba}{u32} Max\+Length)
-\item 
-\hyperlink{ab__common_8h_afaa62991928fb9fb18ff0db62a040aba}{u32} \hyperlink{ab__json_8h_a8d4a5895fda267713cbb9818d27e1a57}{End\+Group} (char $\ast$, \hyperlink{ab__common_8h_afaa62991928fb9fb18ff0db62a040aba}{u32} Max\+Length, \hyperlink{ab__common_8h_a70e369648385b50f2d0588e8e8745275}{b8} is\+Last)
-\item 
-\hyperlink{structabs__stringptr}{abs\+\_\+stringptr} \hyperlink{ab__json_8h_a6d809a2544db46f751036c308b9ec380}{Token\+To\+String\+Ptr} (char const $\ast$Json, jsmntok\+\_\+t $\ast$Token)
-\item 
-\hyperlink{ab__common_8h_a70e369648385b50f2d0588e8e8745275}{b8} \hyperlink{ab__json_8h_adc0dbd5f4b093577ebd0b4e252e17731}{Token\+Equals} (char const $\ast$Json, jsmntok\+\_\+t $\ast$Token, char const $\ast$Value)
-\end{DoxyCompactItemize}
+\mbox{\hyperlink{ab__common_8h_ae9b1af5c037e57a98884758875d3a7c4}{s32}} \mbox{\hyperlink{ab__json_8h_a2b3b6ac206a0ad8367ef1b795ae06d94}{Parse\+Json}} (memory\+\_\+arena $\ast$Volatile\+Memory, char const $\ast$Json, size\+\_\+t Json\+Length, jsmntok\+\_\+t $\ast$$\ast$Token\+Array)
+\begin{DoxyCompactList}\small\item\em Parse a J\+S\+ON string into a jsmntok\+\_\+t token array. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{ab__common_8h_afaa62991928fb9fb18ff0db62a040aba}{u32}} \mbox{\hyperlink{ab__json_8h_ab8ee50ded5a7a3e253b8f3216a357333}{Start\+Group}} (char $\ast$Json, \mbox{\hyperlink{ab__common_8h_afaa62991928fb9fb18ff0db62a040aba}{u32}} Max\+Length)
+\begin{DoxyCompactList}\small\item\em Begins a J\+S\+ON object. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{ab__common_8h_afaa62991928fb9fb18ff0db62a040aba}{u32}} \mbox{\hyperlink{ab__json_8h_adb191a33290784f6eda177fa724c6471}{End\+Group}} (char $\ast$Json, \mbox{\hyperlink{ab__common_8h_afaa62991928fb9fb18ff0db62a040aba}{u32}} Max\+Length, \mbox{\hyperlink{ab__common_8h_a70e369648385b50f2d0588e8e8745275}{b8}} is\+Last)
+\begin{DoxyCompactList}\small\item\em End a J\+S\+ON object. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{structabs__stringptr}{abs\+\_\+stringptr}} \mbox{\hyperlink{ab__json_8h_a6d809a2544db46f751036c308b9ec380}{Token\+To\+String\+Ptr}} (char const $\ast$Json, jsmntok\+\_\+t $\ast$Token)
+\begin{DoxyCompactList}\small\item\em Creates a \mbox{\hyperlink{structabs__stringptr}{abs\+\_\+stringptr}} out of a jsmntok\+\_\+t Token. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{ab__common_8h_a70e369648385b50f2d0588e8e8745275}{b8}} \mbox{\hyperlink{ab__json_8h_adc0dbd5f4b093577ebd0b4e252e17731}{Token\+Equals}} (char const $\ast$Json, jsmntok\+\_\+t $\ast$Token, char const $\ast$Value)
+\begin{DoxyCompactList}\small\item\em Checks if the text of the token equals the string. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
-\subsection{Macro Definition Documentation}
+\doxysubsection{Detailed Description}
+J\+S\+ON functions, mostly used by pre-\/generated files. 
+
+\begin{DoxyAuthor}{Author}
+Amos Buchanan 
+\end{DoxyAuthor}
+\begin{DoxyVersion}{Version}
+1.\+0 
+\end{DoxyVersion}
+\begin{DoxyDate}{Date}
+2020 
+\end{DoxyDate}
+\begin{DoxyCopyright}{Copyright}
+\href{https://opensource.org/licenses/MIT}{\texttt{ M\+IT Public License}}
+\end{DoxyCopyright}
+These are helper functions for parsing J\+S\+ON. This is mostly useful for the auto-\/generated code by the preprocessor when J\+S\+ON tags are used. This library depends on the \href{https://github.com/zserge/jsmn}{\texttt{ J\+S\+MN J\+S\+ON parser}}. There is a slightly modified version of the library included, which fixes an issue with including the header and source code separately. It is otherwise unchanged from the original.
+
+\doxysubsection*{M\+IT License}
+
+\href{https://opensource.org/licenses/MIT}{\texttt{ M\+IT Public License}}
+
+Copyright 2020 Amos Buchanan
+
+Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the \char`\"{}\+Software\char`\"{}), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions\+:
+
+The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
+
+T\+HE S\+O\+F\+T\+W\+A\+RE IS P\+R\+O\+V\+I\+D\+ED \char`\"{}\+A\+S I\+S\char`\"{}, W\+I\+T\+H\+O\+UT W\+A\+R\+R\+A\+N\+TY OF A\+NY K\+I\+ND, E\+X\+P\+R\+E\+SS OR I\+M\+P\+L\+I\+ED, I\+N\+C\+L\+U\+D\+I\+NG B\+UT N\+OT L\+I\+M\+I\+T\+ED TO T\+HE W\+A\+R\+R\+A\+N\+T\+I\+ES OF M\+E\+R\+C\+H\+A\+N\+T\+A\+B\+I\+L\+I\+TY, F\+I\+T\+N\+E\+SS F\+OR A P\+A\+R\+T\+I\+C\+U\+L\+AR P\+U\+R\+P\+O\+SE A\+ND N\+O\+N\+I\+N\+F\+R\+I\+N\+G\+E\+M\+E\+NT. IN NO E\+V\+E\+NT S\+H\+A\+LL T\+HE A\+U\+T\+H\+O\+RS OR C\+O\+P\+Y\+R\+I\+G\+HT H\+O\+L\+D\+E\+RS BE L\+I\+A\+B\+LE F\+OR A\+NY C\+L\+A\+IM, D\+A\+M\+A\+G\+ES OR O\+T\+H\+ER L\+I\+A\+B\+I\+L\+I\+TY, W\+H\+E\+T\+H\+ER IN AN A\+C\+T\+I\+ON OF C\+O\+N\+T\+R\+A\+CT, T\+O\+RT OR O\+T\+H\+E\+R\+W\+I\+SE, A\+R\+I\+S\+I\+NG F\+R\+OM, O\+UT OF OR IN C\+O\+N\+N\+E\+C\+T\+I\+ON W\+I\+TH T\+HE S\+O\+F\+T\+W\+A\+RE OR T\+HE U\+SE OR O\+T\+H\+ER D\+E\+A\+L\+I\+N\+GS IN T\+HE S\+O\+F\+T\+W\+A\+RE. 
+
+\doxysubsection{Macro Definition Documentation}
 \mbox{\Hypertarget{ab__json_8h_aeef9c3539ffb9ed912a2976b67b43d68}\label{ab__json_8h_aeef9c3539ffb9ed912a2976b67b43d68}} 
-\index{ab\+\_\+json.\+h@{ab\+\_\+json.\+h}!J\+S\+M\+N\+\_\+\+H\+E\+A\+D\+ER@{J\+S\+M\+N\+\_\+\+H\+E\+A\+D\+ER}}
-\index{J\+S\+M\+N\+\_\+\+H\+E\+A\+D\+ER@{J\+S\+M\+N\+\_\+\+H\+E\+A\+D\+ER}!ab\+\_\+json.\+h@{ab\+\_\+json.\+h}}
-\subsubsection{\texorpdfstring{J\+S\+M\+N\+\_\+\+H\+E\+A\+D\+ER}{JSMN\_HEADER}}
+\index{ab\_json.h@{ab\_json.h}!JSMN\_HEADER@{JSMN\_HEADER}}
+\index{JSMN\_HEADER@{JSMN\_HEADER}!ab\_json.h@{ab\_json.h}}
+\doxysubsubsection{\texorpdfstring{JSMN\_HEADER}{JSMN\_HEADER}}
 {\footnotesize\ttfamily \#define J\+S\+M\+N\+\_\+\+H\+E\+A\+D\+ER}
 
 
 
-\subsection{Enumeration Type Documentation}
+\doxysubsection{Enumeration Type Documentation}
 \mbox{\Hypertarget{ab__json_8h_a23451be0e28c552e70c19429684f83cb}\label{ab__json_8h_a23451be0e28c552e70c19429684f83cb}} 
-\index{ab\+\_\+json.\+h@{ab\+\_\+json.\+h}!json\+\_\+flags@{json\+\_\+flags}}
-\index{json\+\_\+flags@{json\+\_\+flags}!ab\+\_\+json.\+h@{ab\+\_\+json.\+h}}
-\subsubsection{\texorpdfstring{json\+\_\+flags}{json\_flags}}
-{\footnotesize\ttfamily enum \hyperlink{ab__json_8h_a23451be0e28c552e70c19429684f83cb}{json\+\_\+flags}}
+\index{ab\_json.h@{ab\_json.h}!json\_flags@{json\_flags}}
+\index{json\_flags@{json\_flags}!ab\_json.h@{ab\_json.h}}
+\doxysubsubsection{\texorpdfstring{json\_flags}{json\_flags}}
+{\footnotesize\ttfamily enum \mbox{\hyperlink{ab__json_8h_a23451be0e28c552e70c19429684f83cb}{json\+\_\+flags}}}
+
+
+
+Flags for how to create a J\+S\+ON string from a struct/enum. 
 
 \begin{DoxyEnumFields}{Enumerator}
-\raisebox{\heightof{T}}[0pt][0pt]{\index{J\+S\+O\+N\+\_\+\+Null@{J\+S\+O\+N\+\_\+\+Null}!ab\+\_\+json.\+h@{ab\+\_\+json.\+h}}\index{ab\+\_\+json.\+h@{ab\+\_\+json.\+h}!J\+S\+O\+N\+\_\+\+Null@{J\+S\+O\+N\+\_\+\+Null}}}\mbox{\Hypertarget{ab__json_8h_a23451be0e28c552e70c19429684f83cba12d51163882c2f3f659bf2d2560969b6}\label{ab__json_8h_a23451be0e28c552e70c19429684f83cba12d51163882c2f3f659bf2d2560969b6}} 
-J\+S\+O\+N\+\_\+\+Null&\\
+\raisebox{\heightof{T}}[0pt][0pt]{\index{JSON\_Null@{JSON\_Null}!ab\_json.h@{ab\_json.h}}\index{ab\_json.h@{ab\_json.h}!JSON\_Null@{JSON\_Null}}}\mbox{\Hypertarget{ab__json_8h_a23451be0e28c552e70c19429684f83cba12d51163882c2f3f659bf2d2560969b6}\label{ab__json_8h_a23451be0e28c552e70c19429684f83cba12d51163882c2f3f659bf2d2560969b6}} 
+J\+S\+O\+N\+\_\+\+Null&No flag. \\
 \hline
 
-\raisebox{\heightof{T}}[0pt][0pt]{\index{J\+S\+O\+N\+\_\+\+Is\+Last\+In\+List@{J\+S\+O\+N\+\_\+\+Is\+Last\+In\+List}!ab\+\_\+json.\+h@{ab\+\_\+json.\+h}}\index{ab\+\_\+json.\+h@{ab\+\_\+json.\+h}!J\+S\+O\+N\+\_\+\+Is\+Last\+In\+List@{J\+S\+O\+N\+\_\+\+Is\+Last\+In\+List}}}\mbox{\Hypertarget{ab__json_8h_a23451be0e28c552e70c19429684f83cbab892e8229f95855a30a2c10fde71f78e}\label{ab__json_8h_a23451be0e28c552e70c19429684f83cbab892e8229f95855a30a2c10fde71f78e}} 
-J\+S\+O\+N\+\_\+\+Is\+Last\+In\+List&\\
+\raisebox{\heightof{T}}[0pt][0pt]{\index{JSON\_IsLastInList@{JSON\_IsLastInList}!ab\_json.h@{ab\_json.h}}\index{ab\_json.h@{ab\_json.h}!JSON\_IsLastInList@{JSON\_IsLastInList}}}\mbox{\Hypertarget{ab__json_8h_a23451be0e28c552e70c19429684f83cbab892e8229f95855a30a2c10fde71f78e}\label{ab__json_8h_a23451be0e28c552e70c19429684f83cbab892e8229f95855a30a2c10fde71f78e}} 
+J\+S\+O\+N\+\_\+\+Is\+Last\+In\+List&The item is the last in a list; don\textquotesingle{}t put a comma after it. \\
 \hline
 
-\raisebox{\heightof{T}}[0pt][0pt]{\index{J\+S\+O\+N\+\_\+\+Dont\+Use\+Tag@{J\+S\+O\+N\+\_\+\+Dont\+Use\+Tag}!ab\+\_\+json.\+h@{ab\+\_\+json.\+h}}\index{ab\+\_\+json.\+h@{ab\+\_\+json.\+h}!J\+S\+O\+N\+\_\+\+Dont\+Use\+Tag@{J\+S\+O\+N\+\_\+\+Dont\+Use\+Tag}}}\mbox{\Hypertarget{ab__json_8h_a23451be0e28c552e70c19429684f83cba4f2bc16d9f2cb38d0e0354342bcd07c1}\label{ab__json_8h_a23451be0e28c552e70c19429684f83cba4f2bc16d9f2cb38d0e0354342bcd07c1}} 
-J\+S\+O\+N\+\_\+\+Dont\+Use\+Tag&\\
+\raisebox{\heightof{T}}[0pt][0pt]{\index{JSON\_DontUseTag@{JSON\_DontUseTag}!ab\_json.h@{ab\_json.h}}\index{ab\_json.h@{ab\_json.h}!JSON\_DontUseTag@{JSON\_DontUseTag}}}\mbox{\Hypertarget{ab__json_8h_a23451be0e28c552e70c19429684f83cba4f2bc16d9f2cb38d0e0354342bcd07c1}\label{ab__json_8h_a23451be0e28c552e70c19429684f83cba4f2bc16d9f2cb38d0e0354342bcd07c1}} 
+J\+S\+O\+N\+\_\+\+Dont\+Use\+Tag&Don\textquotesingle{}t use a starting tag to define this. Most often used for arrays. \\
 \hline
 
-\raisebox{\heightof{T}}[0pt][0pt]{\index{J\+S\+O\+N\+\_\+\+Base\+Object@{J\+S\+O\+N\+\_\+\+Base\+Object}!ab\+\_\+json.\+h@{ab\+\_\+json.\+h}}\index{ab\+\_\+json.\+h@{ab\+\_\+json.\+h}!J\+S\+O\+N\+\_\+\+Base\+Object@{J\+S\+O\+N\+\_\+\+Base\+Object}}}\mbox{\Hypertarget{ab__json_8h_a23451be0e28c552e70c19429684f83cba508ef51fa6f4677dd0ba7b242f0d269f}\label{ab__json_8h_a23451be0e28c552e70c19429684f83cba508ef51fa6f4677dd0ba7b242f0d269f}} 
-J\+S\+O\+N\+\_\+\+Base\+Object&\\
+\raisebox{\heightof{T}}[0pt][0pt]{\index{JSON\_BaseObject@{JSON\_BaseObject}!ab\_json.h@{ab\_json.h}}\index{ab\_json.h@{ab\_json.h}!JSON\_BaseObject@{JSON\_BaseObject}}}\mbox{\Hypertarget{ab__json_8h_a23451be0e28c552e70c19429684f83cba508ef51fa6f4677dd0ba7b242f0d269f}\label{ab__json_8h_a23451be0e28c552e70c19429684f83cba508ef51fa6f4677dd0ba7b242f0d269f}} 
+J\+S\+O\+N\+\_\+\+Base\+Object&This is the root object of the J\+S\+ON string. \\
 \hline
 
 \end{DoxyEnumFields}
 
 
-\subsection{Function Documentation}
-\mbox{\Hypertarget{ab__json_8h_a8d4a5895fda267713cbb9818d27e1a57}\label{ab__json_8h_a8d4a5895fda267713cbb9818d27e1a57}} 
-\index{ab\+\_\+json.\+h@{ab\+\_\+json.\+h}!End\+Group@{End\+Group}}
-\index{End\+Group@{End\+Group}!ab\+\_\+json.\+h@{ab\+\_\+json.\+h}}
-\subsubsection{\texorpdfstring{End\+Group()}{EndGroup()}}
-{\footnotesize\ttfamily \hyperlink{ab__common_8h_afaa62991928fb9fb18ff0db62a040aba}{u32} End\+Group (\begin{DoxyParamCaption}\item[{char $\ast$}]{,  }\item[{\hyperlink{ab__common_8h_afaa62991928fb9fb18ff0db62a040aba}{u32}}]{Max\+Length,  }\item[{\hyperlink{ab__common_8h_a70e369648385b50f2d0588e8e8745275}{b8}}]{is\+Last }\end{DoxyParamCaption})}
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{ab__json_8h_adb191a33290784f6eda177fa724c6471}\label{ab__json_8h_adb191a33290784f6eda177fa724c6471}} 
+\index{ab\_json.h@{ab\_json.h}!EndGroup@{EndGroup}}
+\index{EndGroup@{EndGroup}!ab\_json.h@{ab\_json.h}}
+\doxysubsubsection{\texorpdfstring{EndGroup()}{EndGroup()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{ab__common_8h_afaa62991928fb9fb18ff0db62a040aba}{u32}} End\+Group (\begin{DoxyParamCaption}\item[{char $\ast$}]{Json,  }\item[{\mbox{\hyperlink{ab__common_8h_afaa62991928fb9fb18ff0db62a040aba}{u32}}}]{Max\+Length,  }\item[{\mbox{\hyperlink{ab__common_8h_a70e369648385b50f2d0588e8e8745275}{b8}}}]{is\+Last }\end{DoxyParamCaption})}
 
+
+
+End a J\+S\+ON object. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em Json} & The J\+S\+ON string to add the begin group to. \\
+\hline
+{\em Max\+Length} & The maximum length that can be added. \\
+\hline
+{\em is\+Last} & True if this is the last item in a J\+S\+ON group. False will add a comma for the next item. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Number of characters added. 
+\end{DoxyReturn}
 \mbox{\Hypertarget{ab__json_8h_a2b3b6ac206a0ad8367ef1b795ae06d94}\label{ab__json_8h_a2b3b6ac206a0ad8367ef1b795ae06d94}} 
-\index{ab\+\_\+json.\+h@{ab\+\_\+json.\+h}!Parse\+Json@{Parse\+Json}}
-\index{Parse\+Json@{Parse\+Json}!ab\+\_\+json.\+h@{ab\+\_\+json.\+h}}
-\subsubsection{\texorpdfstring{Parse\+Json()}{ParseJson()}}
-{\footnotesize\ttfamily \hyperlink{ab__common_8h_ae9b1af5c037e57a98884758875d3a7c4}{s32} Parse\+Json (\begin{DoxyParamCaption}\item[{\hyperlink{structmemory__arena}{memory\+\_\+arena} $\ast$}]{Volatile\+Memory,  }\item[{char const $\ast$}]{Json,  }\item[{size\+\_\+t}]{Json\+Length,  }\item[{jsmntok\+\_\+t $\ast$$\ast$}]{Token\+Array }\end{DoxyParamCaption})}
+\index{ab\_json.h@{ab\_json.h}!ParseJson@{ParseJson}}
+\index{ParseJson@{ParseJson}!ab\_json.h@{ab\_json.h}}
+\doxysubsubsection{\texorpdfstring{ParseJson()}{ParseJson()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{ab__common_8h_ae9b1af5c037e57a98884758875d3a7c4}{s32}} Parse\+Json (\begin{DoxyParamCaption}\item[{memory\+\_\+arena $\ast$}]{Volatile\+Memory,  }\item[{char const $\ast$}]{Json,  }\item[{size\+\_\+t}]{Json\+Length,  }\item[{jsmntok\+\_\+t $\ast$$\ast$}]{Token\+Array }\end{DoxyParamCaption})}
 
-\mbox{\Hypertarget{ab__json_8h_a2c85de19a5702595393c516b1637896b}\label{ab__json_8h_a2c85de19a5702595393c516b1637896b}} 
-\index{ab\+\_\+json.\+h@{ab\+\_\+json.\+h}!Start\+Group@{Start\+Group}}
-\index{Start\+Group@{Start\+Group}!ab\+\_\+json.\+h@{ab\+\_\+json.\+h}}
-\subsubsection{\texorpdfstring{Start\+Group()}{StartGroup()}}
-{\footnotesize\ttfamily \hyperlink{ab__common_8h_afaa62991928fb9fb18ff0db62a040aba}{u32} Start\+Group (\begin{DoxyParamCaption}\item[{char $\ast$}]{,  }\item[{\hyperlink{ab__common_8h_afaa62991928fb9fb18ff0db62a040aba}{u32}}]{Max\+Length }\end{DoxyParamCaption})}
 
+
+Parse a J\+S\+ON string into a jsmntok\+\_\+t token array. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+ & {\em Volatile\+Memory} & Memory used for parsing. Can be used after usage, but expected to be wiped at the beginning of the control loop. \\
+\hline
+ & {\em Json} & A string of J\+S\+ON. \\
+\hline
+ & {\em Json\+Length} & The length of the J\+S\+ON string. \\
+\hline
+\mbox{\texttt{ out}}  & {\em Token\+Array} & A pointer to an array of Tokens. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The number of tokens in the array. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{ab__json_8h_ab8ee50ded5a7a3e253b8f3216a357333}\label{ab__json_8h_ab8ee50ded5a7a3e253b8f3216a357333}} 
+\index{ab\_json.h@{ab\_json.h}!StartGroup@{StartGroup}}
+\index{StartGroup@{StartGroup}!ab\_json.h@{ab\_json.h}}
+\doxysubsubsection{\texorpdfstring{StartGroup()}{StartGroup()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{ab__common_8h_afaa62991928fb9fb18ff0db62a040aba}{u32}} Start\+Group (\begin{DoxyParamCaption}\item[{char $\ast$}]{Json,  }\item[{\mbox{\hyperlink{ab__common_8h_afaa62991928fb9fb18ff0db62a040aba}{u32}}}]{Max\+Length }\end{DoxyParamCaption})}
+
+
+
+Begins a J\+S\+ON object. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em Json} & The J\+S\+ON string to add the begin group to. \\
+\hline
+{\em Max\+Length} & The maximum length that can be added. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Number of characters added. 
+\end{DoxyReturn}
 \mbox{\Hypertarget{ab__json_8h_adc0dbd5f4b093577ebd0b4e252e17731}\label{ab__json_8h_adc0dbd5f4b093577ebd0b4e252e17731}} 
-\index{ab\+\_\+json.\+h@{ab\+\_\+json.\+h}!Token\+Equals@{Token\+Equals}}
-\index{Token\+Equals@{Token\+Equals}!ab\+\_\+json.\+h@{ab\+\_\+json.\+h}}
-\subsubsection{\texorpdfstring{Token\+Equals()}{TokenEquals()}}
-{\footnotesize\ttfamily \hyperlink{ab__common_8h_a70e369648385b50f2d0588e8e8745275}{b8} Token\+Equals (\begin{DoxyParamCaption}\item[{char const $\ast$}]{Json,  }\item[{jsmntok\+\_\+t $\ast$}]{Token,  }\item[{char const $\ast$}]{Value }\end{DoxyParamCaption})}
+\index{ab\_json.h@{ab\_json.h}!TokenEquals@{TokenEquals}}
+\index{TokenEquals@{TokenEquals}!ab\_json.h@{ab\_json.h}}
+\doxysubsubsection{\texorpdfstring{TokenEquals()}{TokenEquals()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{ab__common_8h_a70e369648385b50f2d0588e8e8745275}{b8}} Token\+Equals (\begin{DoxyParamCaption}\item[{char const $\ast$}]{Json,  }\item[{jsmntok\+\_\+t $\ast$}]{Token,  }\item[{char const $\ast$}]{Value }\end{DoxyParamCaption})}
 
+
+
+Checks if the text of the token equals the string. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em Json} & The full J\+S\+ON string. \\
+\hline
+{\em Token} & The token to check. \\
+\hline
+{\em Value} & The string to check for equality. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+True if the token and string are the same. 
+\end{DoxyReturn}
 \mbox{\Hypertarget{ab__json_8h_a6d809a2544db46f751036c308b9ec380}\label{ab__json_8h_a6d809a2544db46f751036c308b9ec380}} 
-\index{ab\+\_\+json.\+h@{ab\+\_\+json.\+h}!Token\+To\+String\+Ptr@{Token\+To\+String\+Ptr}}
-\index{Token\+To\+String\+Ptr@{Token\+To\+String\+Ptr}!ab\+\_\+json.\+h@{ab\+\_\+json.\+h}}
-\subsubsection{\texorpdfstring{Token\+To\+String\+Ptr()}{TokenToStringPtr()}}
-{\footnotesize\ttfamily \hyperlink{structabs__stringptr}{abs\+\_\+stringptr} Token\+To\+String\+Ptr (\begin{DoxyParamCaption}\item[{char const $\ast$}]{Json,  }\item[{jsmntok\+\_\+t $\ast$}]{Token }\end{DoxyParamCaption})}
+\index{ab\_json.h@{ab\_json.h}!TokenToStringPtr@{TokenToStringPtr}}
+\index{TokenToStringPtr@{TokenToStringPtr}!ab\_json.h@{ab\_json.h}}
+\doxysubsubsection{\texorpdfstring{TokenToStringPtr()}{TokenToStringPtr()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structabs__stringptr}{abs\+\_\+stringptr}} Token\+To\+String\+Ptr (\begin{DoxyParamCaption}\item[{char const $\ast$}]{Json,  }\item[{jsmntok\+\_\+t $\ast$}]{Token }\end{DoxyParamCaption})}
 
+
+
+Creates a \mbox{\hyperlink{structabs__stringptr}{abs\+\_\+stringptr}} out of a jsmntok\+\_\+t Token. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em Json} & The full J\+S\+ON string. \\
+\hline
+{\em Token} & A token from the J\+S\+ON string. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A \mbox{\hyperlink{structabs__stringptr}{abs\+\_\+stringptr}} from the text of the Token. 
+\end{DoxyReturn}

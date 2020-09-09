@@ -86,7 +86,7 @@ $(function() {
 Include dependency graph for ab_json.h:</div>
 <div class="dyncontent">
 <div class="center"><img src="../../d2/d00/ab__json_8h__incl.png" border="0" usemap="#aab__json_8h" alt=""/></div>
-<map name="ab__json_8h" id="aab__json_8h">
+<map name="ab__json_8h" id="ab__json_8h">
 <area shape="rect" title="JSON functions, mostly used by pre&#45;generated files." alt="" coords="91,5,169,32"/>
 <area shape="rect" href="../../d7/d05/ab__common_8h.html" title="Common macros and typedefs." alt="" coords="31,229,135,256"/>
 <area shape="rect" href="../../d0/d0a/ab__memory_8h.html" title="Memory handling." alt="" coords="77,155,178,181"/>
@@ -139,7 +139,10 @@ Functions</h2></td></tr>
 <dl class="section date"><dt>Date</dt><dd>2020 </dd></dl>
 <dl class="section copyright"><dt>Copyright</dt><dd><a href="https://opensource.org/licenses/MIT">MIT Public License</a></dd></dl>
 <p>These are helper functions for parsing JSON. This is mostly useful for the auto-generated code by the preprocessor when JSON tags are used. This library depends on the <a href="https://github.com/zserge/jsmn">JSMN JSON parser</a>. There is a slightly modified version of the library included, which fixes an issue with including the header and source code separately. It is otherwise unchanged from the original.</p>
-<h1>MIT License</h1>
+<p>This is a single-file library. You may include it as a header just as any other. Add the following define to include the source <em>once</em> per project:</p>
+<div class="fragment"><div class="line"><span class="preprocessor">#define AB_JSON_SRC</span></div>
+<div class="line"><span class="preprocessor">#include &quot;ab_json.h&quot;</span></div>
+</div><!-- fragment --><h1>MIT License</h1>
 <p><a href="https://opensource.org/licenses/MIT">MIT Public License</a></p>
 <p>Copyright 2020 Amos Buchanan</p>
 <p>Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:</p>

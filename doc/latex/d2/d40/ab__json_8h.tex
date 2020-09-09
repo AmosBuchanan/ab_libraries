@@ -9,8 +9,7 @@ J\+S\+ON functions, mostly used by pre-\/generated files.
 {\ttfamily \#include \char`\"{}ab\+\_\+memory.\+h\char`\"{}}\newline
 {\ttfamily \#include \char`\"{}ab\+\_\+string.\+h\char`\"{}}\newline
 {\ttfamily \#include \char`\"{}jsmn.\+h\char`\"{}}\newline
-Include dependency graph for ab\+\_\+json.\+h\+:
-\nopagebreak
+Include dependency graph for ab\+\_\+json.\+h\+:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -62,6 +61,15 @@ Amos Buchanan
 \href{https://opensource.org/licenses/MIT}{\texttt{ M\+IT Public License}}
 \end{DoxyCopyright}
 These are helper functions for parsing J\+S\+ON. This is mostly useful for the auto-\/generated code by the preprocessor when J\+S\+ON tags are used. This library depends on the \href{https://github.com/zserge/jsmn}{\texttt{ J\+S\+MN J\+S\+ON parser}}. There is a slightly modified version of the library included, which fixes an issue with including the header and source code separately. It is otherwise unchanged from the original.
+
+This is a single-\/file library. You may include it as a header just as any other. Add the following define to include the source {\itshape once} per project\+:
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\textcolor{preprocessor}{\#define AB\_JSON\_SRC}}
+\DoxyCodeLine{\textcolor{preprocessor}{\#include "{}ab\_json.h"{}}}
+\end{DoxyCode}
+
 
 \doxysubsection*{M\+IT License}
 

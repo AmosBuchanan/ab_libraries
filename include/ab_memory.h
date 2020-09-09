@@ -5,7 +5,14 @@
 @date 2020
 @copyright [MIT Public License](https://opensource.org/licenses/MIT)
 
-Getting and using blocks of memory, as oppossed to malloc/free anytime memory is desired. Works with Windows and Linux, with the OS specific implementation broken out into separate files. Generally, you grab a chunk of memory from the OS and use that chunk rather than constantly going out to the OS to get more when needed. 
+Getting and using blocks of memory, as oppossed to malloc/free anytime memory is desired. Works with Windows and Linux, with the OS specific implementation broken out into separate files. Generally, you grab a chunk of memory from the OS and use that chunk rather than constantly going out to the OS to get more when needed. To pull in for the appropriate OS, define either `_LINUX` or `_WINDOWS` in your build string or early in your project. (NOTE: Visual Studio adds a `_WINDOWS` define by default to C++ projects.
+
+This is a single-file library. You may include it as a header just as any other. Add the following define to include the source *once* per project:
+
+~~~c
+#define AB_MEMORY_SRC
+#include "ab_memory.h"
+~~~
 
 It is not advised to use the arena structs directly; the functions should be used to manipulate the memory.
 

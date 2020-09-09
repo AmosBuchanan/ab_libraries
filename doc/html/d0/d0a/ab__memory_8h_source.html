@@ -72,140 +72,140 @@ $(function() {
 </div><!--header-->
 <div class="contents">
 <a href="../../d0/d0a/ab__memory_8h.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160; </div>
-<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;<span class="preprocessor">#if !defined(AB_MEMORY_H)</span></div>
-<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;<span class="preprocessor">#define AB_MEMORY_H</span></div>
-<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160; </div>
-<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="../../d7/d05/ab__common_8h.html">ab_common.h</a>&quot;</span></div>
-<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160; </div>
-<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;<span class="keyword">struct </span>memory_arena</div>
-<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;{</div>
-<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;    <span class="keywordtype">void</span> *Start;</div>
-<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;    <span class="keywordtype">size_t</span> Size;</div>
-<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;    <span class="keywordtype">size_t</span> Used;</div>
-<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;};</div>
-<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160; </div>
-<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;<span class="keyword">struct </span>temporary_memory</div>
-<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;{</div>
-<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;    memory_arena* Arena;</div>
+<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;<span class="preprocessor">#if !defined(AB_MEMORY_H)</span></div>
+<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;<span class="preprocessor">#define AB_MEMORY_H</span></div>
+<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160; </div>
+<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="../../d7/d05/ab__common_8h.html">ab_common.h</a>&quot;</span></div>
+<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160; </div>
+<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;<span class="keyword">struct </span>memory_arena</div>
+<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;{</div>
+<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;    <span class="keywordtype">void</span> *Start;</div>
+<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;    <span class="keywordtype">size_t</span> Size;</div>
 <div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;    <span class="keywordtype">size_t</span> Used;</div>
 <div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;};</div>
 <div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160; </div>
-<div class="line"><a name="l00093"></a><span class="lineno"><a class="line" href="../../d0/d0a/ab__memory_8h.html#a20bffb2c2335745a56275b6094b6dcad">   93</a></span>&#160;<span class="keywordtype">void</span> *<a class="code" href="../../d0/d0a/ab__memory_8h.html#a20bffb2c2335745a56275b6094b6dcad">abm_AllocateOsMemory</a>(<span class="keywordtype">void</span> *Address, <span class="keywordtype">size_t</span> Size);</div>
-<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160; </div>
-<div class="line"><a name="l00100"></a><span class="lineno"><a class="line" href="../../d0/d0a/ab__memory_8h.html#ad393d506412ba1d8d6fe25e8e16253b4">  100</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="../../d0/d0a/ab__memory_8h.html#ad393d506412ba1d8d6fe25e8e16253b4">abm_DeallocateOsMemory</a>(<span class="keywordtype">void</span> *Address, <span class="keywordtype">size_t</span> Size);</div>
+<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;<span class="keyword">struct </span>temporary_memory</div>
+<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;{</div>
+<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;    memory_arena* Arena;</div>
+<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;    <span class="keywordtype">size_t</span> Used;</div>
+<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;};</div>
+<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160; </div>
+<div class="line"><a name="l00100"></a><span class="lineno"><a class="line" href="../../d0/d0a/ab__memory_8h.html#a20bffb2c2335745a56275b6094b6dcad">  100</a></span>&#160;<span class="keywordtype">void</span> *<a class="code" href="../../d0/d0a/ab__memory_8h.html#a20bffb2c2335745a56275b6094b6dcad">abm_AllocateOsMemory</a>(<span class="keywordtype">void</span> *Address, <span class="keywordtype">size_t</span> Size);</div>
 <div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160; </div>
-<div class="line"><a name="l00110"></a><span class="lineno"><a class="line" href="../../d0/d0a/ab__memory_8h.html#a0436d3ae4dac7362742c35ea6a146fea">  110</a></span>&#160;<span class="preprocessor">#define abm_PushStruct(Arena, Type) (Type*)abm_PushSize_(Arena, sizeof(Type))</span></div>
-<div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160; </div>
-<div class="line"><a name="l00120"></a><span class="lineno"><a class="line" href="../../d0/d0a/ab__memory_8h.html#ab8d45b257f787efccb8a928176cc2c88">  120</a></span>&#160;<span class="preprocessor">#define abm_PushSize(Arena, Size) abm_PushSize_(Arena, Size)</span></div>
-<div class="line"><a name="l00121"></a><span class="lineno">  121</span>&#160; </div>
-<div class="line"><a name="l00131"></a><span class="lineno"><a class="line" href="../../d0/d0a/ab__memory_8h.html#a89df166532e625eea593369a7997139d">  131</a></span>&#160;<span class="preprocessor">#define abm_PushArray(Arena, Count, Type) (Type*)abm_PushSize_(Arena, (Count)*sizeof(Type))</span></div>
-<div class="line"><a name="l00132"></a><span class="lineno">  132</span>&#160; </div>
-<div class="line"><a name="l00134"></a><span class="lineno">  134</span>&#160;<span class="keywordtype">void</span> *abm_PushSize_(memory_arena *Memory, <span class="keywordtype">size_t</span> Size, <a class="code" href="../../d7/d05/ab__common_8h.html#a70e369648385b50f2d0588e8e8745275">b8</a> ClearMemory = <span class="keyword">true</span>);</div>
-<div class="line"><a name="l00135"></a><span class="lineno">  135</span>&#160; </div>
-<div class="line"><a name="l00145"></a><span class="lineno"><a class="line" href="../../d0/d0a/ab__memory_8h.html#a5f2fa70a405694492db91b26ed884207">  145</a></span>&#160;memory_arena <a class="code" href="../../d0/d0a/ab__memory_8h.html#a5f2fa70a405694492db91b26ed884207">abm_InitMemory</a>(<span class="keywordtype">void</span> *Start, <span class="keywordtype">size_t</span> Size);</div>
-<div class="line"><a name="l00146"></a><span class="lineno">  146</span>&#160; </div>
-<div class="line"><a name="l00154"></a><span class="lineno"><a class="line" href="../../d0/d0a/ab__memory_8h.html#a8ca432174a01c886b3c834cbb140c5ab">  154</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="../../d0/d0a/ab__memory_8h.html#a8ca432174a01c886b3c834cbb140c5ab">abm_ResetMemory</a>(memory_arena *Memory);</div>
-<div class="line"><a name="l00155"></a><span class="lineno">  155</span>&#160; </div>
-<div class="line"><a name="l00161"></a><span class="lineno"><a class="line" href="../../d0/d0a/ab__memory_8h.html#a9061bfb19b910033ab211832bc593fed">  161</a></span>&#160;<span class="keyword">inline</span> <span class="keywordtype">size_t</span> <a class="code" href="../../d0/d0a/ab__memory_8h.html#a9061bfb19b910033ab211832bc593fed">abm_GetMemoryLeft</a>(memory_arena *Memory);</div>
+<div class="line"><a name="l00107"></a><span class="lineno"><a class="line" href="../../d0/d0a/ab__memory_8h.html#ad393d506412ba1d8d6fe25e8e16253b4">  107</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="../../d0/d0a/ab__memory_8h.html#ad393d506412ba1d8d6fe25e8e16253b4">abm_DeallocateOsMemory</a>(<span class="keywordtype">void</span> *Address, <span class="keywordtype">size_t</span> Size);</div>
+<div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160; </div>
+<div class="line"><a name="l00117"></a><span class="lineno"><a class="line" href="../../d0/d0a/ab__memory_8h.html#a0436d3ae4dac7362742c35ea6a146fea">  117</a></span>&#160;<span class="preprocessor">#define abm_PushStruct(Arena, Type) (Type*)abm_PushSize_(Arena, sizeof(Type))</span></div>
+<div class="line"><a name="l00118"></a><span class="lineno">  118</span>&#160; </div>
+<div class="line"><a name="l00127"></a><span class="lineno"><a class="line" href="../../d0/d0a/ab__memory_8h.html#ab8d45b257f787efccb8a928176cc2c88">  127</a></span>&#160;<span class="preprocessor">#define abm_PushSize(Arena, Size) abm_PushSize_(Arena, Size)</span></div>
+<div class="line"><a name="l00128"></a><span class="lineno">  128</span>&#160; </div>
+<div class="line"><a name="l00138"></a><span class="lineno"><a class="line" href="../../d0/d0a/ab__memory_8h.html#a89df166532e625eea593369a7997139d">  138</a></span>&#160;<span class="preprocessor">#define abm_PushArray(Arena, Count, Type) (Type*)abm_PushSize_(Arena, (Count)*sizeof(Type))</span></div>
+<div class="line"><a name="l00139"></a><span class="lineno">  139</span>&#160; </div>
+<div class="line"><a name="l00141"></a><span class="lineno">  141</span>&#160;<span class="keywordtype">void</span> *abm_PushSize_(memory_arena *Memory, <span class="keywordtype">size_t</span> Size, <a class="code" href="../../d7/d05/ab__common_8h.html#a70e369648385b50f2d0588e8e8745275">b8</a> ClearMemory = <span class="keyword">true</span>);</div>
+<div class="line"><a name="l00142"></a><span class="lineno">  142</span>&#160; </div>
+<div class="line"><a name="l00152"></a><span class="lineno"><a class="line" href="../../d0/d0a/ab__memory_8h.html#a5f2fa70a405694492db91b26ed884207">  152</a></span>&#160;memory_arena <a class="code" href="../../d0/d0a/ab__memory_8h.html#a5f2fa70a405694492db91b26ed884207">abm_InitMemory</a>(<span class="keywordtype">void</span> *Start, <span class="keywordtype">size_t</span> Size);</div>
+<div class="line"><a name="l00153"></a><span class="lineno">  153</span>&#160; </div>
+<div class="line"><a name="l00161"></a><span class="lineno"><a class="line" href="../../d0/d0a/ab__memory_8h.html#a8ca432174a01c886b3c834cbb140c5ab">  161</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="../../d0/d0a/ab__memory_8h.html#a8ca432174a01c886b3c834cbb140c5ab">abm_ResetMemory</a>(memory_arena *Memory);</div>
 <div class="line"><a name="l00162"></a><span class="lineno">  162</span>&#160; </div>
-<div class="line"><a name="l00183"></a><span class="lineno"><a class="line" href="../../d0/d0a/ab__memory_8h.html#a77b6adde3ba40f7f3777bcc01c396ccd">  183</a></span>&#160;temporary_memory <a class="code" href="../../d0/d0a/ab__memory_8h.html#a77b6adde3ba40f7f3777bcc01c396ccd">abm_BeginTemporaryMemory</a>(memory_arena *Memory);</div>
-<div class="line"><a name="l00184"></a><span class="lineno">  184</span>&#160; </div>
-<div class="line"><a name="l00192"></a><span class="lineno"><a class="line" href="../../d0/d0a/ab__memory_8h.html#a8dbf22e067d85b9ad8422126755d23df">  192</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="../../d0/d0a/ab__memory_8h.html#a8dbf22e067d85b9ad8422126755d23df">abm_EndTemporaryMemory</a>(temporary_memory TempMem);</div>
-<div class="line"><a name="l00193"></a><span class="lineno">  193</span>&#160; </div>
-<div class="line"><a name="l00200"></a><span class="lineno">  200</span>&#160;memory_arena</div>
-<div class="line"><a name="l00201"></a><span class="lineno"><a class="line" href="../../d0/d0a/ab__memory_8h.html#a1b0ab8d04e6309ae31b1b2f8282dc085">  201</a></span>&#160;<a class="code" href="../../d0/d0a/ab__memory_8h.html#a1b0ab8d04e6309ae31b1b2f8282dc085">abm_CreateSubArena</a>(memory_arena *Memory, <span class="keywordtype">size_t</span> Size);</div>
-<div class="line"><a name="l00202"></a><span class="lineno">  202</span>&#160;<span class="preprocessor">#endif</span></div>
-<div class="line"><a name="l00203"></a><span class="lineno">  203</span>&#160; </div>
-<div class="line"><a name="l00204"></a><span class="lineno">  204</span>&#160;<span class="preprocessor">#if _WINDOWS</span></div>
-<div class="line"><a name="l00205"></a><span class="lineno">  205</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="../../de/d1e/ab__memory__win32_8h.html">ab_memory_win32.h</a>&quot;</span></div>
-<div class="line"><a name="l00206"></a><span class="lineno">  206</span>&#160;<span class="preprocessor">#elif _LINUX</span></div>
-<div class="line"><a name="l00207"></a><span class="lineno">  207</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="../../d3/d1f/ab__memory__linux_8h.html">ab_memory_linux.h</a>&quot;</span></div>
-<div class="line"><a name="l00208"></a><span class="lineno">  208</span>&#160;<span class="preprocessor">#endif</span></div>
-<div class="line"><a name="l00209"></a><span class="lineno">  209</span>&#160; </div>
+<div class="line"><a name="l00168"></a><span class="lineno"><a class="line" href="../../d0/d0a/ab__memory_8h.html#a9061bfb19b910033ab211832bc593fed">  168</a></span>&#160;<span class="keyword">inline</span> <span class="keywordtype">size_t</span> <a class="code" href="../../d0/d0a/ab__memory_8h.html#a9061bfb19b910033ab211832bc593fed">abm_GetMemoryLeft</a>(memory_arena *Memory);</div>
+<div class="line"><a name="l00169"></a><span class="lineno">  169</span>&#160; </div>
+<div class="line"><a name="l00190"></a><span class="lineno"><a class="line" href="../../d0/d0a/ab__memory_8h.html#a77b6adde3ba40f7f3777bcc01c396ccd">  190</a></span>&#160;temporary_memory <a class="code" href="../../d0/d0a/ab__memory_8h.html#a77b6adde3ba40f7f3777bcc01c396ccd">abm_BeginTemporaryMemory</a>(memory_arena *Memory);</div>
+<div class="line"><a name="l00191"></a><span class="lineno">  191</span>&#160; </div>
+<div class="line"><a name="l00199"></a><span class="lineno"><a class="line" href="../../d0/d0a/ab__memory_8h.html#a8dbf22e067d85b9ad8422126755d23df">  199</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="../../d0/d0a/ab__memory_8h.html#a8dbf22e067d85b9ad8422126755d23df">abm_EndTemporaryMemory</a>(temporary_memory TempMem);</div>
+<div class="line"><a name="l00200"></a><span class="lineno">  200</span>&#160; </div>
+<div class="line"><a name="l00207"></a><span class="lineno">  207</span>&#160;memory_arena</div>
+<div class="line"><a name="l00208"></a><span class="lineno"><a class="line" href="../../d0/d0a/ab__memory_8h.html#a1b0ab8d04e6309ae31b1b2f8282dc085">  208</a></span>&#160;<a class="code" href="../../d0/d0a/ab__memory_8h.html#a1b0ab8d04e6309ae31b1b2f8282dc085">abm_CreateSubArena</a>(memory_arena *Memory, <span class="keywordtype">size_t</span> Size);</div>
+<div class="line"><a name="l00209"></a><span class="lineno">  209</span>&#160;<span class="preprocessor">#endif</span></div>
 <div class="line"><a name="l00210"></a><span class="lineno">  210</span>&#160; </div>
-<div class="line"><a name="l00211"></a><span class="lineno">  211</span>&#160;<span class="preprocessor">#if defined(AB_MEMORY_SRC)</span></div>
-<div class="line"><a name="l00212"></a><span class="lineno">  212</span>&#160; </div>
-<div class="line"><a name="l00213"></a><span class="lineno">  213</span>&#160;memory_arena</div>
-<div class="line"><a name="l00214"></a><span class="lineno">  214</span>&#160;<a class="code" href="../../d0/d0a/ab__memory_8h.html#a5f2fa70a405694492db91b26ed884207">abm_InitMemory</a>(<span class="keywordtype">void</span> *Start, <span class="keywordtype">size_t</span> Size)</div>
-<div class="line"><a name="l00215"></a><span class="lineno">  215</span>&#160;{</div>
-<div class="line"><a name="l00216"></a><span class="lineno">  216</span>&#160;    <a class="code" href="../../d7/d05/ab__common_8h.html#af2b46bb19c7d3d91950a9f971d443ccd">Assert</a>(Start);</div>
-<div class="line"><a name="l00217"></a><span class="lineno">  217</span>&#160;    </div>
-<div class="line"><a name="l00218"></a><span class="lineno">  218</span>&#160;    memory_arena Memory = {};</div>
-<div class="line"><a name="l00219"></a><span class="lineno">  219</span>&#160;    Memory.Start = Start;</div>
-<div class="line"><a name="l00220"></a><span class="lineno">  220</span>&#160;    Memory.Size = Size;</div>
-<div class="line"><a name="l00221"></a><span class="lineno">  221</span>&#160;    Memory.Used = 0;</div>
-<div class="line"><a name="l00222"></a><span class="lineno">  222</span>&#160;    </div>
-<div class="line"><a name="l00223"></a><span class="lineno">  223</span>&#160;    <span class="keywordflow">return</span> Memory;</div>
-<div class="line"><a name="l00224"></a><span class="lineno">  224</span>&#160;}</div>
-<div class="line"><a name="l00225"></a><span class="lineno">  225</span>&#160; </div>
-<div class="line"><a name="l00226"></a><span class="lineno">  226</span>&#160;memory_arena</div>
-<div class="line"><a name="l00227"></a><span class="lineno">  227</span>&#160;<a class="code" href="../../d0/d0a/ab__memory_8h.html#a1b0ab8d04e6309ae31b1b2f8282dc085">abm_CreateSubArena</a>(memory_arena *Memory, <span class="keywordtype">size_t</span> Size)</div>
-<div class="line"><a name="l00228"></a><span class="lineno">  228</span>&#160;{</div>
-<div class="line"><a name="l00229"></a><span class="lineno">  229</span>&#160;    memory_arena SubArena = {};</div>
-<div class="line"><a name="l00230"></a><span class="lineno">  230</span>&#160;    SubArena.Start = <a class="code" href="../../d0/d0a/ab__memory_8h.html#ab8d45b257f787efccb8a928176cc2c88">abm_PushSize</a>(Memory, Size);</div>
-<div class="line"><a name="l00231"></a><span class="lineno">  231</span>&#160;    SubArena.Size = Size;</div>
-<div class="line"><a name="l00232"></a><span class="lineno">  232</span>&#160;    SubArena.Used = 0;</div>
-<div class="line"><a name="l00233"></a><span class="lineno">  233</span>&#160;    </div>
-<div class="line"><a name="l00234"></a><span class="lineno">  234</span>&#160;    <span class="keywordflow">return</span> SubArena;</div>
-<div class="line"><a name="l00235"></a><span class="lineno">  235</span>&#160;}</div>
-<div class="line"><a name="l00236"></a><span class="lineno">  236</span>&#160; </div>
-<div class="line"><a name="l00237"></a><span class="lineno">  237</span>&#160;<span class="keywordtype">void</span> *</div>
-<div class="line"><a name="l00238"></a><span class="lineno">  238</span>&#160;abm_PushSize_(memory_arena *Memory, <span class="keywordtype">size_t</span> Size, <a class="code" href="../../d7/d05/ab__common_8h.html#a70e369648385b50f2d0588e8e8745275">b8</a> ClearMemory)</div>
-<div class="line"><a name="l00239"></a><span class="lineno">  239</span>&#160;{</div>
-<div class="line"><a name="l00240"></a><span class="lineno">  240</span>&#160;    <span class="keywordtype">void</span>* Result = 0;</div>
-<div class="line"><a name="l00241"></a><span class="lineno">  241</span>&#160;    </div>
-<div class="line"><a name="l00242"></a><span class="lineno">  242</span>&#160;    <a class="code" href="../../d7/d05/ab__common_8h.html#af2b46bb19c7d3d91950a9f971d443ccd">Assert</a>((Memory-&gt;Size - Memory-&gt;Used) &gt; Size);</div>
-<div class="line"><a name="l00243"></a><span class="lineno">  243</span>&#160;    Result = (((<a class="code" href="../../d7/d05/ab__common_8h.html#a92c50087ca0e64fa93fc59402c55f8ca">u8</a>*)Memory-&gt;Start) + Memory-&gt;Used);</div>
-<div class="line"><a name="l00244"></a><span class="lineno">  244</span>&#160;    Memory-&gt;Used += Size;</div>
-<div class="line"><a name="l00245"></a><span class="lineno">  245</span>&#160;    </div>
-<div class="line"><a name="l00246"></a><span class="lineno">  246</span>&#160;    <span class="keywordflow">if</span>(ClearMemory)</div>
-<div class="line"><a name="l00247"></a><span class="lineno">  247</span>&#160;    {</div>
-<div class="line"><a name="l00248"></a><span class="lineno">  248</span>&#160;        <span class="keywordflow">for</span>(<span class="keywordtype">size_t</span> Index = 0; Index &lt; Size; ++Index)</div>
-<div class="line"><a name="l00249"></a><span class="lineno">  249</span>&#160;        {</div>
-<div class="line"><a name="l00250"></a><span class="lineno">  250</span>&#160;            ((<a class="code" href="../../d7/d05/ab__common_8h.html#a92c50087ca0e64fa93fc59402c55f8ca">u8</a>*)Result)[Index] = 0;</div>
-<div class="line"><a name="l00251"></a><span class="lineno">  251</span>&#160;        }</div>
-<div class="line"><a name="l00252"></a><span class="lineno">  252</span>&#160;    }</div>
-<div class="line"><a name="l00253"></a><span class="lineno">  253</span>&#160;    </div>
-<div class="line"><a name="l00254"></a><span class="lineno">  254</span>&#160;    <span class="keywordflow">return</span> Result;</div>
-<div class="line"><a name="l00255"></a><span class="lineno">  255</span>&#160;}</div>
-<div class="line"><a name="l00256"></a><span class="lineno">  256</span>&#160; </div>
-<div class="line"><a name="l00257"></a><span class="lineno">  257</span>&#160;temporary_memory</div>
-<div class="line"><a name="l00258"></a><span class="lineno">  258</span>&#160;<a class="code" href="../../d0/d0a/ab__memory_8h.html#a77b6adde3ba40f7f3777bcc01c396ccd">abm_BeginTemporaryMemory</a>(memory_arena *Memory)</div>
-<div class="line"><a name="l00259"></a><span class="lineno">  259</span>&#160;{</div>
-<div class="line"><a name="l00260"></a><span class="lineno">  260</span>&#160;    temporary_memory Result = {};</div>
-<div class="line"><a name="l00261"></a><span class="lineno">  261</span>&#160;    Result.Arena = Memory;</div>
-<div class="line"><a name="l00262"></a><span class="lineno">  262</span>&#160;    Result.Used = Memory-&gt;Used;</div>
-<div class="line"><a name="l00263"></a><span class="lineno">  263</span>&#160;    </div>
-<div class="line"><a name="l00264"></a><span class="lineno">  264</span>&#160;    <span class="keywordflow">return</span> Result;</div>
-<div class="line"><a name="l00265"></a><span class="lineno">  265</span>&#160;}</div>
-<div class="line"><a name="l00266"></a><span class="lineno">  266</span>&#160; </div>
-<div class="line"><a name="l00267"></a><span class="lineno">  267</span>&#160;<span class="keywordtype">void</span></div>
-<div class="line"><a name="l00268"></a><span class="lineno">  268</span>&#160;<a class="code" href="../../d0/d0a/ab__memory_8h.html#a8dbf22e067d85b9ad8422126755d23df">abm_EndTemporaryMemory</a>(temporary_memory TempMem)</div>
-<div class="line"><a name="l00269"></a><span class="lineno">  269</span>&#160;{</div>
-<div class="line"><a name="l00270"></a><span class="lineno">  270</span>&#160;    TempMem.Arena-&gt;Used = TempMem.Used;</div>
-<div class="line"><a name="l00271"></a><span class="lineno">  271</span>&#160;}</div>
-<div class="line"><a name="l00272"></a><span class="lineno">  272</span>&#160; </div>
+<div class="line"><a name="l00211"></a><span class="lineno">  211</span>&#160;<span class="preprocessor">#if _WINDOWS</span></div>
+<div class="line"><a name="l00212"></a><span class="lineno">  212</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="../../de/d1e/ab__memory__win32_8h.html">ab_memory_win32.h</a>&quot;</span></div>
+<div class="line"><a name="l00213"></a><span class="lineno">  213</span>&#160;<span class="preprocessor">#elif _LINUX</span></div>
+<div class="line"><a name="l00214"></a><span class="lineno">  214</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="../../d3/d1f/ab__memory__linux_8h.html">ab_memory_linux.h</a>&quot;</span></div>
+<div class="line"><a name="l00215"></a><span class="lineno">  215</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="line"><a name="l00216"></a><span class="lineno">  216</span>&#160; </div>
+<div class="line"><a name="l00217"></a><span class="lineno">  217</span>&#160; </div>
+<div class="line"><a name="l00218"></a><span class="lineno">  218</span>&#160;<span class="preprocessor">#if defined(AB_MEMORY_SRC)</span></div>
+<div class="line"><a name="l00219"></a><span class="lineno">  219</span>&#160; </div>
+<div class="line"><a name="l00220"></a><span class="lineno">  220</span>&#160;memory_arena</div>
+<div class="line"><a name="l00221"></a><span class="lineno">  221</span>&#160;<a class="code" href="../../d0/d0a/ab__memory_8h.html#a5f2fa70a405694492db91b26ed884207">abm_InitMemory</a>(<span class="keywordtype">void</span> *Start, <span class="keywordtype">size_t</span> Size)</div>
+<div class="line"><a name="l00222"></a><span class="lineno">  222</span>&#160;{</div>
+<div class="line"><a name="l00223"></a><span class="lineno">  223</span>&#160;    <a class="code" href="../../d7/d05/ab__common_8h.html#af2b46bb19c7d3d91950a9f971d443ccd">Assert</a>(Start);</div>
+<div class="line"><a name="l00224"></a><span class="lineno">  224</span>&#160;    </div>
+<div class="line"><a name="l00225"></a><span class="lineno">  225</span>&#160;    memory_arena Memory = {};</div>
+<div class="line"><a name="l00226"></a><span class="lineno">  226</span>&#160;    Memory.Start = Start;</div>
+<div class="line"><a name="l00227"></a><span class="lineno">  227</span>&#160;    Memory.Size = Size;</div>
+<div class="line"><a name="l00228"></a><span class="lineno">  228</span>&#160;    Memory.Used = 0;</div>
+<div class="line"><a name="l00229"></a><span class="lineno">  229</span>&#160;    </div>
+<div class="line"><a name="l00230"></a><span class="lineno">  230</span>&#160;    <span class="keywordflow">return</span> Memory;</div>
+<div class="line"><a name="l00231"></a><span class="lineno">  231</span>&#160;}</div>
+<div class="line"><a name="l00232"></a><span class="lineno">  232</span>&#160; </div>
+<div class="line"><a name="l00233"></a><span class="lineno">  233</span>&#160;memory_arena</div>
+<div class="line"><a name="l00234"></a><span class="lineno">  234</span>&#160;<a class="code" href="../../d0/d0a/ab__memory_8h.html#a1b0ab8d04e6309ae31b1b2f8282dc085">abm_CreateSubArena</a>(memory_arena *Memory, <span class="keywordtype">size_t</span> Size)</div>
+<div class="line"><a name="l00235"></a><span class="lineno">  235</span>&#160;{</div>
+<div class="line"><a name="l00236"></a><span class="lineno">  236</span>&#160;    memory_arena SubArena = {};</div>
+<div class="line"><a name="l00237"></a><span class="lineno">  237</span>&#160;    SubArena.Start = <a class="code" href="../../d0/d0a/ab__memory_8h.html#ab8d45b257f787efccb8a928176cc2c88">abm_PushSize</a>(Memory, Size);</div>
+<div class="line"><a name="l00238"></a><span class="lineno">  238</span>&#160;    SubArena.Size = Size;</div>
+<div class="line"><a name="l00239"></a><span class="lineno">  239</span>&#160;    SubArena.Used = 0;</div>
+<div class="line"><a name="l00240"></a><span class="lineno">  240</span>&#160;    </div>
+<div class="line"><a name="l00241"></a><span class="lineno">  241</span>&#160;    <span class="keywordflow">return</span> SubArena;</div>
+<div class="line"><a name="l00242"></a><span class="lineno">  242</span>&#160;}</div>
+<div class="line"><a name="l00243"></a><span class="lineno">  243</span>&#160; </div>
+<div class="line"><a name="l00244"></a><span class="lineno">  244</span>&#160;<span class="keywordtype">void</span> *</div>
+<div class="line"><a name="l00245"></a><span class="lineno">  245</span>&#160;abm_PushSize_(memory_arena *Memory, <span class="keywordtype">size_t</span> Size, <a class="code" href="../../d7/d05/ab__common_8h.html#a70e369648385b50f2d0588e8e8745275">b8</a> ClearMemory)</div>
+<div class="line"><a name="l00246"></a><span class="lineno">  246</span>&#160;{</div>
+<div class="line"><a name="l00247"></a><span class="lineno">  247</span>&#160;    <span class="keywordtype">void</span>* Result = 0;</div>
+<div class="line"><a name="l00248"></a><span class="lineno">  248</span>&#160;    </div>
+<div class="line"><a name="l00249"></a><span class="lineno">  249</span>&#160;    <a class="code" href="../../d7/d05/ab__common_8h.html#af2b46bb19c7d3d91950a9f971d443ccd">Assert</a>((Memory-&gt;Size - Memory-&gt;Used) &gt; Size);</div>
+<div class="line"><a name="l00250"></a><span class="lineno">  250</span>&#160;    Result = (((<a class="code" href="../../d7/d05/ab__common_8h.html#a92c50087ca0e64fa93fc59402c55f8ca">u8</a>*)Memory-&gt;Start) + Memory-&gt;Used);</div>
+<div class="line"><a name="l00251"></a><span class="lineno">  251</span>&#160;    Memory-&gt;Used += Size;</div>
+<div class="line"><a name="l00252"></a><span class="lineno">  252</span>&#160;    </div>
+<div class="line"><a name="l00253"></a><span class="lineno">  253</span>&#160;    <span class="keywordflow">if</span>(ClearMemory)</div>
+<div class="line"><a name="l00254"></a><span class="lineno">  254</span>&#160;    {</div>
+<div class="line"><a name="l00255"></a><span class="lineno">  255</span>&#160;        <span class="keywordflow">for</span>(<span class="keywordtype">size_t</span> Index = 0; Index &lt; Size; ++Index)</div>
+<div class="line"><a name="l00256"></a><span class="lineno">  256</span>&#160;        {</div>
+<div class="line"><a name="l00257"></a><span class="lineno">  257</span>&#160;            ((<a class="code" href="../../d7/d05/ab__common_8h.html#a92c50087ca0e64fa93fc59402c55f8ca">u8</a>*)Result)[Index] = 0;</div>
+<div class="line"><a name="l00258"></a><span class="lineno">  258</span>&#160;        }</div>
+<div class="line"><a name="l00259"></a><span class="lineno">  259</span>&#160;    }</div>
+<div class="line"><a name="l00260"></a><span class="lineno">  260</span>&#160;    </div>
+<div class="line"><a name="l00261"></a><span class="lineno">  261</span>&#160;    <span class="keywordflow">return</span> Result;</div>
+<div class="line"><a name="l00262"></a><span class="lineno">  262</span>&#160;}</div>
+<div class="line"><a name="l00263"></a><span class="lineno">  263</span>&#160; </div>
+<div class="line"><a name="l00264"></a><span class="lineno">  264</span>&#160;temporary_memory</div>
+<div class="line"><a name="l00265"></a><span class="lineno">  265</span>&#160;<a class="code" href="../../d0/d0a/ab__memory_8h.html#a77b6adde3ba40f7f3777bcc01c396ccd">abm_BeginTemporaryMemory</a>(memory_arena *Memory)</div>
+<div class="line"><a name="l00266"></a><span class="lineno">  266</span>&#160;{</div>
+<div class="line"><a name="l00267"></a><span class="lineno">  267</span>&#160;    temporary_memory Result = {};</div>
+<div class="line"><a name="l00268"></a><span class="lineno">  268</span>&#160;    Result.Arena = Memory;</div>
+<div class="line"><a name="l00269"></a><span class="lineno">  269</span>&#160;    Result.Used = Memory-&gt;Used;</div>
+<div class="line"><a name="l00270"></a><span class="lineno">  270</span>&#160;    </div>
+<div class="line"><a name="l00271"></a><span class="lineno">  271</span>&#160;    <span class="keywordflow">return</span> Result;</div>
+<div class="line"><a name="l00272"></a><span class="lineno">  272</span>&#160;}</div>
 <div class="line"><a name="l00273"></a><span class="lineno">  273</span>&#160; </div>
 <div class="line"><a name="l00274"></a><span class="lineno">  274</span>&#160;<span class="keywordtype">void</span></div>
-<div class="line"><a name="l00275"></a><span class="lineno">  275</span>&#160;<a class="code" href="../../d0/d0a/ab__memory_8h.html#a8ca432174a01c886b3c834cbb140c5ab">abm_ResetMemory</a>(memory_arena *Memory)</div>
+<div class="line"><a name="l00275"></a><span class="lineno">  275</span>&#160;<a class="code" href="../../d0/d0a/ab__memory_8h.html#a8dbf22e067d85b9ad8422126755d23df">abm_EndTemporaryMemory</a>(temporary_memory TempMem)</div>
 <div class="line"><a name="l00276"></a><span class="lineno">  276</span>&#160;{</div>
-<div class="line"><a name="l00277"></a><span class="lineno">  277</span>&#160;    Memory-&gt;Used = 0;</div>
+<div class="line"><a name="l00277"></a><span class="lineno">  277</span>&#160;    TempMem.Arena-&gt;Used = TempMem.Used;</div>
 <div class="line"><a name="l00278"></a><span class="lineno">  278</span>&#160;}</div>
 <div class="line"><a name="l00279"></a><span class="lineno">  279</span>&#160; </div>
-<div class="line"><a name="l00280"></a><span class="lineno">  280</span>&#160;<span class="keyword">inline</span> <span class="keywordtype">size_t</span></div>
-<div class="line"><a name="l00281"></a><span class="lineno">  281</span>&#160;<a class="code" href="../../d0/d0a/ab__memory_8h.html#a9061bfb19b910033ab211832bc593fed">abm_GetMemoryLeft</a>(memory_arena *Memory)</div>
-<div class="line"><a name="l00282"></a><span class="lineno">  282</span>&#160;{</div>
-<div class="line"><a name="l00283"></a><span class="lineno">  283</span>&#160;    <span class="keywordtype">size_t</span> Result = Memory-&gt;Size - Memory-&gt;Used;</div>
-<div class="line"><a name="l00284"></a><span class="lineno">  284</span>&#160;    </div>
-<div class="line"><a name="l00285"></a><span class="lineno">  285</span>&#160;    <span class="keywordflow">return</span> Result;</div>
-<div class="line"><a name="l00286"></a><span class="lineno">  286</span>&#160;}</div>
-<div class="line"><a name="l00287"></a><span class="lineno">  287</span>&#160; </div>
-<div class="line"><a name="l00288"></a><span class="lineno">  288</span>&#160; </div>
-<div class="line"><a name="l00289"></a><span class="lineno">  289</span>&#160;<span class="preprocessor">#undef AB_MEMORY_SRC</span></div>
-<div class="line"><a name="l00290"></a><span class="lineno">  290</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="line"><a name="l00280"></a><span class="lineno">  280</span>&#160; </div>
+<div class="line"><a name="l00281"></a><span class="lineno">  281</span>&#160;<span class="keywordtype">void</span></div>
+<div class="line"><a name="l00282"></a><span class="lineno">  282</span>&#160;<a class="code" href="../../d0/d0a/ab__memory_8h.html#a8ca432174a01c886b3c834cbb140c5ab">abm_ResetMemory</a>(memory_arena *Memory)</div>
+<div class="line"><a name="l00283"></a><span class="lineno">  283</span>&#160;{</div>
+<div class="line"><a name="l00284"></a><span class="lineno">  284</span>&#160;    Memory-&gt;Used = 0;</div>
+<div class="line"><a name="l00285"></a><span class="lineno">  285</span>&#160;}</div>
+<div class="line"><a name="l00286"></a><span class="lineno">  286</span>&#160; </div>
+<div class="line"><a name="l00287"></a><span class="lineno">  287</span>&#160;<span class="keyword">inline</span> <span class="keywordtype">size_t</span></div>
+<div class="line"><a name="l00288"></a><span class="lineno">  288</span>&#160;<a class="code" href="../../d0/d0a/ab__memory_8h.html#a9061bfb19b910033ab211832bc593fed">abm_GetMemoryLeft</a>(memory_arena *Memory)</div>
+<div class="line"><a name="l00289"></a><span class="lineno">  289</span>&#160;{</div>
+<div class="line"><a name="l00290"></a><span class="lineno">  290</span>&#160;    <span class="keywordtype">size_t</span> Result = Memory-&gt;Size - Memory-&gt;Used;</div>
+<div class="line"><a name="l00291"></a><span class="lineno">  291</span>&#160;    </div>
+<div class="line"><a name="l00292"></a><span class="lineno">  292</span>&#160;    <span class="keywordflow">return</span> Result;</div>
+<div class="line"><a name="l00293"></a><span class="lineno">  293</span>&#160;}</div>
+<div class="line"><a name="l00294"></a><span class="lineno">  294</span>&#160; </div>
+<div class="line"><a name="l00295"></a><span class="lineno">  295</span>&#160; </div>
+<div class="line"><a name="l00296"></a><span class="lineno">  296</span>&#160;<span class="preprocessor">#undef AB_MEMORY_SRC</span></div>
+<div class="line"><a name="l00297"></a><span class="lineno">  297</span>&#160;<span class="preprocessor">#endif</span></div>
 </div><!-- fragment --></div><!-- contents -->
 <div class="ttc" id="aab__memory__linux_8h_html"><div class="ttname"><a href="../../d3/d1f/ab__memory__linux_8h.html">ab_memory_linux.h</a></div><div class="ttdoc">Linux specific implementation of some memory functions.</div></div>
-<div class="ttc" id="aab__memory_8h_html_ab8d45b257f787efccb8a928176cc2c88"><div class="ttname"><a href="../../d0/d0a/ab__memory_8h.html#ab8d45b257f787efccb8a928176cc2c88">abm_PushSize</a></div><div class="ttdeci">#define abm_PushSize(Arena, Size)</div><div class="ttdoc">Get memory of given size and return a pointer to memory.</div><div class="ttdef"><b>Definition:</b> ab_memory.h:120</div></div>
+<div class="ttc" id="aab__memory_8h_html_ab8d45b257f787efccb8a928176cc2c88"><div class="ttname"><a href="../../d0/d0a/ab__memory_8h.html#ab8d45b257f787efccb8a928176cc2c88">abm_PushSize</a></div><div class="ttdeci">#define abm_PushSize(Arena, Size)</div><div class="ttdoc">Get memory of given size and return a pointer to memory.</div><div class="ttdef"><b>Definition:</b> ab_memory.h:127</div></div>
 <div class="ttc" id="aab__memory_8h_html_a1b0ab8d04e6309ae31b1b2f8282dc085"><div class="ttname"><a href="../../d0/d0a/ab__memory_8h.html#a1b0ab8d04e6309ae31b1b2f8282dc085">abm_CreateSubArena</a></div><div class="ttdeci">memory_arena abm_CreateSubArena(memory_arena *Memory, size_t Size)</div><div class="ttdoc">Create a memory_arena inside an existing arena.</div></div>
 <div class="ttc" id="aab__memory_8h_html_a8dbf22e067d85b9ad8422126755d23df"><div class="ttname"><a href="../../d0/d0a/ab__memory_8h.html#a8dbf22e067d85b9ad8422126755d23df">abm_EndTemporaryMemory</a></div><div class="ttdeci">void abm_EndTemporaryMemory(temporary_memory TempMem)</div><div class="ttdoc">Ends the section of temporary memory.</div></div>
 <div class="ttc" id="aab__common_8h_html"><div class="ttname"><a href="../../d7/d05/ab__common_8h.html">ab_common.h</a></div><div class="ttdoc">Common macros and typedefs.</div></div>

@@ -7,6 +7,13 @@
 
 These are functions to handle string fragments. There are also some safe string copy and find functions. `abs_stringptr` is generally used for a fragment of a larger piece of text.
 
+This is a single-file library. You may include it as a header just as any other. Add the following define to include the source *once* per project:
+
+~~~c
+#define AB_STRING_SRC
+#include "ab_string.h"
+~~~
+
 # MIT License
 
  [MIT Public License](https://opensource.org/licenses/MIT)

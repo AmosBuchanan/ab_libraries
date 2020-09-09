@@ -5,7 +5,14 @@
 @date 2020
 @copyright [MIT Public License](https://opensource.org/licenses/MIT)
 
-These are functions used for timing and time comparisons. Handles both wall clock time and monotonic time. Can be used in both Windows and Linux.
+These are functions used for timing and time comparisons. Handles both wall clock time and monotonic time. Can be used in both Windows and Linux. Define `_LINUX` or `_WINDOWS` either as a compile option or before calling this to ensure the correct code is pulled in.
+
+This is a single-file library. You may include it as a header just as any other. Add the following define to include the source *once* per project:
+
+~~~c
+#define AB_TIME_SRC
+#include "ab_time.h"
+~~~
 
 Example Usage:
 ~~~c
@@ -17,6 +24,7 @@ while(isRunning)
     r32 TimeElapsed = abt_GetElapsedMsR32(StartTime, Now);
     if(TimeElapsed > 1000)
     {
+        StartTime = Now;
         printf("One Second Elapsed\n");
     }
 }

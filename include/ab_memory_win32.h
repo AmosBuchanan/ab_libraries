@@ -5,7 +5,7 @@
 @date 2020
 @copyright [MIT Public License](https://opensource.org/licenses/MIT)
 
-Windows specific implementation of functions. See @ref ab_memory.h for function usage.
+Windows specific implementation of functions. See @ref ab_memory.h for function usage. Do not include this file directly; it's included from @ref ab_memory.h automatically.
 
 # MIT License
 

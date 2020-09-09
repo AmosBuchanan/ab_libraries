@@ -6,16 +6,14 @@ Using string fragments, usually but not exclusively sections of larger strings.
 
 
 {\ttfamily \#include \char`\"{}ab\+\_\+memory.\+h\char`\"{}}\newline
-Include dependency graph for ab\+\_\+string.\+h\+:
-\nopagebreak
+Include dependency graph for ab\+\_\+string.\+h\+:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
 \includegraphics[width=198pt]{de/dc1/ab__string_8h__incl}
 \end{center}
 \end{figure}
-This graph shows which files directly or indirectly include this file\+:
-\nopagebreak
+This graph shows which files directly or indirectly include this file\+:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -75,6 +73,15 @@ Amos Buchanan
 \href{https://opensource.org/licenses/MIT}{\texttt{ M\+IT Public License}}
 \end{DoxyCopyright}
 These are functions to handle string fragments. There are also some safe string copy and find functions. {\ttfamily \mbox{\hyperlink{structabs__stringptr}{abs\+\_\+stringptr}}} is generally used for a fragment of a larger piece of text.
+
+This is a single-\/file library. You may include it as a header just as any other. Add the following define to include the source {\itshape once} per project\+:
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\textcolor{preprocessor}{\#define AB\_STRING\_SRC}}
+\DoxyCodeLine{\textcolor{preprocessor}{\#include "{}ab\_string.h"{}}}
+\end{DoxyCode}
+
 
 \doxysubsection*{M\+IT License}
 

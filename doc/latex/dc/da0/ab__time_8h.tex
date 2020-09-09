@@ -7,8 +7,7 @@ Functions for time and timing.
 
 {\ttfamily \#include $<$time.\+h$>$}\newline
 {\ttfamily \#include \char`\"{}ab\+\_\+common.\+h\char`\"{}}\newline
-Include dependency graph for ab\+\_\+time.\+h\+:
-\nopagebreak
+Include dependency graph for ab\+\_\+time.\+h\+:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -68,7 +67,16 @@ Amos Buchanan
 \begin{DoxyCopyright}{Copyright}
 \href{https://opensource.org/licenses/MIT}{\texttt{ M\+IT Public License}}
 \end{DoxyCopyright}
-These are functions used for timing and time comparisons. Handles both wall clock time and monotonic time. Can be used in both Windows and Linux.
+These are functions used for timing and time comparisons. Handles both wall clock time and monotonic time. Can be used in both Windows and Linux. Define {\ttfamily \+\_\+\+L\+I\+N\+UX} or {\ttfamily \+\_\+\+W\+I\+N\+D\+O\+WS} either as a compile option or before calling this to ensure the correct code is pulled in.
+
+This is a single-\/file library. You may include it as a header just as any other. Add the following define to include the source {\itshape once} per project\+:
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\textcolor{preprocessor}{\#define AB\_TIME\_SRC}}
+\DoxyCodeLine{\textcolor{preprocessor}{\#include "{}ab\_time.h"{}}}
+\end{DoxyCode}
+
 
 Example Usage\+: 
 \begin{DoxyCode}{0}
@@ -80,6 +88,7 @@ Example Usage\+:
 \DoxyCodeLine{    \mbox{\hyperlink{ab__common_8h_aafa04bc3cb166e826b75a23f4add4b59}{r32}} TimeElapsed = \mbox{\hyperlink{ab__time_8h_a9834c3b5b55da0fe4ae280550cf5d97f}{abt\_GetElapsedMsR32}}(StartTime, Now);}
 \DoxyCodeLine{    \textcolor{keywordflow}{if}(TimeElapsed > 1000)}
 \DoxyCodeLine{    \{}
+\DoxyCodeLine{        StartTime = Now;}
 \DoxyCodeLine{        printf(\textcolor{stringliteral}{"{}One Second Elapsed\(\backslash\)n"{}});}
 \DoxyCodeLine{    \}}
 \DoxyCodeLine{\}}

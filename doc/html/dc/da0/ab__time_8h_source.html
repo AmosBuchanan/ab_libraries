@@ -72,135 +72,135 @@ $(function() {
 </div><!--header-->
 <div class="contents">
 <a href="../../dc/da0/ab__time_8h.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160; </div>
-<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;<span class="preprocessor">#ifndef _AB_TIME_H</span></div>
-<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;<span class="preprocessor">#define _AB_TIME_H</span></div>
-<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160; </div>
-<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;<span class="preprocessor">#include &lt;time.h&gt;</span></div>
-<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160; </div>
-<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="../../d7/d05/ab__common_8h.html">ab_common.h</a>&quot;</span></div>
-<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160; </div>
-<div class="line"><a name="l00046"></a><span class="lineno"><a class="line" href="../../dc/da0/ab__time_8h.html#adc59735fd0d20e93fe3016c8b6a4f782">   46</a></span>&#160;<span class="keyword">typedef</span> timespec <a class="code" href="../../dc/da0/ab__time_8h.html#adc59735fd0d20e93fe3016c8b6a4f782">abt_time</a>;</div>
-<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160; </div>
-<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160; </div>
-<div class="line"><a name="l00050"></a><span class="lineno"><a class="line" href="../../dc/da0/ab__time_8h.html#a55589396a22562f4037d2817a579e82e">   50</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="../../dc/da0/ab__time_8h.html#a55589396a22562f4037d2817a579e82e">abt_GetCurrent</a>(<a class="code" href="../../dc/da0/ab__time_8h.html#adc59735fd0d20e93fe3016c8b6a4f782">abt_time</a> *Now);</div>
-<div class="line"><a name="l00051"></a><span class="lineno"><a class="line" href="../../dc/da0/ab__time_8h.html#a410389a8363dbb7453520927331297d0">   51</a></span>&#160;<a class="code" href="../../dc/da0/ab__time_8h.html#adc59735fd0d20e93fe3016c8b6a4f782">abt_time</a> <a class="code" href="../../dc/da0/ab__time_8h.html#a55589396a22562f4037d2817a579e82e">abt_GetCurrent</a>();</div>
-<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160; </div>
-<div class="line"><a name="l00055"></a><span class="lineno"><a class="line" href="../../dc/da0/ab__time_8h.html#ad401e90e9886fe9e1fb5f49f2b11d8c0">   55</a></span>&#160;<a class="code" href="../../dc/da0/ab__time_8h.html#adc59735fd0d20e93fe3016c8b6a4f782">abt_time</a> <a class="code" href="../../dc/da0/ab__time_8h.html#ad401e90e9886fe9e1fb5f49f2b11d8c0">abt_GetMonotonic</a>();</div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;<span class="preprocessor">#ifndef _AB_TIME_H</span></div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;<span class="preprocessor">#define _AB_TIME_H</span></div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160; </div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;<span class="preprocessor">#include &lt;time.h&gt;</span></div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160; </div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="../../d7/d05/ab__common_8h.html">ab_common.h</a>&quot;</span></div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160; </div>
+<div class="line"><a name="l00054"></a><span class="lineno"><a class="line" href="../../dc/da0/ab__time_8h.html#adc59735fd0d20e93fe3016c8b6a4f782">   54</a></span>&#160;<span class="keyword">typedef</span> timespec <a class="code" href="../../dc/da0/ab__time_8h.html#adc59735fd0d20e93fe3016c8b6a4f782">abt_time</a>;</div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160; </div>
 <div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160; </div>
-<div class="line"><a name="l00063"></a><span class="lineno"><a class="line" href="../../dc/da0/ab__time_8h.html#ad3ab740dfcc9875efe4b1721fd374db4">   63</a></span>&#160;<a class="code" href="../../d7/d05/ab__common_8h.html#afaa62991928fb9fb18ff0db62a040aba">u32</a> <a class="code" href="../../dc/da0/ab__time_8h.html#ad3ab740dfcc9875efe4b1721fd374db4">abt_GetElapsedMsU32</a>(<a class="code" href="../../dc/da0/ab__time_8h.html#adc59735fd0d20e93fe3016c8b6a4f782">abt_time</a> StartTime, <a class="code" href="../../dc/da0/ab__time_8h.html#adc59735fd0d20e93fe3016c8b6a4f782">abt_time</a> Now);</div>
-<div class="line"><a name="l00064"></a><span class="lineno"><a class="line" href="../../dc/da0/ab__time_8h.html#a9834c3b5b55da0fe4ae280550cf5d97f">   64</a></span>&#160;<a class="code" href="../../d7/d05/ab__common_8h.html#aafa04bc3cb166e826b75a23f4add4b59">r32</a> <a class="code" href="../../dc/da0/ab__time_8h.html#a9834c3b5b55da0fe4ae280550cf5d97f">abt_GetElapsedMsR32</a>(<a class="code" href="../../dc/da0/ab__time_8h.html#adc59735fd0d20e93fe3016c8b6a4f782">abt_time</a> StartTime, <a class="code" href="../../dc/da0/ab__time_8h.html#adc59735fd0d20e93fe3016c8b6a4f782">abt_time</a> Now);</div>
-<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160; </div>
-<div class="line"><a name="l00072"></a><span class="lineno"><a class="line" href="../../dc/da0/ab__time_8h.html#a31c1260f1e3d571fbe60f7b77fe6d1fb">   72</a></span>&#160;<a class="code" href="../../dc/da0/ab__time_8h.html#adc59735fd0d20e93fe3016c8b6a4f782">abt_time</a> <a class="code" href="../../dc/da0/ab__time_8h.html#a31c1260f1e3d571fbe60f7b77fe6d1fb">abt_GetTimeFromElapsed</a>(<a class="code" href="../../dc/da0/ab__time_8h.html#adc59735fd0d20e93fe3016c8b6a4f782">abt_time</a> StartTime, <a class="code" href="../../d7/d05/ab__common_8h.html#aafa04bc3cb166e826b75a23f4add4b59">r32</a> TimestampMs);</div>
-<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160; </div>
-<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160; </div>
-<div class="line"><a name="l00082"></a><span class="lineno"><a class="line" href="../../dc/da0/ab__time_8h.html#ab8ae3038f353a3a59bc79abf35dcb4a4">   82</a></span>&#160;<span class="keyword">inline</span> <a class="code" href="../../d7/d05/ab__common_8h.html#afaa62991928fb9fb18ff0db62a040aba">u32</a> <a class="code" href="../../dc/da0/ab__time_8h.html#ab8ae3038f353a3a59bc79abf35dcb4a4">abt_GetMsFromTimeU32</a>(<a class="code" href="../../dc/da0/ab__time_8h.html#adc59735fd0d20e93fe3016c8b6a4f782">abt_time</a> Time);</div>
-<div class="line"><a name="l00083"></a><span class="lineno"><a class="line" href="../../dc/da0/ab__time_8h.html#a05feba1d586786dad132d87c70acf336">   83</a></span>&#160;<span class="keyword">inline</span> <a class="code" href="../../d7/d05/ab__common_8h.html#afaa62991928fb9fb18ff0db62a040aba">u32</a> <a class="code" href="../../dc/da0/ab__time_8h.html#a05feba1d586786dad132d87c70acf336">abt_GetMsFromTime32</a>(<a class="code" href="../../dc/da0/ab__time_8h.html#adc59735fd0d20e93fe3016c8b6a4f782">abt_time</a> Time);</div>
-<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160; </div>
-<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;<span class="preprocessor">#endif //_AB_TIME_H</span></div>
-<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160; </div>
-<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;<span class="preprocessor">#if defined(AB_TIME_SRC)</span></div>
-<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;<span class="keywordtype">void</span></div>
-<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;<a class="code" href="../../dc/da0/ab__time_8h.html#a55589396a22562f4037d2817a579e82e">abt_GetCurrent</a>(<a class="code" href="../../dc/da0/ab__time_8h.html#adc59735fd0d20e93fe3016c8b6a4f782">abt_time</a> *Now)</div>
-<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;{</div>
-<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;    timespec_get(Now, TIME_UTC);</div>
-<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;}</div>
-<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160; </div>
-<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;<a class="code" href="../../dc/da0/ab__time_8h.html#adc59735fd0d20e93fe3016c8b6a4f782">abt_time</a></div>
-<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;<a class="code" href="../../dc/da0/ab__time_8h.html#a55589396a22562f4037d2817a579e82e">abt_GetCurrent</a>()</div>
-<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;{</div>
-<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;    timespec Result = {};</div>
-<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;    timespec_get(&amp;Result, TIME_UTC);</div>
-<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;    </div>
-<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;    <span class="keywordflow">return</span> (<a class="code" href="../../dc/da0/ab__time_8h.html#adc59735fd0d20e93fe3016c8b6a4f782">abt_time</a>)Result;</div>
-<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;}</div>
-<div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160; </div>
-<div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;<a class="code" href="../../dc/da0/ab__time_8h.html#adc59735fd0d20e93fe3016c8b6a4f782">abt_time</a></div>
-<div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;<a class="code" href="../../dc/da0/ab__time_8h.html#ad401e90e9886fe9e1fb5f49f2b11d8c0">abt_GetMonotonic</a>()</div>
-<div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;{</div>
-<div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;    <a class="code" href="../../dc/da0/ab__time_8h.html#adc59735fd0d20e93fe3016c8b6a4f782">abt_time</a> Result = {};</div>
+<div class="line"><a name="l00058"></a><span class="lineno"><a class="line" href="../../dc/da0/ab__time_8h.html#a55589396a22562f4037d2817a579e82e">   58</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="../../dc/da0/ab__time_8h.html#a55589396a22562f4037d2817a579e82e">abt_GetCurrent</a>(<a class="code" href="../../dc/da0/ab__time_8h.html#adc59735fd0d20e93fe3016c8b6a4f782">abt_time</a> *Now);</div>
+<div class="line"><a name="l00059"></a><span class="lineno"><a class="line" href="../../dc/da0/ab__time_8h.html#a410389a8363dbb7453520927331297d0">   59</a></span>&#160;<a class="code" href="../../dc/da0/ab__time_8h.html#adc59735fd0d20e93fe3016c8b6a4f782">abt_time</a> <a class="code" href="../../dc/da0/ab__time_8h.html#a55589396a22562f4037d2817a579e82e">abt_GetCurrent</a>();</div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160; </div>
+<div class="line"><a name="l00063"></a><span class="lineno"><a class="line" href="../../dc/da0/ab__time_8h.html#ad401e90e9886fe9e1fb5f49f2b11d8c0">   63</a></span>&#160;<a class="code" href="../../dc/da0/ab__time_8h.html#adc59735fd0d20e93fe3016c8b6a4f782">abt_time</a> <a class="code" href="../../dc/da0/ab__time_8h.html#ad401e90e9886fe9e1fb5f49f2b11d8c0">abt_GetMonotonic</a>();</div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160; </div>
+<div class="line"><a name="l00071"></a><span class="lineno"><a class="line" href="../../dc/da0/ab__time_8h.html#ad3ab740dfcc9875efe4b1721fd374db4">   71</a></span>&#160;<a class="code" href="../../d7/d05/ab__common_8h.html#afaa62991928fb9fb18ff0db62a040aba">u32</a> <a class="code" href="../../dc/da0/ab__time_8h.html#ad3ab740dfcc9875efe4b1721fd374db4">abt_GetElapsedMsU32</a>(<a class="code" href="../../dc/da0/ab__time_8h.html#adc59735fd0d20e93fe3016c8b6a4f782">abt_time</a> StartTime, <a class="code" href="../../dc/da0/ab__time_8h.html#adc59735fd0d20e93fe3016c8b6a4f782">abt_time</a> Now);</div>
+<div class="line"><a name="l00072"></a><span class="lineno"><a class="line" href="../../dc/da0/ab__time_8h.html#a9834c3b5b55da0fe4ae280550cf5d97f">   72</a></span>&#160;<a class="code" href="../../d7/d05/ab__common_8h.html#aafa04bc3cb166e826b75a23f4add4b59">r32</a> <a class="code" href="../../dc/da0/ab__time_8h.html#a9834c3b5b55da0fe4ae280550cf5d97f">abt_GetElapsedMsR32</a>(<a class="code" href="../../dc/da0/ab__time_8h.html#adc59735fd0d20e93fe3016c8b6a4f782">abt_time</a> StartTime, <a class="code" href="../../dc/da0/ab__time_8h.html#adc59735fd0d20e93fe3016c8b6a4f782">abt_time</a> Now);</div>
+<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160; </div>
+<div class="line"><a name="l00080"></a><span class="lineno"><a class="line" href="../../dc/da0/ab__time_8h.html#a31c1260f1e3d571fbe60f7b77fe6d1fb">   80</a></span>&#160;<a class="code" href="../../dc/da0/ab__time_8h.html#adc59735fd0d20e93fe3016c8b6a4f782">abt_time</a> <a class="code" href="../../dc/da0/ab__time_8h.html#a31c1260f1e3d571fbe60f7b77fe6d1fb">abt_GetTimeFromElapsed</a>(<a class="code" href="../../dc/da0/ab__time_8h.html#adc59735fd0d20e93fe3016c8b6a4f782">abt_time</a> StartTime, <a class="code" href="../../d7/d05/ab__common_8h.html#aafa04bc3cb166e826b75a23f4add4b59">r32</a> TimestampMs);</div>
+<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160; </div>
+<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160; </div>
+<div class="line"><a name="l00090"></a><span class="lineno"><a class="line" href="../../dc/da0/ab__time_8h.html#ab8ae3038f353a3a59bc79abf35dcb4a4">   90</a></span>&#160;<span class="keyword">inline</span> <a class="code" href="../../d7/d05/ab__common_8h.html#afaa62991928fb9fb18ff0db62a040aba">u32</a> <a class="code" href="../../dc/da0/ab__time_8h.html#ab8ae3038f353a3a59bc79abf35dcb4a4">abt_GetMsFromTimeU32</a>(<a class="code" href="../../dc/da0/ab__time_8h.html#adc59735fd0d20e93fe3016c8b6a4f782">abt_time</a> Time);</div>
+<div class="line"><a name="l00091"></a><span class="lineno"><a class="line" href="../../dc/da0/ab__time_8h.html#a05feba1d586786dad132d87c70acf336">   91</a></span>&#160;<span class="keyword">inline</span> <a class="code" href="../../d7/d05/ab__common_8h.html#afaa62991928fb9fb18ff0db62a040aba">u32</a> <a class="code" href="../../dc/da0/ab__time_8h.html#a05feba1d586786dad132d87c70acf336">abt_GetMsFromTime32</a>(<a class="code" href="../../dc/da0/ab__time_8h.html#adc59735fd0d20e93fe3016c8b6a4f782">abt_time</a> Time);</div>
+<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160; </div>
+<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;<span class="preprocessor">#endif //_AB_TIME_H</span></div>
+<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160; </div>
+<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;<span class="preprocessor">#if defined(AB_TIME_SRC)</span></div>
+<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;<span class="keywordtype">void</span></div>
+<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;<a class="code" href="../../dc/da0/ab__time_8h.html#a55589396a22562f4037d2817a579e82e">abt_GetCurrent</a>(<a class="code" href="../../dc/da0/ab__time_8h.html#adc59735fd0d20e93fe3016c8b6a4f782">abt_time</a> *Now)</div>
+<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;{</div>
+<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;    timespec_get(Now, TIME_UTC);</div>
+<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;}</div>
+<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160; </div>
+<div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;<a class="code" href="../../dc/da0/ab__time_8h.html#adc59735fd0d20e93fe3016c8b6a4f782">abt_time</a></div>
+<div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;<a class="code" href="../../dc/da0/ab__time_8h.html#a55589396a22562f4037d2817a579e82e">abt_GetCurrent</a>()</div>
+<div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;{</div>
+<div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;    timespec Result = {};</div>
+<div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;    timespec_get(&amp;Result, TIME_UTC);</div>
 <div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;    </div>
-<div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;<span class="preprocessor">#ifdef _WINDOWS</span></div>
-<div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160;    ULONGLONG Value = GetTickCount64();</div>
-<div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160;    <a class="code" href="../../d7/d05/ab__common_8h.html#aafa04bc3cb166e826b75a23f4add4b59">r32</a> ValueR32 = (<a class="code" href="../../d7/d05/ab__common_8h.html#aafa04bc3cb166e826b75a23f4add4b59">r32</a>)Value;</div>
-<div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160;    Result.tv_sec = (time_t)<a class="code" href="../../d7/d05/ab__common_8h.html#af99d895a4fb9ef16b8773bfb4682cb0b">MS_TO_S</a>(ValueR32);</div>
-<div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160;    Result.tv_nsec = (long)<a class="code" href="../../d7/d05/ab__common_8h.html#a830e4dd55a9d1f281527e77f61993194">MS_TO_NS</a>(Value - <a class="code" href="../../d7/d05/ab__common_8h.html#a20fa811b86f3ecd1f72ae57753c26d56">S_TO_MS</a>(Result.tv_sec));</div>
-<div class="line"><a name="l00114"></a><span class="lineno">  114</span>&#160;    </div>
-<div class="line"><a name="l00115"></a><span class="lineno">  115</span>&#160;<span class="preprocessor">#elif defined(_LINUX)</span></div>
-<div class="line"><a name="l00116"></a><span class="lineno">  116</span>&#160;    clock_gettime(CLOCK_MONOTONIC, &amp;Result);</div>
-<div class="line"><a name="l00117"></a><span class="lineno">  117</span>&#160;<span class="preprocessor">#endif</span></div>
-<div class="line"><a name="l00118"></a><span class="lineno">  118</span>&#160;    </div>
-<div class="line"><a name="l00119"></a><span class="lineno">  119</span>&#160;    <span class="keywordflow">return</span> Result;</div>
-<div class="line"><a name="l00120"></a><span class="lineno">  120</span>&#160;}</div>
-<div class="line"><a name="l00121"></a><span class="lineno">  121</span>&#160; </div>
-<div class="line"><a name="l00122"></a><span class="lineno">  122</span>&#160;<a class="code" href="../../d7/d05/ab__common_8h.html#aafa04bc3cb166e826b75a23f4add4b59">r32</a></div>
-<div class="line"><a name="l00123"></a><span class="lineno">  123</span>&#160;<a class="code" href="../../dc/da0/ab__time_8h.html#a9834c3b5b55da0fe4ae280550cf5d97f">abt_GetElapsedMsR32</a>(<a class="code" href="../../dc/da0/ab__time_8h.html#adc59735fd0d20e93fe3016c8b6a4f782">abt_time</a> StartTime, <a class="code" href="../../dc/da0/ab__time_8h.html#adc59735fd0d20e93fe3016c8b6a4f782">abt_time</a> Now)</div>
-<div class="line"><a name="l00124"></a><span class="lineno">  124</span>&#160;{</div>
-<div class="line"><a name="l00125"></a><span class="lineno">  125</span>&#160;    <a class="code" href="../../d7/d05/ab__common_8h.html#aafa04bc3cb166e826b75a23f4add4b59">r32</a> ElapsedTimeMs = 0.0f;</div>
-<div class="line"><a name="l00126"></a><span class="lineno">  126</span>&#160;    ElapsedTimeMs = (<a class="code" href="../../d7/d05/ab__common_8h.html#aafa04bc3cb166e826b75a23f4add4b59">r32</a>)<a class="code" href="../../d7/d05/ab__common_8h.html#a20fa811b86f3ecd1f72ae57753c26d56">S_TO_MS</a>(Now.tv_sec - StartTime.tv_sec);</div>
-<div class="line"><a name="l00127"></a><span class="lineno">  127</span>&#160;    <span class="keywordflow">if</span>(Now.tv_nsec &gt; StartTime.tv_nsec)</div>
-<div class="line"><a name="l00128"></a><span class="lineno">  128</span>&#160;    {</div>
-<div class="line"><a name="l00129"></a><span class="lineno">  129</span>&#160;        ElapsedTimeMs += (<a class="code" href="../../d7/d05/ab__common_8h.html#aafa04bc3cb166e826b75a23f4add4b59">r32</a>)<a class="code" href="../../d7/d05/ab__common_8h.html#a323127aaf9260b4e2092a8734886379a">NS_TO_MS</a>(Now.tv_nsec - StartTime.tv_nsec);</div>
-<div class="line"><a name="l00130"></a><span class="lineno">  130</span>&#160;    }</div>
-<div class="line"><a name="l00131"></a><span class="lineno">  131</span>&#160;    <span class="keywordflow">else</span></div>
-<div class="line"><a name="l00132"></a><span class="lineno">  132</span>&#160;    {</div>
-<div class="line"><a name="l00133"></a><span class="lineno">  133</span>&#160;        ElapsedTimeMs +=(<a class="code" href="../../d7/d05/ab__common_8h.html#aafa04bc3cb166e826b75a23f4add4b59">r32</a>) <a class="code" href="../../d7/d05/ab__common_8h.html#a323127aaf9260b4e2092a8734886379a">NS_TO_MS</a>((<a class="code" href="../../d7/d05/ab__common_8h.html#ad8619bfe2bde192cdb90aaa749de313a">S_TO_NS</a>(1.0f) + Now.tv_nsec) - StartTime.tv_nsec) - <a class="code" href="../../d7/d05/ab__common_8h.html#a20fa811b86f3ecd1f72ae57753c26d56">S_TO_MS</a>(1.0f);</div>
-<div class="line"><a name="l00134"></a><span class="lineno">  134</span>&#160;    }</div>
-<div class="line"><a name="l00135"></a><span class="lineno">  135</span>&#160;    </div>
-<div class="line"><a name="l00136"></a><span class="lineno">  136</span>&#160;    <span class="keywordflow">return</span> ElapsedTimeMs;</div>
-<div class="line"><a name="l00137"></a><span class="lineno">  137</span>&#160;}</div>
-<div class="line"><a name="l00138"></a><span class="lineno">  138</span>&#160; </div>
-<div class="line"><a name="l00139"></a><span class="lineno">  139</span>&#160;<a class="code" href="../../d7/d05/ab__common_8h.html#afaa62991928fb9fb18ff0db62a040aba">u32</a></div>
-<div class="line"><a name="l00140"></a><span class="lineno">  140</span>&#160;<a class="code" href="../../dc/da0/ab__time_8h.html#ad3ab740dfcc9875efe4b1721fd374db4">abt_GetElapsedMsU32</a>(<a class="code" href="../../dc/da0/ab__time_8h.html#adc59735fd0d20e93fe3016c8b6a4f782">abt_time</a> StartTime, <a class="code" href="../../dc/da0/ab__time_8h.html#adc59735fd0d20e93fe3016c8b6a4f782">abt_time</a> Now)</div>
-<div class="line"><a name="l00141"></a><span class="lineno">  141</span>&#160;{</div>
-<div class="line"><a name="l00142"></a><span class="lineno">  142</span>&#160;    <a class="code" href="../../d7/d05/ab__common_8h.html#afaa62991928fb9fb18ff0db62a040aba">u32</a> ElapsedTimeMs = 0;</div>
-<div class="line"><a name="l00143"></a><span class="lineno">  143</span>&#160;    ElapsedTimeMs = (<a class="code" href="../../d7/d05/ab__common_8h.html#afaa62991928fb9fb18ff0db62a040aba">u32</a>)<a class="code" href="../../d7/d05/ab__common_8h.html#a20fa811b86f3ecd1f72ae57753c26d56">S_TO_MS</a>(Now.tv_sec - StartTime.tv_sec);</div>
-<div class="line"><a name="l00144"></a><span class="lineno">  144</span>&#160;    <span class="keywordflow">if</span>(Now.tv_nsec &gt; StartTime.tv_nsec)</div>
-<div class="line"><a name="l00145"></a><span class="lineno">  145</span>&#160;    {</div>
-<div class="line"><a name="l00146"></a><span class="lineno">  146</span>&#160;        ElapsedTimeMs += (<a class="code" href="../../d7/d05/ab__common_8h.html#afaa62991928fb9fb18ff0db62a040aba">u32</a>)<a class="code" href="../../d7/d05/ab__common_8h.html#a323127aaf9260b4e2092a8734886379a">NS_TO_MS</a>(Now.tv_nsec - StartTime.tv_nsec);</div>
-<div class="line"><a name="l00147"></a><span class="lineno">  147</span>&#160;    }</div>
-<div class="line"><a name="l00148"></a><span class="lineno">  148</span>&#160;    <span class="keywordflow">else</span></div>
-<div class="line"><a name="l00149"></a><span class="lineno">  149</span>&#160;    {</div>
-<div class="line"><a name="l00150"></a><span class="lineno">  150</span>&#160;        ElapsedTimeMs +=(<a class="code" href="../../d7/d05/ab__common_8h.html#afaa62991928fb9fb18ff0db62a040aba">u32</a>) <a class="code" href="../../d7/d05/ab__common_8h.html#a323127aaf9260b4e2092a8734886379a">NS_TO_MS</a>((<a class="code" href="../../d7/d05/ab__common_8h.html#ad8619bfe2bde192cdb90aaa749de313a">S_TO_NS</a>(1) + Now.tv_nsec) - StartTime.tv_nsec) - <a class="code" href="../../d7/d05/ab__common_8h.html#a20fa811b86f3ecd1f72ae57753c26d56">S_TO_MS</a>(1);</div>
-<div class="line"><a name="l00151"></a><span class="lineno">  151</span>&#160;    }</div>
-<div class="line"><a name="l00152"></a><span class="lineno">  152</span>&#160;    </div>
-<div class="line"><a name="l00153"></a><span class="lineno">  153</span>&#160;    <span class="keywordflow">return</span> ElapsedTimeMs;</div>
-<div class="line"><a name="l00154"></a><span class="lineno">  154</span>&#160;}</div>
-<div class="line"><a name="l00155"></a><span class="lineno">  155</span>&#160; </div>
-<div class="line"><a name="l00156"></a><span class="lineno">  156</span>&#160;<a class="code" href="../../dc/da0/ab__time_8h.html#adc59735fd0d20e93fe3016c8b6a4f782">abt_time</a></div>
-<div class="line"><a name="l00157"></a><span class="lineno">  157</span>&#160;abt_GetWallClockFromElapsed(<a class="code" href="../../dc/da0/ab__time_8h.html#adc59735fd0d20e93fe3016c8b6a4f782">abt_time</a> StartTime, <a class="code" href="../../d7/d05/ab__common_8h.html#aafa04bc3cb166e826b75a23f4add4b59">r32</a> TimestampMs)</div>
-<div class="line"><a name="l00158"></a><span class="lineno">  158</span>&#160;{</div>
-<div class="line"><a name="l00159"></a><span class="lineno">  159</span>&#160;    <span class="comment">// NOTE(amos): There are some rounding errors in this method; is there a better way?</span></div>
-<div class="line"><a name="l00160"></a><span class="lineno">  160</span>&#160;    <a class="code" href="../../d7/d05/ab__common_8h.html#aafa04bc3cb166e826b75a23f4add4b59">r32</a> SecondsR32 = <a class="code" href="../../d7/d05/ab__common_8h.html#af99d895a4fb9ef16b8773bfb4682cb0b">MS_TO_S</a>(TimestampMs);</div>
-<div class="line"><a name="l00161"></a><span class="lineno">  161</span>&#160;    <a class="code" href="../../d7/d05/ab__common_8h.html#afaa62991928fb9fb18ff0db62a040aba">u32</a> Seconds = (<a class="code" href="../../d7/d05/ab__common_8h.html#afaa62991928fb9fb18ff0db62a040aba">u32</a>)SecondsR32;</div>
-<div class="line"><a name="l00162"></a><span class="lineno">  162</span>&#160;    <a class="code" href="../../d7/d05/ab__common_8h.html#aafa04bc3cb166e826b75a23f4add4b59">r32</a> NanosecondsR32 = <a class="code" href="../../d7/d05/ab__common_8h.html#a830e4dd55a9d1f281527e77f61993194">MS_TO_NS</a>(TimestampMs) - ((<a class="code" href="../../d7/d05/ab__common_8h.html#aafa04bc3cb166e826b75a23f4add4b59">r32</a>)<a class="code" href="../../d7/d05/ab__common_8h.html#ad8619bfe2bde192cdb90aaa749de313a">S_TO_NS</a>(Seconds));</div>
-<div class="line"><a name="l00163"></a><span class="lineno">  163</span>&#160;    <span class="keywordtype">long</span> Nanoseconds = (long)NanosecondsR32;</div>
-<div class="line"><a name="l00164"></a><span class="lineno">  164</span>&#160;    </div>
-<div class="line"><a name="l00165"></a><span class="lineno">  165</span>&#160;    <a class="code" href="../../dc/da0/ab__time_8h.html#adc59735fd0d20e93fe3016c8b6a4f782">abt_time</a> Result = StartTime;</div>
-<div class="line"><a name="l00166"></a><span class="lineno">  166</span>&#160;    </div>
-<div class="line"><a name="l00167"></a><span class="lineno">  167</span>&#160;    Result.tv_sec += (time_t)Seconds;</div>
-<div class="line"><a name="l00168"></a><span class="lineno">  168</span>&#160;    Result.tv_nsec += Nanoseconds;</div>
-<div class="line"><a name="l00169"></a><span class="lineno">  169</span>&#160;    </div>
-<div class="line"><a name="l00170"></a><span class="lineno">  170</span>&#160;    <span class="keywordflow">return</span> Result;</div>
-<div class="line"><a name="l00171"></a><span class="lineno">  171</span>&#160;}</div>
-<div class="line"><a name="l00172"></a><span class="lineno">  172</span>&#160; </div>
-<div class="line"><a name="l00173"></a><span class="lineno">  173</span>&#160;<span class="keyword">inline</span> <a class="code" href="../../d7/d05/ab__common_8h.html#afaa62991928fb9fb18ff0db62a040aba">u32</a></div>
-<div class="line"><a name="l00174"></a><span class="lineno">  174</span>&#160;<a class="code" href="../../dc/da0/ab__time_8h.html#ab8ae3038f353a3a59bc79abf35dcb4a4">abt_GetMsFromTimeU32</a>(<a class="code" href="../../dc/da0/ab__time_8h.html#adc59735fd0d20e93fe3016c8b6a4f782">abt_time</a> Time)</div>
-<div class="line"><a name="l00175"></a><span class="lineno">  175</span>&#160;{</div>
-<div class="line"><a name="l00176"></a><span class="lineno">  176</span>&#160;    <a class="code" href="../../d7/d05/ab__common_8h.html#afaa62991928fb9fb18ff0db62a040aba">u32</a> Ms = (<a class="code" href="../../d7/d05/ab__common_8h.html#afaa62991928fb9fb18ff0db62a040aba">u32</a>)<a class="code" href="../../d7/d05/ab__common_8h.html#a20fa811b86f3ecd1f72ae57753c26d56">S_TO_MS</a>(Time.tv_sec);</div>
-<div class="line"><a name="l00177"></a><span class="lineno">  177</span>&#160;    Ms += (<a class="code" href="../../d7/d05/ab__common_8h.html#afaa62991928fb9fb18ff0db62a040aba">u32</a>)<a class="code" href="../../d7/d05/ab__common_8h.html#a323127aaf9260b4e2092a8734886379a">NS_TO_MS</a>(Time.tv_nsec);</div>
-<div class="line"><a name="l00178"></a><span class="lineno">  178</span>&#160;    <span class="keywordflow">return</span> Ms;</div>
+<div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;    <span class="keywordflow">return</span> (<a class="code" href="../../dc/da0/ab__time_8h.html#adc59735fd0d20e93fe3016c8b6a4f782">abt_time</a>)Result;</div>
+<div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160;}</div>
+<div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160; </div>
+<div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160;<a class="code" href="../../dc/da0/ab__time_8h.html#adc59735fd0d20e93fe3016c8b6a4f782">abt_time</a></div>
+<div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160;<a class="code" href="../../dc/da0/ab__time_8h.html#ad401e90e9886fe9e1fb5f49f2b11d8c0">abt_GetMonotonic</a>()</div>
+<div class="line"><a name="l00114"></a><span class="lineno">  114</span>&#160;{</div>
+<div class="line"><a name="l00115"></a><span class="lineno">  115</span>&#160;    <a class="code" href="../../dc/da0/ab__time_8h.html#adc59735fd0d20e93fe3016c8b6a4f782">abt_time</a> Result = {};</div>
+<div class="line"><a name="l00116"></a><span class="lineno">  116</span>&#160;    </div>
+<div class="line"><a name="l00117"></a><span class="lineno">  117</span>&#160;<span class="preprocessor">#ifdef _WINDOWS</span></div>
+<div class="line"><a name="l00118"></a><span class="lineno">  118</span>&#160;    ULONGLONG Value = GetTickCount64();</div>
+<div class="line"><a name="l00119"></a><span class="lineno">  119</span>&#160;    <a class="code" href="../../d7/d05/ab__common_8h.html#aafa04bc3cb166e826b75a23f4add4b59">r32</a> ValueR32 = (<a class="code" href="../../d7/d05/ab__common_8h.html#aafa04bc3cb166e826b75a23f4add4b59">r32</a>)Value;</div>
+<div class="line"><a name="l00120"></a><span class="lineno">  120</span>&#160;    Result.tv_sec = (time_t)<a class="code" href="../../d7/d05/ab__common_8h.html#af99d895a4fb9ef16b8773bfb4682cb0b">MS_TO_S</a>(ValueR32);</div>
+<div class="line"><a name="l00121"></a><span class="lineno">  121</span>&#160;    Result.tv_nsec = (long)<a class="code" href="../../d7/d05/ab__common_8h.html#a830e4dd55a9d1f281527e77f61993194">MS_TO_NS</a>(Value - <a class="code" href="../../d7/d05/ab__common_8h.html#a20fa811b86f3ecd1f72ae57753c26d56">S_TO_MS</a>(Result.tv_sec));</div>
+<div class="line"><a name="l00122"></a><span class="lineno">  122</span>&#160;    </div>
+<div class="line"><a name="l00123"></a><span class="lineno">  123</span>&#160;<span class="preprocessor">#elif defined(_LINUX)</span></div>
+<div class="line"><a name="l00124"></a><span class="lineno">  124</span>&#160;    clock_gettime(CLOCK_MONOTONIC, &amp;Result);</div>
+<div class="line"><a name="l00125"></a><span class="lineno">  125</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="line"><a name="l00126"></a><span class="lineno">  126</span>&#160;    </div>
+<div class="line"><a name="l00127"></a><span class="lineno">  127</span>&#160;    <span class="keywordflow">return</span> Result;</div>
+<div class="line"><a name="l00128"></a><span class="lineno">  128</span>&#160;}</div>
+<div class="line"><a name="l00129"></a><span class="lineno">  129</span>&#160; </div>
+<div class="line"><a name="l00130"></a><span class="lineno">  130</span>&#160;<a class="code" href="../../d7/d05/ab__common_8h.html#aafa04bc3cb166e826b75a23f4add4b59">r32</a></div>
+<div class="line"><a name="l00131"></a><span class="lineno">  131</span>&#160;<a class="code" href="../../dc/da0/ab__time_8h.html#a9834c3b5b55da0fe4ae280550cf5d97f">abt_GetElapsedMsR32</a>(<a class="code" href="../../dc/da0/ab__time_8h.html#adc59735fd0d20e93fe3016c8b6a4f782">abt_time</a> StartTime, <a class="code" href="../../dc/da0/ab__time_8h.html#adc59735fd0d20e93fe3016c8b6a4f782">abt_time</a> Now)</div>
+<div class="line"><a name="l00132"></a><span class="lineno">  132</span>&#160;{</div>
+<div class="line"><a name="l00133"></a><span class="lineno">  133</span>&#160;    <a class="code" href="../../d7/d05/ab__common_8h.html#aafa04bc3cb166e826b75a23f4add4b59">r32</a> ElapsedTimeMs = 0.0f;</div>
+<div class="line"><a name="l00134"></a><span class="lineno">  134</span>&#160;    ElapsedTimeMs = (<a class="code" href="../../d7/d05/ab__common_8h.html#aafa04bc3cb166e826b75a23f4add4b59">r32</a>)<a class="code" href="../../d7/d05/ab__common_8h.html#a20fa811b86f3ecd1f72ae57753c26d56">S_TO_MS</a>(Now.tv_sec - StartTime.tv_sec);</div>
+<div class="line"><a name="l00135"></a><span class="lineno">  135</span>&#160;    <span class="keywordflow">if</span>(Now.tv_nsec &gt; StartTime.tv_nsec)</div>
+<div class="line"><a name="l00136"></a><span class="lineno">  136</span>&#160;    {</div>
+<div class="line"><a name="l00137"></a><span class="lineno">  137</span>&#160;        ElapsedTimeMs += (<a class="code" href="../../d7/d05/ab__common_8h.html#aafa04bc3cb166e826b75a23f4add4b59">r32</a>)<a class="code" href="../../d7/d05/ab__common_8h.html#a323127aaf9260b4e2092a8734886379a">NS_TO_MS</a>(Now.tv_nsec - StartTime.tv_nsec);</div>
+<div class="line"><a name="l00138"></a><span class="lineno">  138</span>&#160;    }</div>
+<div class="line"><a name="l00139"></a><span class="lineno">  139</span>&#160;    <span class="keywordflow">else</span></div>
+<div class="line"><a name="l00140"></a><span class="lineno">  140</span>&#160;    {</div>
+<div class="line"><a name="l00141"></a><span class="lineno">  141</span>&#160;        ElapsedTimeMs +=(<a class="code" href="../../d7/d05/ab__common_8h.html#aafa04bc3cb166e826b75a23f4add4b59">r32</a>) <a class="code" href="../../d7/d05/ab__common_8h.html#a323127aaf9260b4e2092a8734886379a">NS_TO_MS</a>((<a class="code" href="../../d7/d05/ab__common_8h.html#ad8619bfe2bde192cdb90aaa749de313a">S_TO_NS</a>(1.0f) + Now.tv_nsec) - StartTime.tv_nsec) - <a class="code" href="../../d7/d05/ab__common_8h.html#a20fa811b86f3ecd1f72ae57753c26d56">S_TO_MS</a>(1.0f);</div>
+<div class="line"><a name="l00142"></a><span class="lineno">  142</span>&#160;    }</div>
+<div class="line"><a name="l00143"></a><span class="lineno">  143</span>&#160;    </div>
+<div class="line"><a name="l00144"></a><span class="lineno">  144</span>&#160;    <span class="keywordflow">return</span> ElapsedTimeMs;</div>
+<div class="line"><a name="l00145"></a><span class="lineno">  145</span>&#160;}</div>
+<div class="line"><a name="l00146"></a><span class="lineno">  146</span>&#160; </div>
+<div class="line"><a name="l00147"></a><span class="lineno">  147</span>&#160;<a class="code" href="../../d7/d05/ab__common_8h.html#afaa62991928fb9fb18ff0db62a040aba">u32</a></div>
+<div class="line"><a name="l00148"></a><span class="lineno">  148</span>&#160;<a class="code" href="../../dc/da0/ab__time_8h.html#ad3ab740dfcc9875efe4b1721fd374db4">abt_GetElapsedMsU32</a>(<a class="code" href="../../dc/da0/ab__time_8h.html#adc59735fd0d20e93fe3016c8b6a4f782">abt_time</a> StartTime, <a class="code" href="../../dc/da0/ab__time_8h.html#adc59735fd0d20e93fe3016c8b6a4f782">abt_time</a> Now)</div>
+<div class="line"><a name="l00149"></a><span class="lineno">  149</span>&#160;{</div>
+<div class="line"><a name="l00150"></a><span class="lineno">  150</span>&#160;    <a class="code" href="../../d7/d05/ab__common_8h.html#afaa62991928fb9fb18ff0db62a040aba">u32</a> ElapsedTimeMs = 0;</div>
+<div class="line"><a name="l00151"></a><span class="lineno">  151</span>&#160;    ElapsedTimeMs = (<a class="code" href="../../d7/d05/ab__common_8h.html#afaa62991928fb9fb18ff0db62a040aba">u32</a>)<a class="code" href="../../d7/d05/ab__common_8h.html#a20fa811b86f3ecd1f72ae57753c26d56">S_TO_MS</a>(Now.tv_sec - StartTime.tv_sec);</div>
+<div class="line"><a name="l00152"></a><span class="lineno">  152</span>&#160;    <span class="keywordflow">if</span>(Now.tv_nsec &gt; StartTime.tv_nsec)</div>
+<div class="line"><a name="l00153"></a><span class="lineno">  153</span>&#160;    {</div>
+<div class="line"><a name="l00154"></a><span class="lineno">  154</span>&#160;        ElapsedTimeMs += (<a class="code" href="../../d7/d05/ab__common_8h.html#afaa62991928fb9fb18ff0db62a040aba">u32</a>)<a class="code" href="../../d7/d05/ab__common_8h.html#a323127aaf9260b4e2092a8734886379a">NS_TO_MS</a>(Now.tv_nsec - StartTime.tv_nsec);</div>
+<div class="line"><a name="l00155"></a><span class="lineno">  155</span>&#160;    }</div>
+<div class="line"><a name="l00156"></a><span class="lineno">  156</span>&#160;    <span class="keywordflow">else</span></div>
+<div class="line"><a name="l00157"></a><span class="lineno">  157</span>&#160;    {</div>
+<div class="line"><a name="l00158"></a><span class="lineno">  158</span>&#160;        ElapsedTimeMs +=(<a class="code" href="../../d7/d05/ab__common_8h.html#afaa62991928fb9fb18ff0db62a040aba">u32</a>) <a class="code" href="../../d7/d05/ab__common_8h.html#a323127aaf9260b4e2092a8734886379a">NS_TO_MS</a>((<a class="code" href="../../d7/d05/ab__common_8h.html#ad8619bfe2bde192cdb90aaa749de313a">S_TO_NS</a>(1) + Now.tv_nsec) - StartTime.tv_nsec) - <a class="code" href="../../d7/d05/ab__common_8h.html#a20fa811b86f3ecd1f72ae57753c26d56">S_TO_MS</a>(1);</div>
+<div class="line"><a name="l00159"></a><span class="lineno">  159</span>&#160;    }</div>
+<div class="line"><a name="l00160"></a><span class="lineno">  160</span>&#160;    </div>
+<div class="line"><a name="l00161"></a><span class="lineno">  161</span>&#160;    <span class="keywordflow">return</span> ElapsedTimeMs;</div>
+<div class="line"><a name="l00162"></a><span class="lineno">  162</span>&#160;}</div>
+<div class="line"><a name="l00163"></a><span class="lineno">  163</span>&#160; </div>
+<div class="line"><a name="l00164"></a><span class="lineno">  164</span>&#160;<a class="code" href="../../dc/da0/ab__time_8h.html#adc59735fd0d20e93fe3016c8b6a4f782">abt_time</a></div>
+<div class="line"><a name="l00165"></a><span class="lineno">  165</span>&#160;abt_GetWallClockFromElapsed(<a class="code" href="../../dc/da0/ab__time_8h.html#adc59735fd0d20e93fe3016c8b6a4f782">abt_time</a> StartTime, <a class="code" href="../../d7/d05/ab__common_8h.html#aafa04bc3cb166e826b75a23f4add4b59">r32</a> TimestampMs)</div>
+<div class="line"><a name="l00166"></a><span class="lineno">  166</span>&#160;{</div>
+<div class="line"><a name="l00167"></a><span class="lineno">  167</span>&#160;    <span class="comment">// NOTE(amos): There are some rounding errors in this method; is there a better way?</span></div>
+<div class="line"><a name="l00168"></a><span class="lineno">  168</span>&#160;    <a class="code" href="../../d7/d05/ab__common_8h.html#aafa04bc3cb166e826b75a23f4add4b59">r32</a> SecondsR32 = <a class="code" href="../../d7/d05/ab__common_8h.html#af99d895a4fb9ef16b8773bfb4682cb0b">MS_TO_S</a>(TimestampMs);</div>
+<div class="line"><a name="l00169"></a><span class="lineno">  169</span>&#160;    <a class="code" href="../../d7/d05/ab__common_8h.html#afaa62991928fb9fb18ff0db62a040aba">u32</a> Seconds = (<a class="code" href="../../d7/d05/ab__common_8h.html#afaa62991928fb9fb18ff0db62a040aba">u32</a>)SecondsR32;</div>
+<div class="line"><a name="l00170"></a><span class="lineno">  170</span>&#160;    <a class="code" href="../../d7/d05/ab__common_8h.html#aafa04bc3cb166e826b75a23f4add4b59">r32</a> NanosecondsR32 = <a class="code" href="../../d7/d05/ab__common_8h.html#a830e4dd55a9d1f281527e77f61993194">MS_TO_NS</a>(TimestampMs) - ((<a class="code" href="../../d7/d05/ab__common_8h.html#aafa04bc3cb166e826b75a23f4add4b59">r32</a>)<a class="code" href="../../d7/d05/ab__common_8h.html#ad8619bfe2bde192cdb90aaa749de313a">S_TO_NS</a>(Seconds));</div>
+<div class="line"><a name="l00171"></a><span class="lineno">  171</span>&#160;    <span class="keywordtype">long</span> Nanoseconds = (long)NanosecondsR32;</div>
+<div class="line"><a name="l00172"></a><span class="lineno">  172</span>&#160;    </div>
+<div class="line"><a name="l00173"></a><span class="lineno">  173</span>&#160;    <a class="code" href="../../dc/da0/ab__time_8h.html#adc59735fd0d20e93fe3016c8b6a4f782">abt_time</a> Result = StartTime;</div>
+<div class="line"><a name="l00174"></a><span class="lineno">  174</span>&#160;    </div>
+<div class="line"><a name="l00175"></a><span class="lineno">  175</span>&#160;    Result.tv_sec += (time_t)Seconds;</div>
+<div class="line"><a name="l00176"></a><span class="lineno">  176</span>&#160;    Result.tv_nsec += Nanoseconds;</div>
+<div class="line"><a name="l00177"></a><span class="lineno">  177</span>&#160;    </div>
+<div class="line"><a name="l00178"></a><span class="lineno">  178</span>&#160;    <span class="keywordflow">return</span> Result;</div>
 <div class="line"><a name="l00179"></a><span class="lineno">  179</span>&#160;}</div>
 <div class="line"><a name="l00180"></a><span class="lineno">  180</span>&#160; </div>
-<div class="line"><a name="l00181"></a><span class="lineno">  181</span>&#160;<span class="keyword">inline</span> <a class="code" href="../../d7/d05/ab__common_8h.html#aafa04bc3cb166e826b75a23f4add4b59">r32</a></div>
-<div class="line"><a name="l00182"></a><span class="lineno">  182</span>&#160;abt_GetMsFromTimeR32(<a class="code" href="../../dc/da0/ab__time_8h.html#adc59735fd0d20e93fe3016c8b6a4f782">abt_time</a> Time)</div>
+<div class="line"><a name="l00181"></a><span class="lineno">  181</span>&#160;<span class="keyword">inline</span> <a class="code" href="../../d7/d05/ab__common_8h.html#afaa62991928fb9fb18ff0db62a040aba">u32</a></div>
+<div class="line"><a name="l00182"></a><span class="lineno">  182</span>&#160;<a class="code" href="../../dc/da0/ab__time_8h.html#ab8ae3038f353a3a59bc79abf35dcb4a4">abt_GetMsFromTimeU32</a>(<a class="code" href="../../dc/da0/ab__time_8h.html#adc59735fd0d20e93fe3016c8b6a4f782">abt_time</a> Time)</div>
 <div class="line"><a name="l00183"></a><span class="lineno">  183</span>&#160;{</div>
-<div class="line"><a name="l00184"></a><span class="lineno">  184</span>&#160;    <a class="code" href="../../d7/d05/ab__common_8h.html#aafa04bc3cb166e826b75a23f4add4b59">r32</a> Ms = <a class="code" href="../../d7/d05/ab__common_8h.html#a20fa811b86f3ecd1f72ae57753c26d56">S_TO_MS</a>((<a class="code" href="../../d7/d05/ab__common_8h.html#aafa04bc3cb166e826b75a23f4add4b59">r32</a>)Time.tv_sec);</div>
-<div class="line"><a name="l00185"></a><span class="lineno">  185</span>&#160;    Ms += <a class="code" href="../../d7/d05/ab__common_8h.html#a323127aaf9260b4e2092a8734886379a">NS_TO_MS</a>(((<a class="code" href="../../d7/d05/ab__common_8h.html#aafa04bc3cb166e826b75a23f4add4b59">r32</a>)Time.tv_nsec));</div>
+<div class="line"><a name="l00184"></a><span class="lineno">  184</span>&#160;    <a class="code" href="../../d7/d05/ab__common_8h.html#afaa62991928fb9fb18ff0db62a040aba">u32</a> Ms = (<a class="code" href="../../d7/d05/ab__common_8h.html#afaa62991928fb9fb18ff0db62a040aba">u32</a>)<a class="code" href="../../d7/d05/ab__common_8h.html#a20fa811b86f3ecd1f72ae57753c26d56">S_TO_MS</a>(Time.tv_sec);</div>
+<div class="line"><a name="l00185"></a><span class="lineno">  185</span>&#160;    Ms += (<a class="code" href="../../d7/d05/ab__common_8h.html#afaa62991928fb9fb18ff0db62a040aba">u32</a>)<a class="code" href="../../d7/d05/ab__common_8h.html#a323127aaf9260b4e2092a8734886379a">NS_TO_MS</a>(Time.tv_nsec);</div>
 <div class="line"><a name="l00186"></a><span class="lineno">  186</span>&#160;    <span class="keywordflow">return</span> Ms;</div>
 <div class="line"><a name="l00187"></a><span class="lineno">  187</span>&#160;}</div>
 <div class="line"><a name="l00188"></a><span class="lineno">  188</span>&#160; </div>
-<div class="line"><a name="l00189"></a><span class="lineno">  189</span>&#160;<span class="preprocessor">#undef AB_TIME_SRC</span></div>
-<div class="line"><a name="l00190"></a><span class="lineno">  190</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="line"><a name="l00189"></a><span class="lineno">  189</span>&#160;<span class="keyword">inline</span> <a class="code" href="../../d7/d05/ab__common_8h.html#aafa04bc3cb166e826b75a23f4add4b59">r32</a></div>
+<div class="line"><a name="l00190"></a><span class="lineno">  190</span>&#160;abt_GetMsFromTimeR32(<a class="code" href="../../dc/da0/ab__time_8h.html#adc59735fd0d20e93fe3016c8b6a4f782">abt_time</a> Time)</div>
+<div class="line"><a name="l00191"></a><span class="lineno">  191</span>&#160;{</div>
+<div class="line"><a name="l00192"></a><span class="lineno">  192</span>&#160;    <a class="code" href="../../d7/d05/ab__common_8h.html#aafa04bc3cb166e826b75a23f4add4b59">r32</a> Ms = <a class="code" href="../../d7/d05/ab__common_8h.html#a20fa811b86f3ecd1f72ae57753c26d56">S_TO_MS</a>((<a class="code" href="../../d7/d05/ab__common_8h.html#aafa04bc3cb166e826b75a23f4add4b59">r32</a>)Time.tv_sec);</div>
+<div class="line"><a name="l00193"></a><span class="lineno">  193</span>&#160;    Ms += <a class="code" href="../../d7/d05/ab__common_8h.html#a323127aaf9260b4e2092a8734886379a">NS_TO_MS</a>(((<a class="code" href="../../d7/d05/ab__common_8h.html#aafa04bc3cb166e826b75a23f4add4b59">r32</a>)Time.tv_nsec));</div>
+<div class="line"><a name="l00194"></a><span class="lineno">  194</span>&#160;    <span class="keywordflow">return</span> Ms;</div>
+<div class="line"><a name="l00195"></a><span class="lineno">  195</span>&#160;}</div>
+<div class="line"><a name="l00196"></a><span class="lineno">  196</span>&#160; </div>
+<div class="line"><a name="l00197"></a><span class="lineno">  197</span>&#160;<span class="preprocessor">#undef AB_TIME_SRC</span></div>
+<div class="line"><a name="l00198"></a><span class="lineno">  198</span>&#160;<span class="preprocessor">#endif</span></div>
 </div><!-- fragment --></div><!-- contents -->
 <div class="ttc" id="aab__time_8h_html_a9834c3b5b55da0fe4ae280550cf5d97f"><div class="ttname"><a href="../../dc/da0/ab__time_8h.html#a9834c3b5b55da0fe4ae280550cf5d97f">abt_GetElapsedMsR32</a></div><div class="ttdeci">r32 abt_GetElapsedMsR32(abt_time StartTime, abt_time Now)</div><div class="ttdoc">Calculate the time in milliseconds between two times.</div></div>
 <div class="ttc" id="aab__time_8h_html_a55589396a22562f4037d2817a579e82e"><div class="ttname"><a href="../../dc/da0/ab__time_8h.html#a55589396a22562f4037d2817a579e82e">abt_GetCurrent</a></div><div class="ttdeci">void abt_GetCurrent(abt_time *Now)</div><div class="ttdoc">Get current UTC wall clock time, as reported by OS.</div></div>
@@ -213,7 +213,7 @@ $(function() {
 <div class="ttc" id="aab__time_8h_html_a31c1260f1e3d571fbe60f7b77fe6d1fb"><div class="ttname"><a href="../../dc/da0/ab__time_8h.html#a31c1260f1e3d571fbe60f7b77fe6d1fb">abt_GetTimeFromElapsed</a></div><div class="ttdeci">abt_time abt_GetTimeFromElapsed(abt_time StartTime, r32 TimestampMs)</div><div class="ttdoc">Get a new time based on a start time and the number of milliseconds passed.</div></div>
 <div class="ttc" id="aab__common_8h_html_af99d895a4fb9ef16b8773bfb4682cb0b"><div class="ttname"><a href="../../d7/d05/ab__common_8h.html#af99d895a4fb9ef16b8773bfb4682cb0b">MS_TO_S</a></div><div class="ttdeci">#define MS_TO_S(num)</div><div class="ttdef"><b>Definition:</b> ab_common.h:52</div></div>
 <div class="ttc" id="aab__common_8h_html_aafa04bc3cb166e826b75a23f4add4b59"><div class="ttname"><a href="../../d7/d05/ab__common_8h.html#aafa04bc3cb166e826b75a23f4add4b59">r32</a></div><div class="ttdeci">float r32</div><div class="ttdef"><b>Definition:</b> ab_common.h:73</div></div>
-<div class="ttc" id="aab__time_8h_html_adc59735fd0d20e93fe3016c8b6a4f782"><div class="ttname"><a href="../../dc/da0/ab__time_8h.html#adc59735fd0d20e93fe3016c8b6a4f782">abt_time</a></div><div class="ttdeci">timespec abt_time</div><div class="ttdoc">Internal representation of time.</div><div class="ttdef"><b>Definition:</b> ab_time.h:46</div></div>
+<div class="ttc" id="aab__time_8h_html_adc59735fd0d20e93fe3016c8b6a4f782"><div class="ttname"><a href="../../dc/da0/ab__time_8h.html#adc59735fd0d20e93fe3016c8b6a4f782">abt_time</a></div><div class="ttdeci">timespec abt_time</div><div class="ttdoc">Internal representation of time.</div><div class="ttdef"><b>Definition:</b> ab_time.h:54</div></div>
 <div class="ttc" id="aab__time_8h_html_ad3ab740dfcc9875efe4b1721fd374db4"><div class="ttname"><a href="../../dc/da0/ab__time_8h.html#ad3ab740dfcc9875efe4b1721fd374db4">abt_GetElapsedMsU32</a></div><div class="ttdeci">u32 abt_GetElapsedMsU32(abt_time StartTime, abt_time Now)</div><div class="ttdoc">Calculate the time in milliseconds between two times.</div></div>
 <div class="ttc" id="aab__common_8h_html_a323127aaf9260b4e2092a8734886379a"><div class="ttname"><a href="../../d7/d05/ab__common_8h.html#a323127aaf9260b4e2092a8734886379a">NS_TO_MS</a></div><div class="ttdeci">#define NS_TO_MS(num)</div><div class="ttdef"><b>Definition:</b> ab_common.h:55</div></div>
 <div class="ttc" id="aab__common_8h_html_a830e4dd55a9d1f281527e77f61993194"><div class="ttname"><a href="../../d7/d05/ab__common_8h.html#a830e4dd55a9d1f281527e77f61993194">MS_TO_NS</a></div><div class="ttdeci">#define MS_TO_NS(num)</div><div class="ttdef"><b>Definition:</b> ab_common.h:53</div></div>

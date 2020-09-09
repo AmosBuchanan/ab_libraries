@@ -7,6 +7,13 @@
 
 These are helper functions for parsing JSON. This is mostly useful for the auto-generated code by the preprocessor when JSON tags are used. This library depends on the [JSMN JSON parser](https://github.com/zserge/jsmn). There is a slightly modified version of the library included, which fixes an issue with including the header and source code separately. It is otherwise unchanged from the original.
 
+This is a single-file library. You may include it as a header just as any other. Add the following define to include the source *once* per project:
+
+~~~c
+#define AB_JSON_SRC
+#include "ab_json.h"
+~~~
+
 # MIT License
 
  [MIT Public License](https://opensource.org/licenses/MIT)

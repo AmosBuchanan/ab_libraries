@@ -47,7 +47,7 @@ In the place you want to pull in the code (once per project), add the appropriat
 
 The specific {\ttfamily \#define} to use is listed at the top of the generated file.
 
-Do not modify generated files, they get over-\/written. You can safely re-\/run the preprocessor in the same directory as an existing generated files.
+Do not modify generated files, they get over-\/written. You can safely re-\/run the preprocessor in the same directory as other existing generated files.
 
 Several tags may be added by separating them with commas. Example\+:
 
@@ -298,7 +298,7 @@ Due to a limitation of the program, the statemachine tag {\itshape must} be in t
 
 Usage\+: 
 \begin{DoxyCode}{0}
-\DoxyCodeLine{\mbox{\hyperlink{PreprocTest_8cpp_a47061d27749d7e9de66e4e834ab28848}{STATEMACHINE}}(base\_name, struct\_name, cmd\_enum\_name \textcolor{comment}{/*, <other types for functions*/});}
+\DoxyCodeLine{\mbox{\hyperlink{PreprocTest_8cpp_a10c8440d867f5c4661fb661d0a498f0a}{STATEMACHINE}}(base\_name, struct\_name, cmd\_enum\_name \textcolor{comment}{/*, <other types for functions*/});}
 \end{DoxyCode}
 
 
@@ -314,16 +314,16 @@ This creates the following\+:
 \DoxyCodeLine{\textcolor{keyword}{inline} \textcolor{keywordtype}{void} \mbox{\hyperlink{Generated__Test_8h_a43822849924e4365ec1ad146736a7967}{InitializeQueue}}(cmd\_enum\_name\_queue *Queue);}
 \DoxyCodeLine{\textcolor{keyword}{inline} b8 \mbox{\hyperlink{Generated__Test_8h_a24b3c990497a61d0d6aca57105e2c86a}{isQueueEmpty}}(cmd\_enum\_name\_queue *Queue);}
 \DoxyCodeLine{\textcolor{keyword}{inline} b8 \mbox{\hyperlink{Generated__Test_8h_a5074b01af8cb1f2124b7d04399a48c82}{isQueueFull}}(cmd\_enum\_name\_queue *Queue);}
-\DoxyCodeLine{b8 \mbox{\hyperlink{Generated__Test_8h_a9ca011b44b1d493d71b8414f84af2f69}{EnqueueCommand}}(cmd\_enum\_name\_queue *Queue, cmd\_enum\_name Cmd);}
-\DoxyCodeLine{cmd\_enum\_name \mbox{\hyperlink{Generated__Test_8h_aa15eaba01fecffd4380ff2f1b4018a3a}{DequeueCommand}}(cmd\_enum\_name\_queue *Queue);}
+\DoxyCodeLine{b8 \mbox{\hyperlink{Generated__Test_8h_aacf77a00c47b027a4331328a1071854c}{EnqueueCommand}}(cmd\_enum\_name\_queue *Queue, cmd\_enum\_name Cmd);}
+\DoxyCodeLine{cmd\_enum\_name \mbox{\hyperlink{Generated__Test_8h_aa431f033dae8e03ce9f9e76c5897d077}{DequeueCommand}}(cmd\_enum\_name\_queue *Queue);}
 \DoxyCodeLine{}
 \DoxyCodeLine{\textcolor{preprocessor}{\#define BASE\_NAME(name) void name(struct\_name *State, cmd\_enum\_name Cmd }\textcolor{comment}{/*<, Other types for functions>*/}\textcolor{preprocessor}{)}}
 \DoxyCodeLine{\textcolor{keyword}{typedef} BASE\_NAME(test\_statemachine);}
 \DoxyCodeLine{}
 \DoxyCodeLine{\textcolor{keyword}{inline} b8 \mbox{\hyperlink{Generated__Test_8h_ad4b73e92f4af2b501841ce35b274f71c}{GoToState}}(struct\_name *State, base\_name  *NewState);}
 \DoxyCodeLine{\textcolor{keywordtype}{char} \textcolor{keyword}{const} *\mbox{\hyperlink{Generated__Test_8h_a36c15d4c27a71b37003bfc22b75964be}{GetStateName}}(base\_name *StateName);}
-\DoxyCodeLine{b8 \mbox{\hyperlink{Generated__Test_8h_a9ca011b44b1d493d71b8414f84af2f69}{EnqueueCommand}}(struct\_name *State, cmd\_enum\_name Cmd);}
-\DoxyCodeLine{cmd\_enum\_name \mbox{\hyperlink{Generated__Test_8h_aa15eaba01fecffd4380ff2f1b4018a3a}{DequeueCommand}}(struct\_name *State);}
+\DoxyCodeLine{b8 \mbox{\hyperlink{Generated__Test_8h_aacf77a00c47b027a4331328a1071854c}{EnqueueCommand}}(struct\_name *State, cmd\_enum\_name Cmd);}
+\DoxyCodeLine{cmd\_enum\_name \mbox{\hyperlink{Generated__Test_8h_aa431f033dae8e03ce9f9e76c5897d077}{DequeueCommand}}(struct\_name *State);}
 \DoxyCodeLine{}
 \DoxyCodeLine{\textcolor{comment}{//<Declaration of State Machine Functions>}}
 \end{DoxyCode}
@@ -372,7 +372,7 @@ Example\+:
 \DoxyCodeLine{\textcolor{comment}{// statemachine.c}}
 \DoxyCodeLine{\textcolor{preprocessor}{\#include "{}statemachine.h"{}}}
 \DoxyCodeLine{}
-\DoxyCodeLine{\mbox{\hyperlink{PreprocTest_8cpp_a47061d27749d7e9de66e4e834ab28848}{STATEMACHINE}}(test\_statemachine, \mbox{\hyperlink{structtest__type}{test\_type}}, \mbox{\hyperlink{PreprocTest_8h_a55ed691059222a58555cf9992ec14431}{test\_cmd}}, \textcolor{keywordtype}{int} SomeInt, \textcolor{keywordtype}{char} \textcolor{keyword}{const} *AString);}
+\DoxyCodeLine{\mbox{\hyperlink{PreprocTest_8cpp_a10c8440d867f5c4661fb661d0a498f0a}{STATEMACHINE}}(test\_statemachine, \mbox{\hyperlink{structtest__type}{test\_type}}, \mbox{\hyperlink{PreprocTest_8h_a55ed691059222a58555cf9992ec14431}{test\_cmd}}, \textcolor{keywordtype}{int} SomeInt, \textcolor{keywordtype}{char} \textcolor{keyword}{const} *AString);}
 \DoxyCodeLine{}
 \DoxyCodeLine{\mbox{\hyperlink{Generated__Test_8h_a60e76ed427c4968689b9571af7254547}{TEST\_STATEMACHINE}}(StartupState)}
 \DoxyCodeLine{\{}
@@ -390,7 +390,7 @@ Example\+:
 \DoxyCodeLine{}
 \DoxyCodeLine{\mbox{\hyperlink{Generated__Test_8h_a60e76ed427c4968689b9571af7254547}{TEST\_STATEMACHINE}}(RunningState)}
 \DoxyCodeLine{\{}
-\DoxyCodeLine{    \mbox{\hyperlink{PreprocTest_8h_a55ed691059222a58555cf9992ec14431}{test\_cmd}} = \mbox{\hyperlink{Generated__Test_8h_aa15eaba01fecffd4380ff2f1b4018a3a}{DequeueCommand}}(State);}
+\DoxyCodeLine{    \mbox{\hyperlink{PreprocTest_8h_a55ed691059222a58555cf9992ec14431}{test\_cmd}} = \mbox{\hyperlink{Generated__Test_8h_aa431f033dae8e03ce9f9e76c5897d077}{DequeueCommand}}(State);}
 \DoxyCodeLine{    \textcolor{comment}{// Code Here}}
 \DoxyCodeLine{    printf(\textcolor{stringliteral}{"{}Input Int: \%d\(\backslash\)n"{}}, SomeInt); }
 \DoxyCodeLine{    printf(\textcolor{stringliteral}{"{}Input String: \%s\(\backslash\)n"{}}, AString);}

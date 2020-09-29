@@ -29,7 +29,7 @@ This graph shows which files directly or indirectly include this file\+:\nopageb
 \begin{DoxyCompactItemize}
 \item 
 struct \mbox{\hyperlink{structtest__cmd__queue}{test\+\_\+cmd\+\_\+queue}}
-\begin{DoxyCompactList}\small\item\em A circular queue of 10 elements for the state command test\+\_\+cmd. \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em A circular queue of 10 elements. \end{DoxyCompactList}\item 
 struct \mbox{\hyperlink{structmy__json__test__existlist}{my\+\_\+json\+\_\+test\+\_\+existlist}}
 \end{DoxyCompactItemize}
 \doxysubsection*{Macros}
@@ -39,9 +39,11 @@ struct \mbox{\hyperlink{structmy__json__test__existlist}{my\+\_\+json\+\_\+test\
 \item 
 \#define \mbox{\hyperlink{Generated__Test_8h_ad16363f6583678566864d70afebc6a41}{S\+T\+A\+T\+E\+M\+A\+C\+H\+I\+NE}}(...)
 \item 
+\#define \mbox{\hyperlink{Generated__Test_8h_ab75d03ee60c9dbfee4811e3d984d4976}{Q\+U\+E\+UE}}(...)
+\item 
 \#define \mbox{\hyperlink{Generated__Test_8h_a249bf3ceb9df5c1fec7be5efe674a1ba}{\+\_\+\+A\+B\+\_\+\+G\+E\+N\+E\+R\+A\+T\+E\+D\+\_\+\+H\+E\+A\+D\+E\+R\+\_\+\+G\+E\+N\+E\+R\+A\+T\+E\+D\+\_\+\+T\+E\+S\+T\+\_\+}}
 \item 
-\#define \mbox{\hyperlink{Generated__Test_8h_a60e76ed427c4968689b9571af7254547}{T\+E\+S\+T\+\_\+\+S\+T\+A\+T\+E\+M\+A\+C\+H\+I\+NE}}(name)~void name(\mbox{\hyperlink{structtest__type}{test\+\_\+type}} $\ast$State, \mbox{\hyperlink{PreprocTest_8h_a55ed691059222a58555cf9992ec14431}{test\+\_\+cmd}} Cmd, int Int, char const $\ast$String)
+\#define \mbox{\hyperlink{Generated__Test_8h_a60e76ed427c4968689b9571af7254547}{T\+E\+S\+T\+\_\+\+S\+T\+A\+T\+E\+M\+A\+C\+H\+I\+NE}}(name)~void name(\mbox{\hyperlink{structtest__type}{test\+\_\+type}} $\ast$State, int Int, char const $\ast$String, \mbox{\hyperlink{PreprocTest_8cpp_a8f6dbcbcb4a9ebe765fd9dae798a30a2}{some\+\_\+enum}} Enum\+Value, \mbox{\hyperlink{structsome__struct}{some\+\_\+struct}} Struct\+Value, \mbox{\hyperlink{unionsome__union}{some\+\_\+union}} Union\+Value, \mbox{\hyperlink{classsome__class}{some\+\_\+class}} Class\+Value)
 \begin{DoxyCompactList}\small\item\em Used to create statemachine functions. Usage\+: \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsection*{Functions}
 \begin{DoxyCompactItemize}
@@ -50,16 +52,6 @@ struct \mbox{\hyperlink{structmy__json__test__existlist}{my\+\_\+json\+\_\+test\
 \begin{DoxyCompactList}\small\item\em Generic template for the c-\/style string String\+To\+Enum$<$$>$ functions. \end{DoxyCompactList}\item 
 {\footnotesize template$<$typename T $>$ }\\auto \mbox{\hyperlink{Generated__Test_8h_ac56b1acaa9bd587f623d2983f921ad50}{String\+To\+Enum}} (abs\+\_\+stringptr String) -\/$>$ T
 \begin{DoxyCompactList}\small\item\em Generic template for the abs\+\_\+stringptr String\+To\+Enum$<$$>$ functions. \end{DoxyCompactList}\item 
-void \mbox{\hyperlink{Generated__Test_8h_a43822849924e4365ec1ad146736a7967}{Initialize\+Queue}} (\mbox{\hyperlink{structtest__cmd__queue}{test\+\_\+cmd\+\_\+queue}} $\ast$Queue)
-\begin{DoxyCompactList}\small\item\em Initialize the command queue. \end{DoxyCompactList}\item 
-b8 \mbox{\hyperlink{Generated__Test_8h_a24b3c990497a61d0d6aca57105e2c86a}{is\+Queue\+Empty}} (\mbox{\hyperlink{structtest__cmd__queue}{test\+\_\+cmd\+\_\+queue}} $\ast$Queue)
-\begin{DoxyCompactList}\small\item\em Check if queue is empty. \end{DoxyCompactList}\item 
-b8 \mbox{\hyperlink{Generated__Test_8h_a5074b01af8cb1f2124b7d04399a48c82}{is\+Queue\+Full}} (\mbox{\hyperlink{structtest__cmd__queue}{test\+\_\+cmd\+\_\+queue}} $\ast$Queue)
-\begin{DoxyCompactList}\small\item\em Check if queue is full. \end{DoxyCompactList}\item 
-b8 \mbox{\hyperlink{Generated__Test_8h_a9ca011b44b1d493d71b8414f84af2f69}{Enqueue\+Command}} (\mbox{\hyperlink{structtest__cmd__queue}{test\+\_\+cmd\+\_\+queue}} $\ast$Queue, \mbox{\hyperlink{PreprocTest_8h_a55ed691059222a58555cf9992ec14431}{test\+\_\+cmd}} Cmd)
-\begin{DoxyCompactList}\small\item\em Add an item to the back of the queue. \end{DoxyCompactList}\item 
-\mbox{\hyperlink{PreprocTest_8h_a55ed691059222a58555cf9992ec14431}{test\+\_\+cmd}} \mbox{\hyperlink{Generated__Test_8h_aa15eaba01fecffd4380ff2f1b4018a3a}{Dequeue\+Command}} (\mbox{\hyperlink{structtest__cmd__queue}{test\+\_\+cmd\+\_\+queue}} $\ast$Queue)
-\begin{DoxyCompactList}\small\item\em Dequeue from the front of the queue. \end{DoxyCompactList}\item 
 typedef \mbox{\hyperlink{Generated__Test_8h_a5b28cc9825a80c7d578bce92d5152de4}{T\+E\+S\+T\+\_\+\+S\+T\+A\+T\+E\+M\+A\+C\+H\+I\+NE}} (test\+\_\+statemachine)
 \begin{DoxyCompactList}\small\item\em typedef to use in the state struct. \end{DoxyCompactList}\item 
 b8 \mbox{\hyperlink{Generated__Test_8h_ad4b73e92f4af2b501841ce35b274f71c}{Go\+To\+State}} (\mbox{\hyperlink{structtest__type}{test\+\_\+type}} $\ast$State, test\+\_\+statemachine $\ast$New\+State)
@@ -74,6 +66,16 @@ b8 \mbox{\hyperlink{Generated__Test_8h_aacf77a00c47b027a4331328a1071854c}{Enqueu
 \begin{DoxyCompactList}\small\item\em Forward declaration for Idle(). \end{DoxyCompactList}\item 
 \mbox{\hyperlink{Generated__Test_8h_aed31da543c10eab9ca01e8b7f1e299cd}{T\+E\+S\+T\+\_\+\+S\+T\+A\+T\+E\+M\+A\+C\+H\+I\+NE}} (Running)
 \begin{DoxyCompactList}\small\item\em Forward declaration for Running(). \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{Generated__Test_8h_a43822849924e4365ec1ad146736a7967}{Initialize\+Queue}} (\mbox{\hyperlink{structtest__cmd__queue}{test\+\_\+cmd\+\_\+queue}} $\ast$Queue)
+\begin{DoxyCompactList}\small\item\em Initialize the command queue. \end{DoxyCompactList}\item 
+b8 \mbox{\hyperlink{Generated__Test_8h_a24b3c990497a61d0d6aca57105e2c86a}{is\+Queue\+Empty}} (\mbox{\hyperlink{structtest__cmd__queue}{test\+\_\+cmd\+\_\+queue}} $\ast$Queue)
+\begin{DoxyCompactList}\small\item\em Check if queue is empty. \end{DoxyCompactList}\item 
+b8 \mbox{\hyperlink{Generated__Test_8h_a5074b01af8cb1f2124b7d04399a48c82}{is\+Queue\+Full}} (\mbox{\hyperlink{structtest__cmd__queue}{test\+\_\+cmd\+\_\+queue}} $\ast$Queue)
+\begin{DoxyCompactList}\small\item\em Check if queue is full. \end{DoxyCompactList}\item 
+b8 \mbox{\hyperlink{Generated__Test_8h_a454bd3fc6c4d5d2e1db241ab69554c45}{Enqueue}} (\mbox{\hyperlink{structtest__cmd__queue}{test\+\_\+cmd\+\_\+queue}} $\ast$Queue, \mbox{\hyperlink{PreprocTest_8h_a55ed691059222a58555cf9992ec14431}{test\+\_\+cmd}} Cmd)
+\begin{DoxyCompactList}\small\item\em Add an item to the back of the queue. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{PreprocTest_8h_a55ed691059222a58555cf9992ec14431}{test\+\_\+cmd}} \mbox{\hyperlink{Generated__Test_8h_a4761a19413dc5a7e479e89949566866d}{Dequeue}} (\mbox{\hyperlink{structtest__cmd__queue}{test\+\_\+cmd\+\_\+queue}} $\ast$Queue)
+\begin{DoxyCompactList}\small\item\em Dequeue from the front of the queue. \end{DoxyCompactList}\item 
 template$<$$>$ auto \mbox{\hyperlink{Generated__Test_8h_a3918139d94601cfee23f622cd557582f}{String\+To\+Enum$<$ test\+\_\+cmd $>$}} (const char $\ast$String) -\/$>$ \mbox{\hyperlink{PreprocTest_8h_a55ed691059222a58555cf9992ec14431}{test\+\_\+cmd}}
 \begin{DoxyCompactList}\small\item\em Convert a char $\ast$ c-\/style string to a test\+\_\+cmd enum. \end{DoxyCompactList}\item 
 template$<$$>$ auto \mbox{\hyperlink{Generated__Test_8h_a196b200d9f8e70d10669c8841f0ece91}{String\+To\+Enum$<$ test\+\_\+cmd $>$}} (abs\+\_\+stringptr String) -\/$>$ \mbox{\hyperlink{PreprocTest_8h_a55ed691059222a58555cf9992ec14431}{test\+\_\+cmd}}
@@ -162,6 +164,12 @@ The code is marked using doxygen. By default, it excludes the J\+S\+ON parsing f
 \doxysubsubsection{\texorpdfstring{\_AB\_GENERATED\_HEADER\_GENERATED\_TEST\_}{\_AB\_GENERATED\_HEADER\_GENERATED\_TEST\_}}
 {\footnotesize\ttfamily \#define \+\_\+\+A\+B\+\_\+\+G\+E\+N\+E\+R\+A\+T\+E\+D\+\_\+\+H\+E\+A\+D\+E\+R\+\_\+\+G\+E\+N\+E\+R\+A\+T\+E\+D\+\_\+\+T\+E\+S\+T\+\_\+}
 
+\mbox{\Hypertarget{Generated__Test_8h_ab75d03ee60c9dbfee4811e3d984d4976}\label{Generated__Test_8h_ab75d03ee60c9dbfee4811e3d984d4976}} 
+\index{Generated\_Test.h@{Generated\_Test.h}!QUEUE@{QUEUE}}
+\index{QUEUE@{QUEUE}!Generated\_Test.h@{Generated\_Test.h}}
+\doxysubsubsection{\texorpdfstring{QUEUE}{QUEUE}}
+{\footnotesize\ttfamily \#define Q\+U\+E\+UE(\begin{DoxyParamCaption}\item[{}]{... }\end{DoxyParamCaption})}
+
 \mbox{\Hypertarget{Generated__Test_8h_ad16363f6583678566864d70afebc6a41}\label{Generated__Test_8h_ad16363f6583678566864d70afebc6a41}} 
 \index{Generated\_Test.h@{Generated\_Test.h}!STATEMACHINE@{STATEMACHINE}}
 \index{STATEMACHINE@{STATEMACHINE}!Generated\_Test.h@{Generated\_Test.h}}
@@ -178,7 +186,7 @@ The code is marked using doxygen. By default, it excludes the J\+S\+ON parsing f
 \index{Generated\_Test.h@{Generated\_Test.h}!TEST\_STATEMACHINE@{TEST\_STATEMACHINE}}
 \index{TEST\_STATEMACHINE@{TEST\_STATEMACHINE}!Generated\_Test.h@{Generated\_Test.h}}
 \doxysubsubsection{\texorpdfstring{TEST\_STATEMACHINE}{TEST\_STATEMACHINE}}
-{\footnotesize\ttfamily \#define T\+E\+S\+T\+\_\+\+S\+T\+A\+T\+E\+M\+A\+C\+H\+I\+NE(\begin{DoxyParamCaption}\item[{}]{name }\end{DoxyParamCaption})~void name(\mbox{\hyperlink{structtest__type}{test\+\_\+type}} $\ast$State, \mbox{\hyperlink{PreprocTest_8h_a55ed691059222a58555cf9992ec14431}{test\+\_\+cmd}} Cmd, int Int, char const $\ast$String)}
+{\footnotesize\ttfamily \#define T\+E\+S\+T\+\_\+\+S\+T\+A\+T\+E\+M\+A\+C\+H\+I\+NE(\begin{DoxyParamCaption}\item[{}]{name }\end{DoxyParamCaption})~void name(\mbox{\hyperlink{structtest__type}{test\+\_\+type}} $\ast$State, int Int, char const $\ast$String, \mbox{\hyperlink{PreprocTest_8cpp_a8f6dbcbcb4a9ebe765fd9dae798a30a2}{some\+\_\+enum}} Enum\+Value, \mbox{\hyperlink{structsome__struct}{some\+\_\+struct}} Struct\+Value, \mbox{\hyperlink{unionsome__union}{some\+\_\+union}} Union\+Value, \mbox{\hyperlink{classsome__class}{some\+\_\+class}} Class\+Value)}
 
 
 
@@ -195,7 +203,7 @@ Used to create statemachine functions. Usage\+:
 
 This expands out to the function signature\+: 
 \begin{DoxyCode}{0}
-\DoxyCodeLine{\textcolor{keywordtype}{void} FunctionForState(\mbox{\hyperlink{structtest__type}{test\_type}} *State, \mbox{\hyperlink{PreprocTest_8h_a55ed691059222a58555cf9992ec14431}{test\_cmd}} Cmd, \textcolor{keywordtype}{int} Int, \textcolor{keywordtype}{char} \textcolor{keyword}{const} *String)}
+\DoxyCodeLine{\textcolor{keywordtype}{void} FunctionForState(\mbox{\hyperlink{structtest__type}{test\_type}} *State, \textcolor{keywordtype}{int} Int, \textcolor{keywordtype}{char} \textcolor{keyword}{const} *String, \mbox{\hyperlink{PreprocTest_8cpp_a8f6dbcbcb4a9ebe765fd9dae798a30a2}{some\_enum}} EnumValue, \mbox{\hyperlink{structsome__struct}{some\_struct}} StructValue, \mbox{\hyperlink{unionsome__union}{some\_union}} UnionValue, \mbox{\hyperlink{classsome__class}{some\_class}} ClassValue)}
 \end{DoxyCode}
 
 
@@ -217,11 +225,11 @@ Usage\+:
 See \mbox{\hyperlink{index}{Code Preprocessor}} for more details. 
 
 \doxysubsection{Function Documentation}
-\mbox{\Hypertarget{Generated__Test_8h_aa15eaba01fecffd4380ff2f1b4018a3a}\label{Generated__Test_8h_aa15eaba01fecffd4380ff2f1b4018a3a}} 
-\index{Generated\_Test.h@{Generated\_Test.h}!DequeueCommand@{DequeueCommand}}
-\index{DequeueCommand@{DequeueCommand}!Generated\_Test.h@{Generated\_Test.h}}
-\doxysubsubsection{\texorpdfstring{DequeueCommand()}{DequeueCommand()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
-{\footnotesize\ttfamily \mbox{\hyperlink{PreprocTest_8h_a55ed691059222a58555cf9992ec14431}{test\+\_\+cmd}} Dequeue\+Command (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structtest__cmd__queue}{test\+\_\+cmd\+\_\+queue}} $\ast$}]{Queue }\end{DoxyParamCaption})}
+\mbox{\Hypertarget{Generated__Test_8h_a4761a19413dc5a7e479e89949566866d}\label{Generated__Test_8h_a4761a19413dc5a7e479e89949566866d}} 
+\index{Generated\_Test.h@{Generated\_Test.h}!Dequeue@{Dequeue}}
+\index{Dequeue@{Dequeue}!Generated\_Test.h@{Generated\_Test.h}}
+\doxysubsubsection{\texorpdfstring{Dequeue()}{Dequeue()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{PreprocTest_8h_a55ed691059222a58555cf9992ec14431}{test\+\_\+cmd}} Dequeue (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structtest__cmd__queue}{test\+\_\+cmd\+\_\+queue}} $\ast$}]{Queue }\end{DoxyParamCaption})}
 
 
 
@@ -238,7 +246,7 @@ The command that was queued. If the queue is empty, returns the first element of
 \mbox{\Hypertarget{Generated__Test_8h_aa431f033dae8e03ce9f9e76c5897d077}\label{Generated__Test_8h_aa431f033dae8e03ce9f9e76c5897d077}} 
 \index{Generated\_Test.h@{Generated\_Test.h}!DequeueCommand@{DequeueCommand}}
 \index{DequeueCommand@{DequeueCommand}!Generated\_Test.h@{Generated\_Test.h}}
-\doxysubsubsection{\texorpdfstring{DequeueCommand()}{DequeueCommand()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+\doxysubsubsection{\texorpdfstring{DequeueCommand()}{DequeueCommand()}}
 {\footnotesize\ttfamily \mbox{\hyperlink{PreprocTest_8h_a55ed691059222a58555cf9992ec14431}{test\+\_\+cmd}} Dequeue\+Command (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structtest__type}{test\+\_\+type}} $\ast$}]{State }\end{DoxyParamCaption})}
 
 
@@ -253,11 +261,11 @@ Corresponds to a first in, first out queue.
 \begin{DoxyReturn}{Returns}
 The first command in the queue.. 
 \end{DoxyReturn}
-\mbox{\Hypertarget{Generated__Test_8h_a9ca011b44b1d493d71b8414f84af2f69}\label{Generated__Test_8h_a9ca011b44b1d493d71b8414f84af2f69}} 
-\index{Generated\_Test.h@{Generated\_Test.h}!EnqueueCommand@{EnqueueCommand}}
-\index{EnqueueCommand@{EnqueueCommand}!Generated\_Test.h@{Generated\_Test.h}}
-\doxysubsubsection{\texorpdfstring{EnqueueCommand()}{EnqueueCommand()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
-{\footnotesize\ttfamily b8 Enqueue\+Command (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structtest__cmd__queue}{test\+\_\+cmd\+\_\+queue}} $\ast$}]{Queue,  }\item[{\mbox{\hyperlink{PreprocTest_8h_a55ed691059222a58555cf9992ec14431}{test\+\_\+cmd}}}]{Cmd }\end{DoxyParamCaption})}
+\mbox{\Hypertarget{Generated__Test_8h_a454bd3fc6c4d5d2e1db241ab69554c45}\label{Generated__Test_8h_a454bd3fc6c4d5d2e1db241ab69554c45}} 
+\index{Generated\_Test.h@{Generated\_Test.h}!Enqueue@{Enqueue}}
+\index{Enqueue@{Enqueue}!Generated\_Test.h@{Generated\_Test.h}}
+\doxysubsubsection{\texorpdfstring{Enqueue()}{Enqueue()}}
+{\footnotesize\ttfamily b8 Enqueue (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structtest__cmd__queue}{test\+\_\+cmd\+\_\+queue}} $\ast$}]{Queue,  }\item[{\mbox{\hyperlink{PreprocTest_8h_a55ed691059222a58555cf9992ec14431}{test\+\_\+cmd}}}]{Cmd }\end{DoxyParamCaption})}
 
 
 
@@ -276,7 +284,7 @@ True if successful.
 \mbox{\Hypertarget{Generated__Test_8h_aacf77a00c47b027a4331328a1071854c}\label{Generated__Test_8h_aacf77a00c47b027a4331328a1071854c}} 
 \index{Generated\_Test.h@{Generated\_Test.h}!EnqueueCommand@{EnqueueCommand}}
 \index{EnqueueCommand@{EnqueueCommand}!Generated\_Test.h@{Generated\_Test.h}}
-\doxysubsubsection{\texorpdfstring{EnqueueCommand()}{EnqueueCommand()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+\doxysubsubsection{\texorpdfstring{EnqueueCommand()}{EnqueueCommand()}}
 {\footnotesize\ttfamily b8 Enqueue\+Command (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structtest__type}{test\+\_\+type}} $\ast$}]{State,  }\item[{\mbox{\hyperlink{PreprocTest_8h_a55ed691059222a58555cf9992ec14431}{test\+\_\+cmd}}}]{Cmd }\end{DoxyParamCaption})}
 
 
@@ -434,11 +442,9 @@ True if the state change was successful.
 
 Initialize the command queue. 
 
-This must be run to initialize the queue before it may be used for the first time. Usually done in the state machine initialization.
-
-
+This must be run to initialize the queue before it may be used for the first time. 
 \begin{DoxyParams}{Parameters}
-{\em Queue} & The queue to initialize, usually {\ttfamily \&State-\/$>$Command\+Queue}. \\
+{\em Queue} & The queue to initialize. \\
 \hline
 \end{DoxyParams}
 \mbox{\Hypertarget{Generated__Test_8h_a24b3c990497a61d0d6aca57105e2c86a}\label{Generated__Test_8h_a24b3c990497a61d0d6aca57105e2c86a}} 
@@ -487,7 +493,7 @@ True if queue is full.
 
 Convert a J\+S\+ON string to an array of objects. 
 
-This takes a J\+S\+ON string that consists of an array and converts it into an array of those objects. Each object is converted as per \mbox{\hyperlink{Generated__Test_8h_a2486f6354ceb3dff0b86bcd782f4eeae}{Json\+To\+Object}}.
+This takes a J\+S\+ON string that consists of an array and converts it into an array of those objects. Each object is converted as per \mbox{\hyperlink{Generated__Test1_8h_a2486f6354ceb3dff0b86bcd782f4eeae}{Json\+To\+Object}}.
 
 
 \begin{DoxyParams}[1]{Parameters}
@@ -499,7 +505,7 @@ This takes a J\+S\+ON string that consists of an array and converts it into an a
 \hline
 \mbox{\texttt{ out}}  & {\em Object\+Array} & Location to put the object array. Array memory is taken from Volatile\+Memory. \\
 \hline
-\mbox{\texttt{ out}}  & {\em Object\+Array\+Exist} & Array of \mbox{\hyperlink{structmy__json__test__existlist}{my\+\_\+json\+\_\+test\+\_\+existlist}} structs, as per \mbox{\hyperlink{Generated__Test_8h_a2486f6354ceb3dff0b86bcd782f4eeae}{Json\+To\+Object}}. \\
+\mbox{\texttt{ out}}  & {\em Object\+Array\+Exist} & Array of \mbox{\hyperlink{structmy__json__test__existlist}{my\+\_\+json\+\_\+test\+\_\+existlist}} structs, as per \mbox{\hyperlink{Generated__Test1_8h_a2486f6354ceb3dff0b86bcd782f4eeae}{Json\+To\+Object}}. \\
 \hline
 \end{DoxyParams}
 \begin{DoxyReturn}{Returns}
@@ -619,7 +625,7 @@ This creates a J\+S\+ON string from a given enum, in the form\+:
 \end{DoxyCode}
 
 
-This function is usually called from the struct version Push\+Json.
+This function is usually called from the struct version of Push\+Json.
 
 
 \begin{DoxyParams}{Parameters}
@@ -664,7 +670,7 @@ Generic template for the c-\/style string String\+To\+Enum$<$$>$ functions.
 \index{StringToEnum$<$ enColours $>$@{StringToEnum$<$ enColours $>$}!Generated\_Test.h@{Generated\_Test.h}}
 \doxysubsubsection{\texorpdfstring{StringToEnum$<$ enColours $>$()}{StringToEnum< enColours >()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
 {\footnotesize\ttfamily template$<$$>$ \\
-auto \mbox{\hyperlink{Generated__Test_8h_ac56b1acaa9bd587f623d2983f921ad50}{String\+To\+Enum}}$<$ \mbox{\hyperlink{PreprocTest_8h_a081cf1a0e70d6e2bd48c98f457742877}{en\+Colours}} $>$ (\begin{DoxyParamCaption}\item[{abs\+\_\+stringptr}]{String }\end{DoxyParamCaption}) -\/$>$  \mbox{\hyperlink{PreprocTest_8h_a081cf1a0e70d6e2bd48c98f457742877}{en\+Colours}}}
+auto \mbox{\hyperlink{Generated__Test1_8h_ac56b1acaa9bd587f623d2983f921ad50}{String\+To\+Enum}}$<$ \mbox{\hyperlink{PreprocTest_8h_a081cf1a0e70d6e2bd48c98f457742877}{en\+Colours}} $>$ (\begin{DoxyParamCaption}\item[{abs\+\_\+stringptr}]{String }\end{DoxyParamCaption}) -\/$>$  \mbox{\hyperlink{PreprocTest_8h_a081cf1a0e70d6e2bd48c98f457742877}{en\+Colours}}}
 
 
 
@@ -685,7 +691,7 @@ A en\+Colours enum value.
 \index{StringToEnum$<$ enColours $>$@{StringToEnum$<$ enColours $>$}!Generated\_Test.h@{Generated\_Test.h}}
 \doxysubsubsection{\texorpdfstring{StringToEnum$<$ enColours $>$()}{StringToEnum< enColours >()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
 {\footnotesize\ttfamily template$<$$>$ \\
-auto \mbox{\hyperlink{Generated__Test_8h_ac56b1acaa9bd587f623d2983f921ad50}{String\+To\+Enum}}$<$ \mbox{\hyperlink{PreprocTest_8h_a081cf1a0e70d6e2bd48c98f457742877}{en\+Colours}} $>$ (\begin{DoxyParamCaption}\item[{const char $\ast$}]{String }\end{DoxyParamCaption}) -\/$>$  \mbox{\hyperlink{PreprocTest_8h_a081cf1a0e70d6e2bd48c98f457742877}{en\+Colours}}}
+auto \mbox{\hyperlink{Generated__Test1_8h_ac56b1acaa9bd587f623d2983f921ad50}{String\+To\+Enum}}$<$ \mbox{\hyperlink{PreprocTest_8h_a081cf1a0e70d6e2bd48c98f457742877}{en\+Colours}} $>$ (\begin{DoxyParamCaption}\item[{const char $\ast$}]{String }\end{DoxyParamCaption}) -\/$>$  \mbox{\hyperlink{PreprocTest_8h_a081cf1a0e70d6e2bd48c98f457742877}{en\+Colours}}}
 
 
 
@@ -706,7 +712,7 @@ A en\+Colours enum value.
 \index{StringToEnum$<$ test\_cmd $>$@{StringToEnum$<$ test\_cmd $>$}!Generated\_Test.h@{Generated\_Test.h}}
 \doxysubsubsection{\texorpdfstring{StringToEnum$<$ test\_cmd $>$()}{StringToEnum< test\_cmd >()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
 {\footnotesize\ttfamily template$<$$>$ \\
-auto \mbox{\hyperlink{Generated__Test_8h_ac56b1acaa9bd587f623d2983f921ad50}{String\+To\+Enum}}$<$ \mbox{\hyperlink{PreprocTest_8h_a55ed691059222a58555cf9992ec14431}{test\+\_\+cmd}} $>$ (\begin{DoxyParamCaption}\item[{abs\+\_\+stringptr}]{String }\end{DoxyParamCaption}) -\/$>$  \mbox{\hyperlink{PreprocTest_8h_a55ed691059222a58555cf9992ec14431}{test\+\_\+cmd}}}
+auto \mbox{\hyperlink{Generated__Test1_8h_ac56b1acaa9bd587f623d2983f921ad50}{String\+To\+Enum}}$<$ \mbox{\hyperlink{PreprocTest_8h_a55ed691059222a58555cf9992ec14431}{test\+\_\+cmd}} $>$ (\begin{DoxyParamCaption}\item[{abs\+\_\+stringptr}]{String }\end{DoxyParamCaption}) -\/$>$  \mbox{\hyperlink{PreprocTest_8h_a55ed691059222a58555cf9992ec14431}{test\+\_\+cmd}}}
 
 
 
@@ -727,7 +733,7 @@ A test\+\_\+cmd enum value.
 \index{StringToEnum$<$ test\_cmd $>$@{StringToEnum$<$ test\_cmd $>$}!Generated\_Test.h@{Generated\_Test.h}}
 \doxysubsubsection{\texorpdfstring{StringToEnum$<$ test\_cmd $>$()}{StringToEnum< test\_cmd >()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
 {\footnotesize\ttfamily template$<$$>$ \\
-auto \mbox{\hyperlink{Generated__Test_8h_ac56b1acaa9bd587f623d2983f921ad50}{String\+To\+Enum}}$<$ \mbox{\hyperlink{PreprocTest_8h_a55ed691059222a58555cf9992ec14431}{test\+\_\+cmd}} $>$ (\begin{DoxyParamCaption}\item[{const char $\ast$}]{String }\end{DoxyParamCaption}) -\/$>$  \mbox{\hyperlink{PreprocTest_8h_a55ed691059222a58555cf9992ec14431}{test\+\_\+cmd}}}
+auto \mbox{\hyperlink{Generated__Test1_8h_ac56b1acaa9bd587f623d2983f921ad50}{String\+To\+Enum}}$<$ \mbox{\hyperlink{PreprocTest_8h_a55ed691059222a58555cf9992ec14431}{test\+\_\+cmd}} $>$ (\begin{DoxyParamCaption}\item[{const char $\ast$}]{String }\end{DoxyParamCaption}) -\/$>$  \mbox{\hyperlink{PreprocTest_8h_a55ed691059222a58555cf9992ec14431}{test\+\_\+cmd}}}
 
 
 

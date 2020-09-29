@@ -140,6 +140,15 @@ struct term_statefunction
     term_statefunction *Prev;
 };
 
+struct term_queue
+{
+    abs_stringptr QueueItemName;
+    s32 QueueSize;
+    
+    term_queue *Next;
+    term_queue *Prev;
+};
+
 struct parser
 {
     memory_arena *Memory;
@@ -149,6 +158,7 @@ struct parser
     term_function FunctionListSentinal;
     term_statemachine StateMachineListSentinal;
     term_definedfunction DefinedFunctionListSentinal;
+    term_queue QueueListSentinal;
 };
 
 struct output_data
@@ -475,6 +485,40 @@ ParseTaggedExpr(lexer *Lexer, parser *Parser, token Token)
     
 }
 
+void 
+ParseQueue(lexer *Lexer, parser *Parser, token Token)
+{
+    if(RequireToken(Lexer, TOKEN_OpenParen))
+    {
+        token Token = abl_GetToken(Lexer);
+        if(Token.Type == TOKEN_Identifier)
+        {
+            term_queue *Queue = abm_PushStruct(Parser->Memory, term_queue);
+            Queue->QueueItemName = Token.Text;
+            
+            if(OptionalToken(Lexer, TOKEN_Comma))
+            {
+                Token = abl_GetToken(Lexer);
+                if(Token.Type == TOKEN_Number)
+                {
+                    Queue->QueueSize = abl_TokenToS32(Token);
+                }
+            }
+            
+            if(RequireToken(Lexer, TOKEN_CloseParen))
+            {
+                PushOntoList(Parser->QueueListSentinal, Queue);
+            }
+            else 
+            {
+                // Parse Error
+            }
+            
+            OptionalToken(Lexer, TOKEN_Semicolon);
+        }
+    }
+}
+
 void
 ParseStateMachineDef(lexer *Lexer, parser *Parser, token Token)
 {
@@ -601,6 +645,10 @@ ParseExpr(lexer *Lexer, parser *Parser)
                 {
                     ParseStateMachineDef(Lexer, Parser, Token);
                 }
+                else if(abl_TokenEquals(Token, "QUEUE"))
+                {
+                    ParseQueue(Lexer, Parser, Token);
+                }
                 else if(isDefineFunction(Lexer, Token))
                 {
                     ParseDefinedFunction(Lexer, Parser, Token);
@@ -630,6 +678,7 @@ ParseInit(memory_arena *Memory)
     InitList(Parser->FunctionListSentinal);
     InitList(Parser->StateMachineListSentinal);
     InitList(Parser->DefinedFunctionListSentinal);
+    InitList(Parser->QueueListSentinal);
     
     return Parser;
 }

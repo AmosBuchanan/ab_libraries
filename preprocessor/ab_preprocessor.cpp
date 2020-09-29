@@ -203,6 +203,9 @@ GenerateOutput(memory_arena *Memory, char const *OutputFile,
                   "#ifndef STATEMACHINE\n"
                   "#define STATEMACHINE(...)\n"
                   "#endif\n"
+                  "#ifndef QUEUE\n"
+                  "#define QUEUE(...)\n"
+                  "#endif\n"
                   "#include <stdlib.h>\n"
                   "#include \"ab_memory.h\"\n"
                   "#include \"ab_string.h\"\n"
@@ -369,6 +372,7 @@ main(int argc, char** argv)
                                   &Memory, HeaderOutput, DefinitionOutput);
             ProcessEnums(&Parser->EnumListSentinal, &Memory, HeaderOutput, DefinitionOutput);
             ProcessStructs(&Parser->StructListSentinal, &Memory, HeaderOutput, DefinitionOutput);
+            ProcessQueueFunctions(&Parser->QueueListSentinal, &Memory, HeaderOutput, DefinitionOutput);
             
             if(File.Type == enFileType::Header)
             {

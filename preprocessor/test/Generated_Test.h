@@ -42,6 +42,9 @@ PREDEFINED = GEN_JSMN_HEADER
 #ifndef STATEMACHINE
 #define STATEMACHINE(...)
 #endif
+#ifndef QUEUE
+#define QUEUE(...)
+#endif
 #include <stdlib.h>
 #include "ab_memory.h"
 #include "ab_string.h"
@@ -70,50 +73,10 @@ auto StringToEnum(abs_stringptr String) -> T;
 /****  StateMachine: TEST_STATEMACHINE ****/
 struct test_type;
 enum class test_cmd;
-/***** Queue: test_cmd ****/
-/** @brief A circular queue of 10 elements for the state command test_cmd. */
-struct test_cmd_queue
-{
-    test_cmd Items[10];
-    s32 Front;
-    s32 Rear;
-};
-
-/** @brief Initialize the command queue.
-
-This must be run to initialize the queue before it may be used for the first time. Usually done in the state machine 
-initialization.
-
-@param Queue The queue to initialize, usually `&State->CommandQueue`.
-**/
-inline void InitializeQueue(test_cmd_queue *Queue);
-/** @brief Check if queue is empty.
-
-@param Queue Queue to check.
-@return True if queue is empty.
-**/
-inline b8 isQueueEmpty(test_cmd_queue *Queue);
-/** @brief Check if queue is full.
-
-@param Queue Queue to check.
-@return True if queue is full.
-**/
-inline b8 isQueueFull(test_cmd_queue *Queue);
-/** @brief Add an item to the back of the queue.
-
-@param Queue The queue to add to.
-@param Cmd The command to add.
-@return True if successful.
-**/
-b8 EnqueueCommand(test_cmd_queue *Queue, test_cmd Cmd);
-/** @brief Dequeue from the front of the queue.
-
-@param Queue The queue to pull a command from.
-@return The command that was queued. If the queue is empty, returns the first element of test_cmd. The first element is usually reserved for a NOP command.
-**/
-test_cmd DequeueCommand(test_cmd_queue *Queue);
-/***********/
-
+enum class some_enum;
+struct some_struct;
+union some_union;
+class some_class;
 /** @brief Used to create statemachine functions.
  Usage:
 ~~~c
@@ -126,7 +89,7 @@ TEST_STATEMACHINE(FuntionForState)
 This expands out to the function signature: 
 ~~~c
 
-void FunctionForState(test_type *State, test_cmd Cmd, int Int, char const *String)
+void FunctionForState(test_type *State, int Int, char const *String, some_enum EnumValue, some_struct StructValue, some_union UnionValue, some_class ClassValue)
 
 ~~~
 
@@ -146,7 +109,7 @@ struct test_type
 
 See @ref index for more details.
 **/
-#define TEST_STATEMACHINE(name) void name(test_type *State, test_cmd Cmd, int Int, char const *String)
+#define TEST_STATEMACHINE(name) void name(test_type *State, int Int, char const *String, some_enum EnumValue, some_struct StructValue, some_union UnionValue, some_class ClassValue)
 /** @brief typedef to use in the state struct. **/
 typedef TEST_STATEMACHINE(test_statemachine);
 
@@ -188,6 +151,49 @@ TEST_STATEMACHINE(Idle);
 TEST_STATEMACHINE(Running);
 
 /*********/
+
+/***** Queue: test_cmd ****/
+/** @brief A circular queue of 10 elements. */
+struct test_cmd_queue
+{
+    test_cmd Items[10];
+    s32 Front;
+    s32 Rear;
+};
+
+/** @brief Initialize the command queue.
+
+This must be run to initialize the queue before it may be used for the first time.
+@param Queue The queue to initialize.
+**/
+inline void InitializeQueue(test_cmd_queue *Queue);
+/** @brief Check if queue is empty.
+
+@param Queue Queue to check.
+@return True if queue is empty.
+**/
+inline b8 isQueueEmpty(test_cmd_queue *Queue);
+/** @brief Check if queue is full.
+
+@param Queue Queue to check.
+@return True if queue is full.
+**/
+inline b8 isQueueFull(test_cmd_queue *Queue);
+/** @brief Add an item to the back of the queue.
+
+@param Queue The queue to add to.
+@param Cmd The command to add.
+@return True if successful.
+**/
+b8 Enqueue(test_cmd_queue *Queue, test_cmd Cmd);
+/** @brief Dequeue from the front of the queue.
+
+@param Queue The queue to pull a command from.
+@return The command that was queued. If the queue is empty, returns the first element of test_cmd. The first element is usually reserved for a NOP command.
+**/
+test_cmd Dequeue(test_cmd_queue *Queue);
+/***********/
+
 
 /****** Enum test_cmd Header *****/
 enum class test_cmd;
@@ -372,6 +378,44 @@ struct my_json_test_existlist
 #if defined(GENERATED_TEST_SRC)
 #undef GENERATED_TEST_SRC
 
+/**** StateMachine: TEST_STATEMACHINE **/
+// Function Definitions
+inline b8
+GoToState(test_type *State, test_statemachine *NewState)
+{
+    b8 isChanged = false;
+    if(NewState && State)
+    {
+        State->CurrentState = NewState;
+        State->isNewState = true;
+    }
+
+    return isChanged;
+}
+
+char const*
+GetStateName(test_statemachine *StateName)
+{
+if(StateName == Idle) {return "Idle";}
+if(StateName == Running) {return "Running";}
+return "Unknown";
+}
+
+b8
+EnqueueCommand(test_type *State, test_cmd Cmd)
+{
+return Enqueue(&State->CommandQueue, Cmd);
+}
+
+test_cmd
+DequeueCommand(test_type *State)
+{
+return Dequeue(&State->CommandQueue);
+}
+
+
+/*********/
+
 /****** Queue: test_cmd ****/
 inline void
 InitializeQueue(test_cmd_queue *Queue)
@@ -435,43 +479,6 @@ return Result;
 
 /***********/
 
-/**** StateMachine: TEST_STATEMACHINE **/
-// Function Definitions
-inline b8
-GoToState(test_type *State, test_statemachine *NewState)
-{
-    b8 isChanged = false;
-    if(NewState && State)
-    {
-        State->CurrentState = NewState;
-        State->isNewState = true;
-    }
-
-    return isChanged;
-}
-
-char const*
-GetStateName(test_statemachine *StateName)
-{
-if(StateName == Idle) {return "Idle";}
-if(StateName == Running) {return "Running";}
-return "Unknown";
-}
-
-b8
-EnqueueCommand(test_type *State, test_cmd Cmd)
-{
-return Enqueue(&State->CommandQueue, Cmd);
-}
-
-test_cmd
-DequeueCommand(test_type *State)
-{
-return Dequeue(&State->CommandQueue);
-}
-
-
-/*********/
 
 /****** Enum test_cmd Functions *****/
 constexpr abs_stringptr test_cmd_Strings[test_cmd_Count] = 

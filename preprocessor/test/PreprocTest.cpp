@@ -9,7 +9,13 @@
 #define GENERATED_TEST_SRC
 #include "Generated_Test.h"
 
-STATEMACHINE(test_statemachine, test_type, test_cmd, int Int, char const *String);
+enum class some_enum {first};
+struct some_struct {};
+union some_union {};
+class some_class {};
+
+QUEUE(test_cmd);
+STATEMACHINE(test_statemachine, test_type, test_cmd, int Int, char const *String, ENUM some_enum EnumValue, STRUCT some_struct StructValue, UNION some_union UnionValue, CLASS some_class ClassValue);
 
 #include "PreprocTest.h"
 
@@ -26,13 +32,15 @@ TEST_STATEMACHINE(Idle)
     if(State->isNewState)
     {
         State->isNewState = false;
-        printf("%s ", GetStateName(State->CurrentState));
+        printf("\n%s ", GetStateName(State->CurrentState));
     }
     else
     {
         GoToState(State, Running);
-        printf("i\n");
+        printf("i ");
     }
+    test_cmd Cmd = DequeueCommand(State);
+    printf("%s ", EnumToCString(Cmd));
 }
 
 TEST_STATEMACHINE(Running)
@@ -40,13 +48,15 @@ TEST_STATEMACHINE(Running)
     if(State->isNewState)
     {
         State->isNewState = false;
-        printf("%s ", GetStateName(State->CurrentState));
+        printf("\n%s ", GetStateName(State->CurrentState));
     }
     else
     {
         GoToState(State, Idle);
-        printf("r\n");
+        printf("r ");
     }
+    test_cmd Cmd = DequeueCommand(State);
+    printf("%s ", EnumToCString(Cmd));
 }
 
 void
@@ -91,7 +101,7 @@ main(int argc, char* argv[])
     }
     printf("\n");
     
-    printf("Print Labels: \n");
+    printf("----\nPrint Labels: \n");
     for(u32 i = 0; i < enColours_Count; ++i)
     {
         abs_stringptr S = EnumToLabel_Object((enColours)i);
@@ -101,10 +111,6 @@ main(int argc, char* argv[])
     test_type TestMachine = {};
     GoToState(&TestMachine, Idle);
     InitializeQueue(&TestMachine.CommandQueue);
-    for(u32 i = 0; i < 20; ++i)
-    {
-        (TestMachine.CurrentState)(&TestMachine, test_cmd::Command1, i, "Some String");
-    }
     
     auto Deq = [&TestMachine]() -> void
     {
@@ -118,6 +124,17 @@ main(int argc, char* argv[])
         else 
             printf("Couldn't queue: %s.\n", EnumToCString(Cmd));
     };
+    
+    printf("\n----\nState Machine:\n");
+    Enq(test_cmd::Command1);
+    Enq(test_cmd::Command2);
+    Enq(test_cmd::Command3);
+    Enq(test_cmd::Command4);
+    for(u32 i = 0; i < 20; ++i)
+    {
+        (TestMachine.CurrentState)(&TestMachine, i, "Some String", some_enum::first, {}, {}, {});
+    }
+    printf("\n----\nQueueing\n");
     
     Enq(test_cmd::Command1);
     Deq();

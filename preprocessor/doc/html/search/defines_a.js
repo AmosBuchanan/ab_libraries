@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['win32_5flean_5fand_5fmean_435',['WIN32_LEAN_AND_MEAN',['../d7/deb/ab__file__win32_8h.html#ac7bef5d85e3dcd73eef56ad39ffc84a9',1,'ab_file_win32.h']]]
+  ['version_465',['VERSION',['../da/daf/ab__preprocessor_8cpp.html#a1c6d5de492ac61ad29aec7aa9a436bbf',1,'ab_preprocessor.cpp']]]
 ];

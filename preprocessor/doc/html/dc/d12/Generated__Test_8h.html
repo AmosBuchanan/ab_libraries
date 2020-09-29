@@ -114,7 +114,7 @@ This graph shows which files directly or indirectly include this file:</div>
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
 Classes</h2></td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../de/d1b/structtest__cmd__queue.html">test_cmd_queue</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">A circular queue of 10 elements for the state command test_cmd.  <a href="../../de/d1b/structtest__cmd__queue.html#details">More...</a><br /></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">A circular queue of 10 elements.  <a href="../../de/d1b/structtest__cmd__queue.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dc/dc0/structmy__json__test__existlist.html">my_json_test_existlist</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -125,9 +125,11 @@ Macros</h2></td></tr>
 <tr class="separator:ad9b15e5b6d9b1ed55b76d9916ff6dec2"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad16363f6583678566864d70afebc6a41"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dc/d12/Generated__Test_8h.html#ad16363f6583678566864d70afebc6a41">STATEMACHINE</a>(...)</td></tr>
 <tr class="separator:ad16363f6583678566864d70afebc6a41"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab75d03ee60c9dbfee4811e3d984d4976"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dc/d12/Generated__Test_8h.html#ab75d03ee60c9dbfee4811e3d984d4976">QUEUE</a>(...)</td></tr>
+<tr class="separator:ab75d03ee60c9dbfee4811e3d984d4976"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a249bf3ceb9df5c1fec7be5efe674a1ba"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dc/d12/Generated__Test_8h.html#a249bf3ceb9df5c1fec7be5efe674a1ba">_AB_GENERATED_HEADER_GENERATED_TEST_</a></td></tr>
 <tr class="separator:a249bf3ceb9df5c1fec7be5efe674a1ba"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a60e76ed427c4968689b9571af7254547"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dc/d12/Generated__Test_8h.html#a60e76ed427c4968689b9571af7254547">TEST_STATEMACHINE</a>(name)&#160;&#160;&#160;void name(<a class="el" href="../../d3/dc1/structtest__type.html">test_type</a> *State, <a class="el" href="../../d3/d30/PreprocTest_8h.html#a55ed691059222a58555cf9992ec14431">test_cmd</a> Cmd, int Int, char const *String)</td></tr>
+<tr class="memitem:a60e76ed427c4968689b9571af7254547"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dc/d12/Generated__Test_8h.html#a60e76ed427c4968689b9571af7254547">TEST_STATEMACHINE</a>(name)&#160;&#160;&#160;void name(<a class="el" href="../../d3/dc1/structtest__type.html">test_type</a> *State, int Int, char const *String, <a class="el" href="../../df/d20/PreprocTest_8cpp.html#a8f6dbcbcb4a9ebe765fd9dae798a30a2">some_enum</a> EnumValue, <a class="el" href="../../d1/dd1/structsome__struct.html">some_struct</a> StructValue, <a class="el" href="../../d5/dab/unionsome__union.html">some_union</a> UnionValue, <a class="el" href="../../de/da3/classsome__class.html">some_class</a> ClassValue)</td></tr>
 <tr class="memdesc:a60e76ed427c4968689b9571af7254547"><td class="mdescLeft">&#160;</td><td class="mdescRight">Used to create statemachine functions. Usage:  <a href="../../dc/d12/Generated__Test_8h.html#a60e76ed427c4968689b9571af7254547">More...</a><br /></td></tr>
 <tr class="separator:a60e76ed427c4968689b9571af7254547"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
@@ -141,21 +143,6 @@ Functions</h2></td></tr>
 <tr class="memitem:ac56b1acaa9bd587f623d2983f921ad50"><td class="memTemplItemLeft" align="right" valign="top">auto&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="../../dc/d12/Generated__Test_8h.html#ac56b1acaa9bd587f623d2983f921ad50">StringToEnum</a> (abs_stringptr String) -&gt; T</td></tr>
 <tr class="memdesc:ac56b1acaa9bd587f623d2983f921ad50"><td class="mdescLeft">&#160;</td><td class="mdescRight">Generic template for the abs_stringptr StringToEnum&lt;&gt; functions.  <a href="../../dc/d12/Generated__Test_8h.html#ac56b1acaa9bd587f623d2983f921ad50">More...</a><br /></td></tr>
 <tr class="separator:ac56b1acaa9bd587f623d2983f921ad50"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a43822849924e4365ec1ad146736a7967"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dc/d12/Generated__Test_8h.html#a43822849924e4365ec1ad146736a7967">InitializeQueue</a> (<a class="el" href="../../de/d1b/structtest__cmd__queue.html">test_cmd_queue</a> *Queue)</td></tr>
-<tr class="memdesc:a43822849924e4365ec1ad146736a7967"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initialize the command queue.  <a href="../../dc/d12/Generated__Test_8h.html#a43822849924e4365ec1ad146736a7967">More...</a><br /></td></tr>
-<tr class="separator:a43822849924e4365ec1ad146736a7967"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a24b3c990497a61d0d6aca57105e2c86a"><td class="memItemLeft" align="right" valign="top">b8&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dc/d12/Generated__Test_8h.html#a24b3c990497a61d0d6aca57105e2c86a">isQueueEmpty</a> (<a class="el" href="../../de/d1b/structtest__cmd__queue.html">test_cmd_queue</a> *Queue)</td></tr>
-<tr class="memdesc:a24b3c990497a61d0d6aca57105e2c86a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Check if queue is empty.  <a href="../../dc/d12/Generated__Test_8h.html#a24b3c990497a61d0d6aca57105e2c86a">More...</a><br /></td></tr>
-<tr class="separator:a24b3c990497a61d0d6aca57105e2c86a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a5074b01af8cb1f2124b7d04399a48c82"><td class="memItemLeft" align="right" valign="top">b8&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dc/d12/Generated__Test_8h.html#a5074b01af8cb1f2124b7d04399a48c82">isQueueFull</a> (<a class="el" href="../../de/d1b/structtest__cmd__queue.html">test_cmd_queue</a> *Queue)</td></tr>
-<tr class="memdesc:a5074b01af8cb1f2124b7d04399a48c82"><td class="mdescLeft">&#160;</td><td class="mdescRight">Check if queue is full.  <a href="../../dc/d12/Generated__Test_8h.html#a5074b01af8cb1f2124b7d04399a48c82">More...</a><br /></td></tr>
-<tr class="separator:a5074b01af8cb1f2124b7d04399a48c82"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a9ca011b44b1d493d71b8414f84af2f69"><td class="memItemLeft" align="right" valign="top">b8&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dc/d12/Generated__Test_8h.html#a9ca011b44b1d493d71b8414f84af2f69">EnqueueCommand</a> (<a class="el" href="../../de/d1b/structtest__cmd__queue.html">test_cmd_queue</a> *Queue, <a class="el" href="../../d3/d30/PreprocTest_8h.html#a55ed691059222a58555cf9992ec14431">test_cmd</a> Cmd)</td></tr>
-<tr class="memdesc:a9ca011b44b1d493d71b8414f84af2f69"><td class="mdescLeft">&#160;</td><td class="mdescRight">Add an item to the back of the queue.  <a href="../../dc/d12/Generated__Test_8h.html#a9ca011b44b1d493d71b8414f84af2f69">More...</a><br /></td></tr>
-<tr class="separator:a9ca011b44b1d493d71b8414f84af2f69"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa15eaba01fecffd4380ff2f1b4018a3a"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d3/d30/PreprocTest_8h.html#a55ed691059222a58555cf9992ec14431">test_cmd</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dc/d12/Generated__Test_8h.html#aa15eaba01fecffd4380ff2f1b4018a3a">DequeueCommand</a> (<a class="el" href="../../de/d1b/structtest__cmd__queue.html">test_cmd_queue</a> *Queue)</td></tr>
-<tr class="memdesc:aa15eaba01fecffd4380ff2f1b4018a3a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Dequeue from the front of the queue.  <a href="../../dc/d12/Generated__Test_8h.html#aa15eaba01fecffd4380ff2f1b4018a3a">More...</a><br /></td></tr>
-<tr class="separator:aa15eaba01fecffd4380ff2f1b4018a3a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a5b28cc9825a80c7d578bce92d5152de4"><td class="memItemLeft" align="right" valign="top">typedef&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dc/d12/Generated__Test_8h.html#a5b28cc9825a80c7d578bce92d5152de4">TEST_STATEMACHINE</a> (test_statemachine)</td></tr>
 <tr class="memdesc:a5b28cc9825a80c7d578bce92d5152de4"><td class="mdescLeft">&#160;</td><td class="mdescRight">typedef to use in the state struct.  <a href="../../dc/d12/Generated__Test_8h.html#a5b28cc9825a80c7d578bce92d5152de4">More...</a><br /></td></tr>
 <tr class="separator:a5b28cc9825a80c7d578bce92d5152de4"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -177,6 +164,21 @@ Functions</h2></td></tr>
 <tr class="memitem:aed31da543c10eab9ca01e8b7f1e299cd"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dc/d12/Generated__Test_8h.html#aed31da543c10eab9ca01e8b7f1e299cd">TEST_STATEMACHINE</a> (Running)</td></tr>
 <tr class="memdesc:aed31da543c10eab9ca01e8b7f1e299cd"><td class="mdescLeft">&#160;</td><td class="mdescRight">Forward declaration for Running().  <a href="../../dc/d12/Generated__Test_8h.html#aed31da543c10eab9ca01e8b7f1e299cd">More...</a><br /></td></tr>
 <tr class="separator:aed31da543c10eab9ca01e8b7f1e299cd"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a43822849924e4365ec1ad146736a7967"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dc/d12/Generated__Test_8h.html#a43822849924e4365ec1ad146736a7967">InitializeQueue</a> (<a class="el" href="../../de/d1b/structtest__cmd__queue.html">test_cmd_queue</a> *Queue)</td></tr>
+<tr class="memdesc:a43822849924e4365ec1ad146736a7967"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initialize the command queue.  <a href="../../dc/d12/Generated__Test_8h.html#a43822849924e4365ec1ad146736a7967">More...</a><br /></td></tr>
+<tr class="separator:a43822849924e4365ec1ad146736a7967"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a24b3c990497a61d0d6aca57105e2c86a"><td class="memItemLeft" align="right" valign="top">b8&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dc/d12/Generated__Test_8h.html#a24b3c990497a61d0d6aca57105e2c86a">isQueueEmpty</a> (<a class="el" href="../../de/d1b/structtest__cmd__queue.html">test_cmd_queue</a> *Queue)</td></tr>
+<tr class="memdesc:a24b3c990497a61d0d6aca57105e2c86a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Check if queue is empty.  <a href="../../dc/d12/Generated__Test_8h.html#a24b3c990497a61d0d6aca57105e2c86a">More...</a><br /></td></tr>
+<tr class="separator:a24b3c990497a61d0d6aca57105e2c86a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5074b01af8cb1f2124b7d04399a48c82"><td class="memItemLeft" align="right" valign="top">b8&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dc/d12/Generated__Test_8h.html#a5074b01af8cb1f2124b7d04399a48c82">isQueueFull</a> (<a class="el" href="../../de/d1b/structtest__cmd__queue.html">test_cmd_queue</a> *Queue)</td></tr>
+<tr class="memdesc:a5074b01af8cb1f2124b7d04399a48c82"><td class="mdescLeft">&#160;</td><td class="mdescRight">Check if queue is full.  <a href="../../dc/d12/Generated__Test_8h.html#a5074b01af8cb1f2124b7d04399a48c82">More...</a><br /></td></tr>
+<tr class="separator:a5074b01af8cb1f2124b7d04399a48c82"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a454bd3fc6c4d5d2e1db241ab69554c45"><td class="memItemLeft" align="right" valign="top">b8&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dc/d12/Generated__Test_8h.html#a454bd3fc6c4d5d2e1db241ab69554c45">Enqueue</a> (<a class="el" href="../../de/d1b/structtest__cmd__queue.html">test_cmd_queue</a> *Queue, <a class="el" href="../../d3/d30/PreprocTest_8h.html#a55ed691059222a58555cf9992ec14431">test_cmd</a> Cmd)</td></tr>
+<tr class="memdesc:a454bd3fc6c4d5d2e1db241ab69554c45"><td class="mdescLeft">&#160;</td><td class="mdescRight">Add an item to the back of the queue.  <a href="../../dc/d12/Generated__Test_8h.html#a454bd3fc6c4d5d2e1db241ab69554c45">More...</a><br /></td></tr>
+<tr class="separator:a454bd3fc6c4d5d2e1db241ab69554c45"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4761a19413dc5a7e479e89949566866d"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d3/d30/PreprocTest_8h.html#a55ed691059222a58555cf9992ec14431">test_cmd</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dc/d12/Generated__Test_8h.html#a4761a19413dc5a7e479e89949566866d">Dequeue</a> (<a class="el" href="../../de/d1b/structtest__cmd__queue.html">test_cmd_queue</a> *Queue)</td></tr>
+<tr class="memdesc:a4761a19413dc5a7e479e89949566866d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Dequeue from the front of the queue.  <a href="../../dc/d12/Generated__Test_8h.html#a4761a19413dc5a7e479e89949566866d">More...</a><br /></td></tr>
+<tr class="separator:a4761a19413dc5a7e479e89949566866d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a3918139d94601cfee23f622cd557582f"><td class="memItemLeft" align="right" valign="top">template&lt;&gt; </td></tr>
 <tr class="memitem:a3918139d94601cfee23f622cd557582f"><td class="memTemplItemLeft" align="right" valign="top">auto&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="../../dc/d12/Generated__Test_8h.html#a3918139d94601cfee23f622cd557582f">StringToEnum&lt; test_cmd &gt;</a> (const char *String) -&gt; <a class="el" href="../../d3/d30/PreprocTest_8h.html#a55ed691059222a58555cf9992ec14431">test_cmd</a></td></tr>
 <tr class="memdesc:a3918139d94601cfee23f622cd557582f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Convert a char * c-style string to a test_cmd enum.  <a href="../../dc/d12/Generated__Test_8h.html#a3918139d94601cfee23f622cd557582f">More...</a><br /></td></tr>
@@ -262,6 +264,24 @@ Variables</h2></td></tr>
 
 </div>
 </div>
+<a id="ab75d03ee60c9dbfee4811e3d984d4976"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab75d03ee60c9dbfee4811e3d984d4976">&#9670;&nbsp;</a></span>QUEUE</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define QUEUE</td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname"><em>...</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <a id="ad16363f6583678566864d70afebc6a41"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#ad16363f6583678566864d70afebc6a41">&#9670;&nbsp;</a></span>STATEMACHINE</h2>
 
@@ -309,7 +329,7 @@ Variables</h2></td></tr>
           <td>(</td>
           <td class="paramtype">&#160;</td>
           <td class="paramname">name</td><td>)</td>
-          <td>&#160;&#160;&#160;void name(<a class="el" href="../../d3/dc1/structtest__type.html">test_type</a> *State, <a class="el" href="../../d3/d30/PreprocTest_8h.html#a55ed691059222a58555cf9992ec14431">test_cmd</a> Cmd, int Int, char const *String)</td>
+          <td>&#160;&#160;&#160;void name(<a class="el" href="../../d3/dc1/structtest__type.html">test_type</a> *State, int Int, char const *String, <a class="el" href="../../df/d20/PreprocTest_8cpp.html#a8f6dbcbcb4a9ebe765fd9dae798a30a2">some_enum</a> EnumValue, <a class="el" href="../../d1/dd1/structsome__struct.html">some_struct</a> StructValue, <a class="el" href="../../d5/dab/unionsome__union.html">some_union</a> UnionValue, <a class="el" href="../../de/da3/classsome__class.html">some_class</a> ClassValue)</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -319,7 +339,7 @@ Variables</h2></td></tr>
 <div class="line">{</div>
 <div class="line">    <span class="comment">// Function Code</span></div>
 <div class="line">}</div>
-</div><!-- fragment --><p>This expands out to the function signature: </p><div class="fragment"><div class="line"><span class="keywordtype">void</span> FunctionForState(<a class="code" href="../../d3/dc1/structtest__type.html">test_type</a> *State, <a class="code" href="../../d3/d30/PreprocTest_8h.html#a55ed691059222a58555cf9992ec14431">test_cmd</a> Cmd, <span class="keywordtype">int</span> Int, <span class="keywordtype">char</span> <span class="keyword">const</span> *String)</div>
+</div><!-- fragment --><p>This expands out to the function signature: </p><div class="fragment"><div class="line"><span class="keywordtype">void</span> FunctionForState(<a class="code" href="../../d3/dc1/structtest__type.html">test_type</a> *State, <span class="keywordtype">int</span> Int, <span class="keywordtype">char</span> <span class="keyword">const</span> *String, <a class="code" href="../../df/d20/PreprocTest_8cpp.html#a8f6dbcbcb4a9ebe765fd9dae798a30a2">some_enum</a> EnumValue, <a class="code" href="../../d1/dd1/structsome__struct.html">some_struct</a> StructValue, <a class="code" href="../../d5/dab/unionsome__union.html">some_union</a> UnionValue, <a class="code" href="../../de/da3/classsome__class.html">some_class</a> ClassValue)</div>
 </div><!-- fragment --><p>The <code><a class="el" href="../../d3/dc1/structtest__type.html">test_type</a></code> struct must have the following basic definition. See <a class="el" href="../../index.html">Code Preprocessor</a> for more details.</p>
 <p>Usage: </p><div class="fragment"><div class="line"><span class="keyword">struct </span><a class="code" href="../../d3/dc1/structtest__type.html">test_type</a> </div>
 <div class="line">{</div>
@@ -334,14 +354,14 @@ Variables</h2></td></tr>
 </div>
 </div>
 <h2 class="groupheader">Function Documentation</h2>
-<a id="aa15eaba01fecffd4380ff2f1b4018a3a"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aa15eaba01fecffd4380ff2f1b4018a3a">&#9670;&nbsp;</a></span>DequeueCommand() <span class="overload">[1/2]</span></h2>
+<a id="a4761a19413dc5a7e479e89949566866d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4761a19413dc5a7e479e89949566866d">&#9670;&nbsp;</a></span>Dequeue()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="../../d3/d30/PreprocTest_8h.html#a55ed691059222a58555cf9992ec14431">test_cmd</a> DequeueCommand </td>
+          <td class="memname"><a class="el" href="../../d3/d30/PreprocTest_8h.html#a55ed691059222a58555cf9992ec14431">test_cmd</a> Dequeue </td>
           <td>(</td>
           <td class="paramtype"><a class="el" href="../../de/d1b/structtest__cmd__queue.html">test_cmd_queue</a> *&#160;</td>
           <td class="paramname"><em>Queue</em></td><td>)</td>
@@ -362,7 +382,7 @@ Variables</h2></td></tr>
 </div>
 </div>
 <a id="aa431f033dae8e03ce9f9e76c5897d077"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aa431f033dae8e03ce9f9e76c5897d077">&#9670;&nbsp;</a></span>DequeueCommand() <span class="overload">[2/2]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#aa431f033dae8e03ce9f9e76c5897d077">&#9670;&nbsp;</a></span>DequeueCommand()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -388,14 +408,14 @@ Variables</h2></td></tr>
 
 </div>
 </div>
-<a id="a9ca011b44b1d493d71b8414f84af2f69"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a9ca011b44b1d493d71b8414f84af2f69">&#9670;&nbsp;</a></span>EnqueueCommand() <span class="overload">[1/2]</span></h2>
+<a id="a454bd3fc6c4d5d2e1db241ab69554c45"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a454bd3fc6c4d5d2e1db241ab69554c45">&#9670;&nbsp;</a></span>Enqueue()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">b8 EnqueueCommand </td>
+          <td class="memname">b8 Enqueue </td>
           <td>(</td>
           <td class="paramtype"><a class="el" href="../../de/d1b/structtest__cmd__queue.html">test_cmd_queue</a> *&#160;</td>
           <td class="paramname"><em>Queue</em>, </td>
@@ -427,7 +447,7 @@ Variables</h2></td></tr>
 </div>
 </div>
 <a id="aacf77a00c47b027a4331328a1071854c"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aacf77a00c47b027a4331328a1071854c">&#9670;&nbsp;</a></span>EnqueueCommand() <span class="overload">[2/2]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#aacf77a00c47b027a4331328a1071854c">&#9670;&nbsp;</a></span>EnqueueCommand()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -731,10 +751,9 @@ Variables</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Initialize the command queue. </p>
-<p>This must be run to initialize the queue before it may be used for the first time. Usually done in the state machine initialization.</p>
-<dl class="params"><dt>Parameters</dt><dd>
+<p>This must be run to initialize the queue before it may be used for the first time. </p><dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">Queue</td><td>The queue to initialize, usually <code>&amp;State-&gt;CommandQueue</code>. </td></tr>
+    <tr><td class="paramname">Queue</td><td>The queue to initialize. </td></tr>
   </table>
   </dd>
 </dl>
@@ -856,14 +875,14 @@ Variables</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Convert a JSON string to an array of objects. </p>
-<p>This takes a JSON string that consists of an array and converts it into an array of those objects. Each object is converted as per <a class="el" href="../../dc/d12/Generated__Test_8h.html#a2486f6354ceb3dff0b86bcd782f4eeae">JsonToObject</a>.</p>
+<p>This takes a JSON string that consists of an array and converts it into an array of those objects. Each object is converted as per <a class="el" href="../../da/ddf/Generated__Test1_8h.html#a2486f6354ceb3dff0b86bcd782f4eeae">JsonToObject</a>.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir"></td><td class="paramname">VolatileMemory</td><td>Memory that is used and is expected to be released elsewhere. </td></tr>
     <tr><td class="paramdir"></td><td class="paramname">Json</td><td>The JSON string to parse. </td></tr>
     <tr><td class="paramdir"></td><td class="paramname">JsonLength</td><td>The length of the Json String. </td></tr>
     <tr><td class="paramdir">[out]</td><td class="paramname">ObjectArray</td><td>Location to put the object array. Array memory is taken from VolatileMemory. </td></tr>
-    <tr><td class="paramdir">[out]</td><td class="paramname">ObjectArrayExist</td><td>Array of <a class="el" href="../../dc/dc0/structmy__json__test__existlist.html">my_json_test_existlist</a> structs, as per <a class="el" href="../../dc/d12/Generated__Test_8h.html#a2486f6354ceb3dff0b86bcd782f4eeae">JsonToObject</a>. </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">ObjectArrayExist</td><td>Array of <a class="el" href="../../dc/dc0/structmy__json__test__existlist.html">my_json_test_existlist</a> structs, as per <a class="el" href="../../da/ddf/Generated__Test1_8h.html#a2486f6354ceb3dff0b86bcd782f4eeae">JsonToObject</a>. </td></tr>
   </table>
   </dd>
 </dl>
@@ -1114,7 +1133,7 @@ Variables</h2></td></tr>
 <p>Create a JSON string from a enColours enum. </p>
 <p>This creates a JSON string from a given enum, in the form:</p>
 <div class="fragment"><div class="line">{ &quot;SomeTag&quot;:&quot;Red&quot; }</div>
-</div><!-- fragment --><p>This function is usually called from the struct version PushJson.</p>
+</div><!-- fragment --><p>This function is usually called from the struct version of PushJson.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">Json</td><td>A string buffer to write the JSON to. </td></tr>
@@ -1182,7 +1201,7 @@ template&lt;typename T &gt; </div>
 template&lt;&gt; </div>
       <table class="memname">
         <tr>
-          <td class="memname">auto <a class="el" href="../../dc/d12/Generated__Test_8h.html#ac56b1acaa9bd587f623d2983f921ad50">StringToEnum</a>&lt; <a class="el" href="../../d3/d30/PreprocTest_8h.html#a081cf1a0e70d6e2bd48c98f457742877">enColours</a> &gt; </td>
+          <td class="memname">auto <a class="el" href="../../da/ddf/Generated__Test1_8h.html#ac56b1acaa9bd587f623d2983f921ad50">StringToEnum</a>&lt; <a class="el" href="../../d3/d30/PreprocTest_8h.html#a081cf1a0e70d6e2bd48c98f457742877">enColours</a> &gt; </td>
           <td>(</td>
           <td class="paramtype">abs_stringptr&#160;</td>
           <td class="paramname"><em>String</em></td><td>)</td>
@@ -1212,7 +1231,7 @@ template&lt;&gt; </div>
 template&lt;&gt; </div>
       <table class="memname">
         <tr>
-          <td class="memname">auto <a class="el" href="../../dc/d12/Generated__Test_8h.html#ac56b1acaa9bd587f623d2983f921ad50">StringToEnum</a>&lt; <a class="el" href="../../d3/d30/PreprocTest_8h.html#a081cf1a0e70d6e2bd48c98f457742877">enColours</a> &gt; </td>
+          <td class="memname">auto <a class="el" href="../../da/ddf/Generated__Test1_8h.html#ac56b1acaa9bd587f623d2983f921ad50">StringToEnum</a>&lt; <a class="el" href="../../d3/d30/PreprocTest_8h.html#a081cf1a0e70d6e2bd48c98f457742877">enColours</a> &gt; </td>
           <td>(</td>
           <td class="paramtype">const char *&#160;</td>
           <td class="paramname"><em>String</em></td><td>)</td>
@@ -1242,7 +1261,7 @@ template&lt;&gt; </div>
 template&lt;&gt; </div>
       <table class="memname">
         <tr>
-          <td class="memname">auto <a class="el" href="../../dc/d12/Generated__Test_8h.html#ac56b1acaa9bd587f623d2983f921ad50">StringToEnum</a>&lt; <a class="el" href="../../d3/d30/PreprocTest_8h.html#a55ed691059222a58555cf9992ec14431">test_cmd</a> &gt; </td>
+          <td class="memname">auto <a class="el" href="../../da/ddf/Generated__Test1_8h.html#ac56b1acaa9bd587f623d2983f921ad50">StringToEnum</a>&lt; <a class="el" href="../../d3/d30/PreprocTest_8h.html#a55ed691059222a58555cf9992ec14431">test_cmd</a> &gt; </td>
           <td>(</td>
           <td class="paramtype">abs_stringptr&#160;</td>
           <td class="paramname"><em>String</em></td><td>)</td>
@@ -1272,7 +1291,7 @@ template&lt;&gt; </div>
 template&lt;&gt; </div>
       <table class="memname">
         <tr>
-          <td class="memname">auto <a class="el" href="../../dc/d12/Generated__Test_8h.html#ac56b1acaa9bd587f623d2983f921ad50">StringToEnum</a>&lt; <a class="el" href="../../d3/d30/PreprocTest_8h.html#a55ed691059222a58555cf9992ec14431">test_cmd</a> &gt; </td>
+          <td class="memname">auto <a class="el" href="../../da/ddf/Generated__Test1_8h.html#ac56b1acaa9bd587f623d2983f921ad50">StringToEnum</a>&lt; <a class="el" href="../../d3/d30/PreprocTest_8h.html#a55ed691059222a58555cf9992ec14431">test_cmd</a> &gt; </td>
           <td>(</td>
           <td class="paramtype">const char *&#160;</td>
           <td class="paramname"><em>String</em></td><td>)</td>
@@ -1388,12 +1407,15 @@ template&lt;&gt; </div>
 </div>
 </div><!-- contents -->
 <div class="ttc" id="astructtest__type_html_a48139457e16e23a57531e5af02be7f14"><div class="ttname"><a href="../../d3/dc1/structtest__type.html#a48139457e16e23a57531e5af02be7f14">test_type::CurrentState</a></div><div class="ttdeci">test_statemachine * CurrentState</div><div class="ttdef"><b>Definition:</b> PreprocTest.h:8</div></div>
+<div class="ttc" id="aunionsome__union_html"><div class="ttname"><a href="../../d5/dab/unionsome__union.html">some_union</a></div><div class="ttdef"><b>Definition:</b> PreprocTest.cpp:14</div></div>
 <div class="ttc" id="astructtest__type_html_a9ef32b05c6f8a712062f8261d71665ca"><div class="ttname"><a href="../../d3/dc1/structtest__type.html#a9ef32b05c6f8a712062f8261d71665ca">test_type::CommandQueue</a></div><div class="ttdeci">test_cmd_queue CommandQueue</div><div class="ttdef"><b>Definition:</b> PreprocTest.h:10</div></div>
 <div class="ttc" id="astructtest__type_html"><div class="ttname"><a href="../../d3/dc1/structtest__type.html">test_type</a></div><div class="ttdef"><b>Definition:</b> PreprocTest.h:7</div></div>
-<div class="ttc" id="aPreprocTest_8h_html_a55ed691059222a58555cf9992ec14431"><div class="ttname"><a href="../../d3/d30/PreprocTest_8h.html#a55ed691059222a58555cf9992ec14431">test_cmd</a></div><div class="ttdeci">test_cmd</div><div class="ttdef"><b>Definition:</b> PreprocTest.h:15</div></div>
-<div class="ttc" id="aGenerated__Test_8h_html_a60e76ed427c4968689b9571af7254547"><div class="ttname"><a href="../../dc/d12/Generated__Test_8h.html#a60e76ed427c4968689b9571af7254547">TEST_STATEMACHINE</a></div><div class="ttdeci">#define TEST_STATEMACHINE(name)</div><div class="ttdoc">Used to create statemachine functions. Usage:</div><div class="ttdef"><b>Definition:</b> Generated_Test.h:149</div></div>
-<div class="ttc" id="astructtest__cmd__queue_html"><div class="ttname"><a href="../../de/d1b/structtest__cmd__queue.html">test_cmd_queue</a></div><div class="ttdoc">A circular queue of 10 elements for the state command test_cmd.</div><div class="ttdef"><b>Definition:</b> Generated_Test.h:76</div></div>
+<div class="ttc" id="aGenerated__Test_8h_html_a60e76ed427c4968689b9571af7254547"><div class="ttname"><a href="../../dc/d12/Generated__Test_8h.html#a60e76ed427c4968689b9571af7254547">TEST_STATEMACHINE</a></div><div class="ttdeci">#define TEST_STATEMACHINE(name)</div><div class="ttdoc">Used to create statemachine functions. Usage:</div><div class="ttdef"><b>Definition:</b> Generated_Test.h:112</div></div>
+<div class="ttc" id="astructtest__cmd__queue_html"><div class="ttname"><a href="../../de/d1b/structtest__cmd__queue.html">test_cmd_queue</a></div><div class="ttdoc">A circular queue of 10 elements.</div><div class="ttdef"><b>Definition:</b> Generated_Test.h:158</div></div>
 <div class="ttc" id="aPreprocTest_8cpp_html_a400a089a07d326740f3e10fceec916c3"><div class="ttname"><a href="../../df/d20/PreprocTest_8cpp.html#a400a089a07d326740f3e10fceec916c3">GEN_JSMN_HEADER</a></div><div class="ttdeci">#define GEN_JSMN_HEADER</div><div class="ttdef"><b>Definition:</b> PreprocTest.cpp:7</div></div>
+<div class="ttc" id="aclasssome__class_html"><div class="ttname"><a href="../../de/da3/classsome__class.html">some_class</a></div><div class="ttdef"><b>Definition:</b> PreprocTest.cpp:15</div></div>
+<div class="ttc" id="astructsome__struct_html"><div class="ttname"><a href="../../d1/dd1/structsome__struct.html">some_struct</a></div><div class="ttdef"><b>Definition:</b> PreprocTest.cpp:13</div></div>
+<div class="ttc" id="aPreprocTest_8cpp_html_a8f6dbcbcb4a9ebe765fd9dae798a30a2"><div class="ttname"><a href="../../df/d20/PreprocTest_8cpp.html#a8f6dbcbcb4a9ebe765fd9dae798a30a2">some_enum</a></div><div class="ttdeci">some_enum</div><div class="ttdef"><b>Definition:</b> PreprocTest.cpp:12</div></div>
 <div class="ttc" id="astructtest__type_html_a36eb3041ef1341aec27a2a2d98500ce6"><div class="ttname"><a href="../../d3/dc1/structtest__type.html#a36eb3041ef1341aec27a2a2d98500ce6">test_type::isNewState</a></div><div class="ttdeci">b8 isNewState</div><div class="ttdef"><b>Definition:</b> PreprocTest.h:9</div></div>
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>

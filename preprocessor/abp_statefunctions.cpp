@@ -53,7 +53,7 @@ ProcessStateFunctions(term_statemachine *MachineListSentinal, term_definedfuncti
                       CurrentMachine->Type.Length, CurrentMachine->Type.String,
                       CurrentMachine->Cmd.Length, CurrentMachine->Cmd.String);
         
-        WriteQueueFunctions(CurrentMachine->Cmd, 10, Memory, Headers, Definitions);
+        //WriteQueueFunctions(CurrentMachine->Cmd, 10, Memory, Headers, Definitions);
         
         u32 StateParamsSize = Kilobytes(1);
         char *StateParams = abm_PushArray(Memory, StateParamsSize, char);
@@ -127,7 +127,7 @@ ProcessStateFunctions(term_statemachine *MachineListSentinal, term_definedfuncti
                                 "\n"
                                 "This expands out to the function signature: \n"
                                 "~~~c\n\n"
-                                "void FunctionForState(%.*s *State, %.*s Cmd%.*s)\n\n"
+                                "void FunctionForState(%.*s *State%.*s)\n\n"
                                 "~~~\n"
                                 "\n"
                                 "The `%.*s` struct must have the following basic definition. See @ref index for more details.\n"
@@ -146,18 +146,16 @@ ProcessStateFunctions(term_statemachine *MachineListSentinal, term_definedfuncti
                                 "\n"
                                 "See @ref index for more details.\n"
                                 "**/\n"
-                                "#define %.*s(name) void name(%.*s *State, %.*s Cmd",
+                                "#define %.*s(name) void name(%.*s *State",
                                 PSTRING(Capitalize),
                                 PSTRING(CurrentMachine->Type),
-                                PSTRING(CurrentMachine->Cmd),
                                 StateParamIndex, StateParams,
                                 PSTRING(CurrentMachine->Type),
                                 PSTRING(CurrentMachine->Type),
                                 PSTRING(Lowercase),
                                 PSTRING(CurrentMachine->Cmd),
                                 PSTRING(Capitalize),
-                                PSTRING(CurrentMachine->Type),
-                                PSTRING(CurrentMachine->Cmd));
+                                PSTRING(CurrentMachine->Type));
         
         
         Index += stbsp_snprintf(&Buffer[Index], (BufferSize - Index), "%.*s", StateParamIndex, StateParams);

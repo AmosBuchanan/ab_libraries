@@ -10,20 +10,26 @@ void
 WriteQueueFunctions(abs_stringptr QueueItemName, u32 QueueSize,
                     memory_arena *Memory, output_data *Headers, output_data *Definitions);
 
+void
+ProcessQueueFunctions(term_queue *QueueListSentinal, memory_arena *Memory, output_data *Headers, output_data *Definitions);
 #endif //ABP_QUEUE_H
 
 #ifdef ABP_QUEUE_SRC
 
 void
-WriteQueueFunctions(abs_stringptr QueueItemName, u32 QueueSize,
+WriteQueueFunctions(abs_stringptr QueueItemName, s32 QueueSize,
                     memory_arena *Memory, output_data *Headers, output_data *Definitions)
 {
+    if(QueueSize <= 0)
+    {
+        QueueSize = 10;
+    }
+    
     WriteToOutput(Headers, Memory, 
                   "/***** Queue: %.*s ****/\n"
-                  "/** @brief A circular queue of %u elements for the state command %.*s. */\n", 
+                  "/** @brief A circular queue of %u elements. */\n", 
                   PSTRING(QueueItemName), 
-                  QueueSize,
-                  PSTRING(QueueItemName));
+                  QueueSize);
     
     WriteToOutput(Headers, Memory,
                   "struct %.*s_queue\n"
@@ -41,10 +47,9 @@ WriteQueueFunctions(abs_stringptr QueueItemName, u32 QueueSize,
     WriteToOutput(Headers, Memory, 
                   "/** @brief Initialize the command queue.\n"
                   "\n"
-                  "This must be run to initialize the queue before it may be used for the first time. Usually done in the state machine \n"
-                  "initialization.\n"
+                  "This must be run to initialize the queue before it may be used for the first time."
                   "\n"
-                  "@param Queue The queue to initialize, usually `&State->CommandQueue`.\n"
+                  "@param Queue The queue to initialize.\n"
                   "**/\n"
                   "inline void InitializeQueue(%.*s_queue *Queue);\n",
                   PSTRING(QueueItemName));
@@ -77,7 +82,7 @@ WriteQueueFunctions(abs_stringptr QueueItemName, u32 QueueSize,
                   "@return True if successful.\n"
                   "**/\n"
                   "b8 "
-                  "EnqueueCommand(%.*s_queue *Queue, %.*s Cmd);\n",
+                  "Enqueue(%.*s_queue *Queue, %.*s Cmd);\n",
                   PSTRING(QueueItemName),
                   PSTRING(QueueItemName));
     
@@ -88,7 +93,7 @@ WriteQueueFunctions(abs_stringptr QueueItemName, u32 QueueSize,
                   "@return The command that was queued. If the queue is empty, returns the first element of %.*s. The first element is usually reserved for a NOP command.\n"
                   "**/\n"
                   "%.*s "
-                  "DequeueCommand(%.*s_queue *Queue);\n",
+                  "Dequeue(%.*s_queue *Queue);\n",
                   PSTRING(QueueItemName),
                   
                   PSTRING(QueueItemName),
@@ -185,5 +190,24 @@ WriteQueueFunctions(abs_stringptr QueueItemName, u32 QueueSize,
                   "/***********/\n\n");
     
 }
+
+void
+ProcessQueueFunctions(term_queue *QueueListSentinal, memory_arena *Memory, output_data *Headers, output_data *Definitions)
+{
+    term_queue *Queue = QueueListSentinal->Next;
+    while(Queue != QueueListSentinal)
+    {
+        
+        WriteQueueFunctions(Queue->QueueItemName, Queue->QueueSize,
+                            Memory, Headers, Definitions);
+        
+        WriteToOutput(Headers, Memory, "\n");
+        WriteToOutput(Definitions, Memory, "\n");
+        
+        Queue = Queue->Next;
+    }
+}
+
+
 #undef ABP_QUEUE_SRC
 #endif 

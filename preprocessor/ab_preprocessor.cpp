@@ -28,10 +28,10 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 
 #include "ab_common.h"
 
-#define AB_MEMORY_SRC
+#define MEMORY_SRC
 #include "ab_memory.h"
 
-#define AB_STRING_SRC
+#define STRING_SRC
 #include "ab_string.h"
 
 #define AB_FILE_SRC
@@ -77,7 +77,7 @@ WriteToOutput(output_data *Output, memory_arena *Memory, char const *String, ...
         // The assumption is that any string will at least fit in the size of a brand new output. If not--- it's just going to get cut off and there's likely other problems.
         
         OutputPtr->OutputString[Index] = 0;
-        OutputPtr->Next = abm_PushStruct(Memory, output_data);
+        OutputPtr->Next = mem_PushStruct(Memory, output_data);
         OutputPtr = OutputPtr->Next;
         size_t NumChars = stbsp_vsnprintf(&OutputPtr->OutputString[Index], (s32)OutputEmptySize, String, Args);
         OutputPtr->Used += NumChars;
@@ -91,7 +91,7 @@ CopyToOutput(output_data *Output, memory_arena *Memory, char const* String)
 {
     output_data *OutputPtr = Output;
     const size_t OutputTotalSize = ArrayCount(Output->OutputString);
-    size_t StringLen = strlen(String);
+    size_t StringLen = st_StringLength(String, OutputTotalSize);
     u32 StringIndex = 0;
     while(StringIndex < StringLen)
     {
@@ -100,7 +100,7 @@ CopyToOutput(output_data *Output, memory_arena *Memory, char const* String)
         if(OutputEmptySize > 1)
         {
             u32 MaxLen = (u32)MINIMUM((u32)OutputEmptySize, StringLen);
-            abs_StringCopy(&OutputPtr->OutputString[Index], String, MaxLen, false);
+            st_StringCopy(&OutputPtr->OutputString[Index], String, MaxLen, false);
             OutputPtr->Used += MaxLen;
             StringIndex += MaxLen;
         }
@@ -108,7 +108,7 @@ CopyToOutput(output_data *Output, memory_arena *Memory, char const* String)
         {
             if(OutputPtr->Next == 0)
             {
-                OutputPtr->Next = abm_PushStruct(Memory, output_data);
+                OutputPtr->Next = mem_PushStruct(Memory, output_data);
             }
             OutputPtr = OutputPtr->Next;
         }
@@ -140,10 +140,10 @@ GenerateOutput(memory_arena *Memory, char const *OutputFile,
                output_data *HeaderIncludes, output_data *Header, output_data *Definition)
 {
     Assert(OutputFile);
-    output_data *FullOutput = abm_PushStruct(Memory, output_data);
-    abs_stringptr CapitalizedOutput = abs_Capitalize(OutputFile, Memory);
+    output_data *FullOutput = mem_PushStruct(Memory, output_data);
+    st_ptr CapitalizedOutput = st_Capitalize(OutputFile, Memory);
     
-    // NOTE(Amos): I'm abusing the abs_stringptr here to ensure there are no dots in the name.
+    // NOTE(Amos): I'm abusing the st_ptr here to ensure there are no dots in the name.
     for(u32 i = 0; i < CapitalizedOutput.Length; ++i)
     {
         char *C = (char*)&CapitalizedOutput.String[i];
@@ -229,9 +229,9 @@ GenerateOutput(memory_arena *Memory, char const *OutputFile,
                       "auto StringToEnum(const char *String) -> T;\n\n");
         
         WriteToOutput(FullOutput, Memory, 
-                      "/** @brief Generic template for the abs_stringptr StringToEnum<> functions. **/\n"
+                      "/** @brief Generic template for the st_ptr StringToEnum<> functions. **/\n"
                       "template<typename T>\n"
-                      "auto StringToEnum(abs_stringptr String) -> T;\n\n");
+                      "auto StringToEnum(st_ptr String) -> T;\n\n");
         
         WriteToOutput(FullOutput, Memory, "\n#endif\n\n");
     }
@@ -338,28 +338,28 @@ main(int argc, char** argv)
     }
     
     size_t Size = Gigabytes(1);
-    void *MemoryPtr = abm_AllocateOsMemory(0, Size);
-    memory_arena Memory = abm_InitMemory(MemoryPtr, Size);
+    void *MemoryPtr = mem_AllocateOsMemory(0, Size);
+    memory_arena Memory = mem_InitMemory(MemoryPtr, Size);
     
     const s32 LexerStoreLength = Kilobytes(65);
-    void* LexerStore = abm_PushSize(&Memory, LexerStoreLength);
+    void* LexerStore = mem_PushSize(&Memory, LexerStoreLength);
     
     lexer Lexer = {};
     
     {
         char const *SourceDirectory = argv[1];
-        temporary_memory TempMem = abm_BeginTemporaryMemory(&Memory);
-        output_data *HeaderOutput = abm_PushStruct(&Memory, output_data);
-        output_data *DefinitionOutput = abm_PushStruct(&Memory, output_data);
+        temporary_memory TempMem = mem_BeginTemporaryMemory(&Memory);
+        output_data *HeaderOutput = mem_PushStruct(&Memory, output_data);
+        output_data *DefinitionOutput = mem_PushStruct(&Memory, output_data);
         output_data *HeaderIncludes = 
-            abm_PushStruct(&Memory, output_data);
+            mem_PushStruct(&Memory, output_data);
         
         
         file_list *FileList = abf_InitializeFileList(&Memory, SourceDirectory);
         file_data File;
         while(abf_GetNextFile(FileList, &File))
         {
-            if(abs_AreStringFragmentsEqual(GeneratedTag, File.FileData, abs_StringLength(GeneratedTag, 40), false))
+            if(st_AreStringsEqual(GeneratedTag, File.FileData, st_StringLength(GeneratedTag, 40), false))
             {
                 continue;
             }
@@ -399,7 +399,7 @@ main(int argc, char** argv)
         }
         
         abf_ReleaseFileList(FileList);
-        abm_EndTemporaryMemory(TempMem);
+        mem_EndTemporaryMemory(TempMem);
     }
     
     return 0;

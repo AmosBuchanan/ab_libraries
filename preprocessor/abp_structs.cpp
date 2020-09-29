@@ -125,11 +125,11 @@ CreateStructJson(term_struct *Struct, tag *Tag, memory_arena *Memory, output_dat
                   "    {\n"
                   "          Length += stbsp_snprintf(&Json[Length], MaxLength, \"\\\"%%s\\\":\", Tag);\n"
                   "    }\n"
-                  "    Length += StartGroup(&Json[Length], (MaxLength - Length));\n",
+                  "    Length += js_StartGroup(&Json[Length], (MaxLength - Length));\n",
                   PSTRING(Struct->Name));
     
     const u32 MaxSectionSize = Kilobytes(20);
-    char *ExistListScratch = (char*)abm_PushSize(Memory, MaxSectionSize);
+    char *ExistListScratch = (char*)mem_PushSize(Memory, MaxSectionSize);
     u32 ExistListCount = 0;
     ExistListCount += stbsp_snprintf(ExistListScratch, (MaxSectionSize - ExistListCount),
                                      "struct %.*s_existlist\n{\n", PSTRING(Struct->Name));
@@ -148,10 +148,10 @@ CreateStructJson(term_struct *Struct, tag *Tag, memory_arena *Memory, output_dat
         const char *isLastString = (isLast) ? "JSON_IsLastInList" : "JSON_Null";
         char Separator = (!isLast) ? ',' : ' ';
         
-        if(Item->isArray && abs_AreStringsEqual(Item->Type, "char"))
+        if(Item->isArray && st_AreStringsEqual(Item->Type, "char"))
         {
             WriteToOutput(Definitions, Memory,
-                          "{\nsize_t StringLen = abs_StringLength(Value.%.*s, %d);\n",
+                          "{\nsize_t StringLen = st_StringLength(Value.%.*s, %d);\n",
                           PSTRING(Item->Name),
                           Item->ArrayLength);
             
@@ -189,40 +189,40 @@ CreateStructJson(term_struct *Struct, tag *Tag, memory_arena *Memory, output_dat
                 }
             };
             
-            if(abs_AreStringsEqual(Item->Type, "u64"))
+            if(st_AreStringsEqual(Item->Type, "u64"))
             {
                 WriteFormatType("%llu", Item->isPtr);
             }
-            else if(abs_AreStringsEqual(Item->Type, "s64"))
+            else if(st_AreStringsEqual(Item->Type, "s64"))
             {
                 WriteFormatType("%lld", Item->isPtr);
             }
-            else if(abs_AreStringsEqual(Item->Type, "u32") ||
-                    abs_AreStringsEqual(Item->Type, "u16") ||
-                    abs_AreStringsEqual(Item->Type, "u8"))
+            else if(st_AreStringsEqual(Item->Type, "u32") ||
+                    st_AreStringsEqual(Item->Type, "u16") ||
+                    st_AreStringsEqual(Item->Type, "u8"))
                 
             {
                 WriteFormatType("%u", Item->isPtr);
             }
-            else if(abs_AreStringsEqual(Item->Type, "s32") ||
-                    abs_AreStringsEqual(Item->Type, "s16") ||
-                    abs_AreStringsEqual(Item->Type, "s8") ||
-                    abs_AreStringsEqual(Item->Type, "int") ||
-                    abs_AreStringsEqual(Item->Type, "long"))
+            else if(st_AreStringsEqual(Item->Type, "s32") ||
+                    st_AreStringsEqual(Item->Type, "s16") ||
+                    st_AreStringsEqual(Item->Type, "s8") ||
+                    st_AreStringsEqual(Item->Type, "int") ||
+                    st_AreStringsEqual(Item->Type, "long"))
                 
             {
                 WriteFormatType("%d", Item->isPtr);
             }
-            else if(abs_AreStringsEqual(Item->Type, "char") && !Item->isPtr)
+            else if(st_AreStringsEqual(Item->Type, "char") && !Item->isPtr)
             {
                 WriteFormatType("%d", Item->isPtr);
             }
-            else if(abs_AreStringsEqual(Item->Type, "r32"))
+            else if(st_AreStringsEqual(Item->Type, "r32"))
                 
             {
                 WriteFormatType("%0.3f", Item->isPtr);
             }
-            else if(abs_AreStringsEqual(Item->Type, "char") && Item->isPtr)
+            else if(st_AreStringsEqual(Item->Type, "char") && Item->isPtr)
             {
                 WriteToOutput(Definitions, Memory,
                               "if(Value.%.*s)\n"
@@ -237,7 +237,7 @@ CreateStructJson(term_struct *Struct, tag *Tag, memory_arena *Memory, output_dat
                               PSTRING(Item->Name)
                               );
             }
-            else if(abs_AreStringsEqual(Item->Type, "abs_stringptr") && !Item->isPtr)
+            else if(st_AreStringsEqual(Item->Type, "st_stringptr") && !Item->isPtr)
             {
                 WriteToOutput(Definitions, Memory,
                               "if(Value.%.*s.String)\n"
@@ -253,9 +253,9 @@ CreateStructJson(term_struct *Struct, tag *Tag, memory_arena *Memory, output_dat
                               PSTRING(Item->Name)
                               );
             }
-            else if(abs_AreStringsEqual(Item->Type, "abs_stringptr") && Item->isPtr)
+            else if(st_AreStringsEqual(Item->Type, "st_stringptr") && Item->isPtr)
             {}
-            else if(abs_AreStringsEqual(Item->Type, "b8"))
+            else if(st_AreStringsEqual(Item->Type, "b8"))
             {
                 
                 WriteToOutput(Definitions, Memory,
@@ -295,7 +295,7 @@ CreateStructJson(term_struct *Struct, tag *Tag, memory_arena *Memory, output_dat
     }
     
     WriteToOutput(Definitions, Memory,
-                  "    Length += EndGroup(&Json[Length], (MaxLength - Length), isLast);\n"
+                  "    Length += js_EndGroup(&Json[Length], (MaxLength - Length), isLast);\n"
                   "    if(JsonFlags & JSON_BaseObject)\n"
                   "    {\n"
                   "        Json[Length++] = '}';\n"
@@ -310,8 +310,8 @@ CreateStructJson(term_struct *Struct, tag *Tag, memory_arena *Memory, output_dat
     WriteToOutput(Definitions, Memory,
                   "jsmntok_t *JsonToObject(memory_arena *VolatileMemory, char const *Json, size_t JsonLength, jsmntok_t *TokenArray, %.*s *ObjectOut, %.*s_existlist *ItemsExistOut)\n"
                   "{\n"
-                  "    %.*s_existlist* ItemExists = abm_PushStruct(VolatileMemory, %.*s_existlist);\n"
-                  "    s32 NumTokensProcessed =  ParseJson(VolatileMemory, Json, JsonLength, &TokenArray);\n"
+                  "    %.*s_existlist* ItemExists = mem_PushStruct(VolatileMemory, %.*s_existlist);\n"
+                  "    s32 NumTokensProcessed =  js_ParseJson(VolatileMemory, Json, JsonLength, &TokenArray);\n"
                   "    jsmntok_t *Token = TokenArray;\n"
                   "    if(Token)\n"
                   "    {\n"
@@ -330,7 +330,7 @@ CreateStructJson(term_struct *Struct, tag *Tag, memory_arena *Memory, output_dat
     auto WriteIf = [&Definitions, &Memory](term_typeexpr *Item, char const *Type) -> void
     {
         WriteToOutput(Definitions, Memory,
-                      "            if((abs_AreStringsEqual(&Json[Token->start], TokenLength, \"%.*s\",(ArrayCount(\"%.*s\")-1), true)) && \n"
+                      "            if((st_AreStringsEqual(&Json[Token->start], TokenLength, \"%.*s\",(ArrayCount(\"%.*s\")-1), true)) && \n"
                       "               ((Token+1)->type == %s)",
                       PSTRING(Item->Name),
                       PSTRING(Item->Name),
@@ -360,8 +360,8 @@ CreateStructJson(term_struct *Struct, tag *Tag, memory_arena *Memory, output_dat
         
         if(!Item->isConst)
         {
-            if(abs_AreStringsEqual(Item->Type, "u64") ||
-               abs_AreStringsEqual(Item->Type, "s64"))
+            if(st_AreStringsEqual(Item->Type, "u64") ||
+               st_AreStringsEqual(Item->Type, "s64"))
             {
                 WriteIf(Item, "JSMN_PRIMITIVE");
                 WriteToOutput(Definitions, Memory,
@@ -372,12 +372,12 @@ CreateStructJson(term_struct *Struct, tag *Tag, memory_arena *Memory, output_dat
                               PSTRING(Item->Name),
                               PSTRING(Item->Type));
             }
-            else if(abs_AreStringsEqual(Item->Type, "u32") ||
-                    abs_AreStringsEqual(Item->Type, "u16") ||
-                    abs_AreStringsEqual(Item->Type, "u8")  ||
-                    abs_AreStringsEqual(Item->Type, "u32") ||
-                    abs_AreStringsEqual(Item->Type, "u16") ||
-                    abs_AreStringsEqual(Item->Type, "u8"))
+            else if(st_AreStringsEqual(Item->Type, "u32") ||
+                    st_AreStringsEqual(Item->Type, "u16") ||
+                    st_AreStringsEqual(Item->Type, "u8")  ||
+                    st_AreStringsEqual(Item->Type, "u32") ||
+                    st_AreStringsEqual(Item->Type, "u16") ||
+                    st_AreStringsEqual(Item->Type, "u8"))
             {
                 WriteIf(Item, "JSMN_PRIMITIVE");
                 WriteToOutput(Definitions, Memory,
@@ -389,18 +389,18 @@ CreateStructJson(term_struct *Struct, tag *Tag, memory_arena *Memory, output_dat
                               PSTRING(Item->Type));
             }
             
-            else if(abs_AreStringsEqual(Item->Type, "b8"))
+            else if(st_AreStringsEqual(Item->Type, "b8"))
             {
                 WriteIf(Item, "JSMN_PRIMITIVE");
                 WriteToOutput(Definitions, Memory,
                               "    ++Token;\n"
-                              "    %c(ObjectOut->%.*s) = (strncmp(&Json[Token->start],\"true\",4) == 0);\n"
+                              "    %c(ObjectOut->%.*s) = (st_AreStringsEqual(&Json[Token->start],\"true\",4, false) == 0);\n"
                               "}\n\n",
                               Item->isPtr ? '*' : ' ',
                               PSTRING(Item->Name));
             }
             
-            else if(abs_AreStringsEqual(Item->Type, "r32"))
+            else if(st_AreStringsEqual(Item->Type, "r32"))
             {
                 WriteIf(Item, "JSMN_PRIMITIVE");
                 WriteToOutput(Definitions, Memory,
@@ -412,14 +412,14 @@ CreateStructJson(term_struct *Struct, tag *Tag, memory_arena *Memory, output_dat
                               PSTRING(Item->Type));
             }
             
-            else if(abs_AreStringsEqual(Item->Type, "char") && Item->isArray && !Item->isPtr)
+            else if(st_AreStringsEqual(Item->Type, "char") && Item->isArray && !Item->isPtr)
             {
                 WriteIf(Item, "JSMN_STRING");
                 WriteToOutput(Definitions, Memory,
                               "    ++Token;\n"
                               "    TokenLength = Token->end - Token->start;\n"
                               "    s32 Length = MINIMUM(TokenLength, (%d-1));\n"
-                              "    strncpy(ObjectOut->%.*s, &Json[Token->start], Length);\n"
+                              "    st_StringCopy(ObjectOut->%.*s, &Json[Token->start], Length, true);\n"
                               "    ObjectOut->%.*s[Length] = 0;\n"
                               "}\n\n",
                               Item->ArrayLength,
@@ -427,7 +427,7 @@ CreateStructJson(term_struct *Struct, tag *Tag, memory_arena *Memory, output_dat
                               PSTRING(Item->Name)
                               );
             }
-            else if(abs_AreStringsEqual(Item->Type, "char") && Item->isPtr)
+            else if(st_AreStringsEqual(Item->Type, "char") && Item->isPtr)
             {
                 // TODO(amos): Handle this case.
             }
@@ -438,7 +438,7 @@ CreateStructJson(term_struct *Struct, tag *Tag, memory_arena *Memory, output_dat
                 // NOTE(amos): No real way to tell the difference between a struct and an enum here
                 //    so in the case of object -> struct, in the case of string -> enum.
                 WriteToOutput(Definitions, Memory,
-                              "            if((abs_AreStringsEqual(&Json[Token->start], TokenLength, \"%.*s\",(ArrayCount(\"%.*s\")-1), true)) && \n"
+                              "            if((st_AreStringsEqual(&Json[Token->start], TokenLength, \"%.*s\",(ArrayCount(\"%.*s\")-1), true)) && \n"
                               "               (((Token+1)->type == JSMN_STRING) || ((Token+1)->type == JSMN_OBJECT))",
                               PSTRING(Item->Name),
                               PSTRING(Item->Name));
@@ -487,7 +487,7 @@ CreateStructJson(term_struct *Struct, tag *Tag, memory_arena *Memory, output_dat
                   "   u32 NumberOfObjects = 0;\n"
                   "            \n"
                   "    jsmntok_t *TokenArray = 0;\n"
-                  "    s32 NumTokensParsed = ParseJson(VolatileMemory, Json, JsonLength, &TokenArray);\n"
+                  "    s32 NumTokensParsed = js_ParseJson(VolatileMemory, Json, JsonLength, &TokenArray);\n"
                   "    \n"
                   "    if(TokenArray)\n"
                   "    {\n"
@@ -512,11 +512,11 @@ CreateStructJson(term_struct *Struct, tag *Tag, memory_arena *Memory, output_dat
                   "        \n"
                   "        if (!(*ObjectArray))\n"
                   "        {\n"
-                  "            *ObjectArray = abm_PushArray(VolatileMemory, NumberOfObjects, %.*s);\n"
+                  "            *ObjectArray = mem_PushArray(VolatileMemory, NumberOfObjects, %.*s);\n"
                   "        }\n"
                   "        if (!(*ObjectArrayExists))\n"
                   "        {\n"
-                  "            *ObjectArrayExists = abm_PushArray(VolatileMemory, NumberOfObjects, %.*s_existlist);\n"
+                  "            *ObjectArrayExists = mem_PushArray(VolatileMemory, NumberOfObjects, %.*s_existlist);\n"
                   "        }\n"
                   
                   "        \n"
@@ -563,7 +563,7 @@ ProcessStructs(term_struct *StructListSentinal, memory_arena *Memory, output_dat
         tag *Tag = Struct->TagListSentinal.Next;
         while(Tag != &Struct->TagListSentinal)
         {
-            if(abs_AreStringsEqual(Tag->Name, "JSON"))
+            if(st_AreStringsEqual(Tag->Name, "JSON"))
             {
                 CreateStructJson(Struct, Tag, Memory, Headers, Definitions);
             }

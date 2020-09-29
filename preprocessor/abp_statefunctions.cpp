@@ -37,10 +37,10 @@ ProcessStateFunctions(term_statemachine *MachineListSentinal, term_definedfuncti
     term_statemachine *CurrentMachine = MachineListSentinal->Next;
     while(CurrentMachine != MachineListSentinal)
     {
-        abs_stringptr Capitalize = abs_Capitalize(CurrentMachine->Function, Memory);
-        abs_stringptr Lowercase = abs_Lowercase(CurrentMachine->Function, Memory);
+        st_ptr Capitalize = st_Capitalize(CurrentMachine->Function, Memory);
+        st_ptr Lowercase = st_Lowercase(CurrentMachine->Function, Memory);
         const u32 BufferSize = Kilobytes(1);
-        char *Buffer = abm_PushArray(Memory, BufferSize, char);
+        char *Buffer = mem_PushArray(Memory, BufferSize, char);
         int Index = 0;
         
         WriteToOutput(Headers, Memory, 
@@ -56,7 +56,7 @@ ProcessStateFunctions(term_statemachine *MachineListSentinal, term_definedfuncti
         //WriteQueueFunctions(CurrentMachine->Cmd, 10, Memory, Headers, Definitions);
         
         u32 StateParamsSize = Kilobytes(1);
-        char *StateParams = abm_PushArray(Memory, StateParamsSize, char);
+        char *StateParams = mem_PushArray(Memory, StateParamsSize, char);
         u32 StateParamIndex = 0;
         
         term_typeexpr *CurrentType = CurrentMachine->TypeListSentinal.Next;
@@ -248,7 +248,7 @@ ProcessStateFunctions(term_statemachine *MachineListSentinal, term_definedfuncti
         term_definedfunction *CurrentFunction = DefinedFunctionListSentinal->Next;
         while(CurrentFunction != DefinedFunctionListSentinal)
         {
-            if(abs_AreStringsEqual(CurrentMachine->Function, CurrentFunction->Define, true))
+            if(st_AreStringsEqual(CurrentMachine->Function, CurrentFunction->Define, true))
             {
                 WriteToOutput(Headers, Memory, 
                               "/** @brief Forward declaration for %.*s(). **/\n"

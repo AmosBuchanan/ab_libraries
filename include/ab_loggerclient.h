@@ -20,8 +20,8 @@ This will include the source.
 
 example usage:
 ~~~c
-void *OsMemory = abm_AllocateOsMemory(NULL, Kilobytes(5));
-memory_arena Memory = abm_InitMemory(OsMemory, Kilobytes(5));
+void *OsMemory = mem_AllocateOsMemory(NULL, Kilobytes(5));
+memory_arena Memory = mem_InitMemory(OsMemory, Kilobytes(5));
 
 // This starts the client running in the background.
 ablc_client *Client = ablc_Initialize(&Memory);
@@ -292,7 +292,7 @@ ablc_ActorThread(zsock_t *Pipe, void *Args)
                             }
                             else
                             {
-                                NewEndpoint = abm_PushStruct(&Data->EndpointMemory, ablc_endpoint);
+                                NewEndpoint = mem_PushStruct(&Data->EndpointMemory, ablc_endpoint);
                             }
                             
                             NewEndpoint->Name = Name;
@@ -393,11 +393,11 @@ ablc_Initialize(memory_arena *Memory, u32 MaxEndpoints)
     {
         MaxEndpoints = 1;
     }
-    ablc_client *Client = abm_PushStruct(Memory, ablc_client);
-    ablc_thread *Thread = abm_PushStruct(Memory, ablc_thread);
+    ablc_client *Client = mem_PushStruct(Memory, ablc_client);
+    ablc_thread *Thread = mem_PushStruct(Memory, ablc_thread);
     
     size_t BufferSize = sizeof(ablc_endpoint)*MaxEndpoints;
-    memory_arena EndpointMemory = abm_CreateSubArena(Memory, BufferSize);
+    memory_arena EndpointMemory = mem_CreateSubArena(Memory, BufferSize);
     Thread->EndpointMemory = EndpointMemory;
     Thread->MaxEndpoints = MaxEndpoints;
     

@@ -195,7 +195,7 @@ abl_InitializeLogger(memory_arena *Memory, s32 Port, abl_log_level Level)
     }
     else 
     {
-        Logger = abm_PushStruct(Memory, abl_log);
+        Logger = mem_PushStruct(Memory, abl_log);
         Logger->Socket = Socket;
         Logger->Port = Port;
         Logger->Level = Level;
@@ -306,14 +306,14 @@ main(int argc, char *argv[])
 {
     signal(SIGINT, sigint_handler);
     
-    void *OsMemory = abm_AllocateOsMemory(NULL, Kilobytes(5));
+    void *OsMemory = mem_AllocateOsMemory(NULL, Kilobytes(5));
     if(!OsMemory)
     {
         printf("Failed to get memory.");
         return 1;
     }
     
-    memory_arena Memory = abm_InitMemory(OsMemory, Kilobytes(5));
+    memory_arena Memory = mem_InitMemory(OsMemory, Kilobytes(5));
     
     struct abl_log *Logger = abl_InitializeLogger(&Memory, 5555, ABL_TRACE);
     if(!Logger)

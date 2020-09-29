@@ -101,8 +101,8 @@ This creates the following:
 
 enColours StringToEnum<enColours>(const char *);
 constexpr char const *EnumToCString(enColours);
-enColours StringToEnum<enColours>(abs_stringptr);
-constexpr abs_stringptr EnumToString(enColours);
+enColours StringToEnum<enColours>(st_ptr);
+constexpr st_ptr EnumToString(enColours);
 ```
 
 If you attempt to convert an invalid string to enum, the first enum value is returned. I usually reserve the first enum value as 'Unknown' or 'NOP', which is how this convention came about.

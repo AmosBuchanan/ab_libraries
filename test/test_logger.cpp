@@ -10,7 +10,7 @@
 #include <signal.h>
 #include <stdio.h>
 
-#define AB_MEMORY_SRC
+#define MEMORY_SRC
 #include "ab_memory.h"
 
 #define AB_LOGGER_SRC
@@ -31,14 +31,14 @@ main(int argc, char *argv[])
     signal(SIGINT, sigint_handler);
     zsys_handler_set (NULL);
     
-    void *OsMemory = abm_AllocateOsMemory(NULL, Kilobytes(5));
+    void *OsMemory = mem_AllocateOsMemory(NULL, Kilobytes(5));
     if(!OsMemory)
     {
         printf("Failed to get memory.");
         return 1;
     }
     
-    memory_arena Memory = abm_InitMemory(OsMemory, Kilobytes(5));
+    memory_arena Memory = mem_InitMemory(OsMemory, Kilobytes(5));
     
     s32 Port = 5555;
     if(argc > 1)

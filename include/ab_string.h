@@ -3,33 +3,21 @@
 @author Amos Buchanan
 @version 1.0
 @date 2020
-@copyright [MIT Public License](https://opensource.org/licenses/MIT)
 
-These are functions to handle string fragments. There are also some safe string copy and find functions. `abs_stringptr` is generally used for a fragment of a larger piece of text.
+These are functions to handle string fragments. There are also some safe string copy and find functions. `st_ptr` is generally used for a fragment of a larger piece of text.
 
 This is a single-file library. You may include it as a header just as any other. Add the following define to include the source *once* per project:
 
 ~~~c
-#define AB_STRING_SRC
+#define STRING_SRC
 #include "ab_string.h"
 ~~~
 
-# MIT License
-
- [MIT Public License](https://opensource.org/licenses/MIT)
-
-Copyright 2020 Amos Buchanan
-
-Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
-
-The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
-
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 **/
 
 
-#ifndef _AB_STRING_H
-#define _AB_STRING_H
+#ifndef _STRING_H
+#define _STRING_H
 
 #include "ab_memory.h"
 
@@ -39,28 +27,28 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 @param MaxLength Maximum length to check.
 @return Length of string, or MaxLength if no null termination before then.
 **/
-u32 abs_StringLength(char const *x, u32 MaxLength);
+u32 st_StringLength(char const *x, u32 MaxLength);
 
-/** @brief Helper to print abs_stringptr. 
+/** @brief Helper to print st_ptr. 
 
 Used for input to *printf() type functions.
 
 Example Usage:
 ~~~c
-abs_stringptr AString = "SomeString";
+st_ptr AString = "SomeString";
 printf("String: %.*s", PSTRING(AString));
 ~~~
 
-@param STR A abs_stringptr object.
+@param STR A st_ptr object.
 **/
 #define PSTRING(STR) STR.Length, STR.String
 
 /** @brief Pointer and length of a character array.
 
-This is often used for string fragments within a larger block of text. It combines the string pointer with the string length. All abs_stringptr structs are const char* strings. They are not necessarily null terminated.
+This is often used for string fragments within a larger block of text. It combines the string pointer with the string length. All st_ptr structs are const char* strings. They are not necessarily null terminated.
 
 **/
-struct abs_stringptr
+struct st_ptr
 {
     /** @brief Pointer to the string. This is either a constant or a fragment in a larger string. 
 
@@ -71,24 +59,24 @@ Ignores nulls.
     u32 Length;
     
     /** @brief Default Constructor. **/
-    abs_stringptr(void) = default;
+    st_ptr(void) = default;
     
     ///@{
     /** @brief Constructor including string and length. **/
-    constexpr abs_stringptr(char const *S, u32 L) : String{S}, Length{L} {}
-    constexpr abs_stringptr(char const *S, s32 L) : String{S}, Length{(u32)L} {}
+    constexpr st_ptr(char const *S, u32 L) : String{S}, Length{L} {}
+    constexpr st_ptr(char const *S, s32 L) : String{S}, Length{(u32)L} {}
     ///@} 
     
     ///@{
-    /** @brief Convert a null-terminated constant string directly into an abs_stringptr, up to 1024 characters. **/ 
-    abs_stringptr(char const* x) {this->String = x; this->Length = abs_StringLength(x, 1024);}
-    abs_stringptr(char * const x) {this->String = x; this->Length = abs_StringLength(x, 1024);}
+    /** @brief Convert a null-terminated constant string directly into an st_ptr, up to 1024 characters. **/ 
+    st_ptr(char const* x) {this->String = x; this->Length = st_StringLength(x, 1024);}
+    st_ptr(char * const x) {this->String = x; this->Length = st_StringLength(x, 1024);}
     ///@}
     
-    /** @brief convert a const char directly into an abs_stringptr. **/
-    abs_stringptr(const char &x) {}
+    /** @brief convert a const char directly into an st_ptr. **/
+    st_ptr(const char &x) {}
     
-    /** @brief Convert from abs_stringptr directly into a char const*. 
+    /** @brief Convert from st_ptr directly into a char const*. 
 
 Note that this only really works if the string is null-terminated.
 **/
@@ -104,7 +92,7 @@ Note that this only really works if the string is null-terminated.
 @return True if strings are equal, up to MaxLength. False if strings are unequal, or if one is null-terminated before the other.
 **/
 b8
-abs_AreStringFragmentsEqual(char const *String1, char const *String2, u32 MaxLength, b8 isCaseInsensitive);
+st_AreStringsEqual(char const *String1, char const *String2, u32 MaxLength, b8 isCaseInsensitive);
 
 /** @brief Compare two strings. 
 
@@ -118,11 +106,11 @@ Compares 2 null-terminated strings, up to each length. False if strings are uneq
 @return True if strings are equal, including lengths. False if strings are unequal, or if one is null-terminated before the other.
 **/
 b8
-abs_AreStringsEqual(const char *String1, u32 String1Len, const char *String2, u32 String2Len, b8 isCaseInsensitive);
+st_AreStringsEqual(const char *String1, u32 String1Len, const char *String2, u32 String2Len, b8 isCaseInsensitive);
 
 /** @brief Compare two strings.
 
-Case sensitive comparison, otherwise same as `abs_AreStringsEqual(const char *String1, u32 String1Len, const char *String2, u32 String2Len, b8 isCaseInsensitive)`.
+Case sensitive comparison, otherwise same as `st_AreStringsEqual(const char *String1, u32 String1Len, const char *String2, u32 String2Len, b8 isCaseInsensitive)`.
 
 @param String1 Null terminated c-string.
 @param String1Len Length of string 1.
@@ -131,22 +119,22 @@ Case sensitive comparison, otherwise same as `abs_AreStringsEqual(const char *St
 @return True if strings are equal, including lengths. False if strings are unequal, or if one is null-terminated before the other.
 **/
 b8
-abs_AreStringsEqual(char const *String1, u32 String1Len, char const *String2, u32 String2Len);
+st_AreStringsEqual(char const *String1, u32 String1Len, char const *String2, u32 String2Len);
 
-/** @brief Compare two `abs_stringptr`.
+/** @brief Compare two `st_ptr`.
 
-Case sensitive comparison of two `abs_stringptr`. 
+Case sensitive comparison of two `st_ptr`. 
 
 @param String1 String or string fragment. May not be null-terminated.
 @param String2 String or string fragment. May not be null-terminated.
 @return True if strings are equal, including lengths. False if strings are unequal.
 **/
 b8
-abs_AreStringsEqual(abs_stringptr String1, abs_stringptr String2);
+st_AreStringsEqual(st_ptr String1, st_ptr String2);
 
-/** @brief Compare a null-terminated string with a `abs_stringptr`.
+/** @brief Compare a null-terminated string with a `st_ptr`.
 
-Case sensitive comparison of null-terminated string and `abs_stringptr`. 
+Case sensitive comparison of null-terminated string and `st_ptr`. 
 
 @param String Null terminated string.
 @param StringLen Maximum length of null terminated string to check.
@@ -154,7 +142,7 @@ Case sensitive comparison of null-terminated string and `abs_stringptr`.
 @return True if strings are equal, including lengths. False if strings are unequal, or if one is null-terminated before the other.
 **/
 b8
-abs_AreStringsEqual(char const *String, u32 StringLen, abs_stringptr StringPtr);
+st_AreStringsEqual(char const *String, u32 StringLen, st_ptr StringPtr);
 
 /** @brief Find a string in a list of strings. 
 
@@ -165,7 +153,7 @@ abs_AreStringsEqual(char const *String, u32 StringLen, abs_stringptr StringPtr);
 @return Index of the matching item, or -1 if no match found.
 **/
 s32
-abs_FindInList(abs_stringptr String, u32 ListCount, const abs_stringptr *List, b8 isCaseInsensitive = false);
+st_FindInList(st_ptr String, u32 ListCount, const st_ptr *List, b8 isCaseInsensitive = false);
 
 /** @brief Find a string in a list of strings. 
 
@@ -176,7 +164,7 @@ abs_FindInList(abs_stringptr String, u32 ListCount, const abs_stringptr *List, b
 @return Index of the matching item, or -1 if no match found.
 **/
 s32
-abs_FindInList(const char *SearchString, u32 ListCount, const abs_stringptr *List, b8 isCaseInsensitive = false);
+st_FindInList(const char *SearchString, u32 ListCount, const st_ptr *List, b8 isCaseInsensitive = false);
 
 /** @brief Safe null-terminated string copy.
 
@@ -186,33 +174,32 @@ abs_FindInList(const char *SearchString, u32 ListCount, const abs_stringptr *Lis
 @param AddTerminator True to add a null terminator to the destination string.
 @return Number of characters copied.
 **/
-u32 abs_StringCopy(char *DestString, const char* SrcString, size_t Length, b8 AddTerminator);
+u32 st_StringCopy(char *DestString, const char* SrcString, size_t Length, b8 AddTerminator);
 
 /** @brief Create a string pointer out of a string.
 
 @param Memory Memory to use for the string.
 @param String Null terminated string to copy.
-@return abs_stringptr to a new string.
+@return st_ptr to a new string.
 **/
-abs_stringptr
-abs_CreateStringPtr(memory_arena *Memory, const char *String);
+st_ptr
+st_CreateStringPtr(memory_arena *Memory, const char *String);
 
 /** @brief Create a string pointer out of a constant string.
 
 @param String Null terminated const string.
 @param Length Length of the string.
-@return abs_stringptr to the existing string using length.
+@return st_ptr to the existing string using length.
 **/
-abs_stringptr
+st_ptr
 CreateStringPtr(char const *String, u32 Length);
 
-#endif //_AB_STRING_H
+#endif //_STRING_H
 
-#if defined(AB_STRING_SRC)
-#include <string.h>
+#if defined(STRING_SRC)
 
 b8
-abs_AreStringFragmentsEqual(char const *String1, char const *String2, u32 MaxLength, b8 isCaseInsensitive)
+st_AreStringsEqual(char const *String1, char const *String2, u32 MaxLength, b8 isCaseInsensitive)
 {
     b8 isMatch = false;
     const char *CompAt = String1;
@@ -257,12 +244,12 @@ abs_AreStringFragmentsEqual(char const *String1, char const *String2, u32 MaxLen
 }
 
 b8
-abs_AreStringsEqual(char const *String1, u32 String1Len, char const *String2, u32 String2Len, b8 isCaseInsensitive)
+st_AreStringsEqual(char const *String1, u32 String1Len, char const *String2, u32 String2Len, b8 isCaseInsensitive)
 {
     b8 isMatch = false;
     if(String1Len == String2Len)
     {
-        isMatch = abs_AreStringFragmentsEqual(String1, String2, String1Len, isCaseInsensitive);
+        isMatch = st_AreStringsEqual(String1, String2, String1Len, isCaseInsensitive);
         
     }
     
@@ -270,31 +257,31 @@ abs_AreStringsEqual(char const *String1, u32 String1Len, char const *String2, u3
 }
 
 b8
-abs_AreStringsEqual(char const *String1, u32 String1Len, char const *String2, u32 String2Len)
+st_AreStringsEqual(char const *String1, u32 String1Len, char const *String2, u32 String2Len)
 {
-    return abs_AreStringsEqual(String1, String1Len, String2,  String2Len, false);
+    return st_AreStringsEqual(String1, String1Len, String2,  String2Len, false);
 }
 
 b8
-abs_AreStringsEqual(abs_stringptr String1, abs_stringptr String2, b8 isCaseInsensitive)
+st_AreStringsEqual(st_ptr String1, st_ptr String2, b8 isCaseInsensitive)
 {
-    return abs_AreStringsEqual(String1.String, String1.Length, String2.String, String2.Length, isCaseInsensitive);
+    return st_AreStringsEqual(String1.String, String1.Length, String2.String, String2.Length, isCaseInsensitive);
 }
 
 b8
-abs_AreStringsEqual(abs_stringptr String1, abs_stringptr String2)
+st_AreStringsEqual(st_ptr String1, st_ptr String2)
 {
-    return abs_AreStringsEqual(String1.String, String1.Length, String2.String, String2.Length, false);
+    return st_AreStringsEqual(String1.String, String1.Length, String2.String, String2.Length, false);
 }
 
 b8
-abs_AreStringsEqual(char const *String, u32 StringLen, abs_stringptr StringPtr)
+st_AreStringsEqual(char const *String, u32 StringLen, st_ptr StringPtr)
 {
-    return abs_AreStringsEqual(String, StringLen, StringPtr.String, StringPtr.Length, false);
+    return st_AreStringsEqual(String, StringLen, StringPtr.String, StringPtr.Length, false);
 }
 
 u32
-abs_StringLength(char const *x, u32 MaxLength)
+st_StringLength(char const *x, u32 MaxLength)
 {
     char const *At = x;
     u32 Length = 0;
@@ -308,7 +295,7 @@ abs_StringLength(char const *x, u32 MaxLength)
 }
 
 s32
-abs_FindInList(abs_stringptr String, u32 ListCount, const abs_stringptr *List, b8 isCaseInsensitive)
+st_FindInList(st_ptr String, u32 ListCount, const st_ptr *List, b8 isCaseInsensitive)
 {
     s32 MatchIndex = -1;
     
@@ -316,7 +303,7 @@ abs_FindInList(abs_stringptr String, u32 ListCount, const abs_stringptr *List, b
         Index < (s32)ListCount;
         ++Index)
     {
-        if(abs_AreStringsEqual(String.String, String.Length, List[Index].String, List[Index].Length, isCaseInsensitive))
+        if(st_AreStringsEqual(String.String, String.Length, List[Index].String, List[Index].Length, isCaseInsensitive))
         {
             MatchIndex = Index;
             break;
@@ -327,16 +314,16 @@ abs_FindInList(abs_stringptr String, u32 ListCount, const abs_stringptr *List, b
 }
 
 s32
-abs_FindInList(const char *SearchString, u32 ListCount, const abs_stringptr *List, b8 isCaseInsensitive)
+st_FindInList(const char *SearchString, u32 ListCount, const st_ptr *List, b8 isCaseInsensitive)
 {
     s32 MatchIndex = -1;
-    u32 SearchStringLen = (u32)strlen(SearchString);
+    const u32 MaxStringLength = 1024;
     
     for(s32 Index = 0;
         Index < (s32)ListCount;
         ++Index)
     {
-        if(abs_AreStringsEqual(SearchString, SearchStringLen, List[Index], (u32)strlen(List[Index]), isCaseInsensitive))
+        if(st_AreStringsEqual(SearchString, MaxStringLength, List[Index], isCaseInsensitive))
         {
             MatchIndex = Index;
             break;
@@ -347,7 +334,7 @@ abs_FindInList(const char *SearchString, u32 ListCount, const abs_stringptr *Lis
 }
 
 u32
-abs_StringCopy(char *DestString, const char* SrcString, size_t Length, b8 AddTerminator)
+st_StringCopy(char *DestString, const char* SrcString, size_t Length, b8 AddTerminator)
 {
     u32 CharsCopied = 0;
     size_t MaxLength = AddTerminator ? Length-1 : Length;
@@ -376,31 +363,31 @@ abs_StringCopy(char *DestString, const char* SrcString, size_t Length, b8 AddTer
 }
 //return strncpy(dest, src, count);
 
-abs_stringptr
-abs_CreateStringPtr(memory_arena *Memory, const char *String)
+st_ptr
+st_CreateStringPtr(memory_arena *Memory, const char *String)
 {
-    u32 Length = abs_StringLength(String, (u32)(abm_GetMemoryLeft(Memory)-1));
-    char *StringPtr = abm_PushArray(Memory, Length+1, char);
+    u32 Length = st_StringLength(String, (u32)(mem_GetMemoryLeft(Memory)-1));
+    char *StringPtr = mem_PushArray(Memory, Length+1, char);
     
-    abs_StringCopy(StringPtr, String, Length+1, true);
-    abs_stringptr Result = abs_stringptr(StringPtr, Length);
-    
-    return Result;
-}
-
-abs_stringptr
-abs_CreateStringPtr(char const *String, u32 Length)
-{
-    abs_stringptr Result = {String, Length};
+    st_StringCopy(StringPtr, String, Length+1, true);
+    st_ptr Result = st_ptr(StringPtr, Length);
     
     return Result;
 }
 
-
-abs_stringptr
-abs_Capitalize(abs_stringptr String, memory_arena *Memory)
+st_ptr
+st_CreateStringPtr(char const *String, u32 Length)
 {
-    char *NewString = abm_PushArray(Memory, String.Length, char);
+    st_ptr Result = {String, Length};
+    
+    return Result;
+}
+
+
+st_ptr
+st_Capitalize(st_ptr String, memory_arena *Memory)
+{
+    char *NewString = mem_PushArray(Memory, String.Length, char);
     for(u32 i = 0; i < String.Length; ++i)
     {
         if(String.String[i] >= 'a' && String.String[i] <= 'z')
@@ -412,16 +399,16 @@ abs_Capitalize(abs_stringptr String, memory_arena *Memory)
             NewString[i] = String.String[i];
         }
     }
-    abs_stringptr Result = {NewString, String.Length};
+    st_ptr Result = {NewString, String.Length};
     
     return Result;
     
 }
 
-abs_stringptr
-abs_Lowercase(abs_stringptr String, memory_arena *Memory)
+st_ptr
+st_Lowercase(st_ptr String, memory_arena *Memory)
 {
-    char *NewString = abm_PushArray(Memory, String.Length, char);
+    char *NewString = mem_PushArray(Memory, String.Length, char);
     for(u32 i = 0; i < String.Length; ++i)
     {
         if(String.String[i] >= 'A' && String.String[i] <= 'Z')
@@ -433,13 +420,13 @@ abs_Lowercase(abs_stringptr String, memory_arena *Memory)
             NewString[i] = String.String[i];
         }
     }
-    abs_stringptr Result = {NewString, String.Length};
+    st_ptr Result = {NewString, String.Length};
     
     return Result;
     
 }
 
 
-#undef AB_STRING_SRC
+#undef STRING_SRC
 #endif
 

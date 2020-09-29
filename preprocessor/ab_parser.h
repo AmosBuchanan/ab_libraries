@@ -29,8 +29,8 @@ ToSentinal.Prev = FromSentinal.Prev; \
 
 struct tag
 {
-    abs_stringptr Name;
-    abs_stringptr Option;
+    st_ptr Name;
+    st_ptr Option;
     
     tag *Next;
     tag *Prev;
@@ -47,8 +47,8 @@ enum custom_type
 
 struct term_typeexpr
 {
-    abs_stringptr Type;
-    abs_stringptr Name;
+    st_ptr Type;
+    st_ptr Name;
     
     b8 isPtr;
     b8 isReference;
@@ -63,8 +63,8 @@ struct term_typeexpr
 
 struct term_definedfunction
 {
-    abs_stringptr Define;
-    abs_stringptr Name;
+    st_ptr Define;
+    st_ptr Name;
     
     term_definedfunction *Next;
     term_definedfunction *Prev;
@@ -72,9 +72,9 @@ struct term_definedfunction
 
 struct term_statemachine
 {
-    abs_stringptr Function;
-    abs_stringptr Type;
-    abs_stringptr Cmd;
+    st_ptr Function;
+    st_ptr Type;
+    st_ptr Cmd;
     
     term_typeexpr TypeListSentinal;
     
@@ -93,7 +93,7 @@ struct term_structitem
 
 struct term_struct
 {
-    abs_stringptr Name;
+    st_ptr Name;
     tag TagListSentinal;
     term_structitem ItemListSentinal;
     u32 ItemCount;
@@ -104,7 +104,7 @@ struct term_struct
 
 struct term_enumitem
 {
-    abs_stringptr Name;
+    st_ptr Name;
     tag TagListSentinal;
     
     term_enumitem *Next;
@@ -113,7 +113,7 @@ struct term_enumitem
 
 struct term_enum
 {
-    abs_stringptr Name;
+    st_ptr Name;
     tag TagListSentinal;
     term_enumitem ItemListSentinal;
     u32 ItemCount;
@@ -124,7 +124,7 @@ struct term_enum
 
 struct term_function
 {
-    abs_stringptr Name;
+    st_ptr Name;
     tag TagListSentinal;
     term_typeexpr TypeListSentinal;
     u32 TypeCount;
@@ -142,7 +142,7 @@ struct term_statefunction
 
 struct term_queue
 {
-    abs_stringptr QueueItemName;
+    st_ptr QueueItemName;
     s32 QueueSize;
     
     term_queue *Next;
@@ -198,7 +198,7 @@ OptionalToken(lexer *Lexer, token_type Type)
 }
 
 b8
-NextTokenEquals(lexer *Lexer, abs_stringptr TokenValue)
+NextTokenEquals(lexer *Lexer, st_ptr TokenValue)
 {
     b8 Result = false;
     
@@ -227,7 +227,7 @@ ParseEnumitem(lexer *Lexer, parser *Parser)
     
     if(Token.Type == TOKEN_Identifier)
     {
-        EnumName = abm_PushStruct(Parser->Memory, term_enumitem);
+        EnumName = mem_PushStruct(Parser->Memory, term_enumitem);
         InitList(EnumName->TagListSentinal);
         PushListOntoList(EnumName->TagListSentinal, TagList);
         EnumName->Name = Token.Text;
@@ -239,7 +239,7 @@ ParseEnumitem(lexer *Lexer, parser *Parser)
 term_typeexpr *
 ParseType(lexer *Lexer, parser *Parser)
 {
-    term_typeexpr *Expr = abm_PushStruct(Parser->Memory, term_typeexpr);
+    term_typeexpr *Expr = mem_PushStruct(Parser->Memory, term_typeexpr);
     token Token;
     
     if(NextTokenEquals(Lexer, "const"))
@@ -320,7 +320,7 @@ ParseStructItem(lexer *Lexer, parser *Parser)
     term_typeexpr *StructItemType = ParseTypeExpr(Lexer, Parser);
     if(StructItemType)
     {
-        StructItem = abm_PushStruct(Parser->Memory, term_structitem);
+        StructItem = mem_PushStruct(Parser->Memory, term_structitem);
         InitList(StructItem->TagListSentinal);
         PushListOntoList(StructItem->TagListSentinal,TagList);
         StructItem->Type = StructItemType;
@@ -341,7 +341,7 @@ ParseEnumClass(lexer *Lexer, parser *Parser)
     
     if(Token.Type == TOKEN_Identifier)
     {
-        NewEnum = abm_PushStruct(Parser->Memory, term_enum);
+        NewEnum = mem_PushStruct(Parser->Memory, term_enum);
         InitList(NewEnum->TagListSentinal);
         InitList(NewEnum->ItemListSentinal);
         
@@ -377,7 +377,7 @@ ParseStruct(lexer *Lexer, parser *Parser)
     
     if(Token.Type == TOKEN_Identifier)
     {
-        NewStruct = abm_PushStruct(Parser->Memory, term_struct);
+        NewStruct = mem_PushStruct(Parser->Memory, term_struct);
         InitList(NewStruct->TagListSentinal);
         InitList(NewStruct->ItemListSentinal);
         NewStruct->Name = Token.Text;
@@ -421,7 +421,7 @@ ParseTag(lexer *Lexer, parser *Parser)
         {
             if(Token.Type == TOKEN_Identifier)
             {
-                tag *NewTag = abm_PushStruct(Parser->Memory, tag);
+                tag *NewTag = mem_PushStruct(Parser->Memory, tag);
                 NewTag->Name = Token.Text;
                 
                 if(OptionalToken(Lexer, TOKEN_Colon))
@@ -493,7 +493,7 @@ ParseQueue(lexer *Lexer, parser *Parser, token Token)
         token Token = abl_GetToken(Lexer);
         if(Token.Type == TOKEN_Identifier)
         {
-            term_queue *Queue = abm_PushStruct(Parser->Memory, term_queue);
+            term_queue *Queue = mem_PushStruct(Parser->Memory, term_queue);
             Queue->QueueItemName = Token.Text;
             
             if(OptionalToken(Lexer, TOKEN_Comma))
@@ -527,7 +527,7 @@ ParseStateMachineDef(lexer *Lexer, parser *Parser, token Token)
         token Token = abl_GetToken(Lexer);
         if(Token.Type == TOKEN_Identifier)
         {
-            term_statemachine *StateMachine = abm_PushStruct(Parser->Memory, term_statemachine);
+            term_statemachine *StateMachine = mem_PushStruct(Parser->Memory, term_statemachine);
             InitList(StateMachine->TypeListSentinal);
             StateMachine->Function = Token.Text;
             RequireToken(Lexer, TOKEN_Comma);
@@ -604,7 +604,7 @@ ParseDefinedFunction(lexer *Lexer, parser *Parser, token Token)
     
     if(isGoodFunction)
     {
-        term_definedfunction *Function = abm_PushStruct(Parser->Memory, term_definedfunction);
+        term_definedfunction *Function = mem_PushStruct(Parser->Memory, term_definedfunction);
         *Function = NewFunction;
         PushOntoList(Parser->DefinedFunctionListSentinal, Function);
     }
@@ -671,7 +671,7 @@ ParseExpr(lexer *Lexer, parser *Parser)
 parser *
 ParseInit(memory_arena *Memory)
 {
-    parser *Parser  = abm_PushStruct(Memory, parser);
+    parser *Parser  = mem_PushStruct(Memory, parser);
     Parser->Memory = Memory;
     InitList(Parser->StructListSentinal);
     InitList(Parser->EnumListSentinal);

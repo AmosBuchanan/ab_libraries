@@ -3,14 +3,19 @@
 @author Amos Buchanan
 @version 1.0
 @date 2020
-@copyright [MIT Public License](https://opensource.org/licenses/MIT)
 
 Getting and using blocks of memory, as oppossed to malloc/free anytime memory is desired. Works with Windows and Linux, with the OS specific implementation broken out into separate files. Generally, you grab a chunk of memory from the OS and use that chunk rather than constantly going out to the OS to get more when needed. To pull in for the appropriate OS, define either `_LINUX` or `_WINDOWS` in your build string or early in your project. (NOTE: Visual Studio adds a `_WINDOWS` define by default to C++ projects.
+
+The use case for this library fits with the two methods of memory used in my projects:
+- An initial block of memory that is initialized during setup, and not added to afterwards.
+- Scratch memory that is wiped out at the beginning of each control loop.
+
+At this time, there isn't really functionality for freeing and re-using memory. It's generally not necessary in the use cases I current have, though if this changes that functionality will be added.
 
 This is a single-file library. You may include it as a header just as any other. Add the following define to include the source *once* per project:
 
 ~~~c
-#define AB_MEMORY_SRC
+#define MEMORY_SRC
 #include "ab_memory.h"
 ~~~
 
@@ -21,58 +26,47 @@ The code here is heavily influenced by Casey Muratori and [Handmade Hero](https:
 Example Usage:
 ~~~c
 const size_t MemorySize = Kilobytes(150);
-void *OsMemory = abm_AllocateOsMemory(NULL, MemorySize);
-memory_arena MainMemory = abm_InitMemory(OsMemory, MemorySize);
+void *OsMemory = mem_AllocateOsMemory(NULL, MemorySize);
+memory_arena MainMemory = mem_InitMemory(OsMemory, MemorySize);
 
 // Begin initialization code here.
-my_struct *MyStruct = abm_PushStruct(&MainMemory, my_struct);
+my_struct *MyStruct = mem_PushStruct(&MainMemory, my_struct);
 
 const u32 MyStructArrayLength = 50;
-my_struct *MyStructArray = abm_PushArray(&MainMemory, my_struct, MyStructArrayLength);
+my_struct *MyStructArray = mem_PushArray(&MainMemory, my_struct, MyStructArrayLength);
 
 const size_t EmptyMemorySize = Kilobytes(1);
-void *EmptyMemory = abm_PushSize(&MainMemory, EmptyMemorySize);
+void *EmptyMemory = mem_PushSize(&MainMemory, EmptyMemorySize);
 
-memory_arena VolatileMemory = abm_CreateSubArena(&MainMemory, Kilobytes(50));
+memory_arena VolatileMemory = mem_CreateSubArena(&MainMemory, Kilobytes(50));
 
 // End initialization.
 
 while(isRunning)
 {
-    abm_ResetMemory(&VolatileMemory);
+    mem_ResetMemory(&VolatileMemory);
 
     volatile_struct *VolatileStruct = PushStruct(&VolatileMemory, volatile_struct);
     // Do Stuff Here.
 
-    temporary_memory ScratchMemory = abm_BeginTemporaryMemory(&VolatileMemory);
+    temporary_memory ScratchMemory = mem_BeginTemporaryMemory(&VolatileMemory);
 
     // Use the ScratchMemory for something here.
 
-    abm_EndTemporaryMemory(ScratchMemory);
+    mem_EndTemporaryMemory(ScratchMemory);
 }
 
-abm_DeallocateOsMemory(OsMemory, MemorySize);
+mem_DeallocateOsMemory(OsMemory, MemorySize);
 ~~~
 
 See also:
 - @ref ab_memory_linux.h
 - @ref ab_memory_win32.h
 
-# MIT License
-
- [MIT Public License](https://opensource.org/licenses/MIT)
-
-Copyright 2020 Amos Buchanan
-
-Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
-
-The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
-
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 **/
 
-#if !defined(AB_MEMORY_H)
-#define AB_MEMORY_H
+#if !defined(MEM_MEMORY_H)
+#define MEM_MEMORY_H
 
 #include "ab_common.h"
 
@@ -97,14 +91,14 @@ struct temporary_memory
 @param Size Amount of memory you want from the OS.
 @return A void* pointer to the start of the memory; 0 if memory allocation failed.
 **/
-void *abm_AllocateOsMemory(void *Address, size_t Size);
+void *mem_AllocateOsMemory(void *Address, size_t Size);
 
 /** @brief Return memory to the OS.
 
-@param Address of the memory from the OS, the return value of @ref abm_AllocateOsMemory().
-@param Size Size of the memory to return (Some OS's need this.), should be the same as the  parameter from `abm_AllocateOsMemory()`.
+@param Address of the memory from the OS, the return value of @ref mem_AllocateOsMemory().
+@param Size Size of the memory to return (Some OS's need this.), should be the same as the  parameter from `mem_AllocateOsMemory()`.
                                           **/
-void abm_DeallocateOsMemory(void *Address, size_t Size);
+void mem_DeallocateOsMemory(void *Address, size_t Size);
 
 /** @brief Get memory for the type or struct and return a pointer to the struct type.
 
@@ -114,7 +108,7 @@ This will clear the memory to 0.
 @param Type The struct type to allocate.
 @return A pointer to the struct type.
 **/
-#define abm_PushStruct(Arena, Type) (Type*)abm_PushSize_(Arena, sizeof(Type))
+#define mem_PushStruct(Arena, Type) (Type*)mem_PushSize_(Arena, sizeof(Type))
 
 /** @brief Get memory of given size and return a pointer to memory. 
 
@@ -124,7 +118,7 @@ This will clear the memory to 0.
 @param Size `size_t` amount of memory to create.
 @return 'void*` pointer to the start of the memory.
 **/
-#define abm_PushSize(Arena, Size) abm_PushSize_(Arena, Size)
+#define mem_PushSize(Arena, Size) mem_PushSize_(Arena, Size)
 
 /** @brief Get memory for an array of types specified. 
 
@@ -135,10 +129,10 @@ This will clear the memory to 0.
 @param Type The type of array to allocate. Can be any type.
 @return A pointer to the first element in the array.
 **/
-#define abm_PushArray(Arena, Count, Type) (Type*)abm_PushSize_(Arena, (Count)*sizeof(Type))
+#define mem_PushArray(Arena, Count, Type) (Type*)mem_PushSize_(Arena, (Count)*sizeof(Type))
 
 /** @private */
-void *abm_PushSize_(memory_arena *Memory, size_t Size, b8 ClearMemory = true);
+void *mem_PushSize_(memory_arena *Memory, size_t Size, b8 ClearMemory = true);
 
 /** @brief Initialize a memory_arena.
 
@@ -149,7 +143,7 @@ of one.
 @param Size The size of the memory arena.
 @return A new memory_arena.
 **/
-memory_arena abm_InitMemory(void *Start, size_t Size);
+memory_arena mem_InitMemory(void *Start, size_t Size);
 
 /** @brief Delete everything in a `memory_arena` and set the amount of memory used to 0. 
 
@@ -158,45 +152,45 @@ loop to clear the volatile memory.
 
 @param Memory The `memory_arena` to wipe.
 **/
-void abm_ResetMemory(memory_arena *Memory);
+void mem_ResetMemory(memory_arena *Memory);
 
 /** @brief Get the amount of memory left in an arena.
 
 @param Memory A pointer to the `memory_arena` to check.
 @return The amount of unused memory in the arena.
 **/
-inline size_t abm_GetMemoryLeft(memory_arena *Memory);
+inline size_t mem_GetMemoryLeft(memory_arena *Memory);
 
 /** @brief Indicates the next section of memory is scratch, and will be cleared quickly.
 
-This must be paired with `abm_EndTemporaryMemory()`. Memory used between `abm_BeginTemporyMemory()` and 
-`abm_EndTemporaryMemory()` will be wiped. This is generally used for brief scratch memory that's needed within 
+This must be paired with `mem_EndTemporaryMemory()`. Memory used between `mem_BeginTemporyMemory()` and 
+`mem_EndTemporaryMemory()` will be wiped. This is generally used for brief scratch memory that's needed within 
 a single function, but is not otherwise needed.
 
 Example Usage:
 ~~~c
-temporary_memory TempMem = abm_BeginTemporaryMemory(&MemoryArena);
+temporary_memory TempMem = mem_BeginTemporaryMemory(&MemoryArena);
 
-my_struct *MyStruct = abm_PushStruct(&MemoryArena, my_struct);
+my_struct *MyStruct = mem_PushStruct(&MemoryArena, my_struct);
 // Do some scratch work here, using the memory as normal.
 
-// Any memory used since abm_BeginTemporaryMemory() will be wiped out here.
-abm_EndTemporaryMemory(TempMem);
+// Any memory used since mem_BeginTemporaryMemory() will be wiped out here.
+mem_EndTemporaryMemory(TempMem);
 ~~~
 
 @param Memory A pointer to the `memory_arena` to use.
 @return A `temporary_memory` struct that is used again to end the memory.
 **/
-temporary_memory abm_BeginTemporaryMemory(memory_arena *Memory);
+temporary_memory mem_BeginTemporaryMemory(memory_arena *Memory);
 
 /** @brief Ends the section of temporary memory.
 
-This will free all the memory used since `abm_BeginTemporaryMemory()`. See @ref abm_BeginTemporaryMemory() for more 
+This will free all the memory used since `mem_BeginTemporaryMemory()`. See @ref mem_BeginTemporaryMemory() for more 
 details on usage.
 
-@param TempMem The `temporary_memory` struct created with `abm_BeginTemporaryMemory()`.
+@param TempMem The `temporary_memory` struct created with `mem_BeginTemporaryMemory()`.
 **/
-void abm_EndTemporaryMemory(temporary_memory TempMem);
+void mem_EndTemporaryMemory(temporary_memory TempMem);
 
 /** @brief Create a `memory_arena` inside an existing arena.
 
@@ -205,7 +199,7 @@ void abm_EndTemporaryMemory(temporary_memory TempMem);
 @return A new `memory_arena` that may be used just as the parent arena.
 **/
 memory_arena
-abm_CreateSubArena(memory_arena *Memory, size_t Size);
+mem_CreateSubArena(memory_arena *Memory, size_t Size);
 #endif
 
 #if _WINDOWS
@@ -215,10 +209,10 @@ abm_CreateSubArena(memory_arena *Memory, size_t Size);
 #endif
 
 
-#if defined(AB_MEMORY_SRC)
+#if defined(MEMORY_SRC)
 
 memory_arena
-abm_InitMemory(void *Start, size_t Size)
+mem_InitMemory(void *Start, size_t Size)
 {
     Assert(Start);
     
@@ -231,10 +225,10 @@ abm_InitMemory(void *Start, size_t Size)
 }
 
 memory_arena
-abm_CreateSubArena(memory_arena *Memory, size_t Size)
+mem_CreateSubArena(memory_arena *Memory, size_t Size)
 {
     memory_arena SubArena = {};
-    SubArena.Start = abm_PushSize(Memory, Size);
+    SubArena.Start = mem_PushSize(Memory, Size);
     SubArena.Size = Size;
     SubArena.Used = 0;
     
@@ -242,7 +236,7 @@ abm_CreateSubArena(memory_arena *Memory, size_t Size)
 }
 
 void *
-abm_PushSize_(memory_arena *Memory, size_t Size, b8 ClearMemory)
+mem_PushSize_(memory_arena *Memory, size_t Size, b8 ClearMemory)
 {
     void* Result = 0;
     
@@ -262,7 +256,7 @@ abm_PushSize_(memory_arena *Memory, size_t Size, b8 ClearMemory)
 }
 
 temporary_memory
-abm_BeginTemporaryMemory(memory_arena *Memory)
+mem_BeginTemporaryMemory(memory_arena *Memory)
 {
     temporary_memory Result = {};
     Result.Arena = Memory;
@@ -272,20 +266,20 @@ abm_BeginTemporaryMemory(memory_arena *Memory)
 }
 
 void
-abm_EndTemporaryMemory(temporary_memory TempMem)
+mem_EndTemporaryMemory(temporary_memory TempMem)
 {
     TempMem.Arena->Used = TempMem.Used;
 }
 
 
 void
-abm_ResetMemory(memory_arena *Memory)
+mem_ResetMemory(memory_arena *Memory)
 {
     Memory->Used = 0;
 }
 
 inline size_t
-abm_GetMemoryLeft(memory_arena *Memory)
+mem_GetMemoryLeft(memory_arena *Memory)
 {
     size_t Result = Memory->Size - Memory->Used;
     
@@ -293,5 +287,5 @@ abm_GetMemoryLeft(memory_arena *Memory)
 }
 
 
-#undef AB_MEMORY_SRC
+#undef MEMORY_SRC
 #endif

@@ -1,9 +1,9 @@
 #include "ab_common.h"
 #include "stdio.h"
 
-#define AB_STRING_SRC
-#define AB_MEMORY_SRC
-#define AB_JSON_SRC
+#define STRING_SRC
+#define MEMORY_SRC
+#define JSON_SRC
 #define GEN_JSMN_HEADER
 //#include "Generated_Test.h"
 #define GENERATED_TEST_SRC
@@ -96,7 +96,7 @@ main(int argc, char* argv[])
     for(u32 i = 0; i < enColours_Count; ++i)
     {
         enColours C = (enColours)i;
-        abs_stringptr S = EnumToString(C);
+        st_ptr S = EnumToString(C);
         printf("  - %.*s\n", S.Length, S.String);
     }
     printf("\n");
@@ -104,7 +104,7 @@ main(int argc, char* argv[])
     printf("----\nPrint Labels: \n");
     for(u32 i = 0; i < enColours_Count; ++i)
     {
-        abs_stringptr S = EnumToLabel_Object((enColours)i);
+        st_ptr S = EnumToLabel_Object((enColours)i);
         printf("  - %.*s\n", S.Length, S.String);
     }
     
@@ -174,11 +174,11 @@ main(int argc, char* argv[])
     PrintQueue(&TestMachine.CommandQueue);
     
     size_t Size = Gigabytes(1);
-    void *MemoryPtr = abm_AllocateOsMemory(0, Size);
-    memory_arena Memory = abm_InitMemory(MemoryPtr, Size);
+    void *MemoryPtr = mem_AllocateOsMemory(0, Size);
+    memory_arena Memory = mem_InitMemory(MemoryPtr, Size);
     
     u32 JsonSize = Kilobytes(5);
-    char *Json = abm_PushArray(&Memory, JsonSize, char);
+    char *Json = mem_PushArray(&Memory, JsonSize, char);
     my_json_test Test = {};
     Test.TestUnsigned = 10;
     snprintf(Test.TestString, 50, "Hello");

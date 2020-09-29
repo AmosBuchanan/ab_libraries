@@ -40,7 +40,7 @@ enum token_type
 struct token
 {
     token_type Type;
-    abs_stringptr Text;
+    st_ptr Text;
 };
 
 struct lexer
@@ -63,7 +63,7 @@ s32
 abl_TokenToS32(token Token);
 
 b8
-abl_TokenEquals(token Token, abs_stringptr Match);
+abl_TokenEquals(token Token, st_ptr Match);
 
 b8
 abl_TokensEquals(token A, token B);
@@ -101,9 +101,9 @@ abl_TokenToS32(token Token)
 }
 
 b8
-abl_TokenEquals(token Token, abs_stringptr Match)
+abl_TokenEquals(token Token, st_ptr Match)
 {
-    b8 Result = abs_AreStringsEqual(Token.Text, Match);
+    b8 Result = st_AreStringsEqual(Token.Text, Match);
     
     return Result;
 } // TokenEquals
@@ -111,7 +111,7 @@ abl_TokenEquals(token Token, abs_stringptr Match)
 b8
 abl_TokensEquals(token A, token B)
 {
-    b8 isMatch = abs_AreStringsEqual(A.Text, B.Text);
+    b8 isMatch = st_AreStringsEqual(A.Text, B.Text);
     
     return isMatch;
 }

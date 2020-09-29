@@ -60,9 +60,9 @@ PREDEFINED = GEN_JSMN_HEADER
 template<typename T>
 auto StringToEnum(const char *String) -> T;
 
-/** @brief Generic template for the abs_stringptr StringToEnum<> functions. **/
+/** @brief Generic template for the st_ptr StringToEnum<> functions. **/
 template<typename T>
-auto StringToEnum(abs_stringptr String) -> T;
+auto StringToEnum(st_ptr String) -> T;
 
 
 #endif
@@ -208,21 +208,21 @@ If the string does not correspond to any of the enums, it will return the first 
 **/
 template<>
 auto StringToEnum<test_cmd>(const char *String) -> test_cmd;
-/** @brief Convert a abs_stringptr string to a test_cmd enum. 
+/** @brief Convert a st_ptr string to a test_cmd enum. 
 
 If the string does not correspond to any of the enums, it will return the first value of the enum: `test_cmd::NOP`.
 
-@param String An abs_stringptr string.
+@param String An st_ptr string.
 @return A test_cmd enum value.
 **/
 template<>
-auto StringToEnum<test_cmd>(abs_stringptr String) -> test_cmd;
-/** @brief Return a abs_stringptr corresponding for the given test_cmd enum.
+auto StringToEnum<test_cmd>(st_ptr String) -> test_cmd;
+/** @brief Return a st_ptr corresponding for the given test_cmd enum.
 
 @param EnumToken The enum to convert to a string.
-@return A constant abs_stringptr.
+@return A constant st_ptr.
 **/
-constexpr abs_stringptr EnumToString(test_cmd EnumToken);
+constexpr st_ptr EnumToString(test_cmd EnumToken);
 /** @brief Return a const char* null-terminated string for the given test_cmd enum.
 
 @param EnumToken The enum to convert to a string.
@@ -285,21 +285,21 @@ If the string does not correspond to any of the enums, it will return the first 
 **/
 template<>
 auto StringToEnum<enColours>(const char *String) -> enColours;
-/** @brief Convert a abs_stringptr string to a enColours enum. 
+/** @brief Convert a st_ptr string to a enColours enum. 
 
 If the string does not correspond to any of the enums, it will return the first value of the enum: `enColours::Red`.
 
-@param String An abs_stringptr string.
+@param String An st_ptr string.
 @return A enColours enum value.
 **/
 template<>
-auto StringToEnum<enColours>(abs_stringptr String) -> enColours;
-/** @brief Return a abs_stringptr corresponding for the given enColours enum.
+auto StringToEnum<enColours>(st_ptr String) -> enColours;
+/** @brief Return a st_ptr corresponding for the given enColours enum.
 
 @param EnumToken The enum to convert to a string.
-@return A constant abs_stringptr.
+@return A constant st_ptr.
 **/
-constexpr abs_stringptr EnumToString(enColours EnumToken);
+constexpr st_ptr EnumToString(enColours EnumToken);
 /** @brief Return a const char* null-terminated string for the given enColours enum.
 
 @param EnumToken The enum to convert to a string.
@@ -481,7 +481,7 @@ return Result;
 
 
 /****** Enum test_cmd Functions *****/
-constexpr abs_stringptr test_cmd_Strings[test_cmd_Count] = 
+constexpr st_ptr test_cmd_Strings[test_cmd_Count] = 
 {
    {"NOP", 3},
    {"Command1", 8},
@@ -494,7 +494,7 @@ constexpr abs_stringptr test_cmd_Strings[test_cmd_Count] =
 template<>
 auto StringToEnum<test_cmd>(const char *String) -> test_cmd
 {
-    u32 StringIndex = abs_FindInList(String, test_cmd_Count, test_cmd_Strings, true);
+    u32 StringIndex = st_FindInList(String, test_cmd_Count, test_cmd_Strings, true);
     test_cmd Result = test_cmd::NOP;
     if(StringIndex < test_cmd_Count)
     {
@@ -503,9 +503,9 @@ auto StringToEnum<test_cmd>(const char *String) -> test_cmd
     return Result;
 }
 template<>
-auto StringToEnum<test_cmd>(abs_stringptr String) -> test_cmd
+auto StringToEnum<test_cmd>(st_ptr String) -> test_cmd
 {
-    u32 StringIndex = abs_FindInList(String, test_cmd_Count, test_cmd_Strings, true);
+    u32 StringIndex = st_FindInList(String, test_cmd_Count, test_cmd_Strings, true);
     test_cmd Result = test_cmd::NOP;
     if(StringIndex < test_cmd_Count)
     {
@@ -519,7 +519,7 @@ EnumToCString(test_cmd EnumToken)
     return test_cmd_Strings[int(EnumToken)].String;
 }
 
-constexpr abs_stringptr
+constexpr st_ptr
 EnumToString(test_cmd EnumToken)
 {
     return test_cmd_Strings[int(EnumToken)];
@@ -543,7 +543,7 @@ jsmntok_t *JsonToObject(memory_arena *VolatileMemory, char const *Json, size_t J
     enColours Result = static_cast<enColours>(0);
     s32 NumTokensUsed = 0;
     
-    s32 TotalTokens = ParseJson(VolatileMemory, Json, JsonLength, &TokenArray);
+    s32 TotalTokens = js_ParseJson(VolatileMemory, Json, JsonLength, &TokenArray);
     if(TokenArray)
     {
         s32 Index = 0;
@@ -555,7 +555,7 @@ jsmntok_t *JsonToObject(memory_arena *VolatileMemory, char const *Json, size_t J
         if(TokenArray[Index].type == JSMN_STRING)
         {
             s32 TokenLength = (TokenArray[Index].end - TokenArray[Index].start);
-            abs_stringptr EnumString = {&Json[TokenArray[Index].start], TokenLength};
+            st_ptr EnumString = {&Json[TokenArray[Index].start], TokenLength};
             Result = StringToEnum<enColours>(EnumString);
             NumTokensUsed = Index;
         }
@@ -570,7 +570,7 @@ jsmntok_t *JsonToObject(memory_arena *VolatileMemory, char const *Json, size_t J
 
 #endif
 
-constexpr abs_stringptr enColours_Strings[enColours_Count] = 
+constexpr st_ptr enColours_Strings[enColours_Count] = 
 {
    {"Red", 3},
    {"Green", 5},
@@ -580,7 +580,7 @@ constexpr abs_stringptr enColours_Strings[enColours_Count] =
 template<>
 auto StringToEnum<enColours>(const char *String) -> enColours
 {
-    u32 StringIndex = abs_FindInList(String, enColours_Count, enColours_Strings, true);
+    u32 StringIndex = st_FindInList(String, enColours_Count, enColours_Strings, true);
     enColours Result = enColours::Red;
     if(StringIndex < enColours_Count)
     {
@@ -589,9 +589,9 @@ auto StringToEnum<enColours>(const char *String) -> enColours
     return Result;
 }
 template<>
-auto StringToEnum<enColours>(abs_stringptr String) -> enColours
+auto StringToEnum<enColours>(st_ptr String) -> enColours
 {
-    u32 StringIndex = abs_FindInList(String, enColours_Count, enColours_Strings, true);
+    u32 StringIndex = st_FindInList(String, enColours_Count, enColours_Strings, true);
     enColours Result = enColours::Red;
     if(StringIndex < enColours_Count)
     {
@@ -605,7 +605,7 @@ EnumToCString(enColours EnumToken)
     return enColours_Strings[int(EnumToken)].String;
 }
 
-constexpr abs_stringptr
+constexpr st_ptr
 EnumToString(enColours EnumToken)
 {
     return enColours_Strings[int(EnumToken)];
@@ -639,15 +639,15 @@ u32 PushJson(char *Json, u32 MaxLength, char const*Tag, const my_json_test &Valu
     {
           Length += stbsp_snprintf(&Json[Length], MaxLength, "\"%s\":", Tag);
     }
-    Length += StartGroup(&Json[Length], (MaxLength - Length));
+    Length += js_StartGroup(&Json[Length], (MaxLength - Length));
 Length += stbsp_snprintf(&Json[Length], (MaxLength - Length), "\"TestUnsigned\":%u,",  (Value.TestUnsigned));
 {
-size_t StringLen = abs_StringLength(Value.TestString, 50);
+size_t StringLen = st_StringLength(Value.TestString, 50);
 Length += stbsp_snprintf(&Json[Length], (MaxLength - Length), "\"TestString\":\"%.*s\",", (s32)StringLen, Value.TestString);
 }
 Length += PushJson(&Json[Length], (MaxLength - Length), "MyColour",  (Value.MyColour), JSON_Null);
 Length += stbsp_snprintf(&Json[Length], (MaxLength - Length), "\"isValue\":%s ", ( (Value.isValue) ? "true" : "false"));
-    Length += EndGroup(&Json[Length], (MaxLength - Length), isLast);
+    Length += js_EndGroup(&Json[Length], (MaxLength - Length), isLast);
     if(JsonFlags & JSON_BaseObject)
     {
         Json[Length++] = '}';
@@ -657,8 +657,8 @@ Length += stbsp_snprintf(&Json[Length], (MaxLength - Length), "\"isValue\":%s ",
 
 jsmntok_t *JsonToObject(memory_arena *VolatileMemory, char const *Json, size_t JsonLength, jsmntok_t *TokenArray, my_json_test *ObjectOut, my_json_test_existlist *ItemsExistOut)
 {
-    my_json_test_existlist* ItemExists = abm_PushStruct(VolatileMemory, my_json_test_existlist);
-    s32 NumTokensProcessed =  ParseJson(VolatileMemory, Json, JsonLength, &TokenArray);
+    my_json_test_existlist* ItemExists = mem_PushStruct(VolatileMemory, my_json_test_existlist);
+    s32 NumTokensProcessed =  js_ParseJson(VolatileMemory, Json, JsonLength, &TokenArray);
     jsmntok_t *Token = TokenArray;
     if(Token)
     {
@@ -669,7 +669,7 @@ jsmntok_t *JsonToObject(memory_arena *VolatileMemory, char const *Json, size_t J
             ++Token;
             s32 TokenLength = Token->end - Token->start;
             
-            if((abs_AreStringsEqual(&Json[Token->start], TokenLength, "TestUnsigned",(ArrayCount("TestUnsigned")-1), true)) && 
+            if((st_AreStringsEqual(&Json[Token->start], TokenLength, "TestUnsigned",(ArrayCount("TestUnsigned")-1), true)) && 
                ((Token+1)->type == JSMN_PRIMITIVE)) 
 {
             ItemExists->TestUnsigned = true;
@@ -677,30 +677,30 @@ jsmntok_t *JsonToObject(memory_arena *VolatileMemory, char const *Json, size_t J
      (ObjectOut->TestUnsigned) = (u8)atoi(&Json[Token->start]);
 }
 
-            if((abs_AreStringsEqual(&Json[Token->start], TokenLength, "TestString",(ArrayCount("TestString")-1), true)) && 
+            if((st_AreStringsEqual(&Json[Token->start], TokenLength, "TestString",(ArrayCount("TestString")-1), true)) && 
                ((Token+1)->type == JSMN_STRING)) 
 {
             ItemExists->TestString = true;
     ++Token;
     TokenLength = Token->end - Token->start;
     s32 Length = MINIMUM(TokenLength, (50-1));
-    strncpy(ObjectOut->TestString, &Json[Token->start], Length);
+    st_StringCopy(ObjectOut->TestString, &Json[Token->start], Length, true);
     ObjectOut->TestString[Length] = 0;
 }
 
-            if((abs_AreStringsEqual(&Json[Token->start], TokenLength, "MyColour",(ArrayCount("MyColour")-1), true)) && 
+            if((st_AreStringsEqual(&Json[Token->start], TokenLength, "MyColour",(ArrayCount("MyColour")-1), true)) && 
                (((Token+1)->type == JSMN_STRING) || ((Token+1)->type == JSMN_OBJECT))) 
 {
             ItemExists->MyColour = true;
 Token = JsonToObject(VolatileMemory, Json, JsonLength, ++Token,  &ObjectOut->MyColour,0);
 }
 
-            if((abs_AreStringsEqual(&Json[Token->start], TokenLength, "isValue",(ArrayCount("isValue")-1), true)) && 
+            if((st_AreStringsEqual(&Json[Token->start], TokenLength, "isValue",(ArrayCount("isValue")-1), true)) && 
                ((Token+1)->type == JSMN_PRIMITIVE)) 
 {
             ItemExists->isValue = true;
     ++Token;
-     (ObjectOut->isValue) = (strncmp(&Json[Token->start],"true",4) == 0);
+     (ObjectOut->isValue) = (st_AreStringsEqual(&Json[Token->start],"true",4, false) == 0);
 }
 
 
@@ -719,7 +719,7 @@ JsonArrayToObjectArray(memory_arena *VolatileMemory, char const *Json, size_t Js
    u32 NumberOfObjects = 0;
             
     jsmntok_t *TokenArray = 0;
-    s32 NumTokensParsed = ParseJson(VolatileMemory, Json, JsonLength, &TokenArray);
+    s32 NumTokensParsed = js_ParseJson(VolatileMemory, Json, JsonLength, &TokenArray);
     
     if(TokenArray)
     {
@@ -744,11 +744,11 @@ JsonArrayToObjectArray(memory_arena *VolatileMemory, char const *Json, size_t Js
         
         if (!(*ObjectArray))
         {
-            *ObjectArray = abm_PushArray(VolatileMemory, NumberOfObjects, my_json_test);
+            *ObjectArray = mem_PushArray(VolatileMemory, NumberOfObjects, my_json_test);
         }
         if (!(*ObjectArrayExists))
         {
-            *ObjectArrayExists = abm_PushArray(VolatileMemory, NumberOfObjects, my_json_test_existlist);
+            *ObjectArrayExists = mem_PushArray(VolatileMemory, NumberOfObjects, my_json_test_existlist);
         }
         
         for(u32 Index = 0; Index < NumberOfObjects; ++Index)

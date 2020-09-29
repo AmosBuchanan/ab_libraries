@@ -11,11 +11,11 @@
 #include <stdio.h>
 
 #define AB_LOGGERCLIENT_SRC
-#define AB_MEMORY_SRC
+#define MEMORY_SRC
 #include "ab_loggerclient.h"
 
-#define AB_TIME_SRC
-#include "ab_time.h"
+#define TIME_HELPER_SRC
+#include "ab_timehelper.h"
 
 b8 isRunning = true;
 
@@ -32,8 +32,8 @@ main(int argc, char *argv[])
     signal(SIGINT, sigint_handler);
     zsys_handler_set (NULL);
     
-    void *OsMemory = abm_AllocateOsMemory(NULL, Kilobytes(5));
-    memory_arena Memory = abm_InitMemory(OsMemory, Kilobytes(5));
+    void *OsMemory = mem_AllocateOsMemory(NULL, Kilobytes(5));
+    memory_arena Memory = mem_InitMemory(OsMemory, Kilobytes(5));
     
     ablc_client *Client = ablc_Initialize(&Memory, 5);
     if(!Client)
@@ -66,13 +66,13 @@ main(int argc, char *argv[])
     }
     
     const u32 SwitchTimeMs = 5000;
-    abt_time StartTime = abt_GetMonotonic();
+    th_time StartTime = th_GetMonotonic();
     
     b8 isQuiet = false;
     while(isRunning)
     {
-        abt_time Now = abt_GetMonotonic();
-        u32 ElapsedMs = abt_GetElapsedMsU32(StartTime, Now);
+        th_time Now = th_GetMonotonic();
+        u32 ElapsedMs = th_GetElapsedMsU32(StartTime, Now);
         if(ElapsedMs > SwitchTimeMs)
         {
             StartTime = Now;

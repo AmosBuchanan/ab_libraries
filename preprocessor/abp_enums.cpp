@@ -53,10 +53,10 @@ CreateEnumJson(term_enum *Enum,
                output_data *DefinitionsOut,
                output_data *FunctionsOut)
 {
-    temporary_memory TempMem = abm_BeginTemporaryMemory(Memory);
+    temporary_memory TempMem = mem_BeginTemporaryMemory(Memory);
     const u32 MaxSectionSize = Kilobytes(5);
-    char *HeaderScratch = (char*)abm_PushSize(Memory, MaxSectionSize);
-    char *FunctionScratch = (char*)abm_PushSize(Memory, MaxSectionSize);
+    char *HeaderScratch = (char*)mem_PushSize(Memory, MaxSectionSize);
+    char *FunctionScratch = (char*)mem_PushSize(Memory, MaxSectionSize);
     HeaderScratch[0] = 0;
     FunctionScratch[0] = 0;
     u32 HeaderCount = 0;
@@ -152,7 +152,7 @@ CreateEnumJson(term_enum *Enum,
                                         "    %.*s Result = static_cast<%.*s>(0);\n"
                                         "    s32 NumTokensUsed = 0;\n"
                                         "    \n"
-                                        "    s32 TotalTokens = ParseJson(VolatileMemory, Json, JsonLength, &TokenArray);\n"
+                                        "    s32 TotalTokens = js_ParseJson(VolatileMemory, Json, JsonLength, &TokenArray);\n"
                                         "    if(TokenArray)\n"
                                         "    {\n"
                                         "        s32 Index = 0;\n"
@@ -164,7 +164,7 @@ CreateEnumJson(term_enum *Enum,
                                         "        if(TokenArray[Index].type == JSMN_STRING)\n"
                                         "        {\n"
                                         "            s32 TokenLength = (TokenArray[Index].end - TokenArray[Index].start);\n"
-                                        "            abs_stringptr EnumString = {&Json[TokenArray[Index].start], TokenLength};\n"
+                                        "            st_ptr EnumString = {&Json[TokenArray[Index].start], TokenLength};\n"
                                         "            Result = StringToEnum<%.*s>(EnumString);\n"
                                         "            NumTokensUsed = Index;\n"
                                         "        }\n"
@@ -189,7 +189,7 @@ CreateEnumJson(term_enum *Enum,
         
         CopyToOutput(DefinitionsOut, Memory, HeaderScratch);
         CopyToOutput(FunctionsOut, Memory, FunctionScratch);
-        abm_EndTemporaryMemory(TempMem);
+        mem_EndTemporaryMemory(TempMem);
     }
 } // CreateEnumJson
 
@@ -218,10 +218,10 @@ CreateEnumJson(term_enum *Enum,
 void
 CreateEnumLabels(term_enum *Enum, tag *LabelTag, memory_arena *Memory, output_data *DefinitionsOut, output_data *FunctionsOut)
 {
-    temporary_memory TempMem = abm_BeginTemporaryMemory(Memory);
+    temporary_memory TempMem = mem_BeginTemporaryMemory(Memory);
     const u32 MaxSectionSize = Kilobytes(10);
-    char *HeaderScratch = (char*)abm_PushSize(Memory, MaxSectionSize);
-    char *FunctionScratch = (char*)abm_PushSize(Memory, MaxSectionSize);
+    char *HeaderScratch = (char*)mem_PushSize(Memory, MaxSectionSize);
+    char *FunctionScratch = (char*)mem_PushSize(Memory, MaxSectionSize);
     HeaderScratch[0] = 0;
     FunctionScratch[0] = 0;
     u32 HeaderCount = 0;
@@ -261,11 +261,11 @@ CreateEnumLabels(term_enum *Enum, tag *LabelTag, memory_arena *Memory, output_da
         term_enumitem *CurrentItem = Enum->ItemListSentinal.Next;
         while(CurrentItem != &Enum->ItemListSentinal)
         {
-            abs_stringptr Label = {};
+            st_ptr Label = {};
             tag *CurrentTag = CurrentItem->TagListSentinal.Next;
             while(CurrentTag != &CurrentItem->TagListSentinal)
             {
-                if(abs_AreStringsEqual(CurrentTag->Name, LabelTag->Option))
+                if(st_AreStringsEqual(CurrentTag->Name, LabelTag->Option))
                 {
                     Label = CurrentTag->Option;
                     break;
@@ -306,7 +306,7 @@ CreateEnumLabels(term_enum *Enum, tag *LabelTag, memory_arena *Memory, output_da
         CopyToOutput(FunctionsOut, Memory, FunctionScratch);
         
     }
-    abm_EndTemporaryMemory(TempMem);
+    mem_EndTemporaryMemory(TempMem);
 } // CreateEnumLabels
 
 
@@ -337,10 +337,10 @@ CreateEnumStrings(term_enum *Enum,
                   output_data *DefinitionsOut,
                   output_data *FunctionsOut)
 {
-    temporary_memory TempMem = abm_BeginTemporaryMemory(Memory);
+    temporary_memory TempMem = mem_BeginTemporaryMemory(Memory);
     const u32 MaxSectionSize = Kilobytes(10);
-    char *HeaderScratch = (char*)abm_PushSize(Memory, MaxSectionSize);
-    char *FunctionScratch = (char*)abm_PushSize(Memory, MaxSectionSize);
+    char *HeaderScratch = (char*)mem_PushSize(Memory, MaxSectionSize);
+    char *FunctionScratch = (char*)mem_PushSize(Memory, MaxSectionSize);
     HeaderScratch[0] = 0;
     FunctionScratch[0] = 0;
     u32 HeaderCount = 0;
@@ -368,15 +368,15 @@ CreateEnumStrings(term_enum *Enum,
                       PSTRING(Enum->Name));
         
         WriteToOutput(DefinitionsOut, Memory,
-                      "/** @brief Convert a abs_stringptr string to a %.*s enum. \n"
+                      "/** @brief Convert a st_ptr string to a %.*s enum. \n"
                       "\n"
                       "If the string does not correspond to any of the enums, it will return the first value of the enum: `%.*s::%.*s`.\n"
                       "\n"
-                      "@param String An abs_stringptr string.\n"
+                      "@param String An st_ptr string.\n"
                       "@return A %.*s enum value.\n"
                       "**/\n"
                       "template<>\n"
-                      "auto StringToEnum<%.*s>(abs_stringptr String) -> %.*s;\n",
+                      "auto StringToEnum<%.*s>(st_ptr String) -> %.*s;\n",
                       PSTRING(Enum->Name),
                       PSTRING(Enum->Name),
                       PSTRING(Enum->ItemListSentinal.Next->Name),
@@ -386,12 +386,12 @@ CreateEnumStrings(term_enum *Enum,
                       PSTRING(Enum->Name));
         
         WriteToOutput(DefinitionsOut, Memory,
-                      "/** @brief Return a abs_stringptr corresponding for the given %.*s enum.\n"
+                      "/** @brief Return a st_ptr corresponding for the given %.*s enum.\n"
                       "\n"
                       "@param EnumToken The enum to convert to a string.\n"
-                      "@return A constant abs_stringptr.\n"
+                      "@return A constant st_ptr.\n"
                       "**/\n"
-                      "constexpr abs_stringptr EnumToString(%.*s EnumToken);\n",
+                      "constexpr st_ptr EnumToString(%.*s EnumToken);\n",
                       PSTRING(Enum->Name),
                       PSTRING(Enum->Name));
         
@@ -407,7 +407,7 @@ CreateEnumStrings(term_enum *Enum,
         
         
         FunctionCount += stbsp_snprintf(&FunctionScratch[FunctionCount], (MaxSectionSize - FunctionCount),
-                                        "constexpr abs_stringptr %.*s_Strings[%.*s_Count] = \n{\n",
+                                        "constexpr st_ptr %.*s_Strings[%.*s_Count] = \n{\n",
                                         Enum->Name.Length, Enum->Name.String,
                                         Enum->Name.Length, Enum->Name.String);
         term_enumitem *CurrentItem = Enum->ItemListSentinal.Next;
@@ -433,7 +433,7 @@ CreateEnumStrings(term_enum *Enum,
         
         FunctionCount += stbsp_snprintf(&FunctionScratch[FunctionCount], (MaxSectionSize - FunctionCount),
                                         "{\n"
-                                        "    u32 StringIndex = abs_FindInList(String, %.*s_Count, %.*s_Strings, true);\n",
+                                        "    u32 StringIndex = st_FindInList(String, %.*s_Count, %.*s_Strings, true);\n",
                                         Enum->Name.Length, Enum->Name.String,
                                         Enum->Name.Length, Enum->Name.String);
         
@@ -455,14 +455,14 @@ CreateEnumStrings(term_enum *Enum,
         
         FunctionCount += stbsp_snprintf(&FunctionScratch[FunctionCount], (MaxSectionSize - FunctionCount),
                                         "template<>\n"
-                                        "auto StringToEnum<%.*s>(abs_stringptr String) -> %.*s\n",
+                                        "auto StringToEnum<%.*s>(st_ptr String) -> %.*s\n",
                                         Enum->Name.Length, Enum->Name.String,
                                         Enum->Name.Length, Enum->Name.String);
         
         
         FunctionCount += stbsp_snprintf(&FunctionScratch[FunctionCount], (MaxSectionSize - FunctionCount),
                                         "{\n"
-                                        "    u32 StringIndex = abs_FindInList(String, %.*s_Count, %.*s_Strings, true);\n",
+                                        "    u32 StringIndex = st_FindInList(String, %.*s_Count, %.*s_Strings, true);\n",
                                         Enum->Name.Length, Enum->Name.String,
                                         Enum->Name.Length, Enum->Name.String);
         
@@ -492,7 +492,7 @@ CreateEnumStrings(term_enum *Enum,
                                         Enum->Name.Length, Enum->Name.String);
         
         FunctionCount += stbsp_snprintf(&FunctionScratch[FunctionCount], (MaxSectionSize - FunctionCount),
-                                        "constexpr abs_stringptr\n"
+                                        "constexpr st_ptr\n"
                                         "EnumToString(%.*s EnumToken)\n"
                                         "{\n"
                                         "    return %.*s_Strings[int(EnumToken)];\n"
@@ -508,7 +508,7 @@ CreateEnumStrings(term_enum *Enum,
         CopyToOutput(FunctionsOut, Memory, FunctionScratch);
         
     }
-    abm_EndTemporaryMemory(TempMem);
+    mem_EndTemporaryMemory(TempMem);
 } // CreateEnumStrings
 
 /**
@@ -543,17 +543,17 @@ ProcessEnums(term_enum *EnumListSentinal, memory_arena *Memory, output_data *Hea
         tag *Tag = Enum->TagListSentinal.Next;
         while(Tag != &Enum->TagListSentinal)
         {
-            if(abs_AreStringsEqual(Tag->Name, "Strings"))
+            if(st_AreStringsEqual(Tag->Name, "Strings"))
             {
                 CreateEnumStrings(Enum, Tag, Memory, Headers, Definitions);
             }
             
-            else if(abs_AreStringsEqual(Tag->Name, "JSON"))
+            else if(st_AreStringsEqual(Tag->Name, "JSON"))
             {
                 CreateEnumJson(Enum, Tag, Memory, Headers, Definitions);
             }
             
-            else if(abs_AreStringsEqual(Tag->Name, "Label"))
+            else if(st_AreStringsEqual(Tag->Name, "Label"))
             {
                 CreateEnumLabels(Enum, Tag, Memory, Headers, Definitions);
             }

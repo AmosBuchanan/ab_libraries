@@ -49,7 +49,7 @@ abf_InitializeFileList(memory_arena *Memory, const char *Path)
     file_list *Result = 0;
     if(isDirExists(Path))
     {
-        Result = abm_PushStruct(Memory, file_list);
+        Result = mem_PushStruct(Memory, file_list);
         Result->FileSearchHandle = INVALID_HANDLE_VALUE;
         snprintf(Result->Path, MAX_PATH, Path);
     }

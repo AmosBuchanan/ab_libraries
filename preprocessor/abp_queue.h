@@ -7,7 +7,7 @@
 #include "ab_parser.h"
 
 void
-WriteQueueFunctions(abs_stringptr QueueItemName, u32 QueueSize,
+WriteQueueFunctions(st_ptr QueueItemName, u32 QueueSize,
                     memory_arena *Memory, output_data *Headers, output_data *Definitions);
 
 void
@@ -17,7 +17,7 @@ ProcessQueueFunctions(term_queue *QueueListSentinal, memory_arena *Memory, outpu
 #ifdef ABP_QUEUE_SRC
 
 void
-WriteQueueFunctions(abs_stringptr QueueItemName, s32 QueueSize,
+WriteQueueFunctions(st_ptr QueueItemName, s32 QueueSize,
                     memory_arena *Memory, output_data *Headers, output_data *Definitions)
 {
     if(QueueSize <= 0)

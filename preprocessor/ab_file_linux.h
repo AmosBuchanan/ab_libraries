@@ -30,7 +30,7 @@ abf_InitializeFileList(memory_arena *Memory, const char *Path)
     file_list *Result = 0;
     if(isDirExists(Path))
     {
-        Result = abm_PushStruct(Memory, file_list);
+        Result = mem_PushStruct(Memory, file_list);
         
         const u32 WildCardSize = (MAX_PATH) + 10;
         char WildCard[WildCardSize];
@@ -65,7 +65,7 @@ abf_GetFileType(char const *Filename)
     char HeaderBuffer[HeaderMaxLength];
     u32 HeaderIndex = HeaderMaxLength-1;
     
-    u32 StringIndex = abs_StringLength(Filename, FileMaxLength);
+    u32 StringIndex = st_StringLength(Filename, FileMaxLength);
     
     for(u32 i = (HeaderIndex-1); i >= 0; --i, --StringIndex, --HeaderIndex)
     {
@@ -86,14 +86,14 @@ abf_GetFileType(char const *Filename)
         --HeaderLength;
     }
     
-    if(abs_AreStringsEqual("h", 1, &HeaderBuffer[HeaderIndex], HeaderLength) || 
-       abs_AreStringsEqual("hpp", 3, &HeaderBuffer[HeaderIndex], HeaderLength)
+    if(st_AreStringsEqual("h", 1, &HeaderBuffer[HeaderIndex], HeaderLength) || 
+       st_AreStringsEqual("hpp", 3, &HeaderBuffer[HeaderIndex], HeaderLength)
        )
     {
         Result = enFileType::Header;
     }
-    else if(abs_AreStringsEqual("c", 1, &HeaderBuffer[HeaderIndex], HeaderLength) || 
-            abs_AreStringsEqual("cpp", 3, &HeaderBuffer[HeaderIndex], HeaderLength))
+    else if(st_AreStringsEqual("c", 1, &HeaderBuffer[HeaderIndex], HeaderLength) || 
+            st_AreStringsEqual("cpp", 3, &HeaderBuffer[HeaderIndex], HeaderLength))
     {
         Result = enFileType::Cpp;
     }
@@ -158,11 +158,11 @@ abf_GetNextFile(file_list *FileList, file_data *FileDataOut)
                     }
                     FileList->CurrentFile = FileDataOut;
                     char FullPath[MAX_PATH];
-                    abs_StringCopy(FullPath, FileName, ArrayCount(FullPath), true);
+                    st_StringCopy(FullPath, FileName, ArrayCount(FullPath), true);
                     
                     char *BaseFile = basename(FullPath);
-                    abs_StringCopy(FileDataOut->FileName, BaseFile, ArrayCount(FileDataOut->FileName), 
-                                   true);
+                    st_StringCopy(FileDataOut->FileName, BaseFile, ArrayCount(FileDataOut->FileName), 
+                                  true);
                 }
                 else
                 {

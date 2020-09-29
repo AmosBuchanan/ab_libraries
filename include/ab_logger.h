@@ -1,22 +1,24 @@
-/**
-Logger.
-Version: 1.0
-**/
+/** @file
+@brief Network Logger.
+@author Amos Buchanan
+@version 1.0
+@date 2020
+@copyright [MIT Public License](https://opensource.org/licenses/MIT)
 
-#ifndef AB_LOGGER_H
-#define AB_LOGGER_H
 
-#include "czmq.h"
+Network logger using czmq. Use a different abl_log for each thread and you should be ok. There is a possibility of a multi-thread logger at some point in the future, but not now. It uses a zmq publish socket under the hood, and you can use zmq subscribe to subscribe to the log.
 
-#include "ab_common.h"
+When subscribing, you can subscribe to any of the levels; each level is a different topic. Or subscribe to all of them using a blank subscription of `""`. Available topics are:
+* "TRACE"
+* "DEBUG"
+* "INFO"
+* "WARN"
+* "ERROR"
+* "FATAL"
 
-/**
-Network logger using czmq. Will log to STDERR, a file and/or to a czmq network, depending on setup. 
-STDERR logging not garunteed to be threadsafe, don't do it. 
-Logging multiple threads to the same file not garunteed to be threadsafe. 
-CZMQ logging is threadsafe subject to the restrictions of CZMQ. 
+You can use printf()-like syntax with the error messages, see example.
 
-Basically, use a different ab_log for each thread and you should be ok. 
+For an example of subscribing to the log, see @ref `ab_loggerclient.h`.
 
 This is a single-file-library. You may include the file anywhere in your source. Only once in your code, define the following:
 
@@ -27,32 +29,62 @@ This is a single-file-library. You may include the file anywhere in your source.
 
 This will include the source.
 
-There's a single-thread use that uses a global logger. Define the following:
-~~~c
-#define AB_LOGGER_SINGLETHREAD
-~~~
-
-To use color on STDERR:
-~~~c
-#define AB_LOGGER_USE_COLOR
-~~~
 Available levels:
-ABL_TRACE, 
-    ABL_DEBUG, 
-    ABL_INFO, 
-    ABL_WARN, 
-    ABL_ERROR, 
-    ABL_FATAL 
+* `ABL_TRACE`
+    * `ABL_DEBUG`
+    * `ABL_INFO`
+    * `ABL_WARN`
+    * `ABL_ERROR`
+    * `ABL_FATAL`
 
  example usage:
-abl_log Logger = {};
-abl_set_level(&Logger, ABL_INFO);
-abl_start_server(&Logger, 555);
-abl_info(&Logger, "Some log");
-abl_info(&Logger, "More Info, %d", errno);
-abl_stop_server(&Logger);
+~~~c
+// Setup a logger to publish on port 5555.
+abl_log *Logger = abl_InitializeLogger(&Memory, 5555, ABL_TRACE);
+    
+abl_SetLevel(Logger, ABL_TRACE);
+        abl_trace(Logger, "Trace Log.");
+        abl_debug(Logger, "Debug Log, with error code: %d.", errno);
+        abl_info(Logger, "Info Log");
 
+// Logs will not be sent while paused.
+abl_SetPause(Logger, true); 
+        abl_warn(Logger, "Warn Log");
+        abl_error(Logger, "Error Log, serious error. %s", SomeSeriousErrorMessage);
+
+// Start sending logs again.
+abl_SetPause(Logger, false);
+
+        abl_fatal(Logger, "Fatal Log");
+        
+abl_Shutdown(Logger);
+~~~
+# References
+
+- @ref ab_loggerclient.h
+- [zmq Messaging](https://zeromq.org/)
+- [czmq C Library for ZMQ messaging](http://czmq.zeromq.org/)
+
+# MIT License
+
+ [MIT Public License](https://opensource.org/licenses/MIT)
+
+Copyright 2020 Amos Buchanan
+
+Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 **/
+
+#ifndef AB_LOGGER_H
+#define AB_LOGGER_H
+
+#include "czmq.h"
+
+#include "ab_common.h"
+#include "ab_memory.h"
 
 /* Available log levels. */
 enum abl_log_level
@@ -69,7 +101,6 @@ struct abl_log;
 
 // TODO(amos): Handle incoming commands for external logging, such as enable/disable and etc.
 
-void abl_start_server(ab_log *Logger, s32 Port);
 /* 
         Start a CZMQ server to send logs to. Must shutdown server when done, see below.
 
@@ -78,188 +109,160 @@ Port: TCP port for the ROUTER to bind to.
 
 Format of zmq message:
 Frame 1: String, Level. Example: "INFO"
-Frame 2: time_t Data, Epoch Time. Example '1598311207'
+     Frame 2: u64, Timestamp, based on linux Epoch. 
 Frame 3: String, 'File:Line'. Example "main.cpp:123"
 Frame 4: String, Log Message, Example "Some Message."
 */
+abl_log *
+abl_InitializeLogger(memory_arena *Memory, s32 Port);
 
-void abl_set_fp(ab_log *Logger, FILE *fp);
-/**
+/** @brief Set log level. 
+
+See @ref abl_log_level for available levels.
 **/
-void abl_set_level(ab_log *Logger, abl_log_level Level);
+void abl_SetLevel(abl_log *Logger, abl_log_level Level);
 
-// 
-void abl_set_quiet(ab_log *Logger, b8 isQuiet);
-/**
-set isQuiet = true -> true to disable logging to STDERR.
+/** @brief Pause/Unpause the logging output. 
+
+@param Logger The logger to pause.
+@param doPause True to pause, false to unpause.
 **/
+void abl_SetPause(abl_log *Logger, b8 doPause);
 
-void abl_stop_server(ab_log *Logger);
-/**
+/** @brief Shutdown the logger object. **/
+void abl_Shutdown(abl_log *Logger);
+
+/** @brief Log for a Trace message. **/
+#define abl_trace(LOGGER, Fmt, ...) abl_LogFunction(LOGGER, ABL_TRACE, __FILE__, __LINE__, Fmt, ##__VA_ARGS__)
+
+/** @brief Log for a Debug message. **/
+#define abl_debug(LOGGER, Fmt, ...) abl_LogFunction(LOGGER, ABL_DEBUG, __FILE__, __LINE__, Fmt, ##__VA_ARGS__)
+
+/** @brief Log for an Info message. **/
+#define abl_info(LOGGER, Fmt, ...)  abl_LogFunction(LOGGER, ABL_INFO,  __FILE__, __LINE__, Fmt, ##__VA_ARGS__)
+
+/** @brief Log for a Warn message. **/
+#define abl_warn(LOGGER, Fmt, ...)  abl_LogFunction(LOGGER, ABL_WARN,  __FILE__, __LINE__, Fmt, ##__VA_ARGS__)
+
+/** @brief Log for an Error message. **/
+#define abl_error(LOGGER, Fmt, ...) abl_LogFunction(LOGGER, ABL_ERROR, __FILE__, __LINE__, Fmt, ##__VA_ARGS__)
+
+/** @brief Log for a Fatal message. **/
+#define abl_fatal(LOGGER, Fmt, ...) abl_LogFunction(LOGGER, ABL_FATAL, __FILE__, __LINE__, Fmt, ##__VA_ARGS__)
+
+/** @private 
+
+Don't use this function directly. Use the defines, above.
 **/
-
-#ifdef AB_LOG_SINGLETHREAD
-/**
-#define AB_LOG_SINGLETHREAD to use a global logger.
-**/
-
-#define abl_trace(Fmt, ...) abl_log(&Logger, LOG_TRACE, __FILE__, __LINE__, Fmt, __VA_ARGS__)
-#define abl_debug(Fmt, ...) abl_log(&Logger, LOG_DEBUG, __FILE__, __LINE__, Fmt, __VA_ARGS__)
-#define abl_info(Fmt, ...)  abl_log(&Logger, LOG_INFO,  __FILE__, __LINE__, Fmt, __VA_ARGS__)
-#define abl_warn(Fmt, ...)  abl_log(&Logger, LOG_WARN,  __FILE__, __LINE__, Fmt, __VA_ARGS__)
-#define abl_error(Fmt, ...) abl_log(&Logger, LOG_ERROR, __FILE__, __LINE__, Fmt, __VA_ARGS__)
-#define abl_fatal(Fmt, ...) abl_log(&Logger, LOG_FATAL, __FILE__, __LINE__, Fmt, __VA_ARGS__)
-
-#else 
-/**
-If multi-threaded, must declare a logger for use.
-**/
-#define abl_trace(Logger, Fmt, ...) abl_log(Logger, LOG_TRACE, __FILE__, __LINE__, Fmt, __VA_ARGS__)
-#define abl_debug(Logger, Fmt, ...) abl_log(Logger, LOG_DEBUG, __FILE__, __LINE__, Fmt, __VA_ARGS__)
-#define abl_info(Logger, Fmt, ...)  abl_log(Logger, LOG_INFO,  __FILE__, __LINE__, Fmt, __VA_ARGS__)
-#define abl_warn(Logger, Fmt, ...)  abl_log(Logger, LOG_WARN,  __FILE__, __LINE__, Fmt, __VA_ARGS__)
-#define abl_error(Logger, Fmt, ...) abl_log(Logger, LOG_ERROR, __FILE__, __LINE__, Fmt, __VA_ARGS__)
-#define abl_fatal(Logger, Fmt, ...) abl_log(Logger, LOG_FATAL, __FILE__, __LINE__, Fmt, __VA_ARGS__)
-
-#endif
-
-void abl_log(ab_log *Logger, abl_log_level Level, const char *File, s32 Line, const char *Fmt, ...);
+void abl_LogFunction(abl_log *Logger, abl_log_level Level, const char *File, s32 Line, const char *Fmt, ...);
 
 #endif //AB_LOGGER_H
 
 /*************************************************/
-#if defined(AB_LOGGER_SRC)
-
-struct abl_log
-{
-    zsock_t *Socket;
-    FILE *Fp;
-    abl_log_level Level;
-    b8 isQuiet;
-};
-
-#ifdef AB_LOG_SINGLETHREAD
-static ab_log Logger = {};
-#endif
+#ifdef AB_LOGGER_SRC
 
 static const char *LevelNames[] = {
     "TRACE", "DEBUG", "INFO", "WARN", "ERROR", "FATAL"
 };
 
-#ifdef AB_LOGGER_USE_COLOR
-static const char *LevelColors[] = {
-    "\x1b[94m", "\x1b[36m", "\x1b[32m", "\x1b[33m", "\x1b[31m", "\x1b[35m"
-};
-#endif
 
-void abl_start_server(ab_log *Logger, s32 Port)
+struct abl_log
 {
-    Assert(Logger);
+    zsock_t *Socket;
+    s32 Port;
+    abl_log_level Level;
+    b8 isPaused;
+};
+
+abl_log *
+abl_InitializeLogger(memory_arena *Memory, s32 Port, abl_log_level Level)
+{
+    const s32 ZcmqTimeoutMs = 10;
     
-    if(Logger)
+    abl_log *Logger = 0;
+    
+    zsys_handler_set(NULL);
+    //zsock_t *Socket = zsock_new_pub("tcp://*:5555");
+    zsock_t *Socket = zsock_new(ZMQ_PUB);
+    //zsock_set_sndtimeo(Socket, ZcmqTimeoutMs);
+    s32 BindPort = zsock_bind(Socket, "tcp://*:%d", Port);
+    
+    if(BindPort == -1)
     {
-        zsys_handler_set(NULL);
-        zsock_t *Socket = zsock_new(ZMQ_ROUTER);
-        s32 BindPort = zsock_bind(Socket, "tcp://*:%u", Port);
-        if(BindPort == -1)
-        {
-            zsock_destroy(&Socket);
-        }
-        else
-        {
-            Logger->Socket = Socket;
-        }
-    }
-}
-void abl_set_fp(ab_log *Logger, FILE *fp)
-{
-    if(fp > -1)
-    {
-        Logger->Fp = fp;
+        printf("Unable to bind to port.\n");
+        //zsock_destroy(&Socket);
+        // TODO(amos): No logging available.
     }
     else 
     {
-        Logger->Fp = 0;
+        Logger = abm_PushStruct(Memory, abl_log);
+        Logger->Socket = Socket;
+        Logger->Port = Port;
+        Logger->Level = Level;
+        Logger->isPaused = false;
+        
+        printf("Binding to port %d at log level %s\n", Port, LevelNames[Level]);
     }
+    
+    return Logger;
 }
 
-void abl_set_level(ab_log *Logger, abl_log_level Level)
+void abl_SetLevel(abl_log *Logger, abl_log_level Level)
 {
     Logger->Level = Level;
 }
 
-void abl_set_quiet(ab_log *Logger, b8 isQuiet)
+void abl_SetPause(abl_log *Logger, b8 doPause)
 {
-    Logger->isQuiet = isQuiet;
+    Logger->isPaused = doPause;
 }
 
-void abl_stop_server(ab_log *Logger)
+void abl_Shutdown(abl_log *Logger)
 {
     zsock_destroy(&Logger->Socket);
     Logger->Socket = 0;
+    Logger->Port = 0;
 }
 
-void abl_log(ab_log *Logger, abl_log_level Level, const char *File, s32 Line, const char *Fmt, ...)
+void abl_LogFunction(abl_log *Logger, abl_log_level Level, const char *File, s32 Line, const char *Fmt, ...)
 {
-    if(Level < Logger->Level)
+    if(Level < Logger->Level ||
+       Logger->isPaused)
     {
         return;
     }
     
     time_t t = time(NULL);
-    struct *lt = localtime(&t);
+    tm *lt = gmtime(&t);
     
-    char TimeBuffer[32];
-    TimeBuffer[strftime(TimeBuffer, sizeof(TimeBuffer), "%Y-%m-%d %H:%M:%S", lt)] = '\0';
-    
-    /* Log to stderr */
-    if(!Logger->isQuiet)
-    {
-        va_list args;
-        
-#ifdef AB_LOGGER_USE_COLOR
-        fprintf(stderr, "%s %s%-5s\x1b[0m \x1b[90m%s:%d:\x1b[0m ",
-                TimeBuffer, LevelColors[Level], LevelNames[Level], File, Line);
-#else
-        fprintf(stderr, "%s %-5s %s:%d: ", TimeBuffer, LevelNames[level], File, Line);
-#endif
-        va_start(args, Fmt);
-        vfprintf(stderr, Fmt, args);
-        va_end(args);
-        fprintf(stderr, "\n");
-        fflush(stderr);
-    }
-    
-    /* Log to file */
-    if (Logger->Fp)
-    {
-        va_list args;
-        fprintf(Logger->Fp, "%s %-5s %s:%d: ", TimeBuffer, LevelNames[Level], File, Line);
-        va_start(args, Fmt);
-        vfprintf(Logger->Fp, Fmt, args);
-        va_end(args);
-        fprintf(Logger->Fp, "\n");
-        fflush(Logger->Fp);
-    }
+    //char TimeBuffer[50];
+    //TimeBuffer[strftime(TimeBuffer, sizeof(TimeBuffer), "%Y-%m-%d %H:%M:%S", lt)] = '\0';
     
     /* Log to Network */
     if(Logger->Socket)
     {
+        //printf("New Message: ");
         zmsg_t *Msg = zmsg_new();
-        s32 Response = zmsg_addstrf(Msg, "%s", LevelNames[Level]);
+        //zmsg_addstr(Msg, "LOGMESSAGE");
+        s32 Response = zmsg_addstr(Msg, LevelNames[Level]);
         
         if(Response > -1)
         {
-            Response = zmsg_addmem(Msg, &t, sizeof(t));
+            u64 Epochtime = (u64)t;
+            //printf("epoch %lu ", Epochtime);
+            Response = zmsg_addmem(Msg, &Epochtime, sizeof(u64));
+            //Response = zmsg_addstr(Msg, TimeBuffer);
         }
         
         if(Response > -1)
         {
-            Response = zmsg_addstrf(Msg, "%s:%d ", File, Line);
+            //printf("%s:%d ", File, Line);
+            Response = zmsg_addstrf(Msg, "%s:%d", File, Line);
         }
         
         if(Response > -1)
         {
+            //printf("[Message] ");
             va_list args;
             va_start(args, Fmt);
             Response = zmsg_addstrf(Msg, Fmt, args);
@@ -268,15 +271,98 @@ void abl_log(ab_log *Logger, abl_log_level Level, const char *File, s32 Line, co
         
         if(Response > -1)
         {
-            zmsg_sendm(&Msg, Logger-Socket);
+            //printf("Sending Message.\n");
+            zmsg_send(&Msg, Logger->Socket);
         }
         else 
         {
+            printf("Failed to send message.\n");
             zmsg_destroy(&Msg);
         }
     }
-    
 }
 
-#undef(AB_LOGGER_SRC)
+#undef AB_LOGGER_SRC
 #endif // defined(AB_LOGGER_SRC)
+
+#ifdef AB_LOGGER_TEST
+#include <signal.h>
+#include <stdio.h>
+
+#define AB_MEMORY_SRC
+#include "ab_memory.h"
+
+b8 isRunning = true;
+void
+sigint_handler(int code)
+{
+    isRunning = false;
+    printf("Sigint Shutdown.\n");
+}
+
+
+int
+main(int argc, char *argv[])
+{
+    signal(SIGINT, sigint_handler);
+    
+    void *OsMemory = abm_AllocateOsMemory(NULL, Kilobytes(5));
+    if(!OsMemory)
+    {
+        printf("Failed to get memory.");
+        return 1;
+    }
+    
+    memory_arena Memory = abm_InitMemory(OsMemory, Kilobytes(5));
+    
+    struct abl_log *Logger = abl_InitializeLogger(&Memory, 5555, ABL_TRACE);
+    if(!Logger)
+    {
+        printf("Failed to create logger.\n");
+        return 1;
+    }
+    
+    while(isRunning)
+    {
+        sleep(1);
+        
+        abl_trace(Logger, "Trace Log.");
+        abl_debug(Logger, "Debug Log.");
+        abl_info(Logger, "Info Log");
+        abl_warn(Logger, "Warn Log");
+        abl_error(Logger, "Error Log");
+        abl_fatal(Logger, "Fatal Log");
+        
+        abl_SetPause(Logger, true);
+        abl_trace(Logger, "Paused Trace Log.");
+        abl_debug(Logger, "Paused Debug Log.");
+        abl_info(Logger, "Paused Info Log");
+        abl_warn(Logger, "Paused Warn Log");
+        abl_error(Logger, "Paused Error Log");
+        abl_fatal(Logger, "Paused Fatal Log");
+        
+        abl_SetPause(Logger, false);
+        abl_trace(Logger, "Unpaused Trace Log.");
+        abl_debug(Logger, "Unpaused Debug Log.");
+        abl_info(Logger, "Unpaused Info Log");
+        abl_warn(Logger, "Unpaused Warn Log");
+        abl_error(Logger, "Unpaused Error Log");
+        abl_fatal(Logger, "Unpaused Fatal Log");
+        
+        abl_SetLevel(Logger, ABL_WARN);
+        abl_SetPause(Logger, true);
+        abl_trace(Logger, "Unsent Trace Log.");
+        abl_debug(Logger, "Unsent Debug Log.");
+        abl_info(Logger, "Unsent Info Log");
+        abl_warn(Logger, "Sent Warn Log");
+        abl_error(Logger, "Sent Error Log");
+        abl_fatal(Logger, "Sent Fatal Log");
+    }
+    
+    abl_Shutdown(Logger);
+    
+    return 0;
+}
+
+
+#endif

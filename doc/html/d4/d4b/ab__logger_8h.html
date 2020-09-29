@@ -75,18 +75,23 @@ $(function() {
 <div class="title">ab_logger.h File Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
+
+<p>Network Logger.  
+<a href="#details">More...</a></p>
 <div class="textblock"><code>#include &quot;czmq.h&quot;</code><br />
 <code>#include &quot;<a class="el" href="../../d7/d05/ab__common_8h_source.html">ab_common.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../d0/d0a/ab__memory_8h_source.html">ab_memory.h</a>&quot;</code><br />
 </div><div class="textblock"><div class="dynheader">
 Include dependency graph for ab_logger.h:</div>
 <div class="dyncontent">
 <div class="center"><img src="../../d3/d74/ab__logger_8h__incl.png" border="0" usemap="#aab__logger_8h" alt=""/></div>
 <map name="ab__logger_8h" id="ab__logger_8h">
-<area shape="rect" title=" " alt="" coords="48,5,137,32"/>
+<area shape="rect" title="Network Logger." alt="" coords="64,5,153,32"/>
 <area shape="rect" title=" " alt="" coords="5,80,71,107"/>
-<area shape="rect" href="../../d7/d05/ab__common_8h.html" title="Common macros and typedefs." alt="" coords="95,80,199,107"/>
-<area shape="rect" title=" " alt="" coords="69,155,135,181"/>
-<area shape="rect" title=" " alt="" coords="159,155,227,181"/>
+<area shape="rect" href="../../d7/d05/ab__common_8h.html" title="Common macros and typedefs." alt="" coords="101,155,205,181"/>
+<area shape="rect" href="../../d0/d0a/ab__memory_8h.html" title="Memory handling." alt="" coords="146,80,247,107"/>
+<area shape="rect" title=" " alt="" coords="75,229,140,256"/>
+<area shape="rect" title=" " alt="" coords="164,229,232,256"/>
 </map>
 </div>
 </div>
@@ -94,18 +99,24 @@ Include dependency graph for ab_logger.h:</div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="define-members"></a>
 Macros</h2></td></tr>
-<tr class="memitem:a1c3af1ceb74203276ce7ca7ec60b6e63"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d4b/ab__logger_8h.html#a1c3af1ceb74203276ce7ca7ec60b6e63">abl_trace</a>(Logger,  Fmt, ...)&#160;&#160;&#160;<a class="el" href="../../d4/d4b/ab__logger_8h.html#a7d0be7575c2768d56ad5bdc391d3d769">abl_log</a>(Logger, LOG_TRACE, __FILE__, __LINE__, Fmt, __VA_ARGS__)</td></tr>
-<tr class="separator:a1c3af1ceb74203276ce7ca7ec60b6e63"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af0d95724956482b6abce967bec5bca6d"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d4b/ab__logger_8h.html#af0d95724956482b6abce967bec5bca6d">abl_debug</a>(Logger,  Fmt, ...)&#160;&#160;&#160;<a class="el" href="../../d4/d4b/ab__logger_8h.html#a7d0be7575c2768d56ad5bdc391d3d769">abl_log</a>(Logger, LOG_DEBUG, __FILE__, __LINE__, Fmt, __VA_ARGS__)</td></tr>
-<tr class="separator:af0d95724956482b6abce967bec5bca6d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a0e01c4cfce56ca553e16e2f85bb9f0fe"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d4b/ab__logger_8h.html#a0e01c4cfce56ca553e16e2f85bb9f0fe">abl_info</a>(Logger,  Fmt, ...)&#160;&#160;&#160;<a class="el" href="../../d4/d4b/ab__logger_8h.html#a7d0be7575c2768d56ad5bdc391d3d769">abl_log</a>(Logger, LOG_INFO,  __FILE__, __LINE__, Fmt, __VA_ARGS__)</td></tr>
-<tr class="separator:a0e01c4cfce56ca553e16e2f85bb9f0fe"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ace87fcfe98d7bb16ff20b09002b0f41b"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d4b/ab__logger_8h.html#ace87fcfe98d7bb16ff20b09002b0f41b">abl_warn</a>(Logger,  Fmt, ...)&#160;&#160;&#160;<a class="el" href="../../d4/d4b/ab__logger_8h.html#a7d0be7575c2768d56ad5bdc391d3d769">abl_log</a>(Logger, LOG_WARN,  __FILE__, __LINE__, Fmt, __VA_ARGS__)</td></tr>
-<tr class="separator:ace87fcfe98d7bb16ff20b09002b0f41b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a9701d37f9ea32885eb4435456b54380c"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d4b/ab__logger_8h.html#a9701d37f9ea32885eb4435456b54380c">abl_error</a>(Logger,  Fmt, ...)&#160;&#160;&#160;<a class="el" href="../../d4/d4b/ab__logger_8h.html#a7d0be7575c2768d56ad5bdc391d3d769">abl_log</a>(Logger, LOG_ERROR, __FILE__, __LINE__, Fmt, __VA_ARGS__)</td></tr>
-<tr class="separator:a9701d37f9ea32885eb4435456b54380c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a56cde45c39126f008262c3d94e03e9b8"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d4b/ab__logger_8h.html#a56cde45c39126f008262c3d94e03e9b8">abl_fatal</a>(Logger,  Fmt, ...)&#160;&#160;&#160;<a class="el" href="../../d4/d4b/ab__logger_8h.html#a7d0be7575c2768d56ad5bdc391d3d769">abl_log</a>(Logger, LOG_FATAL, __FILE__, __LINE__, Fmt, __VA_ARGS__)</td></tr>
-<tr class="separator:a56cde45c39126f008262c3d94e03e9b8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a31cd708ccfdd5bef7c6c247b3c58e678"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d4b/ab__logger_8h.html#a31cd708ccfdd5bef7c6c247b3c58e678">abl_trace</a>(LOGGER,  Fmt, ...)&#160;&#160;&#160;abl_LogFunction(LOGGER, <a class="el" href="../../d4/d4b/ab__logger_8h.html#ad09c15c023f4bd204786f7c031c45787a7fccde42da961232bd100be86f2c32b1">ABL_TRACE</a>, __FILE__, __LINE__, Fmt, ##__VA_ARGS__)</td></tr>
+<tr class="memdesc:a31cd708ccfdd5bef7c6c247b3c58e678"><td class="mdescLeft">&#160;</td><td class="mdescRight">Log for a Trace message.  <a href="../../d4/d4b/ab__logger_8h.html#a31cd708ccfdd5bef7c6c247b3c58e678">More...</a><br /></td></tr>
+<tr class="separator:a31cd708ccfdd5bef7c6c247b3c58e678"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7c4a27c251a95f80592402a675e65d43"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d4b/ab__logger_8h.html#a7c4a27c251a95f80592402a675e65d43">abl_debug</a>(LOGGER,  Fmt, ...)&#160;&#160;&#160;abl_LogFunction(LOGGER, <a class="el" href="../../d4/d4b/ab__logger_8h.html#ad09c15c023f4bd204786f7c031c45787a4a4d2ab22d6f6be96611dfc75021117e">ABL_DEBUG</a>, __FILE__, __LINE__, Fmt, ##__VA_ARGS__)</td></tr>
+<tr class="memdesc:a7c4a27c251a95f80592402a675e65d43"><td class="mdescLeft">&#160;</td><td class="mdescRight">Log for a Debug message.  <a href="../../d4/d4b/ab__logger_8h.html#a7c4a27c251a95f80592402a675e65d43">More...</a><br /></td></tr>
+<tr class="separator:a7c4a27c251a95f80592402a675e65d43"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a09c558942511acfdd2beae1f44d7a8f9"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d4b/ab__logger_8h.html#a09c558942511acfdd2beae1f44d7a8f9">abl_info</a>(LOGGER,  Fmt, ...)&#160;&#160;&#160;abl_LogFunction(LOGGER, <a class="el" href="../../d4/d4b/ab__logger_8h.html#ad09c15c023f4bd204786f7c031c45787a72e995c24ee1e50bfa27759c4c2c0bee">ABL_INFO</a>,  __FILE__, __LINE__, Fmt, ##__VA_ARGS__)</td></tr>
+<tr class="memdesc:a09c558942511acfdd2beae1f44d7a8f9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Log for an Info message.  <a href="../../d4/d4b/ab__logger_8h.html#a09c558942511acfdd2beae1f44d7a8f9">More...</a><br /></td></tr>
+<tr class="separator:a09c558942511acfdd2beae1f44d7a8f9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a04f1b0b56c8bee0fc0fd4b99de53fb9f"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d4b/ab__logger_8h.html#a04f1b0b56c8bee0fc0fd4b99de53fb9f">abl_warn</a>(LOGGER,  Fmt, ...)&#160;&#160;&#160;abl_LogFunction(LOGGER, <a class="el" href="../../d4/d4b/ab__logger_8h.html#ad09c15c023f4bd204786f7c031c45787af4a847c0c5d6fe01ec92ab29b2d21144">ABL_WARN</a>,  __FILE__, __LINE__, Fmt, ##__VA_ARGS__)</td></tr>
+<tr class="memdesc:a04f1b0b56c8bee0fc0fd4b99de53fb9f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Log for a Warn message.  <a href="../../d4/d4b/ab__logger_8h.html#a04f1b0b56c8bee0fc0fd4b99de53fb9f">More...</a><br /></td></tr>
+<tr class="separator:a04f1b0b56c8bee0fc0fd4b99de53fb9f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a76a7fdcfc8b18297285187c95d5ccbbd"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d4b/ab__logger_8h.html#a76a7fdcfc8b18297285187c95d5ccbbd">abl_error</a>(LOGGER,  Fmt, ...)&#160;&#160;&#160;abl_LogFunction(LOGGER, <a class="el" href="../../d4/d4b/ab__logger_8h.html#ad09c15c023f4bd204786f7c031c45787a11c5fd338567ea5a3cdff6dfec3b7b5f">ABL_ERROR</a>, __FILE__, __LINE__, Fmt, ##__VA_ARGS__)</td></tr>
+<tr class="memdesc:a76a7fdcfc8b18297285187c95d5ccbbd"><td class="mdescLeft">&#160;</td><td class="mdescRight">Log for an Error message.  <a href="../../d4/d4b/ab__logger_8h.html#a76a7fdcfc8b18297285187c95d5ccbbd">More...</a><br /></td></tr>
+<tr class="separator:a76a7fdcfc8b18297285187c95d5ccbbd"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa33ac7492e2653c73a4449db90f2e60a"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d4b/ab__logger_8h.html#aa33ac7492e2653c73a4449db90f2e60a">abl_fatal</a>(LOGGER,  Fmt, ...)&#160;&#160;&#160;abl_LogFunction(LOGGER, <a class="el" href="../../d4/d4b/ab__logger_8h.html#ad09c15c023f4bd204786f7c031c45787a3c083097aaf5d4784c9513b0eba01e75">ABL_FATAL</a>, __FILE__, __LINE__, Fmt, ##__VA_ARGS__)</td></tr>
+<tr class="memdesc:aa33ac7492e2653c73a4449db90f2e60a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Log for a Fatal message.  <a href="../../d4/d4b/ab__logger_8h.html#aa33ac7492e2653c73a4449db90f2e60a">More...</a><br /></td></tr>
+<tr class="separator:aa33ac7492e2653c73a4449db90f2e60a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="enum-members"></a>
 Enumerations</h2></td></tr>
@@ -123,22 +134,67 @@ Enumerations</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:adc94b6d140adcd78c7f0bb2fce524667"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d4b/ab__logger_8h.html#adc94b6d140adcd78c7f0bb2fce524667">abl_start_server</a> (ab_log *Logger, <a class="el" href="../../d7/d05/ab__common_8h.html#ae9b1af5c037e57a98884758875d3a7c4">s32</a> Port)</td></tr>
-<tr class="separator:adc94b6d140adcd78c7f0bb2fce524667"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:adce1f3ea2b2bd6eea7e33b63fd8c0499"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d4b/ab__logger_8h.html#adce1f3ea2b2bd6eea7e33b63fd8c0499">abl_set_fp</a> (ab_log *Logger, FILE *fp)</td></tr>
-<tr class="separator:adce1f3ea2b2bd6eea7e33b63fd8c0499"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad9700e7478bc6850a033e6c1cc6eeaa1"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d4b/ab__logger_8h.html#ad9700e7478bc6850a033e6c1cc6eeaa1">abl_set_level</a> (ab_log *Logger, <a class="el" href="../../d4/d4b/ab__logger_8h.html#ad09c15c023f4bd204786f7c031c45787">abl_log_level</a> Level)</td></tr>
-<tr class="separator:ad9700e7478bc6850a033e6c1cc6eeaa1"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af26d8d70a5083e1d9c994c3e3f0b5622"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d4b/ab__logger_8h.html#af26d8d70a5083e1d9c994c3e3f0b5622">abl_set_quiet</a> (ab_log *Logger, <a class="el" href="../../d7/d05/ab__common_8h.html#a70e369648385b50f2d0588e8e8745275">b8</a> isQuiet)</td></tr>
-<tr class="separator:af26d8d70a5083e1d9c994c3e3f0b5622"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a830f7af6399163b2ac8c6443042f97c7"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d4b/ab__logger_8h.html#a830f7af6399163b2ac8c6443042f97c7">abl_stop_server</a> (ab_log *Logger)</td></tr>
-<tr class="separator:a830f7af6399163b2ac8c6443042f97c7"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a7d0be7575c2768d56ad5bdc391d3d769"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d4b/ab__logger_8h.html#a7d0be7575c2768d56ad5bdc391d3d769">abl_log</a> (ab_log *Logger, <a class="el" href="../../d4/d4b/ab__logger_8h.html#ad09c15c023f4bd204786f7c031c45787">abl_log_level</a> Level, const char *File, <a class="el" href="../../d7/d05/ab__common_8h.html#ae9b1af5c037e57a98884758875d3a7c4">s32</a> Line, const char *Fmt,...)</td></tr>
-<tr class="separator:a7d0be7575c2768d56ad5bdc391d3d769"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aaa28a8f3f10cc22416325143aa67b3fd"><td class="memItemLeft" align="right" valign="top">abl_log *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d4b/ab__logger_8h.html#aaa28a8f3f10cc22416325143aa67b3fd">abl_InitializeLogger</a> (memory_arena *Memory, <a class="el" href="../../d7/d05/ab__common_8h.html#ae9b1af5c037e57a98884758875d3a7c4">s32</a> Port)</td></tr>
+<tr class="separator:aaa28a8f3f10cc22416325143aa67b3fd"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2acef18371e989f24d061dc2e9a972ba"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d4b/ab__logger_8h.html#a2acef18371e989f24d061dc2e9a972ba">abl_SetLevel</a> (abl_log *Logger, <a class="el" href="../../d4/d4b/ab__logger_8h.html#ad09c15c023f4bd204786f7c031c45787">abl_log_level</a> Level)</td></tr>
+<tr class="memdesc:a2acef18371e989f24d061dc2e9a972ba"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set log level.  <a href="../../d4/d4b/ab__logger_8h.html#a2acef18371e989f24d061dc2e9a972ba">More...</a><br /></td></tr>
+<tr class="separator:a2acef18371e989f24d061dc2e9a972ba"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3166093b2ec6be5dd8776afc46c2399c"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d4b/ab__logger_8h.html#a3166093b2ec6be5dd8776afc46c2399c">abl_SetPause</a> (abl_log *Logger, <a class="el" href="../../d7/d05/ab__common_8h.html#a70e369648385b50f2d0588e8e8745275">b8</a> doPause)</td></tr>
+<tr class="memdesc:a3166093b2ec6be5dd8776afc46c2399c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Pause/Unpause the logging output.  <a href="../../d4/d4b/ab__logger_8h.html#a3166093b2ec6be5dd8776afc46c2399c">More...</a><br /></td></tr>
+<tr class="separator:a3166093b2ec6be5dd8776afc46c2399c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3ddedbbc75ae37fd8b7fbb59e95db2a0"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d4b/ab__logger_8h.html#a3ddedbbc75ae37fd8b7fbb59e95db2a0">abl_Shutdown</a> (abl_log *Logger)</td></tr>
+<tr class="memdesc:a3ddedbbc75ae37fd8b7fbb59e95db2a0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Shutdown the logger object.  <a href="../../d4/d4b/ab__logger_8h.html#a3ddedbbc75ae37fd8b7fbb59e95db2a0">More...</a><br /></td></tr>
+<tr class="separator:a3ddedbbc75ae37fd8b7fbb59e95db2a0"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<h2 class="groupheader">Macro Definition Documentation</h2>
-<a id="af0d95724956482b6abce967bec5bca6d"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#af0d95724956482b6abce967bec5bca6d">&#9670;&nbsp;</a></span>abl_debug</h2>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>Network Logger. </p>
+<dl class="section author"><dt>Author</dt><dd>Amos Buchanan </dd></dl>
+<dl class="section version"><dt>Version</dt><dd>1.0 </dd></dl>
+<dl class="section date"><dt>Date</dt><dd>2020 </dd></dl>
+<dl class="section copyright"><dt>Copyright</dt><dd><a href="https://opensource.org/licenses/MIT">MIT Public License</a></dd></dl>
+<p>Network logger using czmq. Use a different abl_log for each thread and you should be ok. There is a possibility of a multi-thread logger at some point in the future, but not now. It uses a zmq publish socket under the hood, and you can use zmq subscribe to subscribe to the log.</p>
+<p>When subscribing, you can subscribe to any of the levels; each level is a different topic. Or subscribe to all of them using a blank subscription of <code>""</code>. Available topics are: "TRACE" "DEBUG" "INFO" "WARN" "ERROR" "FATAL"</p>
+<p>You can use printf()-like syntax with the error messages, see example.</p>
+<p>For an example of subscribing to the log, see <code><a class="el" href="../../dc/dd8/ab__loggerclient_8h.html" title="Basic Logger Client.">ab_loggerclient.h</a></code>.</p>
+<p>This is a single-file-library. You may include the file anywhere in your source. Only once in your code, define the following:</p>
+<div class="fragment"><div class="line"><span class="preprocessor">#define AB_LOGGER_SRC</span></div>
+<div class="line"><span class="preprocessor">#include &quot;ab_logger.h&quot;</span></div>
+</div><!-- fragment --><p>This will include the source.</p>
+<p>Available levels: <code>ABL_TRACE</code> <code>ABL_DEBUG</code> <code>ABL_INFO</code> <code>ABL_WARN</code> <code>ABL_ERROR</code> <code>ABL_FATAL</code></p>
+<p>example usage: </p><div class="fragment"><div class="line"><span class="comment">// Setup a logger to publish on port 5555.</span></div>
+<div class="line">abl_log *Logger = <a class="code" href="../../d4/d4b/ab__logger_8h.html#aaa28a8f3f10cc22416325143aa67b3fd">abl_InitializeLogger</a>(&amp;Memory, 5555, <a class="code" href="../../d4/d4b/ab__logger_8h.html#ad09c15c023f4bd204786f7c031c45787a7fccde42da961232bd100be86f2c32b1">ABL_TRACE</a>);</div>
+<div class="line">    </div>
+<div class="line"><a class="code" href="../../d4/d4b/ab__logger_8h.html#a2acef18371e989f24d061dc2e9a972ba">abl_SetLevel</a>(Logger, <a class="code" href="../../d4/d4b/ab__logger_8h.html#ad09c15c023f4bd204786f7c031c45787a7fccde42da961232bd100be86f2c32b1">ABL_TRACE</a>);</div>
+<div class="line">        <a class="code" href="../../d4/d4b/ab__logger_8h.html#a31cd708ccfdd5bef7c6c247b3c58e678">abl_trace</a>(Logger, <span class="stringliteral">&quot;Trace Log.&quot;</span>);</div>
+<div class="line">        <a class="code" href="../../d4/d4b/ab__logger_8h.html#a7c4a27c251a95f80592402a675e65d43">abl_debug</a>(Logger, <span class="stringliteral">&quot;Debug Log, with error code: %d.&quot;</span>, errno);</div>
+<div class="line">        <a class="code" href="../../d4/d4b/ab__logger_8h.html#a09c558942511acfdd2beae1f44d7a8f9">abl_info</a>(Logger, <span class="stringliteral">&quot;Info Log&quot;</span>);</div>
+<div class="line"> </div>
+<div class="line"><span class="comment">// Logs will not be sent while paused.</span></div>
+<div class="line"><a class="code" href="../../d4/d4b/ab__logger_8h.html#a3166093b2ec6be5dd8776afc46c2399c">abl_SetPause</a>(Logger, <span class="keyword">true</span>); </div>
+<div class="line">        <a class="code" href="../../d4/d4b/ab__logger_8h.html#a04f1b0b56c8bee0fc0fd4b99de53fb9f">abl_warn</a>(Logger, <span class="stringliteral">&quot;Warn Log&quot;</span>);</div>
+<div class="line">        <a class="code" href="../../d4/d4b/ab__logger_8h.html#a76a7fdcfc8b18297285187c95d5ccbbd">abl_error</a>(Logger, <span class="stringliteral">&quot;Error Log, serious error. %s&quot;</span>, SomeSeriousErrorMessage);</div>
+<div class="line"> </div>
+<div class="line"><span class="comment">// Start sending logs again.</span></div>
+<div class="line"><a class="code" href="../../d4/d4b/ab__logger_8h.html#a3166093b2ec6be5dd8776afc46c2399c">abl_SetPause</a>(Logger, <span class="keyword">false</span>);</div>
+<div class="line"> </div>
+<div class="line">        <a class="code" href="../../d4/d4b/ab__logger_8h.html#aa33ac7492e2653c73a4449db90f2e60a">abl_fatal</a>(Logger, <span class="stringliteral">&quot;Fatal Log&quot;</span>);</div>
+<div class="line">        </div>
+<div class="line"><a class="code" href="../../d4/d4b/ab__logger_8h.html#a3ddedbbc75ae37fd8b7fbb59e95db2a0">abl_Shutdown</a>(Logger);</div>
+</div><!-- fragment --><h1>References</h1>
+<ul>
+<li><a class="el" href="../../dc/dd8/ab__loggerclient_8h.html">ab_loggerclient.h</a></li>
+<li><a href="https://zeromq.org/">zmq Messaging</a></li>
+<li><a href="http://czmq.zeromq.org/">czmq C Library for ZMQ messaging</a></li>
+</ul>
+<h1>MIT License</h1>
+<p><a href="https://opensource.org/licenses/MIT">MIT Public License</a></p>
+<p>Copyright 2020 Amos Buchanan</p>
+<p>Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:</p>
+<p>The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.</p>
+<p>THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE. </p>
+</div><h2 class="groupheader">Macro Definition Documentation</h2>
+<a id="a7c4a27c251a95f80592402a675e65d43"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7c4a27c251a95f80592402a675e65d43">&#9670;&nbsp;</a></span>abl_debug</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -147,7 +203,7 @@ Functions</h2></td></tr>
           <td class="memname">#define abl_debug</td>
           <td>(</td>
           <td class="paramtype">&#160;</td>
-          <td class="paramname">Logger, </td>
+          <td class="paramname">LOGGER, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
@@ -164,15 +220,17 @@ Functions</h2></td></tr>
         <tr>
           <td></td>
           <td>)</td>
-          <td></td><td>&#160;&#160;&#160;<a class="el" href="../../d4/d4b/ab__logger_8h.html#a7d0be7575c2768d56ad5bdc391d3d769">abl_log</a>(Logger, LOG_DEBUG, __FILE__, __LINE__, Fmt, __VA_ARGS__)</td>
+          <td></td><td>&#160;&#160;&#160;abl_LogFunction(LOGGER, <a class="el" href="../../d4/d4b/ab__logger_8h.html#ad09c15c023f4bd204786f7c031c45787a4a4d2ab22d6f6be96611dfc75021117e">ABL_DEBUG</a>, __FILE__, __LINE__, Fmt, ##__VA_ARGS__)</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
+<p>Log for a Debug message. </p>
+
 </div>
 </div>
-<a id="a9701d37f9ea32885eb4435456b54380c"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a9701d37f9ea32885eb4435456b54380c">&#9670;&nbsp;</a></span>abl_error</h2>
+<a id="a76a7fdcfc8b18297285187c95d5ccbbd"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a76a7fdcfc8b18297285187c95d5ccbbd">&#9670;&nbsp;</a></span>abl_error</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -181,7 +239,7 @@ Functions</h2></td></tr>
           <td class="memname">#define abl_error</td>
           <td>(</td>
           <td class="paramtype">&#160;</td>
-          <td class="paramname">Logger, </td>
+          <td class="paramname">LOGGER, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
@@ -198,15 +256,17 @@ Functions</h2></td></tr>
         <tr>
           <td></td>
           <td>)</td>
-          <td></td><td>&#160;&#160;&#160;<a class="el" href="../../d4/d4b/ab__logger_8h.html#a7d0be7575c2768d56ad5bdc391d3d769">abl_log</a>(Logger, LOG_ERROR, __FILE__, __LINE__, Fmt, __VA_ARGS__)</td>
+          <td></td><td>&#160;&#160;&#160;abl_LogFunction(LOGGER, <a class="el" href="../../d4/d4b/ab__logger_8h.html#ad09c15c023f4bd204786f7c031c45787a11c5fd338567ea5a3cdff6dfec3b7b5f">ABL_ERROR</a>, __FILE__, __LINE__, Fmt, ##__VA_ARGS__)</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
+<p>Log for an Error message. </p>
+
 </div>
 </div>
-<a id="a56cde45c39126f008262c3d94e03e9b8"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a56cde45c39126f008262c3d94e03e9b8">&#9670;&nbsp;</a></span>abl_fatal</h2>
+<a id="aa33ac7492e2653c73a4449db90f2e60a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa33ac7492e2653c73a4449db90f2e60a">&#9670;&nbsp;</a></span>abl_fatal</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -215,7 +275,7 @@ Functions</h2></td></tr>
           <td class="memname">#define abl_fatal</td>
           <td>(</td>
           <td class="paramtype">&#160;</td>
-          <td class="paramname">Logger, </td>
+          <td class="paramname">LOGGER, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
@@ -232,15 +292,17 @@ Functions</h2></td></tr>
         <tr>
           <td></td>
           <td>)</td>
-          <td></td><td>&#160;&#160;&#160;<a class="el" href="../../d4/d4b/ab__logger_8h.html#a7d0be7575c2768d56ad5bdc391d3d769">abl_log</a>(Logger, LOG_FATAL, __FILE__, __LINE__, Fmt, __VA_ARGS__)</td>
+          <td></td><td>&#160;&#160;&#160;abl_LogFunction(LOGGER, <a class="el" href="../../d4/d4b/ab__logger_8h.html#ad09c15c023f4bd204786f7c031c45787a3c083097aaf5d4784c9513b0eba01e75">ABL_FATAL</a>, __FILE__, __LINE__, Fmt, ##__VA_ARGS__)</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
+<p>Log for a Fatal message. </p>
+
 </div>
 </div>
-<a id="a0e01c4cfce56ca553e16e2f85bb9f0fe"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a0e01c4cfce56ca553e16e2f85bb9f0fe">&#9670;&nbsp;</a></span>abl_info</h2>
+<a id="a09c558942511acfdd2beae1f44d7a8f9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a09c558942511acfdd2beae1f44d7a8f9">&#9670;&nbsp;</a></span>abl_info</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -249,7 +311,7 @@ Functions</h2></td></tr>
           <td class="memname">#define abl_info</td>
           <td>(</td>
           <td class="paramtype">&#160;</td>
-          <td class="paramname">Logger, </td>
+          <td class="paramname">LOGGER, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
@@ -266,15 +328,17 @@ Functions</h2></td></tr>
         <tr>
           <td></td>
           <td>)</td>
-          <td></td><td>&#160;&#160;&#160;<a class="el" href="../../d4/d4b/ab__logger_8h.html#a7d0be7575c2768d56ad5bdc391d3d769">abl_log</a>(Logger, LOG_INFO,  __FILE__, __LINE__, Fmt, __VA_ARGS__)</td>
+          <td></td><td>&#160;&#160;&#160;abl_LogFunction(LOGGER, <a class="el" href="../../d4/d4b/ab__logger_8h.html#ad09c15c023f4bd204786f7c031c45787a72e995c24ee1e50bfa27759c4c2c0bee">ABL_INFO</a>,  __FILE__, __LINE__, Fmt, ##__VA_ARGS__)</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
+<p>Log for an Info message. </p>
+
 </div>
 </div>
-<a id="a1c3af1ceb74203276ce7ca7ec60b6e63"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a1c3af1ceb74203276ce7ca7ec60b6e63">&#9670;&nbsp;</a></span>abl_trace</h2>
+<a id="a31cd708ccfdd5bef7c6c247b3c58e678"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a31cd708ccfdd5bef7c6c247b3c58e678">&#9670;&nbsp;</a></span>abl_trace</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -283,7 +347,7 @@ Functions</h2></td></tr>
           <td class="memname">#define abl_trace</td>
           <td>(</td>
           <td class="paramtype">&#160;</td>
-          <td class="paramname">Logger, </td>
+          <td class="paramname">LOGGER, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
@@ -300,16 +364,17 @@ Functions</h2></td></tr>
         <tr>
           <td></td>
           <td>)</td>
-          <td></td><td>&#160;&#160;&#160;<a class="el" href="../../d4/d4b/ab__logger_8h.html#a7d0be7575c2768d56ad5bdc391d3d769">abl_log</a>(Logger, LOG_TRACE, __FILE__, __LINE__, Fmt, __VA_ARGS__)</td>
+          <td></td><td>&#160;&#160;&#160;abl_LogFunction(LOGGER, <a class="el" href="../../d4/d4b/ab__logger_8h.html#ad09c15c023f4bd204786f7c031c45787a7fccde42da961232bd100be86f2c32b1">ABL_TRACE</a>, __FILE__, __LINE__, Fmt, ##__VA_ARGS__)</td>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>If multi-threaded, must declare a logger for use. </p>
+
+<p>Log for a Trace message. </p>
 
 </div>
 </div>
-<a id="ace87fcfe98d7bb16ff20b09002b0f41b"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ace87fcfe98d7bb16ff20b09002b0f41b">&#9670;&nbsp;</a></span>abl_warn</h2>
+<a id="a04f1b0b56c8bee0fc0fd4b99de53fb9f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a04f1b0b56c8bee0fc0fd4b99de53fb9f">&#9670;&nbsp;</a></span>abl_warn</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -318,7 +383,7 @@ Functions</h2></td></tr>
           <td class="memname">#define abl_warn</td>
           <td>(</td>
           <td class="paramtype">&#160;</td>
-          <td class="paramname">Logger, </td>
+          <td class="paramname">LOGGER, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
@@ -335,10 +400,12 @@ Functions</h2></td></tr>
         <tr>
           <td></td>
           <td>)</td>
-          <td></td><td>&#160;&#160;&#160;<a class="el" href="../../d4/d4b/ab__logger_8h.html#a7d0be7575c2768d56ad5bdc391d3d769">abl_log</a>(Logger, LOG_WARN,  __FILE__, __LINE__, Fmt, __VA_ARGS__)</td>
+          <td></td><td>&#160;&#160;&#160;abl_LogFunction(LOGGER, <a class="el" href="../../d4/d4b/ab__logger_8h.html#ad09c15c023f4bd204786f7c031c45787af4a847c0c5d6fe01ec92ab29b2d21144">ABL_WARN</a>,  __FILE__, __LINE__, Fmt, ##__VA_ARGS__)</td>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Log for a Warn message. </p>
 
 </div>
 </div>
@@ -354,16 +421,6 @@ Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Logger. Version: 1.0 Network logger using czmq. Will log to STDERR, a file and/or to a czmq network, depending on setup. STDERR logging not garunteed to be threadsafe, don't do it. Logging multiple threads to the same file not garunteed to be threadsafe. CZMQ logging is threadsafe subject to the restrictions of CZMQ.</p>
-<p>Basically, use a different ab_log for each thread and you should be ok.</p>
-<p>This is a single-file-library. You may include the file anywhere in your source. Only once in your code, define the following:</p>
-<div class="fragment"><div class="line"><span class="preprocessor">#define AB_LOGGER_SRC</span></div>
-<div class="line"><span class="preprocessor">#include &quot;ab_logger.h&quot;</span></div>
-</div><!-- fragment --><p>This will include the source.</p>
-<p>There's a single-thread use that uses a global logger. Define the following: </p><div class="fragment"><div class="line"><span class="preprocessor">#define AB_LOGGER_SINGLETHREAD</span></div>
-</div><!-- fragment --><p>To use color on STDERR: </p><div class="fragment"><div class="line"><span class="preprocessor">#define AB_LOGGER_USE_COLOR</span></div>
-</div><!-- fragment --><p>Available levels: ABL_TRACE, ABL_DEBUG, ABL_INFO, ABL_WARN, ABL_ERROR, ABL_FATAL</p>
-<p>example usage: abl_log Logger = {}; abl_set_level(&amp;Logger, ABL_INFO); abl_start_server(&amp;Logger, 555); abl_info(&amp;Logger, "Some log"); abl_info(&amp;Logger, "More Info, %d", errno); abl_stop_server(&amp;Logger); </p>
 <table class="fieldtable">
 <tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="ad09c15c023f4bd204786f7c031c45787a7fccde42da961232bd100be86f2c32b1"></a>ABL_TRACE&#160;</td><td class="fielddoc"></td></tr>
 <tr><td class="fieldname"><a id="ad09c15c023f4bd204786f7c031c45787a4a4d2ab22d6f6be96611dfc75021117e"></a>ABL_DEBUG&#160;</td><td class="fielddoc"></td></tr>
@@ -376,153 +433,17 @@ Functions</h2></td></tr>
 </div>
 </div>
 <h2 class="groupheader">Function Documentation</h2>
-<a id="a7d0be7575c2768d56ad5bdc391d3d769"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a7d0be7575c2768d56ad5bdc391d3d769">&#9670;&nbsp;</a></span>abl_log()</h2>
+<a id="aaa28a8f3f10cc22416325143aa67b3fd"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aaa28a8f3f10cc22416325143aa67b3fd">&#9670;&nbsp;</a></span>abl_InitializeLogger()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">void abl_log </td>
+          <td class="memname">abl_log* abl_InitializeLogger </td>
           <td>(</td>
-          <td class="paramtype">ab_log *&#160;</td>
-          <td class="paramname"><em>Logger</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype"><a class="el" href="../../d4/d4b/ab__logger_8h.html#ad09c15c023f4bd204786f7c031c45787">abl_log_level</a>&#160;</td>
-          <td class="paramname"><em>Level</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const char *&#160;</td>
-          <td class="paramname"><em>File</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype"><a class="el" href="../../d7/d05/ab__common_8h.html#ae9b1af5c037e57a98884758875d3a7c4">s32</a>&#160;</td>
-          <td class="paramname"><em>Line</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const char *&#160;</td>
-          <td class="paramname"><em>Fmt</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">&#160;</td>
-          <td class="paramname"><em>...</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="adce1f3ea2b2bd6eea7e33b63fd8c0499"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#adce1f3ea2b2bd6eea7e33b63fd8c0499">&#9670;&nbsp;</a></span>abl_set_fp()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void abl_set_fp </td>
-          <td>(</td>
-          <td class="paramtype">ab_log *&#160;</td>
-          <td class="paramname"><em>Logger</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">FILE *&#160;</td>
-          <td class="paramname"><em>fp</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="ad9700e7478bc6850a033e6c1cc6eeaa1"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ad9700e7478bc6850a033e6c1cc6eeaa1">&#9670;&nbsp;</a></span>abl_set_level()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void abl_set_level </td>
-          <td>(</td>
-          <td class="paramtype">ab_log *&#160;</td>
-          <td class="paramname"><em>Logger</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype"><a class="el" href="../../d4/d4b/ab__logger_8h.html#ad09c15c023f4bd204786f7c031c45787">abl_log_level</a>&#160;</td>
-          <td class="paramname"><em>Level</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="af26d8d70a5083e1d9c994c3e3f0b5622"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#af26d8d70a5083e1d9c994c3e3f0b5622">&#9670;&nbsp;</a></span>abl_set_quiet()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void abl_set_quiet </td>
-          <td>(</td>
-          <td class="paramtype">ab_log *&#160;</td>
-          <td class="paramname"><em>Logger</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype"><a class="el" href="../../d7/d05/ab__common_8h.html#a70e369648385b50f2d0588e8e8745275">b8</a>&#160;</td>
-          <td class="paramname"><em>isQuiet</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="adc94b6d140adcd78c7f0bb2fce524667"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#adc94b6d140adcd78c7f0bb2fce524667">&#9670;&nbsp;</a></span>abl_start_server()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void abl_start_server </td>
-          <td>(</td>
-          <td class="paramtype">ab_log *&#160;</td>
-          <td class="paramname"><em>Logger</em>, </td>
+          <td class="paramtype">memory_arena *&#160;</td>
+          <td class="paramname"><em>Memory</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
@@ -540,26 +461,106 @@ Functions</h2></td></tr>
 
 </div>
 </div>
-<a id="a830f7af6399163b2ac8c6443042f97c7"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a830f7af6399163b2ac8c6443042f97c7">&#9670;&nbsp;</a></span>abl_stop_server()</h2>
+<a id="a2acef18371e989f24d061dc2e9a972ba"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2acef18371e989f24d061dc2e9a972ba">&#9670;&nbsp;</a></span>abl_SetLevel()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">void abl_stop_server </td>
+          <td class="memname">void abl_SetLevel </td>
           <td>(</td>
-          <td class="paramtype">ab_log *&#160;</td>
+          <td class="paramtype">abl_log *&#160;</td>
+          <td class="paramname"><em>Logger</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../d4/d4b/ab__logger_8h.html#ad09c15c023f4bd204786f7c031c45787">abl_log_level</a>&#160;</td>
+          <td class="paramname"><em>Level</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Set log level. </p>
+<p>See <a class="el" href="../../d4/d4b/ab__logger_8h.html#ad09c15c023f4bd204786f7c031c45787">abl_log_level</a> for available levels. </p>
+
+</div>
+</div>
+<a id="a3166093b2ec6be5dd8776afc46c2399c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3166093b2ec6be5dd8776afc46c2399c">&#9670;&nbsp;</a></span>abl_SetPause()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void abl_SetPause </td>
+          <td>(</td>
+          <td class="paramtype">abl_log *&#160;</td>
+          <td class="paramname"><em>Logger</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../d7/d05/ab__common_8h.html#a70e369648385b50f2d0588e8e8745275">b8</a>&#160;</td>
+          <td class="paramname"><em>doPause</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Pause/Unpause the logging output. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">Logger</td><td>The logger to pause. </td></tr>
+    <tr><td class="paramname">doPause</td><td>True to pause, false to unpause. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a3ddedbbc75ae37fd8b7fbb59e95db2a0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3ddedbbc75ae37fd8b7fbb59e95db2a0">&#9670;&nbsp;</a></span>abl_Shutdown()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void abl_Shutdown </td>
+          <td>(</td>
+          <td class="paramtype">abl_log *&#160;</td>
           <td class="paramname"><em>Logger</em></td><td>)</td>
           <td></td>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>set isQuiet = true -&gt; true to disable logging to STDERR. </p>
+
+<p>Shutdown the logger object. </p>
 
 </div>
 </div>
 </div><!-- contents -->
+<div class="ttc" id="aab__logger_8h_html_a04f1b0b56c8bee0fc0fd4b99de53fb9f"><div class="ttname"><a href="../../d4/d4b/ab__logger_8h.html#a04f1b0b56c8bee0fc0fd4b99de53fb9f">abl_warn</a></div><div class="ttdeci">#define abl_warn(LOGGER, Fmt,...)</div><div class="ttdoc">Log for a Warn message.</div><div class="ttdef"><b>Definition:</b> ab_logger.h:145</div></div>
+<div class="ttc" id="aab__logger_8h_html_a76a7fdcfc8b18297285187c95d5ccbbd"><div class="ttname"><a href="../../d4/d4b/ab__logger_8h.html#a76a7fdcfc8b18297285187c95d5ccbbd">abl_error</a></div><div class="ttdeci">#define abl_error(LOGGER, Fmt,...)</div><div class="ttdoc">Log for an Error message.</div><div class="ttdef"><b>Definition:</b> ab_logger.h:148</div></div>
+<div class="ttc" id="aab__logger_8h_html_aa33ac7492e2653c73a4449db90f2e60a"><div class="ttname"><a href="../../d4/d4b/ab__logger_8h.html#aa33ac7492e2653c73a4449db90f2e60a">abl_fatal</a></div><div class="ttdeci">#define abl_fatal(LOGGER, Fmt,...)</div><div class="ttdoc">Log for a Fatal message.</div><div class="ttdef"><b>Definition:</b> ab_logger.h:151</div></div>
+<div class="ttc" id="aab__logger_8h_html_a09c558942511acfdd2beae1f44d7a8f9"><div class="ttname"><a href="../../d4/d4b/ab__logger_8h.html#a09c558942511acfdd2beae1f44d7a8f9">abl_info</a></div><div class="ttdeci">#define abl_info(LOGGER, Fmt,...)</div><div class="ttdoc">Log for an Info message.</div><div class="ttdef"><b>Definition:</b> ab_logger.h:142</div></div>
+<div class="ttc" id="aab__logger_8h_html_ad09c15c023f4bd204786f7c031c45787a7fccde42da961232bd100be86f2c32b1"><div class="ttname"><a href="../../d4/d4b/ab__logger_8h.html#ad09c15c023f4bd204786f7c031c45787a7fccde42da961232bd100be86f2c32b1">ABL_TRACE</a></div><div class="ttdeci">@ ABL_TRACE</div><div class="ttdef"><b>Definition:</b> ab_logger.h:92</div></div>
+<div class="ttc" id="aab__logger_8h_html_a3166093b2ec6be5dd8776afc46c2399c"><div class="ttname"><a href="../../d4/d4b/ab__logger_8h.html#a3166093b2ec6be5dd8776afc46c2399c">abl_SetPause</a></div><div class="ttdeci">void abl_SetPause(abl_log *Logger, b8 doPause)</div><div class="ttdoc">Pause/Unpause the logging output.</div></div>
+<div class="ttc" id="aab__logger_8h_html_aaa28a8f3f10cc22416325143aa67b3fd"><div class="ttname"><a href="../../d4/d4b/ab__logger_8h.html#aaa28a8f3f10cc22416325143aa67b3fd">abl_InitializeLogger</a></div><div class="ttdeci">abl_log * abl_InitializeLogger(memory_arena *Memory, s32 Port)</div></div>
+<div class="ttc" id="aab__logger_8h_html_a31cd708ccfdd5bef7c6c247b3c58e678"><div class="ttname"><a href="../../d4/d4b/ab__logger_8h.html#a31cd708ccfdd5bef7c6c247b3c58e678">abl_trace</a></div><div class="ttdeci">#define abl_trace(LOGGER, Fmt,...)</div><div class="ttdoc">Log for a Trace message.</div><div class="ttdef"><b>Definition:</b> ab_logger.h:136</div></div>
+<div class="ttc" id="aab__logger_8h_html_a7c4a27c251a95f80592402a675e65d43"><div class="ttname"><a href="../../d4/d4b/ab__logger_8h.html#a7c4a27c251a95f80592402a675e65d43">abl_debug</a></div><div class="ttdeci">#define abl_debug(LOGGER, Fmt,...)</div><div class="ttdoc">Log for a Debug message.</div><div class="ttdef"><b>Definition:</b> ab_logger.h:139</div></div>
+<div class="ttc" id="aab__logger_8h_html_a3ddedbbc75ae37fd8b7fbb59e95db2a0"><div class="ttname"><a href="../../d4/d4b/ab__logger_8h.html#a3ddedbbc75ae37fd8b7fbb59e95db2a0">abl_Shutdown</a></div><div class="ttdeci">void abl_Shutdown(abl_log *Logger)</div><div class="ttdoc">Shutdown the logger object.</div></div>
+<div class="ttc" id="aab__logger_8h_html_a2acef18371e989f24d061dc2e9a972ba"><div class="ttname"><a href="../../d4/d4b/ab__logger_8h.html#a2acef18371e989f24d061dc2e9a972ba">abl_SetLevel</a></div><div class="ttdeci">void abl_SetLevel(abl_log *Logger, abl_log_level Level)</div><div class="ttdoc">Set log level.</div></div>
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
 Generated by&#160;<a href="http://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.8.20

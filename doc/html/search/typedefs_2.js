@@ -1,5 +1,4 @@
 var searchData=
 [
-  ['r32_145',['r32',['../d7/d05/ab__common_8h.html#aafa04bc3cb166e826b75a23f4add4b59',1,'ab_common.h']]],
-  ['r64_146',['r64',['../d7/d05/ab__common_8h.html#af3fb0780dd5bc8ff8740028f077610e7',1,'ab_common.h']]]
+  ['log_5ffunction_172',['log_function',['../dc/dd8/ab__loggerclient_8h.html#af262e3b1912ee661a49f0e9c59eb7d2d',1,'ab_loggerclient.h']]]
 ];

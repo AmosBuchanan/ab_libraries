@@ -1,29 +1,35 @@
 \hypertarget{ab__logger_8h}{}\doxysection{ab\+\_\+logger.\+h File Reference}
 \label{ab__logger_8h}\index{ab\_logger.h@{ab\_logger.h}}
+
+
+Network Logger.  
+
+
 {\ttfamily \#include \char`\"{}czmq.\+h\char`\"{}}\newline
 {\ttfamily \#include \char`\"{}ab\+\_\+common.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}ab\+\_\+memory.\+h\char`\"{}}\newline
 Include dependency graph for ab\+\_\+logger.\+h\+:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
-\includegraphics[width=246pt]{d3/d74/ab__logger_8h__incl}
+\includegraphics[width=262pt]{d3/d74/ab__logger_8h__incl}
 \end{center}
 \end{figure}
 \doxysubsection*{Macros}
 \begin{DoxyCompactItemize}
 \item 
-\#define \mbox{\hyperlink{ab__logger_8h_a1c3af1ceb74203276ce7ca7ec60b6e63}{abl\+\_\+trace}}(Logger,  Fmt, ...)~\mbox{\hyperlink{ab__logger_8h_a7d0be7575c2768d56ad5bdc391d3d769}{abl\+\_\+log}}(Logger, L\+O\+G\+\_\+\+T\+R\+A\+CE, \+\_\+\+\_\+\+F\+I\+L\+E\+\_\+\+\_\+, \+\_\+\+\_\+\+L\+I\+N\+E\+\_\+\+\_\+, Fmt, \+\_\+\+\_\+\+V\+A\+\_\+\+A\+R\+G\+S\+\_\+\+\_\+)
-\item 
-\#define \mbox{\hyperlink{ab__logger_8h_af0d95724956482b6abce967bec5bca6d}{abl\+\_\+debug}}(Logger,  Fmt, ...)~\mbox{\hyperlink{ab__logger_8h_a7d0be7575c2768d56ad5bdc391d3d769}{abl\+\_\+log}}(Logger, L\+O\+G\+\_\+\+D\+E\+B\+UG, \+\_\+\+\_\+\+F\+I\+L\+E\+\_\+\+\_\+, \+\_\+\+\_\+\+L\+I\+N\+E\+\_\+\+\_\+, Fmt, \+\_\+\+\_\+\+V\+A\+\_\+\+A\+R\+G\+S\+\_\+\+\_\+)
-\item 
-\#define \mbox{\hyperlink{ab__logger_8h_a0e01c4cfce56ca553e16e2f85bb9f0fe}{abl\+\_\+info}}(Logger,  Fmt, ...)~\mbox{\hyperlink{ab__logger_8h_a7d0be7575c2768d56ad5bdc391d3d769}{abl\+\_\+log}}(Logger, L\+O\+G\+\_\+\+I\+N\+FO,  \+\_\+\+\_\+\+F\+I\+L\+E\+\_\+\+\_\+, \+\_\+\+\_\+\+L\+I\+N\+E\+\_\+\+\_\+, Fmt, \+\_\+\+\_\+\+V\+A\+\_\+\+A\+R\+G\+S\+\_\+\+\_\+)
-\item 
-\#define \mbox{\hyperlink{ab__logger_8h_ace87fcfe98d7bb16ff20b09002b0f41b}{abl\+\_\+warn}}(Logger,  Fmt, ...)~\mbox{\hyperlink{ab__logger_8h_a7d0be7575c2768d56ad5bdc391d3d769}{abl\+\_\+log}}(Logger, L\+O\+G\+\_\+\+W\+A\+RN,  \+\_\+\+\_\+\+F\+I\+L\+E\+\_\+\+\_\+, \+\_\+\+\_\+\+L\+I\+N\+E\+\_\+\+\_\+, Fmt, \+\_\+\+\_\+\+V\+A\+\_\+\+A\+R\+G\+S\+\_\+\+\_\+)
-\item 
-\#define \mbox{\hyperlink{ab__logger_8h_a9701d37f9ea32885eb4435456b54380c}{abl\+\_\+error}}(Logger,  Fmt, ...)~\mbox{\hyperlink{ab__logger_8h_a7d0be7575c2768d56ad5bdc391d3d769}{abl\+\_\+log}}(Logger, L\+O\+G\+\_\+\+E\+R\+R\+OR, \+\_\+\+\_\+\+F\+I\+L\+E\+\_\+\+\_\+, \+\_\+\+\_\+\+L\+I\+N\+E\+\_\+\+\_\+, Fmt, \+\_\+\+\_\+\+V\+A\+\_\+\+A\+R\+G\+S\+\_\+\+\_\+)
-\item 
-\#define \mbox{\hyperlink{ab__logger_8h_a56cde45c39126f008262c3d94e03e9b8}{abl\+\_\+fatal}}(Logger,  Fmt, ...)~\mbox{\hyperlink{ab__logger_8h_a7d0be7575c2768d56ad5bdc391d3d769}{abl\+\_\+log}}(Logger, L\+O\+G\+\_\+\+F\+A\+T\+AL, \+\_\+\+\_\+\+F\+I\+L\+E\+\_\+\+\_\+, \+\_\+\+\_\+\+L\+I\+N\+E\+\_\+\+\_\+, Fmt, \+\_\+\+\_\+\+V\+A\+\_\+\+A\+R\+G\+S\+\_\+\+\_\+)
-\end{DoxyCompactItemize}
+\#define \mbox{\hyperlink{ab__logger_8h_a31cd708ccfdd5bef7c6c247b3c58e678}{abl\+\_\+trace}}(L\+O\+G\+G\+ER,  Fmt, ...)~abl\+\_\+\+Log\+Function(L\+O\+G\+G\+ER, \mbox{\hyperlink{ab__logger_8h_ad09c15c023f4bd204786f7c031c45787a7fccde42da961232bd100be86f2c32b1}{A\+B\+L\+\_\+\+T\+R\+A\+CE}}, \+\_\+\+\_\+\+F\+I\+L\+E\+\_\+\+\_\+, \+\_\+\+\_\+\+L\+I\+N\+E\+\_\+\+\_\+, Fmt, \#\#\+\_\+\+\_\+\+V\+A\+\_\+\+A\+R\+G\+S\+\_\+\+\_\+)
+\begin{DoxyCompactList}\small\item\em Log for a Trace message. \end{DoxyCompactList}\item 
+\#define \mbox{\hyperlink{ab__logger_8h_a7c4a27c251a95f80592402a675e65d43}{abl\+\_\+debug}}(L\+O\+G\+G\+ER,  Fmt, ...)~abl\+\_\+\+Log\+Function(L\+O\+G\+G\+ER, \mbox{\hyperlink{ab__logger_8h_ad09c15c023f4bd204786f7c031c45787a4a4d2ab22d6f6be96611dfc75021117e}{A\+B\+L\+\_\+\+D\+E\+B\+UG}}, \+\_\+\+\_\+\+F\+I\+L\+E\+\_\+\+\_\+, \+\_\+\+\_\+\+L\+I\+N\+E\+\_\+\+\_\+, Fmt, \#\#\+\_\+\+\_\+\+V\+A\+\_\+\+A\+R\+G\+S\+\_\+\+\_\+)
+\begin{DoxyCompactList}\small\item\em Log for a Debug message. \end{DoxyCompactList}\item 
+\#define \mbox{\hyperlink{ab__logger_8h_a09c558942511acfdd2beae1f44d7a8f9}{abl\+\_\+info}}(L\+O\+G\+G\+ER,  Fmt, ...)~abl\+\_\+\+Log\+Function(L\+O\+G\+G\+ER, \mbox{\hyperlink{ab__logger_8h_ad09c15c023f4bd204786f7c031c45787a72e995c24ee1e50bfa27759c4c2c0bee}{A\+B\+L\+\_\+\+I\+N\+FO}},  \+\_\+\+\_\+\+F\+I\+L\+E\+\_\+\+\_\+, \+\_\+\+\_\+\+L\+I\+N\+E\+\_\+\+\_\+, Fmt, \#\#\+\_\+\+\_\+\+V\+A\+\_\+\+A\+R\+G\+S\+\_\+\+\_\+)
+\begin{DoxyCompactList}\small\item\em Log for an Info message. \end{DoxyCompactList}\item 
+\#define \mbox{\hyperlink{ab__logger_8h_a04f1b0b56c8bee0fc0fd4b99de53fb9f}{abl\+\_\+warn}}(L\+O\+G\+G\+ER,  Fmt, ...)~abl\+\_\+\+Log\+Function(L\+O\+G\+G\+ER, \mbox{\hyperlink{ab__logger_8h_ad09c15c023f4bd204786f7c031c45787af4a847c0c5d6fe01ec92ab29b2d21144}{A\+B\+L\+\_\+\+W\+A\+RN}},  \+\_\+\+\_\+\+F\+I\+L\+E\+\_\+\+\_\+, \+\_\+\+\_\+\+L\+I\+N\+E\+\_\+\+\_\+, Fmt, \#\#\+\_\+\+\_\+\+V\+A\+\_\+\+A\+R\+G\+S\+\_\+\+\_\+)
+\begin{DoxyCompactList}\small\item\em Log for a Warn message. \end{DoxyCompactList}\item 
+\#define \mbox{\hyperlink{ab__logger_8h_a76a7fdcfc8b18297285187c95d5ccbbd}{abl\+\_\+error}}(L\+O\+G\+G\+ER,  Fmt, ...)~abl\+\_\+\+Log\+Function(L\+O\+G\+G\+ER, \mbox{\hyperlink{ab__logger_8h_ad09c15c023f4bd204786f7c031c45787a11c5fd338567ea5a3cdff6dfec3b7b5f}{A\+B\+L\+\_\+\+E\+R\+R\+OR}}, \+\_\+\+\_\+\+F\+I\+L\+E\+\_\+\+\_\+, \+\_\+\+\_\+\+L\+I\+N\+E\+\_\+\+\_\+, Fmt, \#\#\+\_\+\+\_\+\+V\+A\+\_\+\+A\+R\+G\+S\+\_\+\+\_\+)
+\begin{DoxyCompactList}\small\item\em Log for an Error message. \end{DoxyCompactList}\item 
+\#define \mbox{\hyperlink{ab__logger_8h_aa33ac7492e2653c73a4449db90f2e60a}{abl\+\_\+fatal}}(L\+O\+G\+G\+ER,  Fmt, ...)~abl\+\_\+\+Log\+Function(L\+O\+G\+G\+ER, \mbox{\hyperlink{ab__logger_8h_ad09c15c023f4bd204786f7c031c45787a3c083097aaf5d4784c9513b0eba01e75}{A\+B\+L\+\_\+\+F\+A\+T\+AL}}, \+\_\+\+\_\+\+F\+I\+L\+E\+\_\+\+\_\+, \+\_\+\+\_\+\+L\+I\+N\+E\+\_\+\+\_\+, Fmt, \#\#\+\_\+\+\_\+\+V\+A\+\_\+\+A\+R\+G\+S\+\_\+\+\_\+)
+\begin{DoxyCompactList}\small\item\em Log for a Fatal message. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsection*{Enumerations}
 \begin{DoxyCompactItemize}
 \item 
@@ -40,69 +46,38 @@ enum \mbox{\hyperlink{ab__logger_8h_ad09c15c023f4bd204786f7c031c45787}{abl\+\_\+
 \doxysubsection*{Functions}
 \begin{DoxyCompactItemize}
 \item 
-void \mbox{\hyperlink{ab__logger_8h_adc94b6d140adcd78c7f0bb2fce524667}{abl\+\_\+start\+\_\+server}} (ab\+\_\+log $\ast$Logger, \mbox{\hyperlink{ab__common_8h_ae9b1af5c037e57a98884758875d3a7c4}{s32}} Port)
+abl\+\_\+log $\ast$ \mbox{\hyperlink{ab__logger_8h_aaa28a8f3f10cc22416325143aa67b3fd}{abl\+\_\+\+Initialize\+Logger}} (memory\+\_\+arena $\ast$Memory, \mbox{\hyperlink{ab__common_8h_ae9b1af5c037e57a98884758875d3a7c4}{s32}} Port)
 \item 
-void \mbox{\hyperlink{ab__logger_8h_adce1f3ea2b2bd6eea7e33b63fd8c0499}{abl\+\_\+set\+\_\+fp}} (ab\+\_\+log $\ast$Logger, F\+I\+LE $\ast$fp)
-\item 
-void \mbox{\hyperlink{ab__logger_8h_ad9700e7478bc6850a033e6c1cc6eeaa1}{abl\+\_\+set\+\_\+level}} (ab\+\_\+log $\ast$Logger, \mbox{\hyperlink{ab__logger_8h_ad09c15c023f4bd204786f7c031c45787}{abl\+\_\+log\+\_\+level}} Level)
-\item 
-void \mbox{\hyperlink{ab__logger_8h_af26d8d70a5083e1d9c994c3e3f0b5622}{abl\+\_\+set\+\_\+quiet}} (ab\+\_\+log $\ast$Logger, \mbox{\hyperlink{ab__common_8h_a70e369648385b50f2d0588e8e8745275}{b8}} is\+Quiet)
-\item 
-void \mbox{\hyperlink{ab__logger_8h_a830f7af6399163b2ac8c6443042f97c7}{abl\+\_\+stop\+\_\+server}} (ab\+\_\+log $\ast$Logger)
-\item 
-void \mbox{\hyperlink{ab__logger_8h_a7d0be7575c2768d56ad5bdc391d3d769}{abl\+\_\+log}} (ab\+\_\+log $\ast$Logger, \mbox{\hyperlink{ab__logger_8h_ad09c15c023f4bd204786f7c031c45787}{abl\+\_\+log\+\_\+level}} Level, const char $\ast$File, \mbox{\hyperlink{ab__common_8h_ae9b1af5c037e57a98884758875d3a7c4}{s32}} Line, const char $\ast$Fmt,...)
-\end{DoxyCompactItemize}
+void \mbox{\hyperlink{ab__logger_8h_a2acef18371e989f24d061dc2e9a972ba}{abl\+\_\+\+Set\+Level}} (abl\+\_\+log $\ast$Logger, \mbox{\hyperlink{ab__logger_8h_ad09c15c023f4bd204786f7c031c45787}{abl\+\_\+log\+\_\+level}} Level)
+\begin{DoxyCompactList}\small\item\em Set log level. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{ab__logger_8h_a3166093b2ec6be5dd8776afc46c2399c}{abl\+\_\+\+Set\+Pause}} (abl\+\_\+log $\ast$Logger, \mbox{\hyperlink{ab__common_8h_a70e369648385b50f2d0588e8e8745275}{b8}} do\+Pause)
+\begin{DoxyCompactList}\small\item\em Pause/\+Unpause the logging output. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{ab__logger_8h_a3ddedbbc75ae37fd8b7fbb59e95db2a0}{abl\+\_\+\+Shutdown}} (abl\+\_\+log $\ast$Logger)
+\begin{DoxyCompactList}\small\item\em Shutdown the logger object. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
-\doxysubsection{Macro Definition Documentation}
-\mbox{\Hypertarget{ab__logger_8h_af0d95724956482b6abce967bec5bca6d}\label{ab__logger_8h_af0d95724956482b6abce967bec5bca6d}} 
-\index{ab\_logger.h@{ab\_logger.h}!abl\_debug@{abl\_debug}}
-\index{abl\_debug@{abl\_debug}!ab\_logger.h@{ab\_logger.h}}
-\doxysubsubsection{\texorpdfstring{abl\_debug}{abl\_debug}}
-{\footnotesize\ttfamily \#define abl\+\_\+debug(\begin{DoxyParamCaption}\item[{}]{Logger,  }\item[{}]{Fmt,  }\item[{}]{... }\end{DoxyParamCaption})~\mbox{\hyperlink{ab__logger_8h_a7d0be7575c2768d56ad5bdc391d3d769}{abl\+\_\+log}}(Logger, L\+O\+G\+\_\+\+D\+E\+B\+UG, \+\_\+\+\_\+\+F\+I\+L\+E\+\_\+\+\_\+, \+\_\+\+\_\+\+L\+I\+N\+E\+\_\+\+\_\+, Fmt, \+\_\+\+\_\+\+V\+A\+\_\+\+A\+R\+G\+S\+\_\+\+\_\+)}
+\doxysubsection{Detailed Description}
+Network Logger. 
 
-\mbox{\Hypertarget{ab__logger_8h_a9701d37f9ea32885eb4435456b54380c}\label{ab__logger_8h_a9701d37f9ea32885eb4435456b54380c}} 
-\index{ab\_logger.h@{ab\_logger.h}!abl\_error@{abl\_error}}
-\index{abl\_error@{abl\_error}!ab\_logger.h@{ab\_logger.h}}
-\doxysubsubsection{\texorpdfstring{abl\_error}{abl\_error}}
-{\footnotesize\ttfamily \#define abl\+\_\+error(\begin{DoxyParamCaption}\item[{}]{Logger,  }\item[{}]{Fmt,  }\item[{}]{... }\end{DoxyParamCaption})~\mbox{\hyperlink{ab__logger_8h_a7d0be7575c2768d56ad5bdc391d3d769}{abl\+\_\+log}}(Logger, L\+O\+G\+\_\+\+E\+R\+R\+OR, \+\_\+\+\_\+\+F\+I\+L\+E\+\_\+\+\_\+, \+\_\+\+\_\+\+L\+I\+N\+E\+\_\+\+\_\+, Fmt, \+\_\+\+\_\+\+V\+A\+\_\+\+A\+R\+G\+S\+\_\+\+\_\+)}
+\begin{DoxyAuthor}{Author}
+Amos Buchanan 
+\end{DoxyAuthor}
+\begin{DoxyVersion}{Version}
+1.\+0 
+\end{DoxyVersion}
+\begin{DoxyDate}{Date}
+2020 
+\end{DoxyDate}
+\begin{DoxyCopyright}{Copyright}
+\href{https://opensource.org/licenses/MIT}{\texttt{ M\+IT Public License}}
+\end{DoxyCopyright}
+Network logger using czmq. Use a different abl\+\_\+log for each thread and you should be ok. There is a possibility of a multi-\/thread logger at some point in the future, but not now. It uses a zmq publish socket under the hood, and you can use zmq subscribe to subscribe to the log.
 
-\mbox{\Hypertarget{ab__logger_8h_a56cde45c39126f008262c3d94e03e9b8}\label{ab__logger_8h_a56cde45c39126f008262c3d94e03e9b8}} 
-\index{ab\_logger.h@{ab\_logger.h}!abl\_fatal@{abl\_fatal}}
-\index{abl\_fatal@{abl\_fatal}!ab\_logger.h@{ab\_logger.h}}
-\doxysubsubsection{\texorpdfstring{abl\_fatal}{abl\_fatal}}
-{\footnotesize\ttfamily \#define abl\+\_\+fatal(\begin{DoxyParamCaption}\item[{}]{Logger,  }\item[{}]{Fmt,  }\item[{}]{... }\end{DoxyParamCaption})~\mbox{\hyperlink{ab__logger_8h_a7d0be7575c2768d56ad5bdc391d3d769}{abl\+\_\+log}}(Logger, L\+O\+G\+\_\+\+F\+A\+T\+AL, \+\_\+\+\_\+\+F\+I\+L\+E\+\_\+\+\_\+, \+\_\+\+\_\+\+L\+I\+N\+E\+\_\+\+\_\+, Fmt, \+\_\+\+\_\+\+V\+A\+\_\+\+A\+R\+G\+S\+\_\+\+\_\+)}
+When subscribing, you can subscribe to any of the levels; each level is a different topic. Or subscribe to all of them using a blank subscription of {\ttfamily \char`\"{}\char`\"{}}. Available topics are\+: \char`\"{}\+T\+R\+A\+C\+E\char`\"{} \char`\"{}\+D\+E\+B\+U\+G\char`\"{} \char`\"{}\+I\+N\+F\+O\char`\"{} \char`\"{}\+W\+A\+R\+N\char`\"{} \char`\"{}\+E\+R\+R\+O\+R\char`\"{} \char`\"{}\+F\+A\+T\+A\+L\char`\"{}
 
-\mbox{\Hypertarget{ab__logger_8h_a0e01c4cfce56ca553e16e2f85bb9f0fe}\label{ab__logger_8h_a0e01c4cfce56ca553e16e2f85bb9f0fe}} 
-\index{ab\_logger.h@{ab\_logger.h}!abl\_info@{abl\_info}}
-\index{abl\_info@{abl\_info}!ab\_logger.h@{ab\_logger.h}}
-\doxysubsubsection{\texorpdfstring{abl\_info}{abl\_info}}
-{\footnotesize\ttfamily \#define abl\+\_\+info(\begin{DoxyParamCaption}\item[{}]{Logger,  }\item[{}]{Fmt,  }\item[{}]{... }\end{DoxyParamCaption})~\mbox{\hyperlink{ab__logger_8h_a7d0be7575c2768d56ad5bdc391d3d769}{abl\+\_\+log}}(Logger, L\+O\+G\+\_\+\+I\+N\+FO,  \+\_\+\+\_\+\+F\+I\+L\+E\+\_\+\+\_\+, \+\_\+\+\_\+\+L\+I\+N\+E\+\_\+\+\_\+, Fmt, \+\_\+\+\_\+\+V\+A\+\_\+\+A\+R\+G\+S\+\_\+\+\_\+)}
+You can use printf()-\/like syntax with the error messages, see example.
 
-\mbox{\Hypertarget{ab__logger_8h_a1c3af1ceb74203276ce7ca7ec60b6e63}\label{ab__logger_8h_a1c3af1ceb74203276ce7ca7ec60b6e63}} 
-\index{ab\_logger.h@{ab\_logger.h}!abl\_trace@{abl\_trace}}
-\index{abl\_trace@{abl\_trace}!ab\_logger.h@{ab\_logger.h}}
-\doxysubsubsection{\texorpdfstring{abl\_trace}{abl\_trace}}
-{\footnotesize\ttfamily \#define abl\+\_\+trace(\begin{DoxyParamCaption}\item[{}]{Logger,  }\item[{}]{Fmt,  }\item[{}]{... }\end{DoxyParamCaption})~\mbox{\hyperlink{ab__logger_8h_a7d0be7575c2768d56ad5bdc391d3d769}{abl\+\_\+log}}(Logger, L\+O\+G\+\_\+\+T\+R\+A\+CE, \+\_\+\+\_\+\+F\+I\+L\+E\+\_\+\+\_\+, \+\_\+\+\_\+\+L\+I\+N\+E\+\_\+\+\_\+, Fmt, \+\_\+\+\_\+\+V\+A\+\_\+\+A\+R\+G\+S\+\_\+\+\_\+)}
-
-If multi-\/threaded, must declare a logger for use. \mbox{\Hypertarget{ab__logger_8h_ace87fcfe98d7bb16ff20b09002b0f41b}\label{ab__logger_8h_ace87fcfe98d7bb16ff20b09002b0f41b}} 
-\index{ab\_logger.h@{ab\_logger.h}!abl\_warn@{abl\_warn}}
-\index{abl\_warn@{abl\_warn}!ab\_logger.h@{ab\_logger.h}}
-\doxysubsubsection{\texorpdfstring{abl\_warn}{abl\_warn}}
-{\footnotesize\ttfamily \#define abl\+\_\+warn(\begin{DoxyParamCaption}\item[{}]{Logger,  }\item[{}]{Fmt,  }\item[{}]{... }\end{DoxyParamCaption})~\mbox{\hyperlink{ab__logger_8h_a7d0be7575c2768d56ad5bdc391d3d769}{abl\+\_\+log}}(Logger, L\+O\+G\+\_\+\+W\+A\+RN,  \+\_\+\+\_\+\+F\+I\+L\+E\+\_\+\+\_\+, \+\_\+\+\_\+\+L\+I\+N\+E\+\_\+\+\_\+, Fmt, \+\_\+\+\_\+\+V\+A\+\_\+\+A\+R\+G\+S\+\_\+\+\_\+)}
-
-
-
-\doxysubsection{Enumeration Type Documentation}
-\mbox{\Hypertarget{ab__logger_8h_ad09c15c023f4bd204786f7c031c45787}\label{ab__logger_8h_ad09c15c023f4bd204786f7c031c45787}} 
-\index{ab\_logger.h@{ab\_logger.h}!abl\_log\_level@{abl\_log\_level}}
-\index{abl\_log\_level@{abl\_log\_level}!ab\_logger.h@{ab\_logger.h}}
-\doxysubsubsection{\texorpdfstring{abl\_log\_level}{abl\_log\_level}}
-{\footnotesize\ttfamily enum \mbox{\hyperlink{ab__logger_8h_ad09c15c023f4bd204786f7c031c45787}{abl\+\_\+log\+\_\+level}}}
-
-Logger. Version\+: 1.\+0 Network logger using czmq. Will log to S\+T\+D\+E\+RR, a file and/or to a czmq network, depending on setup. S\+T\+D\+E\+RR logging not garunteed to be threadsafe, don\textquotesingle{}t do it. Logging multiple threads to the same file not garunteed to be threadsafe. C\+Z\+MQ logging is threadsafe subject to the restrictions of C\+Z\+MQ.
-
-Basically, use a different ab\+\_\+log for each thread and you should be ok.
+For an example of subscribing to the log, see {\ttfamily \mbox{\hyperlink{ab__loggerclient_8h}{ab\+\_\+loggerclient.\+h}}}.
 
 This is a single-\/file-\/library. You may include the file anywhere in your source. Only once in your code, define the following\+:
 
@@ -115,21 +90,124 @@ This is a single-\/file-\/library. You may include the file anywhere in your sou
 
 This will include the source.
 
-There\textquotesingle{}s a single-\/thread use that uses a global logger. Define the following\+: 
+Available levels\+: {\ttfamily A\+B\+L\+\_\+\+T\+R\+A\+CE} {\ttfamily A\+B\+L\+\_\+\+D\+E\+B\+UG} {\ttfamily A\+B\+L\+\_\+\+I\+N\+FO} {\ttfamily A\+B\+L\+\_\+\+W\+A\+RN} {\ttfamily A\+B\+L\+\_\+\+E\+R\+R\+OR} {\ttfamily A\+B\+L\+\_\+\+F\+A\+T\+AL}
+
+example usage\+: 
 \begin{DoxyCode}{0}
-\DoxyCodeLine{\textcolor{preprocessor}{\#define AB\_LOGGER\_SINGLETHREAD}}
+\DoxyCodeLine{\textcolor{comment}{// Setup a logger to publish on port 5555.}}
+\DoxyCodeLine{abl\_log *Logger = \mbox{\hyperlink{ab__logger_8h_aaa28a8f3f10cc22416325143aa67b3fd}{abl\_InitializeLogger}}(\&Memory, 5555, \mbox{\hyperlink{ab__logger_8h_ad09c15c023f4bd204786f7c031c45787a7fccde42da961232bd100be86f2c32b1}{ABL\_TRACE}});}
+\DoxyCodeLine{    }
+\DoxyCodeLine{\mbox{\hyperlink{ab__logger_8h_a2acef18371e989f24d061dc2e9a972ba}{abl\_SetLevel}}(Logger, \mbox{\hyperlink{ab__logger_8h_ad09c15c023f4bd204786f7c031c45787a7fccde42da961232bd100be86f2c32b1}{ABL\_TRACE}});}
+\DoxyCodeLine{        \mbox{\hyperlink{ab__logger_8h_a31cd708ccfdd5bef7c6c247b3c58e678}{abl\_trace}}(Logger, \textcolor{stringliteral}{"{}Trace Log."{}});}
+\DoxyCodeLine{        \mbox{\hyperlink{ab__logger_8h_a7c4a27c251a95f80592402a675e65d43}{abl\_debug}}(Logger, \textcolor{stringliteral}{"{}Debug Log, with error code: \%d."{}}, errno);}
+\DoxyCodeLine{        \mbox{\hyperlink{ab__logger_8h_a09c558942511acfdd2beae1f44d7a8f9}{abl\_info}}(Logger, \textcolor{stringliteral}{"{}Info Log"{}});}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{comment}{// Logs will not be sent while paused.}}
+\DoxyCodeLine{\mbox{\hyperlink{ab__logger_8h_a3166093b2ec6be5dd8776afc46c2399c}{abl\_SetPause}}(Logger, \textcolor{keyword}{true}); }
+\DoxyCodeLine{        \mbox{\hyperlink{ab__logger_8h_a04f1b0b56c8bee0fc0fd4b99de53fb9f}{abl\_warn}}(Logger, \textcolor{stringliteral}{"{}Warn Log"{}});}
+\DoxyCodeLine{        \mbox{\hyperlink{ab__logger_8h_a76a7fdcfc8b18297285187c95d5ccbbd}{abl\_error}}(Logger, \textcolor{stringliteral}{"{}Error Log, serious error. \%s"{}}, SomeSeriousErrorMessage);}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{comment}{// Start sending logs again.}}
+\DoxyCodeLine{\mbox{\hyperlink{ab__logger_8h_a3166093b2ec6be5dd8776afc46c2399c}{abl\_SetPause}}(Logger, \textcolor{keyword}{false});}
+\DoxyCodeLine{}
+\DoxyCodeLine{        \mbox{\hyperlink{ab__logger_8h_aa33ac7492e2653c73a4449db90f2e60a}{abl\_fatal}}(Logger, \textcolor{stringliteral}{"{}Fatal Log"{}});}
+\DoxyCodeLine{        }
+\DoxyCodeLine{\mbox{\hyperlink{ab__logger_8h_a3ddedbbc75ae37fd8b7fbb59e95db2a0}{abl\_Shutdown}}(Logger);}
 \end{DoxyCode}
 
 
-To use color on S\+T\+D\+E\+RR\+: 
-\begin{DoxyCode}{0}
-\DoxyCodeLine{\textcolor{preprocessor}{\#define AB\_LOGGER\_USE\_COLOR}}
-\end{DoxyCode}
+\doxysubsection*{References}
 
 
-Available levels\+: A\+B\+L\+\_\+\+T\+R\+A\+CE, A\+B\+L\+\_\+\+D\+E\+B\+UG, A\+B\+L\+\_\+\+I\+N\+FO, A\+B\+L\+\_\+\+W\+A\+RN, A\+B\+L\+\_\+\+E\+R\+R\+OR, A\+B\+L\+\_\+\+F\+A\+T\+AL
+\begin{DoxyItemize}
+\item \mbox{\hyperlink{ab__loggerclient_8h}{ab\+\_\+loggerclient.\+h}}
+\item \href{https://zeromq.org/}{\texttt{ zmq Messaging}}
+\item \href{http://czmq.zeromq.org/}{\texttt{ czmq C Library for Z\+MQ messaging}}
+\end{DoxyItemize}
 
-example usage\+: abl\+\_\+log Logger = \{\}; abl\+\_\+set\+\_\+level(\&\+Logger, A\+B\+L\+\_\+\+I\+N\+F\+O); abl\+\_\+start\+\_\+server(\&\+Logger, 555); abl\+\_\+info(\&Logger, \char`\"{}\+Some log\char`\"{}); abl\+\_\+info(\&Logger, \char`\"{}\+More Info, \%d\char`\"{}, errno); abl\+\_\+stop\+\_\+server(\&\+Logger); \begin{DoxyEnumFields}{Enumerator}
+\doxysubsection*{M\+IT License}
+
+\href{https://opensource.org/licenses/MIT}{\texttt{ M\+IT Public License}}
+
+Copyright 2020 Amos Buchanan
+
+Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the \char`\"{}\+Software\char`\"{}), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions\+:
+
+The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
+
+T\+HE S\+O\+F\+T\+W\+A\+RE IS P\+R\+O\+V\+I\+D\+ED \char`\"{}\+A\+S I\+S\char`\"{}, W\+I\+T\+H\+O\+UT W\+A\+R\+R\+A\+N\+TY OF A\+NY K\+I\+ND, E\+X\+P\+R\+E\+SS OR I\+M\+P\+L\+I\+ED, I\+N\+C\+L\+U\+D\+I\+NG B\+UT N\+OT L\+I\+M\+I\+T\+ED TO T\+HE W\+A\+R\+R\+A\+N\+T\+I\+ES OF M\+E\+R\+C\+H\+A\+N\+T\+A\+B\+I\+L\+I\+TY, F\+I\+T\+N\+E\+SS F\+OR A P\+A\+R\+T\+I\+C\+U\+L\+AR P\+U\+R\+P\+O\+SE A\+ND N\+O\+N\+I\+N\+F\+R\+I\+N\+G\+E\+M\+E\+NT. IN NO E\+V\+E\+NT S\+H\+A\+LL T\+HE A\+U\+T\+H\+O\+RS OR C\+O\+P\+Y\+R\+I\+G\+HT H\+O\+L\+D\+E\+RS BE L\+I\+A\+B\+LE F\+OR A\+NY C\+L\+A\+IM, D\+A\+M\+A\+G\+ES OR O\+T\+H\+ER L\+I\+A\+B\+I\+L\+I\+TY, W\+H\+E\+T\+H\+ER IN AN A\+C\+T\+I\+ON OF C\+O\+N\+T\+R\+A\+CT, T\+O\+RT OR O\+T\+H\+E\+R\+W\+I\+SE, A\+R\+I\+S\+I\+NG F\+R\+OM, O\+UT OF OR IN C\+O\+N\+N\+E\+C\+T\+I\+ON W\+I\+TH T\+HE S\+O\+F\+T\+W\+A\+RE OR T\+HE U\+SE OR O\+T\+H\+ER D\+E\+A\+L\+I\+N\+GS IN T\+HE S\+O\+F\+T\+W\+A\+RE. 
+
+\doxysubsection{Macro Definition Documentation}
+\mbox{\Hypertarget{ab__logger_8h_a7c4a27c251a95f80592402a675e65d43}\label{ab__logger_8h_a7c4a27c251a95f80592402a675e65d43}} 
+\index{ab\_logger.h@{ab\_logger.h}!abl\_debug@{abl\_debug}}
+\index{abl\_debug@{abl\_debug}!ab\_logger.h@{ab\_logger.h}}
+\doxysubsubsection{\texorpdfstring{abl\_debug}{abl\_debug}}
+{\footnotesize\ttfamily \#define abl\+\_\+debug(\begin{DoxyParamCaption}\item[{}]{L\+O\+G\+G\+ER,  }\item[{}]{Fmt,  }\item[{}]{... }\end{DoxyParamCaption})~abl\+\_\+\+Log\+Function(L\+O\+G\+G\+ER, \mbox{\hyperlink{ab__logger_8h_ad09c15c023f4bd204786f7c031c45787a4a4d2ab22d6f6be96611dfc75021117e}{A\+B\+L\+\_\+\+D\+E\+B\+UG}}, \+\_\+\+\_\+\+F\+I\+L\+E\+\_\+\+\_\+, \+\_\+\+\_\+\+L\+I\+N\+E\+\_\+\+\_\+, Fmt, \#\#\+\_\+\+\_\+\+V\+A\+\_\+\+A\+R\+G\+S\+\_\+\+\_\+)}
+
+
+
+Log for a Debug message. 
+
+\mbox{\Hypertarget{ab__logger_8h_a76a7fdcfc8b18297285187c95d5ccbbd}\label{ab__logger_8h_a76a7fdcfc8b18297285187c95d5ccbbd}} 
+\index{ab\_logger.h@{ab\_logger.h}!abl\_error@{abl\_error}}
+\index{abl\_error@{abl\_error}!ab\_logger.h@{ab\_logger.h}}
+\doxysubsubsection{\texorpdfstring{abl\_error}{abl\_error}}
+{\footnotesize\ttfamily \#define abl\+\_\+error(\begin{DoxyParamCaption}\item[{}]{L\+O\+G\+G\+ER,  }\item[{}]{Fmt,  }\item[{}]{... }\end{DoxyParamCaption})~abl\+\_\+\+Log\+Function(L\+O\+G\+G\+ER, \mbox{\hyperlink{ab__logger_8h_ad09c15c023f4bd204786f7c031c45787a11c5fd338567ea5a3cdff6dfec3b7b5f}{A\+B\+L\+\_\+\+E\+R\+R\+OR}}, \+\_\+\+\_\+\+F\+I\+L\+E\+\_\+\+\_\+, \+\_\+\+\_\+\+L\+I\+N\+E\+\_\+\+\_\+, Fmt, \#\#\+\_\+\+\_\+\+V\+A\+\_\+\+A\+R\+G\+S\+\_\+\+\_\+)}
+
+
+
+Log for an Error message. 
+
+\mbox{\Hypertarget{ab__logger_8h_aa33ac7492e2653c73a4449db90f2e60a}\label{ab__logger_8h_aa33ac7492e2653c73a4449db90f2e60a}} 
+\index{ab\_logger.h@{ab\_logger.h}!abl\_fatal@{abl\_fatal}}
+\index{abl\_fatal@{abl\_fatal}!ab\_logger.h@{ab\_logger.h}}
+\doxysubsubsection{\texorpdfstring{abl\_fatal}{abl\_fatal}}
+{\footnotesize\ttfamily \#define abl\+\_\+fatal(\begin{DoxyParamCaption}\item[{}]{L\+O\+G\+G\+ER,  }\item[{}]{Fmt,  }\item[{}]{... }\end{DoxyParamCaption})~abl\+\_\+\+Log\+Function(L\+O\+G\+G\+ER, \mbox{\hyperlink{ab__logger_8h_ad09c15c023f4bd204786f7c031c45787a3c083097aaf5d4784c9513b0eba01e75}{A\+B\+L\+\_\+\+F\+A\+T\+AL}}, \+\_\+\+\_\+\+F\+I\+L\+E\+\_\+\+\_\+, \+\_\+\+\_\+\+L\+I\+N\+E\+\_\+\+\_\+, Fmt, \#\#\+\_\+\+\_\+\+V\+A\+\_\+\+A\+R\+G\+S\+\_\+\+\_\+)}
+
+
+
+Log for a Fatal message. 
+
+\mbox{\Hypertarget{ab__logger_8h_a09c558942511acfdd2beae1f44d7a8f9}\label{ab__logger_8h_a09c558942511acfdd2beae1f44d7a8f9}} 
+\index{ab\_logger.h@{ab\_logger.h}!abl\_info@{abl\_info}}
+\index{abl\_info@{abl\_info}!ab\_logger.h@{ab\_logger.h}}
+\doxysubsubsection{\texorpdfstring{abl\_info}{abl\_info}}
+{\footnotesize\ttfamily \#define abl\+\_\+info(\begin{DoxyParamCaption}\item[{}]{L\+O\+G\+G\+ER,  }\item[{}]{Fmt,  }\item[{}]{... }\end{DoxyParamCaption})~abl\+\_\+\+Log\+Function(L\+O\+G\+G\+ER, \mbox{\hyperlink{ab__logger_8h_ad09c15c023f4bd204786f7c031c45787a72e995c24ee1e50bfa27759c4c2c0bee}{A\+B\+L\+\_\+\+I\+N\+FO}},  \+\_\+\+\_\+\+F\+I\+L\+E\+\_\+\+\_\+, \+\_\+\+\_\+\+L\+I\+N\+E\+\_\+\+\_\+, Fmt, \#\#\+\_\+\+\_\+\+V\+A\+\_\+\+A\+R\+G\+S\+\_\+\+\_\+)}
+
+
+
+Log for an Info message. 
+
+\mbox{\Hypertarget{ab__logger_8h_a31cd708ccfdd5bef7c6c247b3c58e678}\label{ab__logger_8h_a31cd708ccfdd5bef7c6c247b3c58e678}} 
+\index{ab\_logger.h@{ab\_logger.h}!abl\_trace@{abl\_trace}}
+\index{abl\_trace@{abl\_trace}!ab\_logger.h@{ab\_logger.h}}
+\doxysubsubsection{\texorpdfstring{abl\_trace}{abl\_trace}}
+{\footnotesize\ttfamily \#define abl\+\_\+trace(\begin{DoxyParamCaption}\item[{}]{L\+O\+G\+G\+ER,  }\item[{}]{Fmt,  }\item[{}]{... }\end{DoxyParamCaption})~abl\+\_\+\+Log\+Function(L\+O\+G\+G\+ER, \mbox{\hyperlink{ab__logger_8h_ad09c15c023f4bd204786f7c031c45787a7fccde42da961232bd100be86f2c32b1}{A\+B\+L\+\_\+\+T\+R\+A\+CE}}, \+\_\+\+\_\+\+F\+I\+L\+E\+\_\+\+\_\+, \+\_\+\+\_\+\+L\+I\+N\+E\+\_\+\+\_\+, Fmt, \#\#\+\_\+\+\_\+\+V\+A\+\_\+\+A\+R\+G\+S\+\_\+\+\_\+)}
+
+
+
+Log for a Trace message. 
+
+\mbox{\Hypertarget{ab__logger_8h_a04f1b0b56c8bee0fc0fd4b99de53fb9f}\label{ab__logger_8h_a04f1b0b56c8bee0fc0fd4b99de53fb9f}} 
+\index{ab\_logger.h@{ab\_logger.h}!abl\_warn@{abl\_warn}}
+\index{abl\_warn@{abl\_warn}!ab\_logger.h@{ab\_logger.h}}
+\doxysubsubsection{\texorpdfstring{abl\_warn}{abl\_warn}}
+{\footnotesize\ttfamily \#define abl\+\_\+warn(\begin{DoxyParamCaption}\item[{}]{L\+O\+G\+G\+ER,  }\item[{}]{Fmt,  }\item[{}]{... }\end{DoxyParamCaption})~abl\+\_\+\+Log\+Function(L\+O\+G\+G\+ER, \mbox{\hyperlink{ab__logger_8h_ad09c15c023f4bd204786f7c031c45787af4a847c0c5d6fe01ec92ab29b2d21144}{A\+B\+L\+\_\+\+W\+A\+RN}},  \+\_\+\+\_\+\+F\+I\+L\+E\+\_\+\+\_\+, \+\_\+\+\_\+\+L\+I\+N\+E\+\_\+\+\_\+, Fmt, \#\#\+\_\+\+\_\+\+V\+A\+\_\+\+A\+R\+G\+S\+\_\+\+\_\+)}
+
+
+
+Log for a Warn message. 
+
+
+
+\doxysubsection{Enumeration Type Documentation}
+\mbox{\Hypertarget{ab__logger_8h_ad09c15c023f4bd204786f7c031c45787}\label{ab__logger_8h_ad09c15c023f4bd204786f7c031c45787}} 
+\index{ab\_logger.h@{ab\_logger.h}!abl\_log\_level@{abl\_log\_level}}
+\index{abl\_log\_level@{abl\_log\_level}!ab\_logger.h@{ab\_logger.h}}
+\doxysubsubsection{\texorpdfstring{abl\_log\_level}{abl\_log\_level}}
+{\footnotesize\ttfamily enum \mbox{\hyperlink{ab__logger_8h_ad09c15c023f4bd204786f7c031c45787}{abl\+\_\+log\+\_\+level}}}
+
+\begin{DoxyEnumFields}{Enumerator}
 \raisebox{\heightof{T}}[0pt][0pt]{\index{ABL\_TRACE@{ABL\_TRACE}!ab\_logger.h@{ab\_logger.h}}\index{ab\_logger.h@{ab\_logger.h}!ABL\_TRACE@{ABL\_TRACE}}}\mbox{\Hypertarget{ab__logger_8h_ad09c15c023f4bd204786f7c031c45787a7fccde42da961232bd100be86f2c32b1}\label{ab__logger_8h_ad09c15c023f4bd204786f7c031c45787a7fccde42da961232bd100be86f2c32b1}} 
 A\+B\+L\+\_\+\+T\+R\+A\+CE&\\
 \hline
@@ -158,40 +236,46 @@ A\+B\+L\+\_\+\+F\+A\+T\+AL&\\
 
 
 \doxysubsection{Function Documentation}
-\mbox{\Hypertarget{ab__logger_8h_a7d0be7575c2768d56ad5bdc391d3d769}\label{ab__logger_8h_a7d0be7575c2768d56ad5bdc391d3d769}} 
-\index{ab\_logger.h@{ab\_logger.h}!abl\_log@{abl\_log}}
-\index{abl\_log@{abl\_log}!ab\_logger.h@{ab\_logger.h}}
-\doxysubsubsection{\texorpdfstring{abl\_log()}{abl\_log()}}
-{\footnotesize\ttfamily void abl\+\_\+log (\begin{DoxyParamCaption}\item[{ab\+\_\+log $\ast$}]{Logger,  }\item[{\mbox{\hyperlink{ab__logger_8h_ad09c15c023f4bd204786f7c031c45787}{abl\+\_\+log\+\_\+level}}}]{Level,  }\item[{const char $\ast$}]{File,  }\item[{\mbox{\hyperlink{ab__common_8h_ae9b1af5c037e57a98884758875d3a7c4}{s32}}}]{Line,  }\item[{const char $\ast$}]{Fmt,  }\item[{}]{... }\end{DoxyParamCaption})}
+\mbox{\Hypertarget{ab__logger_8h_aaa28a8f3f10cc22416325143aa67b3fd}\label{ab__logger_8h_aaa28a8f3f10cc22416325143aa67b3fd}} 
+\index{ab\_logger.h@{ab\_logger.h}!abl\_InitializeLogger@{abl\_InitializeLogger}}
+\index{abl\_InitializeLogger@{abl\_InitializeLogger}!ab\_logger.h@{ab\_logger.h}}
+\doxysubsubsection{\texorpdfstring{abl\_InitializeLogger()}{abl\_InitializeLogger()}}
+{\footnotesize\ttfamily abl\+\_\+log$\ast$ abl\+\_\+\+Initialize\+Logger (\begin{DoxyParamCaption}\item[{memory\+\_\+arena $\ast$}]{Memory,  }\item[{\mbox{\hyperlink{ab__common_8h_ae9b1af5c037e57a98884758875d3a7c4}{s32}}}]{Port }\end{DoxyParamCaption})}
 
-\mbox{\Hypertarget{ab__logger_8h_adce1f3ea2b2bd6eea7e33b63fd8c0499}\label{ab__logger_8h_adce1f3ea2b2bd6eea7e33b63fd8c0499}} 
-\index{ab\_logger.h@{ab\_logger.h}!abl\_set\_fp@{abl\_set\_fp}}
-\index{abl\_set\_fp@{abl\_set\_fp}!ab\_logger.h@{ab\_logger.h}}
-\doxysubsubsection{\texorpdfstring{abl\_set\_fp()}{abl\_set\_fp()}}
-{\footnotesize\ttfamily void abl\+\_\+set\+\_\+fp (\begin{DoxyParamCaption}\item[{ab\+\_\+log $\ast$}]{Logger,  }\item[{F\+I\+LE $\ast$}]{fp }\end{DoxyParamCaption})}
+\mbox{\Hypertarget{ab__logger_8h_a2acef18371e989f24d061dc2e9a972ba}\label{ab__logger_8h_a2acef18371e989f24d061dc2e9a972ba}} 
+\index{ab\_logger.h@{ab\_logger.h}!abl\_SetLevel@{abl\_SetLevel}}
+\index{abl\_SetLevel@{abl\_SetLevel}!ab\_logger.h@{ab\_logger.h}}
+\doxysubsubsection{\texorpdfstring{abl\_SetLevel()}{abl\_SetLevel()}}
+{\footnotesize\ttfamily void abl\+\_\+\+Set\+Level (\begin{DoxyParamCaption}\item[{abl\+\_\+log $\ast$}]{Logger,  }\item[{\mbox{\hyperlink{ab__logger_8h_ad09c15c023f4bd204786f7c031c45787}{abl\+\_\+log\+\_\+level}}}]{Level }\end{DoxyParamCaption})}
 
-\mbox{\Hypertarget{ab__logger_8h_ad9700e7478bc6850a033e6c1cc6eeaa1}\label{ab__logger_8h_ad9700e7478bc6850a033e6c1cc6eeaa1}} 
-\index{ab\_logger.h@{ab\_logger.h}!abl\_set\_level@{abl\_set\_level}}
-\index{abl\_set\_level@{abl\_set\_level}!ab\_logger.h@{ab\_logger.h}}
-\doxysubsubsection{\texorpdfstring{abl\_set\_level()}{abl\_set\_level()}}
-{\footnotesize\ttfamily void abl\+\_\+set\+\_\+level (\begin{DoxyParamCaption}\item[{ab\+\_\+log $\ast$}]{Logger,  }\item[{\mbox{\hyperlink{ab__logger_8h_ad09c15c023f4bd204786f7c031c45787}{abl\+\_\+log\+\_\+level}}}]{Level }\end{DoxyParamCaption})}
 
-\mbox{\Hypertarget{ab__logger_8h_af26d8d70a5083e1d9c994c3e3f0b5622}\label{ab__logger_8h_af26d8d70a5083e1d9c994c3e3f0b5622}} 
-\index{ab\_logger.h@{ab\_logger.h}!abl\_set\_quiet@{abl\_set\_quiet}}
-\index{abl\_set\_quiet@{abl\_set\_quiet}!ab\_logger.h@{ab\_logger.h}}
-\doxysubsubsection{\texorpdfstring{abl\_set\_quiet()}{abl\_set\_quiet()}}
-{\footnotesize\ttfamily void abl\+\_\+set\+\_\+quiet (\begin{DoxyParamCaption}\item[{ab\+\_\+log $\ast$}]{Logger,  }\item[{\mbox{\hyperlink{ab__common_8h_a70e369648385b50f2d0588e8e8745275}{b8}}}]{is\+Quiet }\end{DoxyParamCaption})}
 
-\mbox{\Hypertarget{ab__logger_8h_adc94b6d140adcd78c7f0bb2fce524667}\label{ab__logger_8h_adc94b6d140adcd78c7f0bb2fce524667}} 
-\index{ab\_logger.h@{ab\_logger.h}!abl\_start\_server@{abl\_start\_server}}
-\index{abl\_start\_server@{abl\_start\_server}!ab\_logger.h@{ab\_logger.h}}
-\doxysubsubsection{\texorpdfstring{abl\_start\_server()}{abl\_start\_server()}}
-{\footnotesize\ttfamily void abl\+\_\+start\+\_\+server (\begin{DoxyParamCaption}\item[{ab\+\_\+log $\ast$}]{Logger,  }\item[{\mbox{\hyperlink{ab__common_8h_ae9b1af5c037e57a98884758875d3a7c4}{s32}}}]{Port }\end{DoxyParamCaption})}
+Set log level. 
 
-\mbox{\Hypertarget{ab__logger_8h_a830f7af6399163b2ac8c6443042f97c7}\label{ab__logger_8h_a830f7af6399163b2ac8c6443042f97c7}} 
-\index{ab\_logger.h@{ab\_logger.h}!abl\_stop\_server@{abl\_stop\_server}}
-\index{abl\_stop\_server@{abl\_stop\_server}!ab\_logger.h@{ab\_logger.h}}
-\doxysubsubsection{\texorpdfstring{abl\_stop\_server()}{abl\_stop\_server()}}
-{\footnotesize\ttfamily void abl\+\_\+stop\+\_\+server (\begin{DoxyParamCaption}\item[{ab\+\_\+log $\ast$}]{Logger }\end{DoxyParamCaption})}
+See \mbox{\hyperlink{ab__logger_8h_ad09c15c023f4bd204786f7c031c45787}{abl\+\_\+log\+\_\+level}} for available levels. \mbox{\Hypertarget{ab__logger_8h_a3166093b2ec6be5dd8776afc46c2399c}\label{ab__logger_8h_a3166093b2ec6be5dd8776afc46c2399c}} 
+\index{ab\_logger.h@{ab\_logger.h}!abl\_SetPause@{abl\_SetPause}}
+\index{abl\_SetPause@{abl\_SetPause}!ab\_logger.h@{ab\_logger.h}}
+\doxysubsubsection{\texorpdfstring{abl\_SetPause()}{abl\_SetPause()}}
+{\footnotesize\ttfamily void abl\+\_\+\+Set\+Pause (\begin{DoxyParamCaption}\item[{abl\+\_\+log $\ast$}]{Logger,  }\item[{\mbox{\hyperlink{ab__common_8h_a70e369648385b50f2d0588e8e8745275}{b8}}}]{do\+Pause }\end{DoxyParamCaption})}
 
-set is\+Quiet = true -\/$>$ true to disable logging to S\+T\+D\+E\+RR. 
+
+
+Pause/\+Unpause the logging output. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em Logger} & The logger to pause. \\
+\hline
+{\em do\+Pause} & True to pause, false to unpause. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{ab__logger_8h_a3ddedbbc75ae37fd8b7fbb59e95db2a0}\label{ab__logger_8h_a3ddedbbc75ae37fd8b7fbb59e95db2a0}} 
+\index{ab\_logger.h@{ab\_logger.h}!abl\_Shutdown@{abl\_Shutdown}}
+\index{abl\_Shutdown@{abl\_Shutdown}!ab\_logger.h@{ab\_logger.h}}
+\doxysubsubsection{\texorpdfstring{abl\_Shutdown()}{abl\_Shutdown()}}
+{\footnotesize\ttfamily void abl\+\_\+\+Shutdown (\begin{DoxyParamCaption}\item[{abl\+\_\+log $\ast$}]{Logger }\end{DoxyParamCaption})}
+
+
+
+Shutdown the logger object. 
+

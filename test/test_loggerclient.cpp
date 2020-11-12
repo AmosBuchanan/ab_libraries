@@ -3,8 +3,21 @@
     @author Amos Buchanan
     @version 1.0
     @date September 2020
-    @copyright MIT Public License.
 
+# Description
+
+This is an example for using a client for the zmq-based logger. You may subscribe to multiple loggers with this client. It will always listen for loggers on localhost.
+
+# Usage
+
+To use the client, run it from the command line. 
+~~~
+$ ./test_loggerclient [Port1 Port2 Port3 ...]
+~~~
+
+With no arguments, it will listen to `localhost:5555`, which is the default port for @ref ab_logger.h. If you add ports, it will adda logger client for each port. All log messages are printed to stdout.
+    
+@ref ab_logger.h
 **/
 
 #include <signal.h>
@@ -35,34 +48,57 @@ main(int argc, char *argv[])
     void *OsMemory = mem_AllocateOsMemory(NULL, Kilobytes(5));
     memory_arena Memory = mem_InitMemory(OsMemory, Kilobytes(5));
     
-    ablc_client *Client = ablc_Initialize(&Memory, 5);
+    // Intentionally create an arena that is too small to test a logger client can't be created.
+    memory_arena ConstrainedArena = mem_CreateSubArena(&Memory, 10);
+    {
+        lc_client *ConstrainedClient = lc_Initialize(&ConstrainedArena, 1);
+        if(ConstrainedClient)
+        {
+            printf("Was able to create a constrained client with 1 endpoint.\n");
+            lc_Shutdown(ConstrainedClient);
+        }
+        
+        ConstrainedClient = lc_Initialize(&ConstrainedArena, 20);
+        if(ConstrainedClient)
+        {
+            printf("Was able to create a constrained client with 20 endpoints.\n");
+            lc_Shutdown(ConstrainedClient);
+        }
+    }
+    
+    lc_client *Client = lc_Initialize(&Memory, 5);
     if(!Client)
     {
         printf("Failed to create client.\n");
         return 1;
     }
     
-    ablc_SetFile(Client, "ClientTestLog.log");
+    lc_SetFile(Client, "ClientTestLog.log");
     
     if(argc > 1)
     {
         for(int i = 1; i < argc; ++i)
         {
+            const s32 MinPort = 5000;
             s32 Port = atoi(argv[i]);
-            if(Port > 5000)
+            if(Port >= MinPort)
             {
                 char Endpoint[100];
                 char Name[100];
                 snprintf(Endpoint, ArrayCount(Endpoint), "tcp://127.0.0.1:%d", Port);
                 snprintf(Name, ArrayCount(Name), "Logger-%d", Port);
-                s32 EndpointIndex = ablc_AddEndpoint(Client, Name, Endpoint);
+                s32 EndpointIndex = lc_AddEndpoint(Client, Name, Endpoint);
+            }
+            else 
+            {
+                printf("Unable to add port %d - Ports must be greater than %d.\n", Port, MinPort);
             }
             
         }
     }
     else 
     {
-        s32 EndpointIndex = ablc_AddEndpoint(Client, "LoggerA", "tcp://127.0.0.1:5555");
+        s32 EndpointIndex = lc_AddEndpoint(Client, "Logger-5555", "tcp://127.0.0.1:5555");
     }
     
     const u32 SwitchTimeMs = 5000;
@@ -77,14 +113,14 @@ main(int argc, char *argv[])
         {
             StartTime = Now;
             isQuiet = !isQuiet;
-            ablc_SetQuiet(Client, isQuiet);
+            lc_SetQuiet(Client, isQuiet);
             printf("Setting Quiet to %d\n", isQuiet);
         }
         
         sleep(1);
     }
     
-    ablc_Shutdown(Client);
+    lc_Shutdown(Client);
     
     return 0;
 }

@@ -3,7 +3,6 @@
 @author Amos Buchanan
 @version 1.0
 @date 2020
-@copyright [MIT Public License](https://opensource.org/licenses/MIT)
 
 An example of how to subscribes to a logger created in @ref `ab_logger.h`. It also serves as a client that is usable on its own. This may subscribe to multiple loggers at different endpoints. By default it will print the log messages to stderr, but this is configurable. You can also set a filename to write all log messages.
 
@@ -24,45 +23,35 @@ void *OsMemory = mem_AllocateOsMemory(NULL, Kilobytes(5));
 memory_arena Memory = mem_InitMemory(OsMemory, Kilobytes(5));
 
 // This starts the client running in the background.
-ablc_client *Client = ablc_Initialize(&Memory);
+lc_client *Client = lc_Initialize(&Memory);
 if(!Client)
 {
   printf("Failed to create client.\n");
   return 1;
 }
 
-ablc_SetFile(Client, "ClientTestLog.log");
+lc_SetFile(Client, "ClientTestLog.log");
 // Turn off stderr logging.
-ablc_SetQuiet(Client, true);
+lc_SetQuiet(Client, true);
 
-s32 EndpointIndexA = ablc_AddEndpoint(Client, "LoggerA", "tcp://127.0.0.1:5555");
-s32 EndpointIndexB = ablc_AddEndpoint(Client, "LoggerB", "tcp://127.0.0.1:5556");
+s32 EndpointIndexA = lc_AddEndpoint(Client, "LoggerA", "tcp://127.0.0.1:5555");
+s32 EndpointIndexB = lc_AddEndpoint(Client, "LoggerB", "tcp://127.0.0.1:5556");
 
 sleep(10);
 // Print log files to stderr.
-ablc_SetQuiet(Client, false);
+lc_SetQuiet(Client, false);
 sleep(10);
 
-ablc_Shutdown(Client);
+lc_Shutdown(Client);
 ~~~
 
 # References
 
+- @ref test_loggerclient.cpp
  - @ref ab_logger.h
  - [zmq Messaging](https://zeromq.org/)
  - [czmq C Library for ZMQ messaging](http://czmq.zeromq.org/)
 
-# MIT License
-
-[MIT Public License](https://opensource.org/licenses/MIT)
-
-Copyright 2020 Amos Buchanan
-
-Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
-
-The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
-
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 **/
 
 #ifndef AB_LOGGERCLIENT_H
@@ -72,9 +61,9 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 #include "ab_memory.h"
 #include "czmq.h"
 
-struct ablc_client;
+struct lc_client;
 
-struct ablc_message
+struct lc_message
 {
     char *LogLevel;
     u64 Timestamp;
@@ -82,7 +71,7 @@ struct ablc_message
     char *Message;
 };
 
-typedef void (*log_function)(ablc_message);
+typedef void (*log_function)(lc_message *Message, char *EndpointLabel, b8 isPause, b8 isQuiet, FILE *FilePointer);
 
 /** @brief Initialize a new client.
 
@@ -92,75 +81,122 @@ The client can remove and add endpoints through its running. However, there can 
 
 @param Memory The memory from which the client can allocate.
 @param MaxEndpoints The maximum number of endpoints the client will be attached to. There will always be a minimum of one endpoint created.
+@return Returns the logger client, or null pointer if there isn't enough memory to create the desired number of endpoints.
 
 **/
-ablc_client *
-ablc_Initialize(memory_arena *Memory, u32 MaxEndpoints);
+lc_client *
+lc_Initialize(memory_arena *Memory, u32 MaxEndpoints);
 
+/** @brief Adds a new endpoint to the client.
+
+This will add a new endpoint for the client to watch. Endpoint is a zmq-formated URI, such as "tcp://127.0.0.1:5555". 
+
+@param Client The logger client.
+@param Label A label that can be used to differentiate this endpoint from other endpoints.
+@param Endpoint zmq URI endpoint to watch.
+@return The endpoint index, or '-1' if the endpoint couldn't be added.
+**/
 s32
-ablc_AddEndpoint(ablc_client *Client, char const *Label, char const *Endpoint);
+lc_AddEndpoint(lc_client *Client, char const *Label, char const *Endpoint);
 
+/** @brief Not currently implemented. **/
 void
-ablc_RemoveEndpoint(ablc_client *Client, char const *Label);
+lc_RemoveEndpoint(lc_client *Client, char const *Label);
 
+/** @brief Not currently implemented. **/
 void
-ablc_RemoveEndpoint(ablc_client *Client, u32 Index);
+lc_RemoveEndpoint(lc_client *Client, u32 Index);
 
-void
-ablc_SetFile(ablc_client *Client, char const *Filename);
+/** @brief set output file.
 
-void
-ablc_ClearFile(ablc_client *Client);
+If set, log messages are appended to the given file. Only one file may be written to at a time. If a new file is specified, the old file is closed.
 
+@param Client The logger client.
+@param Filename The filename to append to.
+**/
 void
-ablc_SetQuiet(ablc_client *Client, b8 doQuiet);
+lc_SetFile(lc_client *Client, char const *Filename);
 
-void
-ablc_SetPause(ablc_client *Client, b8 doPause);
+/** @brief Closes the output file.
 
-void
-ablc_Shutdown(ablc_client *Client);
+If there is an output file, closes it and stops writing out data to it.
 
+@param Client The logger client.
+**/
 void
-ablc_BasicLogger(ablc_message);
+lc_ClearFile(lc_client *Client);
+
+/** @brief Set to discontinue output to stderr.
+
+By default, the logs will print to stderr. Set quiet to true to suppress output to stderr. If there is a log file, messages will still be written out.
+
+@param Client The logger client.
+@param doQuiet True to suppress output.
+**/
+void
+lc_SetQuiet(lc_client *Client, b8 doQuiet);
+
+/** @brief Stop all incomming log messages.
+
+Set pause to discontinue recording all incoming messages. This will suppress both stderr and log file output.
+
+@param Client The logger client.
+@param doPause True to pause all data from being recorded.
+**/
+void
+lc_SetPause(lc_client *Client, b8 doPause);
+
+/** @brief Shutdown the client.
+
+Shutdown the client, all endpoints, and close background threads. Call this at the end of the program.
+
+@param Client The logger client.
+**/
+void
+lc_Shutdown(lc_client *Client);
+
+/** @private **/
+void
+lc_BasicLogger(lc_message *Message, char *EndpointLabel, b8 isPause, b8 isQuiet, FILE *FilePointer);
 
 #endif //AB_LOGGERCLIENT_H
 
 #ifdef AB_LOGGERCLIENT_SRC
-struct ablc_endpoint
+struct lc_endpoint
 {
     zsock_t *Socket;
     u32 Index;
     char *Name;
     
-    ablc_endpoint *Next;
+    lc_endpoint *Next;
 };
 
-struct ablc_client
+struct lc_client
 {
     zactor_t *Actor;
 };
 
-struct ablc_thread
+struct lc_thread
 {
     zpoller_t *Poller;
     b8 isQuiet;
     b8 isPause;
     FILE *FilePointer;
+    log_function LogFunction;
     
     memory_arena EndpointMemory;
-    ablc_endpoint *EndpointList;
-    ablc_endpoint *DeadEndpointList;
+    lc_endpoint *EndpointList;
+    lc_endpoint *DeadEndpointList;
     u32 LastIndex;
     u32 NumEndpoints;
     u32 MaxEndpoints;
 };
 
 void
-ablc_RemoveEndpoint(ablc_thread *Thread, u32 Index)
+lc_RemoveEndpoint(lc_thread *Thread, u32 Index)
 {
-    ablc_endpoint *Previous = 0;
-    ablc_endpoint *Current = Thread->EndpointList;
+    lc_endpoint *Previous = 0;
+    lc_endpoint *Current = Thread->EndpointList;
     while(Current)
     {
         if(Current->Index == Index)
@@ -188,12 +224,12 @@ ablc_RemoveEndpoint(ablc_thread *Thread, u32 Index)
             Current = Current->Next;
         }
     }
-} // ablc_RemoveEndpoint
+} // lc_RemoveEndpoint
 
 void
-ablc_PrintMessage(ablc_thread *Thread, zsock_t *Socket, zmsg_t *LogMsg)
+lc_PrintMessage(lc_thread *Thread, zsock_t *Socket, zmsg_t *LogMsg)
 {
-    ablc_endpoint *Current = Thread->EndpointList;
+    lc_endpoint *Current = Thread->EndpointList;
     char *Name = 0;
     while(Current)
     {
@@ -206,44 +242,55 @@ ablc_PrintMessage(ablc_thread *Thread, zsock_t *Socket, zmsg_t *LogMsg)
     }
     if(Name)
     {
-        char *Level = zmsg_popstr(LogMsg);
+        lc_message Message = {};
+        Message.LogLevel = zmsg_popstr(LogMsg);
         zframe_t *EpochFrame = zmsg_pop(LogMsg);
-        u64 Epoch = 0;
         if(zframe_size(EpochFrame) == sizeof(u64))
         {
-            Epoch = *((u64*)zframe_data(EpochFrame));
+            Message.Timestamp = *((u64*)zframe_data(EpochFrame));
         }
         zframe_destroy(&EpochFrame);
-        char *File = zmsg_popstr(LogMsg);
-        char *Message = zmsg_popstr(LogMsg);
-        if(!Thread->isPause)
-        {
-            time_t EpochTime = (time_t)Epoch;
-            tm *lt = gmtime(&EpochTime);
-            char TimeBuffer[50];
-            TimeBuffer[strftime(TimeBuffer, sizeof(TimeBuffer), "%Y-%m-%d %H:%M:%S", lt)] = '\0';
-            
-            if(!Thread->isQuiet)
-            {
-                fprintf(stderr, "%s %-5s %s:%s - %s\n", TimeBuffer, Level, Name, File, Message);
-            }
-            
-            if(Thread->FilePointer)
-            {
-                fprintf(Thread->FilePointer, "%s %-5s %s:%s - %s\n", TimeBuffer, Level, Name, File, Message);
-            }
-        }
+        Message.File = zmsg_popstr(LogMsg);
+        Message.Message = zmsg_popstr(LogMsg);
+        
+        Thread->LogFunction(&Message, Name, Thread->isPause, Thread->isQuiet, Thread->FilePointer);
+        
+        free(Message.LogLevel);
+        free(Message.File);
+        free(Message.Message);
     }
     else
     {
         printf("CLIENT ERROR --- Recieved message from unknown socket.");
     }
-} // ablc_PrintMessage
+} // lc_PrintMessage
+
+void 
+lc_BasicLogger(lc_message *Message, char *EndpointLabel, b8 isPause, b8 isQuiet, FILE *FilePointer)
+{
+    if(!isPause)
+    {
+        time_t EpochTime = (time_t)Message->Timestamp;
+        tm *lt = gmtime(&EpochTime);
+        char TimeBuffer[50];
+        TimeBuffer[strftime(TimeBuffer, sizeof(TimeBuffer), "%Y-%m-%d %H:%M:%S", lt)] = '\0';
+        
+        if(!isQuiet)
+        {
+            fprintf(stderr, "%s %-5s %s:%s - %s\n", TimeBuffer, Message->LogLevel, EndpointLabel, Message->File, Message->Message);
+        }
+        
+        if(FilePointer)
+        {
+            fprintf(FilePointer, "%s %-5s %s:%s - %s\n", TimeBuffer, Message->LogLevel, EndpointLabel, Message->File, Message->Message);
+        }
+    }
+}
 
 void
-ablc_ActorThread(zsock_t *Pipe, void *Args)
+lc_ActorThread(zsock_t *Pipe, void *Args)
 {
-    ablc_thread *Data = (ablc_thread*)Args;
+    lc_thread *Data = (lc_thread*)Args;
     
     Data->FilePointer = 0;
     
@@ -284,7 +331,7 @@ ablc_ActorThread(zsock_t *Pipe, void *Args)
                         zsock_t *NewSocket = zsock_new_sub(Endpoint, "");
                         if(NewSocket)
                         {
-                            ablc_endpoint *NewEndpoint;
+                            lc_endpoint *NewEndpoint;
                             if(Data->DeadEndpointList)
                             {
                                 NewEndpoint = Data->DeadEndpointList;
@@ -292,7 +339,7 @@ ablc_ActorThread(zsock_t *Pipe, void *Args)
                             }
                             else
                             {
-                                NewEndpoint = mem_PushStruct(&Data->EndpointMemory, ablc_endpoint);
+                                NewEndpoint = mem_PushStruct(&Data->EndpointMemory, lc_endpoint);
                             }
                             
                             NewEndpoint->Name = Name;
@@ -340,10 +387,25 @@ ablc_ActorThread(zsock_t *Pipe, void *Args)
                 else if(streq(Command, "SetFile"))
                 {
                     printf("Set File\n");
+                    if(Data->FilePointer)
+                    {
+                        fclose(Data->FilePointer);
+                        Data->FilePointer = 0;
+                    }
                     char *Filename = zmsg_popstr(Msg);
                     Data->FilePointer = fopen(Filename, "a");
                     free(Filename);
                 }
+                else if(streq(Command, "ClearFile"))
+                {
+                    printf("ClearFile\n");
+                    if(Data->FilePointer)
+                    {
+                        fclose(Data->FilePointer);
+                        Data->FilePointer = 0;
+                    }
+                }
+                
                 else if(streq(Command, "SetQuiet"))
                 {
                     printf("Set Quiet\n");
@@ -363,7 +425,7 @@ ablc_ActorThread(zsock_t *Pipe, void *Args)
         else if(Socket) // Any logger.
         {
             zmsg_t *Msg = zmsg_recv(Socket);
-            ablc_PrintMessage(Data, Socket, Msg);
+            lc_PrintMessage(Data, Socket, Msg);
             zmsg_destroy(&Msg);
         }
         
@@ -371,7 +433,7 @@ ablc_ActorThread(zsock_t *Pipe, void *Args)
     
     while(Data->EndpointList)
     {
-        ablc_RemoveEndpoint(Data, Data->EndpointList->Index);
+        lc_RemoveEndpoint(Data, Data->EndpointList->Index);
     }
     
     if(Data->FilePointer)
@@ -384,34 +446,42 @@ ablc_ActorThread(zsock_t *Pipe, void *Args)
     // TODO(amos): Disconnect from all loggers
     zpoller_destroy(&Data->Poller);
     zsock_signal(Pipe, 0);
-} // ablc_ActorThread
+} // lc_ActorThread
 
-ablc_client *
-ablc_Initialize(memory_arena *Memory, u32 MaxEndpoints)
+lc_client *
+lc_Initialize(memory_arena *Memory, u32 MaxEndpoints)
 {
+    lc_client *Client = 0;
     if(MaxEndpoints < 1)
     {
         MaxEndpoints = 1;
     }
-    ablc_client *Client = mem_PushStruct(Memory, ablc_client);
-    ablc_thread *Thread = mem_PushStruct(Memory, ablc_thread);
     
-    size_t BufferSize = sizeof(ablc_endpoint)*MaxEndpoints;
-    memory_arena EndpointMemory = mem_CreateSubArena(Memory, BufferSize);
-    Thread->EndpointMemory = EndpointMemory;
-    Thread->MaxEndpoints = MaxEndpoints;
+    size_t BufferSize = sizeof(lc_endpoint)*MaxEndpoints;
+    size_t TotalSizeNeeded = BufferSize + sizeof(lc_client) + sizeof(lc_thread);
     
-    zactor_t *Actor = zactor_new(ablc_ActorThread, Thread);
-    if(Actor)
+    if(mem_GetMemoryLeft(Memory) >= TotalSizeNeeded)
     {
-        Client->Actor = Actor;
+        Client = mem_PushStruct(Memory, lc_client);
+        lc_thread *Thread = mem_PushStruct(Memory, lc_thread);
+        
+        memory_arena EndpointMemory = mem_CreateSubArena(Memory, BufferSize);
+        Thread->EndpointMemory = EndpointMemory;
+        Thread->MaxEndpoints = MaxEndpoints;
+        Thread->LogFunction = lc_BasicLogger;
+        
+        zactor_t *Actor = zactor_new(lc_ActorThread, Thread);
+        if(Actor)
+        {
+            Client->Actor = Actor;
+        }
     }
     
     return Client;
-} // ablc_Initialize
+} // lc_Initialize
 
 s32
-ablc_AddEndpoint(ablc_client *Client, char const *Label, char const *Endpoint)
+lc_AddEndpoint(lc_client *Client, char const *Label, char const *Endpoint)
 {
     s32 Result = -1;
     zmsg_t *Msg = zmsg_new();
@@ -428,10 +498,10 @@ ablc_AddEndpoint(ablc_client *Client, char const *Label, char const *Endpoint)
     }
     
     return Result;
-} // ablc_AddEndpoint
+} // lc_AddEndpoint
 
 void
-ablc_RemoveEndpoint(ablc_client *Client, char const *Label)
+lc_RemoveEndpoint(lc_client *Client, char const *Label)
 {
     zmsg_t *Msg = zmsg_new();
     zmsg_addstr(Msg, "RemoveEndpointLabel");
@@ -440,7 +510,7 @@ ablc_RemoveEndpoint(ablc_client *Client, char const *Label)
 }
 
 void
-ablc_RemoveEndpoint(ablc_client *Client, u32 Index)
+lc_RemoveEndpoint(lc_client *Client, u32 Index)
 {
     zmsg_t *Msg = zmsg_new();
     zmsg_addstr(Msg, "RemoveEndpointIndex");
@@ -449,7 +519,7 @@ ablc_RemoveEndpoint(ablc_client *Client, u32 Index)
 }
 
 void
-ablc_SetFile(ablc_client *Client, char const *Filename)
+lc_SetFile(lc_client *Client, char const *Filename)
 {
     zmsg_t *Msg = zmsg_new();
     zmsg_addstr(Msg, "SetFile");
@@ -458,7 +528,7 @@ ablc_SetFile(ablc_client *Client, char const *Filename)
 }
 
 void
-ablc_ClearFile(ablc_client *Client)
+lc_ClearFile(lc_client *Client)
 {
     zmsg_t *Msg = zmsg_new();
     zmsg_addstr(Msg, "ClearFile");
@@ -466,7 +536,7 @@ ablc_ClearFile(ablc_client *Client)
 }
 
 void
-ablc_SetQuiet(ablc_client *Client, b8 doQuiet)
+lc_SetQuiet(lc_client *Client, b8 doQuiet)
 {
     zmsg_t *Msg = zmsg_new();
     zmsg_addstr(Msg, "SetQuiet");
@@ -475,7 +545,7 @@ ablc_SetQuiet(ablc_client *Client, b8 doQuiet)
 }
 
 void
-ablc_SetPause(ablc_client *Client, b8 doPause)
+lc_SetPause(lc_client *Client, b8 doPause)
 {
     zmsg_t *Msg = zmsg_new();
     zmsg_addstr(Msg, "SetPause");
@@ -485,7 +555,7 @@ ablc_SetPause(ablc_client *Client, b8 doPause)
 
 
 void
-ablc_Shutdown(ablc_client *Client)
+lc_Shutdown(lc_client *Client)
 {
     zstr_send(Client->Actor, "Shutdown");
     zsock_wait(Client->Actor);

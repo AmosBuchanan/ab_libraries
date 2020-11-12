@@ -10,7 +10,7 @@ This is a single-file library. You may include it as a header just as any other.
 
 ~~~c
 #define TIME_HELPER_SRC
-#include "ab_time.h"
+#include "ab_timehelper.h"
 ~~~
 
 Example Usage:

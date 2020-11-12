@@ -50,7 +50,7 @@ main(int argc, char *argv[])
         }
     }
     
-    abl_log *Logger = abl_InitializeLogger(&Memory, Port, ABL_TRACE);
+    logger *Logger = log_InitializeLogger(&Memory, Port, LOGGER_TRACE);
     if(!Logger)
     {
         printf("Failed to create logger.\n");
@@ -65,40 +65,40 @@ main(int argc, char *argv[])
     {
         sleep(2);
         
-        abl_SetLevel(Logger, ABL_TRACE);
-        abl_trace(Logger, "Trace Log.");
-        abl_debug(Logger, "Debug Log.");
-        abl_info(Logger, "Info Log");
-        abl_warn(Logger, "Warn Log");
-        abl_error(Logger, "Error Log");
-        abl_fatal(Logger, "Fatal Log");
+        log_SetLevel(Logger, LOGGER_TRACE);
+        log_trace(Logger, "Trace Log.");
+        log_debug(Logger, "Debug Log.");
+        log_info(Logger, "Info Log");
+        log_warn(Logger, "Warn Log");
+        log_error(Logger, "Error Log");
+        log_fatal(Logger, "Fatal Log");
         
-        abl_SetPause(Logger, true);
-        abl_trace(Logger, "Paused Trace Log.");
-        abl_debug(Logger, "Paused Debug Log.");
-        abl_info(Logger, "Paused Info Log");
-        abl_warn(Logger, "Paused Warn Log");
-        abl_error(Logger, "Paused Error Log");
-        abl_fatal(Logger, "Paused Fatal Log");
+        log_SetPause(Logger, true);
+        log_trace(Logger, "Paused Trace Log.");
+        log_debug(Logger, "Paused Debug Log.");
+        log_info(Logger, "Paused Info Log");
+        log_warn(Logger, "Paused Warn Log");
+        log_error(Logger, "Paused Error Log");
+        log_fatal(Logger, "Paused Fatal Log");
         
-        abl_SetPause(Logger, false);
-        abl_trace(Logger, "Unpaused Trace Log.");
-        abl_debug(Logger, "Unpaused Debug Log.");
-        abl_info(Logger, "Unpaused Info Log");
-        abl_warn(Logger, "Unpaused Warn Log");
-        abl_error(Logger, "Unpaused Error Log");
-        abl_fatal(Logger, "Unpaused Fatal Log");
+        log_SetPause(Logger, false);
+        log_trace(Logger, "Unpaused Trace Log.");
+        log_debug(Logger, "Unpaused Debug Log.");
+        log_info(Logger, "Unpaused Info Log");
+        log_warn(Logger, "Unpaused Warn Log");
+        log_error(Logger, "Unpaused Error Log");
+        log_fatal(Logger, "Unpaused Fatal Log");
         
-        abl_SetLevel(Logger, ABL_WARN);
-        abl_trace(Logger, "Unsent Trace Log.");
-        abl_debug(Logger, "Unsent Debug Log.");
-        abl_info(Logger, "Unsent Info Log");
-        abl_warn(Logger, "Sent Warn Log");
-        abl_error(Logger, "Sent Error Log");
-        abl_fatal(Logger, "Sent Fatal Log");
+        log_SetLevel(Logger, LOGGER_WARN);
+        log_trace(Logger, "Unsent Trace Log.");
+        log_debug(Logger, "Unsent Debug Log.");
+        log_info(Logger, "Unsent Info Log");
+        log_warn(Logger, "Sent Warn Log");
+        log_error(Logger, "Sent Error Log");
+        log_fatal(Logger, "Sent Fatal Log");
     }
     
-    abl_Shutdown(Logger);
+    log_Shutdown(Logger);
     
     return 0;
 }

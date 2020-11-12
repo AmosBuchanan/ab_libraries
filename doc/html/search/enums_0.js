@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['abl_5flog_5flevel_184',['abl_log_level',['../d4/d4b/ab__logger_8h.html#ad09c15c023f4bd204786f7c031c45787',1,'ab_logger.h']]]
+  ['json_5fflags_186',['json_flags',['../d2/d40/ab__json_8h.html#a23451be0e28c552e70c19429684f83cb',1,'ab_json.h']]]
 ];

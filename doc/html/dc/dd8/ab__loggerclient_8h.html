@@ -99,95 +99,97 @@ Include dependency graph for ab_loggerclient.h:</div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
 Classes</h2></td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d7/d74/structablc__message.html">ablc_message</a></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d5/d83/structlc__message.html">lc_message</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="typedef-members"></a>
 Typedefs</h2></td></tr>
-<tr class="memitem:af262e3b1912ee661a49f0e9c59eb7d2d"><td class="memItemLeft" align="right" valign="top">typedef void(*&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dc/dd8/ab__loggerclient_8h.html#af262e3b1912ee661a49f0e9c59eb7d2d">log_function</a>) (<a class="el" href="../../d7/d74/structablc__message.html">ablc_message</a>)</td></tr>
-<tr class="separator:af262e3b1912ee661a49f0e9c59eb7d2d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae447ebb43b063b77ad8be4bc630752ea"><td class="memItemLeft" align="right" valign="top">typedef void(*&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dc/dd8/ab__loggerclient_8h.html#ae447ebb43b063b77ad8be4bc630752ea">log_function</a>) (<a class="el" href="../../d5/d83/structlc__message.html">lc_message</a> *Message, char *EndpointName, <a class="el" href="../../d7/d05/ab__common_8h.html#a70e369648385b50f2d0588e8e8745275">b8</a> isPause, <a class="el" href="../../d7/d05/ab__common_8h.html#a70e369648385b50f2d0588e8e8745275">b8</a> isQuiet, FILE *FilePointer)</td></tr>
+<tr class="separator:ae447ebb43b063b77ad8be4bc630752ea"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:a6a9c6cc50f2d8e043c083a734f3ba274"><td class="memItemLeft" align="right" valign="top">ablc_client *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dc/dd8/ab__loggerclient_8h.html#a6a9c6cc50f2d8e043c083a734f3ba274">ablc_Initialize</a> (memory_arena *Memory, <a class="el" href="../../d7/d05/ab__common_8h.html#afaa62991928fb9fb18ff0db62a040aba">u32</a> MaxEndpoints)</td></tr>
-<tr class="memdesc:a6a9c6cc50f2d8e043c083a734f3ba274"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initialize a new client.  <a href="../../dc/dd8/ab__loggerclient_8h.html#a6a9c6cc50f2d8e043c083a734f3ba274">More...</a><br /></td></tr>
-<tr class="separator:a6a9c6cc50f2d8e043c083a734f3ba274"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a197a243e87ebadb6e215015852719dae"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d7/d05/ab__common_8h.html#ae9b1af5c037e57a98884758875d3a7c4">s32</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dc/dd8/ab__loggerclient_8h.html#a197a243e87ebadb6e215015852719dae">ablc_AddEndpoint</a> (ablc_client *Client, char const *Label, char const *Endpoint)</td></tr>
-<tr class="separator:a197a243e87ebadb6e215015852719dae"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af80216ddef20b95407caf7a5a948cae1"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dc/dd8/ab__loggerclient_8h.html#af80216ddef20b95407caf7a5a948cae1">ablc_RemoveEndpoint</a> (ablc_client *Client, char const *Label)</td></tr>
-<tr class="separator:af80216ddef20b95407caf7a5a948cae1"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a9f7c437ff3b7fb635683e56c8206d2e1"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dc/dd8/ab__loggerclient_8h.html#a9f7c437ff3b7fb635683e56c8206d2e1">ablc_RemoveEndpoint</a> (ablc_client *Client, <a class="el" href="../../d7/d05/ab__common_8h.html#afaa62991928fb9fb18ff0db62a040aba">u32</a> Index)</td></tr>
-<tr class="separator:a9f7c437ff3b7fb635683e56c8206d2e1"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a27899905b2fb26048cd0765fa835011e"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dc/dd8/ab__loggerclient_8h.html#a27899905b2fb26048cd0765fa835011e">ablc_SetFile</a> (ablc_client *Client, char const *Filename)</td></tr>
-<tr class="separator:a27899905b2fb26048cd0765fa835011e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae0aaa92682170edd6287afb7636d9824"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dc/dd8/ab__loggerclient_8h.html#ae0aaa92682170edd6287afb7636d9824">ablc_ClearFile</a> (ablc_client *Client)</td></tr>
-<tr class="separator:ae0aaa92682170edd6287afb7636d9824"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a199bbcf889739df1b4089adf2b7eae8f"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dc/dd8/ab__loggerclient_8h.html#a199bbcf889739df1b4089adf2b7eae8f">ablc_SetQuiet</a> (ablc_client *Client, <a class="el" href="../../d7/d05/ab__common_8h.html#a70e369648385b50f2d0588e8e8745275">b8</a> doQuiet)</td></tr>
-<tr class="separator:a199bbcf889739df1b4089adf2b7eae8f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a463b5fd55a5383e451300bc2acb2659f"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dc/dd8/ab__loggerclient_8h.html#a463b5fd55a5383e451300bc2acb2659f">ablc_SetPause</a> (ablc_client *Client, <a class="el" href="../../d7/d05/ab__common_8h.html#a70e369648385b50f2d0588e8e8745275">b8</a> doPause)</td></tr>
-<tr class="separator:a463b5fd55a5383e451300bc2acb2659f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a4286ea4124ae1b21a8178ec8b5822ed2"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dc/dd8/ab__loggerclient_8h.html#a4286ea4124ae1b21a8178ec8b5822ed2">ablc_Shutdown</a> (ablc_client *Client)</td></tr>
-<tr class="separator:a4286ea4124ae1b21a8178ec8b5822ed2"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a6af52c9b0e513420bcdeb81576ec6599"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dc/dd8/ab__loggerclient_8h.html#a6af52c9b0e513420bcdeb81576ec6599">ablc_BasicLogger</a> (<a class="el" href="../../d7/d74/structablc__message.html">ablc_message</a>)</td></tr>
-<tr class="separator:a6af52c9b0e513420bcdeb81576ec6599"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac0c57a675621511fbe9f689133153026"><td class="memItemLeft" align="right" valign="top">lc_client *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dc/dd8/ab__loggerclient_8h.html#ac0c57a675621511fbe9f689133153026">lc_Initialize</a> (memory_arena *Memory, <a class="el" href="../../d7/d05/ab__common_8h.html#afaa62991928fb9fb18ff0db62a040aba">u32</a> MaxEndpoints)</td></tr>
+<tr class="memdesc:ac0c57a675621511fbe9f689133153026"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initialize a new client.  <a href="../../dc/dd8/ab__loggerclient_8h.html#ac0c57a675621511fbe9f689133153026">More...</a><br /></td></tr>
+<tr class="separator:ac0c57a675621511fbe9f689133153026"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac04c0ddd919205b976187626416eb72f"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d7/d05/ab__common_8h.html#ae9b1af5c037e57a98884758875d3a7c4">s32</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dc/dd8/ab__loggerclient_8h.html#ac04c0ddd919205b976187626416eb72f">lc_AddEndpoint</a> (lc_client *Client, char const *Label, char const *Endpoint)</td></tr>
+<tr class="memdesc:ac04c0ddd919205b976187626416eb72f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Adds a new endpoint to the client.  <a href="../../dc/dd8/ab__loggerclient_8h.html#ac04c0ddd919205b976187626416eb72f">More...</a><br /></td></tr>
+<tr class="separator:ac04c0ddd919205b976187626416eb72f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aaf1e1aebf452562ea45cd7e3448c0343"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dc/dd8/ab__loggerclient_8h.html#aaf1e1aebf452562ea45cd7e3448c0343">lc_RemoveEndpoint</a> (lc_client *Client, char const *Label)</td></tr>
+<tr class="memdesc:aaf1e1aebf452562ea45cd7e3448c0343"><td class="mdescLeft">&#160;</td><td class="mdescRight">Not currently implemented.  <a href="../../dc/dd8/ab__loggerclient_8h.html#aaf1e1aebf452562ea45cd7e3448c0343">More...</a><br /></td></tr>
+<tr class="separator:aaf1e1aebf452562ea45cd7e3448c0343"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a763a2979fb08e8e3d5e60d00c0fdd91c"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dc/dd8/ab__loggerclient_8h.html#a763a2979fb08e8e3d5e60d00c0fdd91c">lc_RemoveEndpoint</a> (lc_client *Client, <a class="el" href="../../d7/d05/ab__common_8h.html#afaa62991928fb9fb18ff0db62a040aba">u32</a> Index)</td></tr>
+<tr class="memdesc:a763a2979fb08e8e3d5e60d00c0fdd91c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Not currently implemented.  <a href="../../dc/dd8/ab__loggerclient_8h.html#a763a2979fb08e8e3d5e60d00c0fdd91c">More...</a><br /></td></tr>
+<tr class="separator:a763a2979fb08e8e3d5e60d00c0fdd91c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7689fa737decb7131d5e2d35cbfdfaf0"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dc/dd8/ab__loggerclient_8h.html#a7689fa737decb7131d5e2d35cbfdfaf0">lc_SetFile</a> (lc_client *Client, char const *Filename)</td></tr>
+<tr class="memdesc:a7689fa737decb7131d5e2d35cbfdfaf0"><td class="mdescLeft">&#160;</td><td class="mdescRight">set output file.  <a href="../../dc/dd8/ab__loggerclient_8h.html#a7689fa737decb7131d5e2d35cbfdfaf0">More...</a><br /></td></tr>
+<tr class="separator:a7689fa737decb7131d5e2d35cbfdfaf0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac0d9dbe6724615cc950f36bb2b754fa2"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dc/dd8/ab__loggerclient_8h.html#ac0d9dbe6724615cc950f36bb2b754fa2">lc_ClearFile</a> (lc_client *Client)</td></tr>
+<tr class="memdesc:ac0d9dbe6724615cc950f36bb2b754fa2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Closes the output file.  <a href="../../dc/dd8/ab__loggerclient_8h.html#ac0d9dbe6724615cc950f36bb2b754fa2">More...</a><br /></td></tr>
+<tr class="separator:ac0d9dbe6724615cc950f36bb2b754fa2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aaca5d829482918e2ed2cc471b125555d"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dc/dd8/ab__loggerclient_8h.html#aaca5d829482918e2ed2cc471b125555d">lc_SetQuiet</a> (lc_client *Client, <a class="el" href="../../d7/d05/ab__common_8h.html#a70e369648385b50f2d0588e8e8745275">b8</a> doQuiet)</td></tr>
+<tr class="memdesc:aaca5d829482918e2ed2cc471b125555d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set to discontinue output to stderr.  <a href="../../dc/dd8/ab__loggerclient_8h.html#aaca5d829482918e2ed2cc471b125555d">More...</a><br /></td></tr>
+<tr class="separator:aaca5d829482918e2ed2cc471b125555d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aecbe2028770d0e505aec944870b9f91b"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dc/dd8/ab__loggerclient_8h.html#aecbe2028770d0e505aec944870b9f91b">lc_SetPause</a> (lc_client *Client, <a class="el" href="../../d7/d05/ab__common_8h.html#a70e369648385b50f2d0588e8e8745275">b8</a> doPause)</td></tr>
+<tr class="memdesc:aecbe2028770d0e505aec944870b9f91b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Stop all incomming log messages.  <a href="../../dc/dd8/ab__loggerclient_8h.html#aecbe2028770d0e505aec944870b9f91b">More...</a><br /></td></tr>
+<tr class="separator:aecbe2028770d0e505aec944870b9f91b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa5a0bbd1987e475ac52efb8e9ab9e421"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dc/dd8/ab__loggerclient_8h.html#aa5a0bbd1987e475ac52efb8e9ab9e421">lc_Shutdown</a> (lc_client *Client)</td></tr>
+<tr class="memdesc:aa5a0bbd1987e475ac52efb8e9ab9e421"><td class="mdescLeft">&#160;</td><td class="mdescRight">Shutdown the client.  <a href="../../dc/dd8/ab__loggerclient_8h.html#aa5a0bbd1987e475ac52efb8e9ab9e421">More...</a><br /></td></tr>
+<tr class="separator:aa5a0bbd1987e475ac52efb8e9ab9e421"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Basic Logger Client. </p>
 <dl class="section author"><dt>Author</dt><dd>Amos Buchanan </dd></dl>
 <dl class="section version"><dt>Version</dt><dd>1.0 </dd></dl>
-<dl class="section date"><dt>Date</dt><dd>2020 </dd></dl>
-<dl class="section copyright"><dt>Copyright</dt><dd><a href="https://opensource.org/licenses/MIT">MIT Public License</a></dd></dl>
+<dl class="section date"><dt>Date</dt><dd>2020</dd></dl>
 <p>An example of how to subscribes to a logger created in <code><a class="el" href="../../d4/d4b/ab__logger_8h.html" title="Network Logger.">ab_logger.h</a></code>. It also serves as a client that is usable on its own. This may subscribe to multiple loggers at different endpoints. By default it will print the log messages to stderr, but this is configurable. You can also set a filename to write all log messages.</p>
 <p>The client runs in a background thread to constantly retrieve and print messages from any logger it is subscribed to.</p>
 <p>This is a single-file-library. You may include the file anywhere in your source. Only once in your code, define the following:</p>
 <div class="fragment"><div class="line"><span class="preprocessor">#define AB_LOGGERCLIENT_SRC</span></div>
 <div class="line"><span class="preprocessor">#include &quot;ab_loggerclient.h&quot;</span></div>
 </div><!-- fragment --><p>This will include the source.</p>
-<p>example usage: </p><div class="fragment"><div class="line"><span class="keywordtype">void</span> *OsMemory = <a class="code" href="../../d0/d0a/ab__memory_8h.html#a20bffb2c2335745a56275b6094b6dcad">abm_AllocateOsMemory</a>(NULL, <a class="code" href="../../d7/d05/ab__common_8h.html#a9e89c74d1fedd0a954107d7ab01481cc">Kilobytes</a>(5));</div>
-<div class="line">memory_arena Memory = <a class="code" href="../../d0/d0a/ab__memory_8h.html#a5f2fa70a405694492db91b26ed884207">abm_InitMemory</a>(OsMemory, <a class="code" href="../../d7/d05/ab__common_8h.html#a9e89c74d1fedd0a954107d7ab01481cc">Kilobytes</a>(5));</div>
+<p>example usage: </p><div class="fragment"><div class="line"><span class="keywordtype">void</span> *OsMemory = <a class="code" href="../../d0/d0a/ab__memory_8h.html#a65f300a0fc29f0fb26f7baa536eeef16">mem_AllocateOsMemory</a>(NULL, <a class="code" href="../../d7/d05/ab__common_8h.html#a9e89c74d1fedd0a954107d7ab01481cc">Kilobytes</a>(5));</div>
+<div class="line">memory_arena Memory = <a class="code" href="../../d0/d0a/ab__memory_8h.html#a3dd694713416bf4f1fc1f0f1433440e0">mem_InitMemory</a>(OsMemory, <a class="code" href="../../d7/d05/ab__common_8h.html#a9e89c74d1fedd0a954107d7ab01481cc">Kilobytes</a>(5));</div>
 <div class="line"> </div>
 <div class="line"><span class="comment">// This starts the client running in the background.</span></div>
-<div class="line">ablc_client *Client = <a class="code" href="../../dc/dd8/ab__loggerclient_8h.html#a6a9c6cc50f2d8e043c083a734f3ba274">ablc_Initialize</a>(&amp;Memory);</div>
+<div class="line">lc_client *Client = <a class="code" href="../../dc/dd8/ab__loggerclient_8h.html#ac0c57a675621511fbe9f689133153026">lc_Initialize</a>(&amp;Memory);</div>
 <div class="line"><span class="keywordflow">if</span>(!Client)</div>
 <div class="line">{</div>
 <div class="line">  printf(<span class="stringliteral">&quot;Failed to create client.\n&quot;</span>);</div>
 <div class="line">  <span class="keywordflow">return</span> 1;</div>
 <div class="line">}</div>
 <div class="line"> </div>
-<div class="line"><a class="code" href="../../dc/dd8/ab__loggerclient_8h.html#a27899905b2fb26048cd0765fa835011e">ablc_SetFile</a>(Client, <span class="stringliteral">&quot;ClientTestLog.log&quot;</span>);</div>
+<div class="line"><a class="code" href="../../dc/dd8/ab__loggerclient_8h.html#a7689fa737decb7131d5e2d35cbfdfaf0">lc_SetFile</a>(Client, <span class="stringliteral">&quot;ClientTestLog.log&quot;</span>);</div>
 <div class="line"><span class="comment">// Turn off stderr logging.</span></div>
-<div class="line"><a class="code" href="../../dc/dd8/ab__loggerclient_8h.html#a199bbcf889739df1b4089adf2b7eae8f">ablc_SetQuiet</a>(Client, <span class="keyword">true</span>);</div>
+<div class="line"><a class="code" href="../../dc/dd8/ab__loggerclient_8h.html#aaca5d829482918e2ed2cc471b125555d">lc_SetQuiet</a>(Client, <span class="keyword">true</span>);</div>
 <div class="line"> </div>
-<div class="line"><a class="code" href="../../d7/d05/ab__common_8h.html#ae9b1af5c037e57a98884758875d3a7c4">s32</a> EndpointIndexA = <a class="code" href="../../dc/dd8/ab__loggerclient_8h.html#a197a243e87ebadb6e215015852719dae">ablc_AddEndpoint</a>(Client, <span class="stringliteral">&quot;LoggerA&quot;</span>, <span class="stringliteral">&quot;tcp://127.0.0.1:5555&quot;</span>);</div>
-<div class="line"><a class="code" href="../../d7/d05/ab__common_8h.html#ae9b1af5c037e57a98884758875d3a7c4">s32</a> EndpointIndexB = <a class="code" href="../../dc/dd8/ab__loggerclient_8h.html#a197a243e87ebadb6e215015852719dae">ablc_AddEndpoint</a>(Client, <span class="stringliteral">&quot;LoggerB&quot;</span>, <span class="stringliteral">&quot;tcp://127.0.0.1:5556&quot;</span>);</div>
+<div class="line"><a class="code" href="../../d7/d05/ab__common_8h.html#ae9b1af5c037e57a98884758875d3a7c4">s32</a> EndpointIndexA = <a class="code" href="../../dc/dd8/ab__loggerclient_8h.html#ac04c0ddd919205b976187626416eb72f">lc_AddEndpoint</a>(Client, <span class="stringliteral">&quot;LoggerA&quot;</span>, <span class="stringliteral">&quot;tcp://127.0.0.1:5555&quot;</span>);</div>
+<div class="line"><a class="code" href="../../d7/d05/ab__common_8h.html#ae9b1af5c037e57a98884758875d3a7c4">s32</a> EndpointIndexB = <a class="code" href="../../dc/dd8/ab__loggerclient_8h.html#ac04c0ddd919205b976187626416eb72f">lc_AddEndpoint</a>(Client, <span class="stringliteral">&quot;LoggerB&quot;</span>, <span class="stringliteral">&quot;tcp://127.0.0.1:5556&quot;</span>);</div>
 <div class="line"> </div>
 <div class="line">sleep(10);</div>
 <div class="line"><span class="comment">// Print log files to stderr.</span></div>
-<div class="line"><a class="code" href="../../dc/dd8/ab__loggerclient_8h.html#a199bbcf889739df1b4089adf2b7eae8f">ablc_SetQuiet</a>(Client, <span class="keyword">false</span>);</div>
+<div class="line"><a class="code" href="../../dc/dd8/ab__loggerclient_8h.html#aaca5d829482918e2ed2cc471b125555d">lc_SetQuiet</a>(Client, <span class="keyword">false</span>);</div>
 <div class="line">sleep(10);</div>
 <div class="line"> </div>
-<div class="line"><a class="code" href="../../dc/dd8/ab__loggerclient_8h.html#a4286ea4124ae1b21a8178ec8b5822ed2">ablc_Shutdown</a>(Client);</div>
+<div class="line"><a class="code" href="../../dc/dd8/ab__loggerclient_8h.html#aa5a0bbd1987e475ac52efb8e9ab9e421">lc_Shutdown</a>(Client);</div>
 </div><!-- fragment --><h1>References</h1>
 <ul>
+<li>test_loggerclient.cpp<ul>
 <li><a class="el" href="../../d4/d4b/ab__logger_8h.html">ab_logger.h</a></li>
 <li><a href="https://zeromq.org/">zmq Messaging</a></li>
-<li><a href="http://czmq.zeromq.org/">czmq C Library for ZMQ messaging</a></li>
+<li><a href="http://czmq.zeromq.org/">czmq C Library for ZMQ messaging</a> </li>
 </ul>
-<h1>MIT License</h1>
-<p><a href="https://opensource.org/licenses/MIT">MIT Public License</a></p>
-<p>Copyright 2020 Amos Buchanan</p>
-<p>Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:</p>
-<p>The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.</p>
-<p>THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE. </p>
+</li>
+</ul>
 </div><h2 class="groupheader">Typedef Documentation</h2>
-<a id="af262e3b1912ee661a49f0e9c59eb7d2d"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#af262e3b1912ee661a49f0e9c59eb7d2d">&#9670;&nbsp;</a></span>log_function</h2>
+<a id="ae447ebb43b063b77ad8be4bc630752ea"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae447ebb43b063b77ad8be4bc630752ea">&#9670;&nbsp;</a></span>log_function</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">typedef void(* log_function) (<a class="el" href="../../d7/d74/structablc__message.html">ablc_message</a>)</td>
+          <td class="memname">typedef void(* log_function) (<a class="el" href="../../d5/d83/structlc__message.html">lc_message</a> *Message, char *EndpointName, <a class="el" href="../../d7/d05/ab__common_8h.html#a70e369648385b50f2d0588e8e8745275">b8</a> isPause, <a class="el" href="../../d7/d05/ab__common_8h.html#a70e369648385b50f2d0588e8e8745275">b8</a> isQuiet, FILE *FilePointer)</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -195,16 +197,16 @@ Functions</h2></td></tr>
 </div>
 </div>
 <h2 class="groupheader">Function Documentation</h2>
-<a id="a197a243e87ebadb6e215015852719dae"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a197a243e87ebadb6e215015852719dae">&#9670;&nbsp;</a></span>ablc_AddEndpoint()</h2>
+<a id="ac04c0ddd919205b976187626416eb72f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac04c0ddd919205b976187626416eb72f">&#9670;&nbsp;</a></span>lc_AddEndpoint()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="../../d7/d05/ab__common_8h.html#ae9b1af5c037e57a98884758875d3a7c4">s32</a> ablc_AddEndpoint </td>
+          <td class="memname"><a class="el" href="../../d7/d05/ab__common_8h.html#ae9b1af5c037e57a98884758875d3a7c4">s32</a> lc_AddEndpoint </td>
           <td>(</td>
-          <td class="paramtype">ablc_client *&#160;</td>
+          <td class="paramtype">lc_client *&#160;</td>
           <td class="paramname"><em>Client</em>, </td>
         </tr>
         <tr>
@@ -227,52 +229,55 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Adds a new endpoint to the client. </p>
+<p>This will add a new endpoint for the client to watch. Endpoint is a zmq-formated URI, such as "tcp://127.0.0.1:5555".</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">Client</td><td>The logger client. </td></tr>
+    <tr><td class="paramname">Label</td><td>A label that can be used to differentiate this endpoint from other endpoints. </td></tr>
+    <tr><td class="paramname">Endpoint</td><td>zmq URI endpoint to watch. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>The endpoint index, or '-1' if the endpoint couldn't be added. </dd></dl>
+
 </div>
 </div>
-<a id="a6af52c9b0e513420bcdeb81576ec6599"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a6af52c9b0e513420bcdeb81576ec6599">&#9670;&nbsp;</a></span>ablc_BasicLogger()</h2>
+<a id="ac0d9dbe6724615cc950f36bb2b754fa2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac0d9dbe6724615cc950f36bb2b754fa2">&#9670;&nbsp;</a></span>lc_ClearFile()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">void ablc_BasicLogger </td>
+          <td class="memname">void lc_ClearFile </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="../../d7/d74/structablc__message.html">ablc_message</a>&#160;</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="ae0aaa92682170edd6287afb7636d9824"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ae0aaa92682170edd6287afb7636d9824">&#9670;&nbsp;</a></span>ablc_ClearFile()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void ablc_ClearFile </td>
-          <td>(</td>
-          <td class="paramtype">ablc_client *&#160;</td>
+          <td class="paramtype">lc_client *&#160;</td>
           <td class="paramname"><em>Client</em></td><td>)</td>
           <td></td>
         </tr>
       </table>
 </div><div class="memdoc">
 
+<p>Closes the output file. </p>
+<p>If there is an output file, closes it and stops writing out data to it.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">Client</td><td>The logger client. </td></tr>
+  </table>
+  </dd>
+</dl>
+
 </div>
 </div>
-<a id="a6a9c6cc50f2d8e043c083a734f3ba274"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a6a9c6cc50f2d8e043c083a734f3ba274">&#9670;&nbsp;</a></span>ablc_Initialize()</h2>
+<a id="ac0c57a675621511fbe9f689133153026"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac0c57a675621511fbe9f689133153026">&#9670;&nbsp;</a></span>lc_Initialize()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">ablc_client* ablc_Initialize </td>
+          <td class="memname">lc_client* lc_Initialize </td>
           <td>(</td>
           <td class="paramtype">memory_arena *&#160;</td>
           <td class="paramname"><em>Memory</em>, </td>
@@ -301,19 +306,20 @@ Functions</h2></td></tr>
   </table>
   </dd>
 </dl>
+<dl class="section return"><dt>Returns</dt><dd>Returns the logger client, or null pointer if there isn't enough memory to create the desired number of endpoints. </dd></dl>
 
 </div>
 </div>
-<a id="af80216ddef20b95407caf7a5a948cae1"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#af80216ddef20b95407caf7a5a948cae1">&#9670;&nbsp;</a></span>ablc_RemoveEndpoint() <span class="overload">[1/2]</span></h2>
+<a id="aaf1e1aebf452562ea45cd7e3448c0343"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aaf1e1aebf452562ea45cd7e3448c0343">&#9670;&nbsp;</a></span>lc_RemoveEndpoint() <span class="overload">[1/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">void ablc_RemoveEndpoint </td>
+          <td class="memname">void lc_RemoveEndpoint </td>
           <td>(</td>
-          <td class="paramtype">ablc_client *&#160;</td>
+          <td class="paramtype">lc_client *&#160;</td>
           <td class="paramname"><em>Client</em>, </td>
         </tr>
         <tr>
@@ -330,18 +336,20 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Not currently implemented. </p>
+
 </div>
 </div>
-<a id="a9f7c437ff3b7fb635683e56c8206d2e1"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a9f7c437ff3b7fb635683e56c8206d2e1">&#9670;&nbsp;</a></span>ablc_RemoveEndpoint() <span class="overload">[2/2]</span></h2>
+<a id="a763a2979fb08e8e3d5e60d00c0fdd91c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a763a2979fb08e8e3d5e60d00c0fdd91c">&#9670;&nbsp;</a></span>lc_RemoveEndpoint() <span class="overload">[2/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">void ablc_RemoveEndpoint </td>
+          <td class="memname">void lc_RemoveEndpoint </td>
           <td>(</td>
-          <td class="paramtype">ablc_client *&#160;</td>
+          <td class="paramtype">lc_client *&#160;</td>
           <td class="paramname"><em>Client</em>, </td>
         </tr>
         <tr>
@@ -358,18 +366,20 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Not currently implemented. </p>
+
 </div>
 </div>
-<a id="a27899905b2fb26048cd0765fa835011e"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a27899905b2fb26048cd0765fa835011e">&#9670;&nbsp;</a></span>ablc_SetFile()</h2>
+<a id="a7689fa737decb7131d5e2d35cbfdfaf0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7689fa737decb7131d5e2d35cbfdfaf0">&#9670;&nbsp;</a></span>lc_SetFile()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">void ablc_SetFile </td>
+          <td class="memname">void lc_SetFile </td>
           <td>(</td>
-          <td class="paramtype">ablc_client *&#160;</td>
+          <td class="paramtype">lc_client *&#160;</td>
           <td class="paramname"><em>Client</em>, </td>
         </tr>
         <tr>
@@ -386,18 +396,28 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>set output file. </p>
+<p>If set, log messages are appended to the given file. Only one file may be written to at a time. If a new file is specified, the old file is closed.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">Client</td><td>The logger client. </td></tr>
+    <tr><td class="paramname">Filename</td><td>The filename to append to. </td></tr>
+  </table>
+  </dd>
+</dl>
+
 </div>
 </div>
-<a id="a463b5fd55a5383e451300bc2acb2659f"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a463b5fd55a5383e451300bc2acb2659f">&#9670;&nbsp;</a></span>ablc_SetPause()</h2>
+<a id="aecbe2028770d0e505aec944870b9f91b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aecbe2028770d0e505aec944870b9f91b">&#9670;&nbsp;</a></span>lc_SetPause()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">void ablc_SetPause </td>
+          <td class="memname">void lc_SetPause </td>
           <td>(</td>
-          <td class="paramtype">ablc_client *&#160;</td>
+          <td class="paramtype">lc_client *&#160;</td>
           <td class="paramname"><em>Client</em>, </td>
         </tr>
         <tr>
@@ -414,18 +434,28 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Stop all incomming log messages. </p>
+<p>Set pause to discontinue recording all incoming messages. This will suppress both stderr and log file output.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">Client</td><td>The logger client. </td></tr>
+    <tr><td class="paramname">doPause</td><td>True to pause all data from being recorded. </td></tr>
+  </table>
+  </dd>
+</dl>
+
 </div>
 </div>
-<a id="a199bbcf889739df1b4089adf2b7eae8f"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a199bbcf889739df1b4089adf2b7eae8f">&#9670;&nbsp;</a></span>ablc_SetQuiet()</h2>
+<a id="aaca5d829482918e2ed2cc471b125555d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aaca5d829482918e2ed2cc471b125555d">&#9670;&nbsp;</a></span>lc_SetQuiet()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">void ablc_SetQuiet </td>
+          <td class="memname">void lc_SetQuiet </td>
           <td>(</td>
-          <td class="paramtype">ablc_client *&#160;</td>
+          <td class="paramtype">lc_client *&#160;</td>
           <td class="paramname"><em>Client</em>, </td>
         </tr>
         <tr>
@@ -442,36 +472,55 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Set to discontinue output to stderr. </p>
+<p>By default, the logs will print to stderr. Set quiet to true to suppress output to stderr. If there is a log file, messages will still be written out.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">Client</td><td>The logger client. </td></tr>
+    <tr><td class="paramname">doQuiet</td><td>True to suppress output. </td></tr>
+  </table>
+  </dd>
+</dl>
+
 </div>
 </div>
-<a id="a4286ea4124ae1b21a8178ec8b5822ed2"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a4286ea4124ae1b21a8178ec8b5822ed2">&#9670;&nbsp;</a></span>ablc_Shutdown()</h2>
+<a id="aa5a0bbd1987e475ac52efb8e9ab9e421"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa5a0bbd1987e475ac52efb8e9ab9e421">&#9670;&nbsp;</a></span>lc_Shutdown()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">void ablc_Shutdown </td>
+          <td class="memname">void lc_Shutdown </td>
           <td>(</td>
-          <td class="paramtype">ablc_client *&#160;</td>
+          <td class="paramtype">lc_client *&#160;</td>
           <td class="paramname"><em>Client</em></td><td>)</td>
           <td></td>
         </tr>
       </table>
 </div><div class="memdoc">
 
+<p>Shutdown the client. </p>
+<p>Shutdown the client, all endpoints, and close background threads. Call this at the end of the program.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">Client</td><td>The logger client. </td></tr>
+  </table>
+  </dd>
+</dl>
+
 </div>
 </div>
 </div><!-- contents -->
-<div class="ttc" id="aab__common_8h_html_a9e89c74d1fedd0a954107d7ab01481cc"><div class="ttname"><a href="../../d7/d05/ab__common_8h.html#a9e89c74d1fedd0a954107d7ab01481cc">Kilobytes</a></div><div class="ttdeci">#define Kilobytes(num)</div><div class="ttdef"><b>Definition:</b> ab_common.h:45</div></div>
-<div class="ttc" id="aab__loggerclient_8h_html_a197a243e87ebadb6e215015852719dae"><div class="ttname"><a href="../../dc/dd8/ab__loggerclient_8h.html#a197a243e87ebadb6e215015852719dae">ablc_AddEndpoint</a></div><div class="ttdeci">s32 ablc_AddEndpoint(ablc_client *Client, char const *Label, char const *Endpoint)</div></div>
-<div class="ttc" id="aab__loggerclient_8h_html_a6a9c6cc50f2d8e043c083a734f3ba274"><div class="ttname"><a href="../../dc/dd8/ab__loggerclient_8h.html#a6a9c6cc50f2d8e043c083a734f3ba274">ablc_Initialize</a></div><div class="ttdeci">ablc_client * ablc_Initialize(memory_arena *Memory, u32 MaxEndpoints)</div><div class="ttdoc">Initialize a new client.</div></div>
-<div class="ttc" id="aab__common_8h_html_ae9b1af5c037e57a98884758875d3a7c4"><div class="ttname"><a href="../../d7/d05/ab__common_8h.html#ae9b1af5c037e57a98884758875d3a7c4">s32</a></div><div class="ttdeci">int32_t s32</div><div class="ttdef"><b>Definition:</b> ab_common.h:67</div></div>
-<div class="ttc" id="aab__loggerclient_8h_html_a4286ea4124ae1b21a8178ec8b5822ed2"><div class="ttname"><a href="../../dc/dd8/ab__loggerclient_8h.html#a4286ea4124ae1b21a8178ec8b5822ed2">ablc_Shutdown</a></div><div class="ttdeci">void ablc_Shutdown(ablc_client *Client)</div></div>
-<div class="ttc" id="aab__memory_8h_html_a20bffb2c2335745a56275b6094b6dcad"><div class="ttname"><a href="../../d0/d0a/ab__memory_8h.html#a20bffb2c2335745a56275b6094b6dcad">abm_AllocateOsMemory</a></div><div class="ttdeci">void * abm_AllocateOsMemory(void *Address, size_t Size)</div><div class="ttdoc">Get memory from the OS.</div></div>
-<div class="ttc" id="aab__loggerclient_8h_html_a199bbcf889739df1b4089adf2b7eae8f"><div class="ttname"><a href="../../dc/dd8/ab__loggerclient_8h.html#a199bbcf889739df1b4089adf2b7eae8f">ablc_SetQuiet</a></div><div class="ttdeci">void ablc_SetQuiet(ablc_client *Client, b8 doQuiet)</div></div>
-<div class="ttc" id="aab__memory_8h_html_a5f2fa70a405694492db91b26ed884207"><div class="ttname"><a href="../../d0/d0a/ab__memory_8h.html#a5f2fa70a405694492db91b26ed884207">abm_InitMemory</a></div><div class="ttdeci">memory_arena abm_InitMemory(void *Start, size_t Size)</div><div class="ttdoc">Initialize a memory_arena.</div></div>
-<div class="ttc" id="aab__loggerclient_8h_html_a27899905b2fb26048cd0765fa835011e"><div class="ttname"><a href="../../dc/dd8/ab__loggerclient_8h.html#a27899905b2fb26048cd0765fa835011e">ablc_SetFile</a></div><div class="ttdeci">void ablc_SetFile(ablc_client *Client, char const *Filename)</div></div>
+<div class="ttc" id="aab__common_8h_html_a9e89c74d1fedd0a954107d7ab01481cc"><div class="ttname"><a href="../../d7/d05/ab__common_8h.html#a9e89c74d1fedd0a954107d7ab01481cc">Kilobytes</a></div><div class="ttdeci">#define Kilobytes(num)</div><div class="ttdef"><b>Definition:</b> ab_common.h:33</div></div>
+<div class="ttc" id="aab__memory_8h_html_a3dd694713416bf4f1fc1f0f1433440e0"><div class="ttname"><a href="../../d0/d0a/ab__memory_8h.html#a3dd694713416bf4f1fc1f0f1433440e0">mem_InitMemory</a></div><div class="ttdeci">memory_arena mem_InitMemory(void *Start, size_t Size)</div><div class="ttdoc">Initialize a memory_arena.</div></div>
+<div class="ttc" id="aab__loggerclient_8h_html_aaca5d829482918e2ed2cc471b125555d"><div class="ttname"><a href="../../dc/dd8/ab__loggerclient_8h.html#aaca5d829482918e2ed2cc471b125555d">lc_SetQuiet</a></div><div class="ttdeci">void lc_SetQuiet(lc_client *Client, b8 doQuiet)</div><div class="ttdoc">Set to discontinue output to stderr.</div></div>
+<div class="ttc" id="aab__memory_8h_html_a65f300a0fc29f0fb26f7baa536eeef16"><div class="ttname"><a href="../../d0/d0a/ab__memory_8h.html#a65f300a0fc29f0fb26f7baa536eeef16">mem_AllocateOsMemory</a></div><div class="ttdeci">void * mem_AllocateOsMemory(void *Address, size_t Size)</div><div class="ttdoc">Get memory from the OS.</div></div>
+<div class="ttc" id="aab__loggerclient_8h_html_ac0c57a675621511fbe9f689133153026"><div class="ttname"><a href="../../dc/dd8/ab__loggerclient_8h.html#ac0c57a675621511fbe9f689133153026">lc_Initialize</a></div><div class="ttdeci">lc_client * lc_Initialize(memory_arena *Memory, u32 MaxEndpoints)</div><div class="ttdoc">Initialize a new client.</div></div>
+<div class="ttc" id="aab__common_8h_html_ae9b1af5c037e57a98884758875d3a7c4"><div class="ttname"><a href="../../d7/d05/ab__common_8h.html#ae9b1af5c037e57a98884758875d3a7c4">s32</a></div><div class="ttdeci">int32_t s32</div><div class="ttdef"><b>Definition:</b> ab_common.h:55</div></div>
+<div class="ttc" id="aab__loggerclient_8h_html_aa5a0bbd1987e475ac52efb8e9ab9e421"><div class="ttname"><a href="../../dc/dd8/ab__loggerclient_8h.html#aa5a0bbd1987e475ac52efb8e9ab9e421">lc_Shutdown</a></div><div class="ttdeci">void lc_Shutdown(lc_client *Client)</div><div class="ttdoc">Shutdown the client.</div></div>
+<div class="ttc" id="aab__loggerclient_8h_html_a7689fa737decb7131d5e2d35cbfdfaf0"><div class="ttname"><a href="../../dc/dd8/ab__loggerclient_8h.html#a7689fa737decb7131d5e2d35cbfdfaf0">lc_SetFile</a></div><div class="ttdeci">void lc_SetFile(lc_client *Client, char const *Filename)</div><div class="ttdoc">set output file.</div></div>
+<div class="ttc" id="aab__loggerclient_8h_html_ac04c0ddd919205b976187626416eb72f"><div class="ttname"><a href="../../dc/dd8/ab__loggerclient_8h.html#ac04c0ddd919205b976187626416eb72f">lc_AddEndpoint</a></div><div class="ttdeci">s32 lc_AddEndpoint(lc_client *Client, char const *Label, char const *Endpoint)</div><div class="ttdoc">Adds a new endpoint to the client.</div></div>
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
 Generated by&#160;<a href="http://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.8.20

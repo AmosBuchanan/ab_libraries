@@ -1,5 +1,4 @@
 var searchData=
 [
-  ['ns_5fto_5fms_83',['NS_TO_MS',['../d7/d05/ab__common_8h.html#a323127aaf9260b4e2092a8734886379a',1,'ab_common.h']]],
-  ['ns_5fto_5fs_84',['NS_TO_S',['../d7/d05/ab__common_8h.html#a5ea52ba9d4cb9e553e52d1c7283b58a7',1,'ab_common.h']]]
+  ['operator_20char_20const_20_2a_79',['operator char const *',['../d1/d1b/structst__ptr.html#a41ca4e4115d2eee9b28326c2191f17f1',1,'st_ptr']]]
 ];

@@ -1,5 +1,4 @@
 var searchData=
 [
-  ['ablc_5fmessage_109',['ablc_message',['../d7/d74/structablc__message.html',1,'']]],
-  ['abs_5fstringptr_110',['abs_stringptr',['../d2/db7/structabs__stringptr.html',1,'']]]
+  ['lc_5fmessage_113',['lc_message',['../d5/d83/structlc__message.html',1,'']]]
 ];

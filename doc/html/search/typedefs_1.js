@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['b8_171',['b8',['../d7/d05/ab__common_8h.html#a70e369648385b50f2d0588e8e8745275',1,'ab_common.h']]]
+  ['log_5ffunction_173',['log_function',['../dc/dd8/ab__loggerclient_8h.html#ae447ebb43b063b77ad8be4bc630752ea',1,'ab_loggerclient.h']]]
 ];

@@ -1,5 +1,7 @@
 var searchData=
 [
-  ['r32_173',['r32',['../d7/d05/ab__common_8h.html#aafa04bc3cb166e826b75a23f4add4b59',1,'ab_common.h']]],
-  ['r64_174',['r64',['../d7/d05/ab__common_8h.html#af3fb0780dd5bc8ff8740028f077610e7',1,'ab_common.h']]]
+  ['s16_176',['s16',['../d7/d05/ab__common_8h.html#aa980e2c02ba2305e0f489d5650655425',1,'ab_common.h']]],
+  ['s32_177',['s32',['../d7/d05/ab__common_8h.html#ae9b1af5c037e57a98884758875d3a7c4',1,'ab_common.h']]],
+  ['s64_178',['s64',['../d7/d05/ab__common_8h.html#a350c6fc928e3bdc6c6486268ac8fb269',1,'ab_common.h']]],
+  ['s8_179',['s8',['../d7/d05/ab__common_8h.html#a9e382f207c65ca13ab4ae98363aeda80',1,'ab_common.h']]]
 ];

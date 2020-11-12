@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['operator_20char_20const_20_2a_85',['operator char const *',['../d2/db7/structabs__stringptr.html#a7b4d6615fda233343f26a21179f856b7',1,'abs_stringptr']]]
+  ['pstring_80',['PSTRING',['../d0/d57/ab__string_8h.html#a7f78f576bc59e91ba524ecacde27fb02',1,'ab_string.h']]]
 ];

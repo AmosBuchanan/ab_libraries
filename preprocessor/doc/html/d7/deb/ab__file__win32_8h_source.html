@@ -97,7 +97,7 @@ $(function() {
 <div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;    <a class="code" href="../../da/d40/structfile__list.html">file_list</a> *Result = 0;</div>
 <div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;    <span class="keywordflow">if</span>(<a class="code" href="../../d7/dcc/ab__file_8h.html#a4421ce1243877d8cc9082aae558db83f">isDirExists</a>(Path))</div>
 <div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;    {</div>
-<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;        Result = abm_PushStruct(Memory, <a class="code" href="../../da/d40/structfile__list.html">file_list</a>);</div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;        Result = mem_PushStruct(Memory, <a class="code" href="../../da/d40/structfile__list.html">file_list</a>);</div>
 <div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;        Result-&gt;<a class="code" href="../../da/d40/structfile__list.html#a890b377545055c3acb0d705ea20a13c4">FileSearchHandle</a> = INVALID_HANDLE_VALUE;</div>
 <div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;        snprintf(Result-&gt;<a class="code" href="../../da/d40/structfile__list.html#a50f2703df63faf3266542b422b417cd9">Path</a>, <a class="code" href="../../d7/dcc/ab__file_8h.html#ab99ded389af74001a6298fc9e44e74e5">MAX_PATH</a>, Path);</div>
 <div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;    }</div>

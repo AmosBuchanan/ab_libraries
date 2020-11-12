@@ -50,8 +50,8 @@ struct \mbox{\hyperlink{structmy__json__test__existlist}{my\+\_\+json\+\_\+test\
 \item 
 {\footnotesize template$<$typename T $>$ }\\auto \mbox{\hyperlink{Generated__Test_8h_a9a60bb3cdfd4c044939d80c8e1edd6dd}{String\+To\+Enum}} (const char $\ast$String) -\/$>$ T
 \begin{DoxyCompactList}\small\item\em Generic template for the c-\/style string String\+To\+Enum$<$$>$ functions. \end{DoxyCompactList}\item 
-{\footnotesize template$<$typename T $>$ }\\auto \mbox{\hyperlink{Generated__Test_8h_ac56b1acaa9bd587f623d2983f921ad50}{String\+To\+Enum}} (abs\+\_\+stringptr String) -\/$>$ T
-\begin{DoxyCompactList}\small\item\em Generic template for the abs\+\_\+stringptr String\+To\+Enum$<$$>$ functions. \end{DoxyCompactList}\item 
+{\footnotesize template$<$typename T $>$ }\\auto \mbox{\hyperlink{Generated__Test_8h_a169bede4c403fbef787b59e54cd4e963}{String\+To\+Enum}} (st\+\_\+ptr String) -\/$>$ T
+\begin{DoxyCompactList}\small\item\em Generic template for the st\+\_\+ptr String\+To\+Enum$<$$>$ functions. \end{DoxyCompactList}\item 
 typedef \mbox{\hyperlink{Generated__Test_8h_a5b28cc9825a80c7d578bce92d5152de4}{T\+E\+S\+T\+\_\+\+S\+T\+A\+T\+E\+M\+A\+C\+H\+I\+NE}} (test\+\_\+statemachine)
 \begin{DoxyCompactList}\small\item\em typedef to use in the state struct. \end{DoxyCompactList}\item 
 b8 \mbox{\hyperlink{Generated__Test_8h_ad4b73e92f4af2b501841ce35b274f71c}{Go\+To\+State}} (\mbox{\hyperlink{structtest__type}{test\+\_\+type}} $\ast$State, test\+\_\+statemachine $\ast$New\+State)
@@ -78,10 +78,10 @@ b8 \mbox{\hyperlink{Generated__Test_8h_a454bd3fc6c4d5d2e1db241ab69554c45}{Enqueu
 \begin{DoxyCompactList}\small\item\em Dequeue from the front of the queue. \end{DoxyCompactList}\item 
 template$<$$>$ auto \mbox{\hyperlink{Generated__Test_8h_a3918139d94601cfee23f622cd557582f}{String\+To\+Enum$<$ test\+\_\+cmd $>$}} (const char $\ast$String) -\/$>$ \mbox{\hyperlink{PreprocTest_8h_a55ed691059222a58555cf9992ec14431}{test\+\_\+cmd}}
 \begin{DoxyCompactList}\small\item\em Convert a char $\ast$ c-\/style string to a test\+\_\+cmd enum. \end{DoxyCompactList}\item 
-template$<$$>$ auto \mbox{\hyperlink{Generated__Test_8h_a196b200d9f8e70d10669c8841f0ece91}{String\+To\+Enum$<$ test\+\_\+cmd $>$}} (abs\+\_\+stringptr String) -\/$>$ \mbox{\hyperlink{PreprocTest_8h_a55ed691059222a58555cf9992ec14431}{test\+\_\+cmd}}
-\begin{DoxyCompactList}\small\item\em Convert a abs\+\_\+stringptr string to a test\+\_\+cmd enum. \end{DoxyCompactList}\item 
-constexpr abs\+\_\+stringptr \mbox{\hyperlink{Generated__Test_8h_a6087c1644a941337a7e8ac43157a30b3}{Enum\+To\+String}} (\mbox{\hyperlink{PreprocTest_8h_a55ed691059222a58555cf9992ec14431}{test\+\_\+cmd}} Enum\+Token)
-\begin{DoxyCompactList}\small\item\em Return a abs\+\_\+stringptr corresponding for the given test\+\_\+cmd enum. \end{DoxyCompactList}\item 
+template$<$$>$ auto \mbox{\hyperlink{Generated__Test_8h_a75bcc5acbb1a90744942c9dfe500accf}{String\+To\+Enum$<$ test\+\_\+cmd $>$}} (st\+\_\+ptr String) -\/$>$ \mbox{\hyperlink{PreprocTest_8h_a55ed691059222a58555cf9992ec14431}{test\+\_\+cmd}}
+\begin{DoxyCompactList}\small\item\em Convert a st\+\_\+ptr string to a test\+\_\+cmd enum. \end{DoxyCompactList}\item 
+constexpr st\+\_\+ptr \mbox{\hyperlink{Generated__Test_8h_ad639153996de58e57408c83a3dcc9257}{Enum\+To\+String}} (\mbox{\hyperlink{PreprocTest_8h_a55ed691059222a58555cf9992ec14431}{test\+\_\+cmd}} Enum\+Token)
+\begin{DoxyCompactList}\small\item\em Return a st\+\_\+ptr corresponding for the given test\+\_\+cmd enum. \end{DoxyCompactList}\item 
 constexpr char const  $\ast$ \mbox{\hyperlink{Generated__Test_8h_a37220bfe6977f9507cffa3283af7f09b}{Enum\+To\+C\+String}} (\mbox{\hyperlink{PreprocTest_8h_a55ed691059222a58555cf9992ec14431}{test\+\_\+cmd}} Enum\+Token)
 \begin{DoxyCompactList}\small\item\em Return a const char$\ast$ null-\/terminated string for the given test\+\_\+cmd enum. \end{DoxyCompactList}\item 
 jsmntok\+\_\+t $\ast$ \mbox{\hyperlink{Generated__Test_8h_a64411d75ccfa768d32520dac899352f3}{Json\+To\+Object}} (memory\+\_\+arena $\ast$Volatile\+Memory, char const $\ast$Json, size\+\_\+t Json\+Length, jsmntok\+\_\+t $\ast$Token\+Array, \mbox{\hyperlink{PreprocTest_8h_a081cf1a0e70d6e2bd48c98f457742877}{en\+Colours}} $\ast$Object\+Out, u32 Unused)
@@ -90,10 +90,10 @@ u32 \mbox{\hyperlink{Generated__Test_8h_ad8caeb90f89cac9c8978390dc8ec420a}{Push\
 \begin{DoxyCompactList}\small\item\em Create a J\+S\+ON string from a en\+Colours enum. \end{DoxyCompactList}\item 
 template$<$$>$ auto \mbox{\hyperlink{Generated__Test_8h_ad369bcb4826dc155da6b130a0fa97d13}{String\+To\+Enum$<$ en\+Colours $>$}} (const char $\ast$String) -\/$>$ \mbox{\hyperlink{PreprocTest_8h_a081cf1a0e70d6e2bd48c98f457742877}{en\+Colours}}
 \begin{DoxyCompactList}\small\item\em Convert a char $\ast$ c-\/style string to a en\+Colours enum. \end{DoxyCompactList}\item 
-template$<$$>$ auto \mbox{\hyperlink{Generated__Test_8h_a768f3f6a292bf1dee6bd92fc1f0648e9}{String\+To\+Enum$<$ en\+Colours $>$}} (abs\+\_\+stringptr String) -\/$>$ \mbox{\hyperlink{PreprocTest_8h_a081cf1a0e70d6e2bd48c98f457742877}{en\+Colours}}
-\begin{DoxyCompactList}\small\item\em Convert a abs\+\_\+stringptr string to a en\+Colours enum. \end{DoxyCompactList}\item 
-constexpr abs\+\_\+stringptr \mbox{\hyperlink{Generated__Test_8h_af1c959d0e9481a0fb8345289c1ef463a}{Enum\+To\+String}} (\mbox{\hyperlink{PreprocTest_8h_a081cf1a0e70d6e2bd48c98f457742877}{en\+Colours}} Enum\+Token)
-\begin{DoxyCompactList}\small\item\em Return a abs\+\_\+stringptr corresponding for the given en\+Colours enum. \end{DoxyCompactList}\item 
+template$<$$>$ auto \mbox{\hyperlink{Generated__Test_8h_a6f5a45554690a3ba471deb2c15ba22c8}{String\+To\+Enum$<$ en\+Colours $>$}} (st\+\_\+ptr String) -\/$>$ \mbox{\hyperlink{PreprocTest_8h_a081cf1a0e70d6e2bd48c98f457742877}{en\+Colours}}
+\begin{DoxyCompactList}\small\item\em Convert a st\+\_\+ptr string to a en\+Colours enum. \end{DoxyCompactList}\item 
+constexpr st\+\_\+ptr \mbox{\hyperlink{Generated__Test_8h_af8c487fc7c4e1b55ea97d1c3db6d2da9}{Enum\+To\+String}} (\mbox{\hyperlink{PreprocTest_8h_a081cf1a0e70d6e2bd48c98f457742877}{en\+Colours}} Enum\+Token)
+\begin{DoxyCompactList}\small\item\em Return a st\+\_\+ptr corresponding for the given en\+Colours enum. \end{DoxyCompactList}\item 
 constexpr char const  $\ast$ \mbox{\hyperlink{Generated__Test_8h_ac94b257fa3ae7dabdbdc07db0ac072c4}{Enum\+To\+C\+String}} (\mbox{\hyperlink{PreprocTest_8h_a081cf1a0e70d6e2bd48c98f457742877}{en\+Colours}} Enum\+Token)
 \begin{DoxyCompactList}\small\item\em Return a const char$\ast$ null-\/terminated string for the given en\+Colours enum. \end{DoxyCompactList}\item 
 const char $\ast$ \mbox{\hyperlink{Generated__Test_8h_a9b8638e967a81b3c211b77df49d85034}{Enum\+To\+Label\+\_\+\+Object}} (\mbox{\hyperlink{PreprocTest_8h_a081cf1a0e70d6e2bd48c98f457742877}{en\+Colours}} Enum\+Token)
@@ -354,15 +354,15 @@ Labels are defined as part of the enum definition, see \mbox{\hyperlink{index}{t
 \begin{DoxyReturn}{Returns}
 A null-\/terminated const string. 
 \end{DoxyReturn}
-\mbox{\Hypertarget{Generated__Test_8h_af1c959d0e9481a0fb8345289c1ef463a}\label{Generated__Test_8h_af1c959d0e9481a0fb8345289c1ef463a}} 
+\mbox{\Hypertarget{Generated__Test_8h_af8c487fc7c4e1b55ea97d1c3db6d2da9}\label{Generated__Test_8h_af8c487fc7c4e1b55ea97d1c3db6d2da9}} 
 \index{Generated\_Test.h@{Generated\_Test.h}!EnumToString@{EnumToString}}
 \index{EnumToString@{EnumToString}!Generated\_Test.h@{Generated\_Test.h}}
 \doxysubsubsection{\texorpdfstring{EnumToString()}{EnumToString()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
-{\footnotesize\ttfamily constexpr abs\+\_\+stringptr Enum\+To\+String (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{PreprocTest_8h_a081cf1a0e70d6e2bd48c98f457742877}{en\+Colours}}}]{Enum\+Token }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [constexpr]}}
+{\footnotesize\ttfamily constexpr st\+\_\+ptr Enum\+To\+String (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{PreprocTest_8h_a081cf1a0e70d6e2bd48c98f457742877}{en\+Colours}}}]{Enum\+Token }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [constexpr]}}
 
 
 
-Return a abs\+\_\+stringptr corresponding for the given en\+Colours enum. 
+Return a st\+\_\+ptr corresponding for the given en\+Colours enum. 
 
 
 \begin{DoxyParams}{Parameters}
@@ -370,17 +370,17 @@ Return a abs\+\_\+stringptr corresponding for the given en\+Colours enum.
 \hline
 \end{DoxyParams}
 \begin{DoxyReturn}{Returns}
-A constant abs\+\_\+stringptr. 
+A constant st\+\_\+ptr. 
 \end{DoxyReturn}
-\mbox{\Hypertarget{Generated__Test_8h_a6087c1644a941337a7e8ac43157a30b3}\label{Generated__Test_8h_a6087c1644a941337a7e8ac43157a30b3}} 
+\mbox{\Hypertarget{Generated__Test_8h_ad639153996de58e57408c83a3dcc9257}\label{Generated__Test_8h_ad639153996de58e57408c83a3dcc9257}} 
 \index{Generated\_Test.h@{Generated\_Test.h}!EnumToString@{EnumToString}}
 \index{EnumToString@{EnumToString}!Generated\_Test.h@{Generated\_Test.h}}
 \doxysubsubsection{\texorpdfstring{EnumToString()}{EnumToString()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
-{\footnotesize\ttfamily constexpr abs\+\_\+stringptr Enum\+To\+String (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{PreprocTest_8h_a55ed691059222a58555cf9992ec14431}{test\+\_\+cmd}}}]{Enum\+Token }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [constexpr]}}
+{\footnotesize\ttfamily constexpr st\+\_\+ptr Enum\+To\+String (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{PreprocTest_8h_a55ed691059222a58555cf9992ec14431}{test\+\_\+cmd}}}]{Enum\+Token }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [constexpr]}}
 
 
 
-Return a abs\+\_\+stringptr corresponding for the given test\+\_\+cmd enum. 
+Return a st\+\_\+ptr corresponding for the given test\+\_\+cmd enum. 
 
 
 \begin{DoxyParams}{Parameters}
@@ -388,7 +388,7 @@ Return a abs\+\_\+stringptr corresponding for the given test\+\_\+cmd enum.
 \hline
 \end{DoxyParams}
 \begin{DoxyReturn}{Returns}
-A constant abs\+\_\+stringptr. 
+A constant st\+\_\+ptr. 
 \end{DoxyReturn}
 \mbox{\Hypertarget{Generated__Test_8h_a36c15d4c27a71b37003bfc22b75964be}\label{Generated__Test_8h_a36c15d4c27a71b37003bfc22b75964be}} 
 \index{Generated\_Test.h@{Generated\_Test.h}!GetStateName@{GetStateName}}
@@ -493,7 +493,7 @@ True if queue is full.
 
 Convert a J\+S\+ON string to an array of objects. 
 
-This takes a J\+S\+ON string that consists of an array and converts it into an array of those objects. Each object is converted as per \mbox{\hyperlink{Generated__Test1_8h_a2486f6354ceb3dff0b86bcd782f4eeae}{Json\+To\+Object}}.
+This takes a J\+S\+ON string that consists of an array and converts it into an array of those objects. Each object is converted as per \mbox{\hyperlink{Generated__Test_8h_a2486f6354ceb3dff0b86bcd782f4eeae}{Json\+To\+Object}}.
 
 
 \begin{DoxyParams}[1]{Parameters}
@@ -505,7 +505,7 @@ This takes a J\+S\+ON string that consists of an array and converts it into an a
 \hline
 \mbox{\texttt{ out}}  & {\em Object\+Array} & Location to put the object array. Array memory is taken from Volatile\+Memory. \\
 \hline
-\mbox{\texttt{ out}}  & {\em Object\+Array\+Exist} & Array of \mbox{\hyperlink{structmy__json__test__existlist}{my\+\_\+json\+\_\+test\+\_\+existlist}} structs, as per \mbox{\hyperlink{Generated__Test1_8h_a2486f6354ceb3dff0b86bcd782f4eeae}{Json\+To\+Object}}. \\
+\mbox{\texttt{ out}}  & {\em Object\+Array\+Exist} & Array of \mbox{\hyperlink{structmy__json__test__existlist}{my\+\_\+json\+\_\+test\+\_\+existlist}} structs, as per \mbox{\hyperlink{Generated__Test_8h_a2486f6354ceb3dff0b86bcd782f4eeae}{Json\+To\+Object}}. \\
 \hline
 \end{DoxyParams}
 \begin{DoxyReturn}{Returns}
@@ -643,21 +643,10 @@ This function is usually called from the struct version of Push\+Json.
 \begin{DoxyReturn}{Returns}
 Number of characters written to the buffer, not including the null character. 
 \end{DoxyReturn}
-\mbox{\Hypertarget{Generated__Test_8h_ac56b1acaa9bd587f623d2983f921ad50}\label{Generated__Test_8h_ac56b1acaa9bd587f623d2983f921ad50}} 
-\index{Generated\_Test.h@{Generated\_Test.h}!StringToEnum@{StringToEnum}}
-\index{StringToEnum@{StringToEnum}!Generated\_Test.h@{Generated\_Test.h}}
-\doxysubsubsection{\texorpdfstring{StringToEnum()}{StringToEnum()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
-{\footnotesize\ttfamily template$<$typename T $>$ \\
-auto String\+To\+Enum (\begin{DoxyParamCaption}\item[{abs\+\_\+stringptr}]{String }\end{DoxyParamCaption}) -\/$>$  T}
-
-
-
-Generic template for the abs\+\_\+stringptr String\+To\+Enum$<$$>$ functions. 
-
 \mbox{\Hypertarget{Generated__Test_8h_a9a60bb3cdfd4c044939d80c8e1edd6dd}\label{Generated__Test_8h_a9a60bb3cdfd4c044939d80c8e1edd6dd}} 
 \index{Generated\_Test.h@{Generated\_Test.h}!StringToEnum@{StringToEnum}}
 \index{StringToEnum@{StringToEnum}!Generated\_Test.h@{Generated\_Test.h}}
-\doxysubsubsection{\texorpdfstring{StringToEnum()}{StringToEnum()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+\doxysubsubsection{\texorpdfstring{StringToEnum()}{StringToEnum()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
 {\footnotesize\ttfamily template$<$typename T $>$ \\
 auto String\+To\+Enum (\begin{DoxyParamCaption}\item[{const char $\ast$}]{String }\end{DoxyParamCaption}) -\/$>$  T}
 
@@ -665,33 +654,23 @@ auto String\+To\+Enum (\begin{DoxyParamCaption}\item[{const char $\ast$}]{String
 
 Generic template for the c-\/style string String\+To\+Enum$<$$>$ functions. 
 
-\mbox{\Hypertarget{Generated__Test_8h_a768f3f6a292bf1dee6bd92fc1f0648e9}\label{Generated__Test_8h_a768f3f6a292bf1dee6bd92fc1f0648e9}} 
+\mbox{\Hypertarget{Generated__Test_8h_a169bede4c403fbef787b59e54cd4e963}\label{Generated__Test_8h_a169bede4c403fbef787b59e54cd4e963}} 
+\index{Generated\_Test.h@{Generated\_Test.h}!StringToEnum@{StringToEnum}}
+\index{StringToEnum@{StringToEnum}!Generated\_Test.h@{Generated\_Test.h}}
+\doxysubsubsection{\texorpdfstring{StringToEnum()}{StringToEnum()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+auto String\+To\+Enum (\begin{DoxyParamCaption}\item[{st\+\_\+ptr}]{String }\end{DoxyParamCaption}) -\/$>$  T}
+
+
+
+Generic template for the st\+\_\+ptr String\+To\+Enum$<$$>$ functions. 
+
+\mbox{\Hypertarget{Generated__Test_8h_ad369bcb4826dc155da6b130a0fa97d13}\label{Generated__Test_8h_ad369bcb4826dc155da6b130a0fa97d13}} 
 \index{Generated\_Test.h@{Generated\_Test.h}!StringToEnum$<$ enColours $>$@{StringToEnum$<$ enColours $>$}}
 \index{StringToEnum$<$ enColours $>$@{StringToEnum$<$ enColours $>$}!Generated\_Test.h@{Generated\_Test.h}}
 \doxysubsubsection{\texorpdfstring{StringToEnum$<$ enColours $>$()}{StringToEnum< enColours >()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
 {\footnotesize\ttfamily template$<$$>$ \\
-auto \mbox{\hyperlink{Generated__Test1_8h_ac56b1acaa9bd587f623d2983f921ad50}{String\+To\+Enum}}$<$ \mbox{\hyperlink{PreprocTest_8h_a081cf1a0e70d6e2bd48c98f457742877}{en\+Colours}} $>$ (\begin{DoxyParamCaption}\item[{abs\+\_\+stringptr}]{String }\end{DoxyParamCaption}) -\/$>$  \mbox{\hyperlink{PreprocTest_8h_a081cf1a0e70d6e2bd48c98f457742877}{en\+Colours}}}
-
-
-
-Convert a abs\+\_\+stringptr string to a en\+Colours enum. 
-
-If the string does not correspond to any of the enums, it will return the first value of the enum\+: {\ttfamily en\+Colours\+::\+Red}.
-
-
-\begin{DoxyParams}{Parameters}
-{\em String} & An abs\+\_\+stringptr string. \\
-\hline
-\end{DoxyParams}
-\begin{DoxyReturn}{Returns}
-A en\+Colours enum value. 
-\end{DoxyReturn}
-\mbox{\Hypertarget{Generated__Test_8h_ad369bcb4826dc155da6b130a0fa97d13}\label{Generated__Test_8h_ad369bcb4826dc155da6b130a0fa97d13}} 
-\index{Generated\_Test.h@{Generated\_Test.h}!StringToEnum$<$ enColours $>$@{StringToEnum$<$ enColours $>$}}
-\index{StringToEnum$<$ enColours $>$@{StringToEnum$<$ enColours $>$}!Generated\_Test.h@{Generated\_Test.h}}
-\doxysubsubsection{\texorpdfstring{StringToEnum$<$ enColours $>$()}{StringToEnum< enColours >()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
-{\footnotesize\ttfamily template$<$$>$ \\
-auto \mbox{\hyperlink{Generated__Test1_8h_ac56b1acaa9bd587f623d2983f921ad50}{String\+To\+Enum}}$<$ \mbox{\hyperlink{PreprocTest_8h_a081cf1a0e70d6e2bd48c98f457742877}{en\+Colours}} $>$ (\begin{DoxyParamCaption}\item[{const char $\ast$}]{String }\end{DoxyParamCaption}) -\/$>$  \mbox{\hyperlink{PreprocTest_8h_a081cf1a0e70d6e2bd48c98f457742877}{en\+Colours}}}
+auto \mbox{\hyperlink{Generated__Test_8h_a169bede4c403fbef787b59e54cd4e963}{String\+To\+Enum}}$<$ \mbox{\hyperlink{PreprocTest_8h_a081cf1a0e70d6e2bd48c98f457742877}{en\+Colours}} $>$ (\begin{DoxyParamCaption}\item[{const char $\ast$}]{String }\end{DoxyParamCaption}) -\/$>$  \mbox{\hyperlink{PreprocTest_8h_a081cf1a0e70d6e2bd48c98f457742877}{en\+Colours}}}
 
 
 
@@ -707,33 +686,33 @@ If the string does not correspond to any of the enums, it will return the first 
 \begin{DoxyReturn}{Returns}
 A en\+Colours enum value. 
 \end{DoxyReturn}
-\mbox{\Hypertarget{Generated__Test_8h_a196b200d9f8e70d10669c8841f0ece91}\label{Generated__Test_8h_a196b200d9f8e70d10669c8841f0ece91}} 
-\index{Generated\_Test.h@{Generated\_Test.h}!StringToEnum$<$ test\_cmd $>$@{StringToEnum$<$ test\_cmd $>$}}
-\index{StringToEnum$<$ test\_cmd $>$@{StringToEnum$<$ test\_cmd $>$}!Generated\_Test.h@{Generated\_Test.h}}
-\doxysubsubsection{\texorpdfstring{StringToEnum$<$ test\_cmd $>$()}{StringToEnum< test\_cmd >()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+\mbox{\Hypertarget{Generated__Test_8h_a6f5a45554690a3ba471deb2c15ba22c8}\label{Generated__Test_8h_a6f5a45554690a3ba471deb2c15ba22c8}} 
+\index{Generated\_Test.h@{Generated\_Test.h}!StringToEnum$<$ enColours $>$@{StringToEnum$<$ enColours $>$}}
+\index{StringToEnum$<$ enColours $>$@{StringToEnum$<$ enColours $>$}!Generated\_Test.h@{Generated\_Test.h}}
+\doxysubsubsection{\texorpdfstring{StringToEnum$<$ enColours $>$()}{StringToEnum< enColours >()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
 {\footnotesize\ttfamily template$<$$>$ \\
-auto \mbox{\hyperlink{Generated__Test1_8h_ac56b1acaa9bd587f623d2983f921ad50}{String\+To\+Enum}}$<$ \mbox{\hyperlink{PreprocTest_8h_a55ed691059222a58555cf9992ec14431}{test\+\_\+cmd}} $>$ (\begin{DoxyParamCaption}\item[{abs\+\_\+stringptr}]{String }\end{DoxyParamCaption}) -\/$>$  \mbox{\hyperlink{PreprocTest_8h_a55ed691059222a58555cf9992ec14431}{test\+\_\+cmd}}}
+auto \mbox{\hyperlink{Generated__Test_8h_a169bede4c403fbef787b59e54cd4e963}{String\+To\+Enum}}$<$ \mbox{\hyperlink{PreprocTest_8h_a081cf1a0e70d6e2bd48c98f457742877}{en\+Colours}} $>$ (\begin{DoxyParamCaption}\item[{st\+\_\+ptr}]{String }\end{DoxyParamCaption}) -\/$>$  \mbox{\hyperlink{PreprocTest_8h_a081cf1a0e70d6e2bd48c98f457742877}{en\+Colours}}}
 
 
 
-Convert a abs\+\_\+stringptr string to a test\+\_\+cmd enum. 
+Convert a st\+\_\+ptr string to a en\+Colours enum. 
 
-If the string does not correspond to any of the enums, it will return the first value of the enum\+: {\ttfamily test\+\_\+cmd\+::\+N\+OP}.
+If the string does not correspond to any of the enums, it will return the first value of the enum\+: {\ttfamily en\+Colours\+::\+Red}.
 
 
 \begin{DoxyParams}{Parameters}
-{\em String} & An abs\+\_\+stringptr string. \\
+{\em String} & An st\+\_\+ptr string. \\
 \hline
 \end{DoxyParams}
 \begin{DoxyReturn}{Returns}
-A test\+\_\+cmd enum value. 
+A en\+Colours enum value. 
 \end{DoxyReturn}
 \mbox{\Hypertarget{Generated__Test_8h_a3918139d94601cfee23f622cd557582f}\label{Generated__Test_8h_a3918139d94601cfee23f622cd557582f}} 
 \index{Generated\_Test.h@{Generated\_Test.h}!StringToEnum$<$ test\_cmd $>$@{StringToEnum$<$ test\_cmd $>$}}
 \index{StringToEnum$<$ test\_cmd $>$@{StringToEnum$<$ test\_cmd $>$}!Generated\_Test.h@{Generated\_Test.h}}
-\doxysubsubsection{\texorpdfstring{StringToEnum$<$ test\_cmd $>$()}{StringToEnum< test\_cmd >()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+\doxysubsubsection{\texorpdfstring{StringToEnum$<$ test\_cmd $>$()}{StringToEnum< test\_cmd >()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
 {\footnotesize\ttfamily template$<$$>$ \\
-auto \mbox{\hyperlink{Generated__Test1_8h_ac56b1acaa9bd587f623d2983f921ad50}{String\+To\+Enum}}$<$ \mbox{\hyperlink{PreprocTest_8h_a55ed691059222a58555cf9992ec14431}{test\+\_\+cmd}} $>$ (\begin{DoxyParamCaption}\item[{const char $\ast$}]{String }\end{DoxyParamCaption}) -\/$>$  \mbox{\hyperlink{PreprocTest_8h_a55ed691059222a58555cf9992ec14431}{test\+\_\+cmd}}}
+auto \mbox{\hyperlink{Generated__Test_8h_a169bede4c403fbef787b59e54cd4e963}{String\+To\+Enum}}$<$ \mbox{\hyperlink{PreprocTest_8h_a55ed691059222a58555cf9992ec14431}{test\+\_\+cmd}} $>$ (\begin{DoxyParamCaption}\item[{const char $\ast$}]{String }\end{DoxyParamCaption}) -\/$>$  \mbox{\hyperlink{PreprocTest_8h_a55ed691059222a58555cf9992ec14431}{test\+\_\+cmd}}}
 
 
 
@@ -744,6 +723,27 @@ If the string does not correspond to any of the enums, it will return the first 
 
 \begin{DoxyParams}{Parameters}
 {\em String} & A null terminated string \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A test\+\_\+cmd enum value. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{Generated__Test_8h_a75bcc5acbb1a90744942c9dfe500accf}\label{Generated__Test_8h_a75bcc5acbb1a90744942c9dfe500accf}} 
+\index{Generated\_Test.h@{Generated\_Test.h}!StringToEnum$<$ test\_cmd $>$@{StringToEnum$<$ test\_cmd $>$}}
+\index{StringToEnum$<$ test\_cmd $>$@{StringToEnum$<$ test\_cmd $>$}!Generated\_Test.h@{Generated\_Test.h}}
+\doxysubsubsection{\texorpdfstring{StringToEnum$<$ test\_cmd $>$()}{StringToEnum< test\_cmd >()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily template$<$$>$ \\
+auto \mbox{\hyperlink{Generated__Test_8h_a169bede4c403fbef787b59e54cd4e963}{String\+To\+Enum}}$<$ \mbox{\hyperlink{PreprocTest_8h_a55ed691059222a58555cf9992ec14431}{test\+\_\+cmd}} $>$ (\begin{DoxyParamCaption}\item[{st\+\_\+ptr}]{String }\end{DoxyParamCaption}) -\/$>$  \mbox{\hyperlink{PreprocTest_8h_a55ed691059222a58555cf9992ec14431}{test\+\_\+cmd}}}
+
+
+
+Convert a st\+\_\+ptr string to a test\+\_\+cmd enum. 
+
+If the string does not correspond to any of the enums, it will return the first value of the enum\+: {\ttfamily test\+\_\+cmd\+::\+N\+OP}.
+
+
+\begin{DoxyParams}{Parameters}
+{\em String} & An st\+\_\+ptr string. \\
 \hline
 \end{DoxyParams}
 \begin{DoxyReturn}{Returns}

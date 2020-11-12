@@ -1,9 +1,9 @@
 <map id="ab_common.h" name="ab_common.h">
-<area shape="rect" id="node1" title="Common macros and typedefs." alt="" coords="290,5,394,32"/>
-<area shape="rect" id="node2" href="$d2/d40/ab__json_8h.html" title="JSON functions, mostly used by pre&#45;generated files." alt="" coords="175,229,253,256"/>
-<area shape="rect" id="node3" href="$d4/d4b/ab__logger_8h.html" title="Network Logger." alt="" coords="5,155,95,181"/>
-<area shape="rect" id="node4" href="$dc/dd8/ab__loggerclient_8h.html" title="Basic Logger Client." alt="" coords="282,155,402,181"/>
-<area shape="rect" id="node5" href="$d0/d0a/ab__memory_8h.html" title="Memory handling." alt="" coords="163,80,265,107"/>
-<area shape="rect" id="node7" href="$dc/da0/ab__time_8h.html" title="Functions for time and timing." alt="" coords="477,80,556,107"/>
-<area shape="rect" id="node6" href="$d0/d57/ab__string_8h.html" title="Using string fragments, usually but not exclusively sections of larger strings." alt="" coords="171,155,257,181"/>
+<area shape="rect" id="node1" title="Common macros and typedefs." alt="" coords="288,5,392,32"/>
+<area shape="rect" id="node2" href="$d2/d40/ab__json_8h.html" title="JSON functions, mostly used by pre&#45;generated files." alt="" coords="173,229,251,256"/>
+<area shape="rect" id="node3" href="$d4/d4b/ab__logger_8h.html" title="Network Logger." alt="" coords="5,155,93,181"/>
+<area shape="rect" id="node4" href="$dc/dd8/ab__loggerclient_8h.html" title="Basic Logger Client." alt="" coords="280,155,400,181"/>
+<area shape="rect" id="node5" href="$d0/d0a/ab__memory_8h.html" title="Memory handling." alt="" coords="163,80,261,107"/>
+<area shape="rect" id="node7" href="$d6/d7a/ab__timehelper_8h.html" title="Functions for time and timing." alt="" coords="475,80,589,107"/>
+<area shape="rect" id="node6" href="$d0/d57/ab__string_8h.html" title="Using string fragments, usually but not exclusively sections of larger strings." alt="" coords="169,155,255,181"/>
 </map>

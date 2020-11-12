@@ -25,18 +25,18 @@ WriteQueueFunctions(st_ptr QueueItemName, s32 QueueSize,
         QueueSize = 10;
     }
     
-    WriteToOutput(Headers, Memory, 
+    WriteToOutput(Headers, Memory,
                   "/***** Queue: %.*s ****/\n"
-                  "/** @brief A circular queue of %u elements. */\n", 
-                  PSTRING(QueueItemName), 
+                  "/** @brief A circular queue of %u elements. */\n",
+                  PSTRING(QueueItemName),
                   QueueSize);
     
     WriteToOutput(Headers, Memory,
                   "struct %.*s_queue\n"
                   "{\n"
                   "    %.*s Items[%u];\n"
-                  "    s32 Front;\n"
-                  "    s32 Rear;\n"
+                  "    s32 Front = -1;\n"
+                  "    s32 Rear = -1;\n"
                   "};\n"
                   "\n",
                   QueueItemName.Length, QueueItemName.String,
@@ -44,7 +44,7 @@ WriteQueueFunctions(st_ptr QueueItemName, s32 QueueSize,
                   QueueSize
                   );
     
-    WriteToOutput(Headers, Memory, 
+    WriteToOutput(Headers, Memory,
                   "/** @brief Initialize the command queue.\n"
                   "\n"
                   "This must be run to initialize the queue before it may be used for the first time."
@@ -74,7 +74,7 @@ WriteQueueFunctions(st_ptr QueueItemName, s32 QueueSize,
                   "isQueueFull(%.*s_queue *Queue);\n",
                   PSTRING(QueueItemName));
     
-    WriteToOutput(Headers, Memory, 
+    WriteToOutput(Headers, Memory,
                   "/** @brief Add an item to the back of the queue.\n"
                   "\n"
                   "@param Queue The queue to add to.\n"
@@ -86,7 +86,7 @@ WriteQueueFunctions(st_ptr QueueItemName, s32 QueueSize,
                   PSTRING(QueueItemName),
                   PSTRING(QueueItemName));
     
-    WriteToOutput(Headers, Memory, 
+    WriteToOutput(Headers, Memory,
                   "/** @brief Dequeue from the front of the queue.\n"
                   "\n"
                   "@param Queue The queue to pull a command from.\n"
@@ -99,7 +99,7 @@ WriteQueueFunctions(st_ptr QueueItemName, s32 QueueSize,
                   PSTRING(QueueItemName),
                   PSTRING(QueueItemName));
     
-    WriteToOutput(Headers, Memory, 
+    WriteToOutput(Headers, Memory,
                   "/***********/\n\n");
     
     WriteToOutput(Definitions, Memory, "/****** Queue: %.*s ****/\n",
@@ -123,7 +123,7 @@ WriteQueueFunctions(st_ptr QueueItemName, s32 QueueSize,
                   "\n",
                   QueueItemName.Length, QueueItemName.String);
     
-    WriteToOutput(Definitions, Memory, 
+    WriteToOutput(Definitions, Memory,
                   "inline b8 \n"
                   "isQueueFull(%.*s_queue *Queue)\n"
                   "{\n"
@@ -133,7 +133,7 @@ WriteQueueFunctions(st_ptr QueueItemName, s32 QueueSize,
                   "  return Result;\n"
                   "}\n"
                   "\n",
-                  QueueItemName.Length, QueueItemName.String, 
+                  QueueItemName.Length, QueueItemName.String,
                   QueueSize);
     
     WriteToOutput(Definitions, Memory,
@@ -186,7 +186,7 @@ WriteQueueFunctions(st_ptr QueueItemName, s32 QueueSize,
                   QueueItemName.Length, QueueItemName.String,
                   QueueSize);
     
-    WriteToOutput(Definitions, Memory, 
+    WriteToOutput(Definitions, Memory,
                   "/***********/\n\n");
     
 }
@@ -210,4 +210,4 @@ ProcessQueueFunctions(term_queue *QueueListSentinal, memory_arena *Memory, outpu
 
 
 #undef ABP_QUEUE_SRC
-#endif 
+#endif

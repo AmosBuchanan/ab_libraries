@@ -67,9 +67,9 @@ CreateStructJson(term_struct *Struct, tag *Tag, memory_arena *Memory, output_dat
                   "**/\n"
                   "u32 PushJson(char *Json, u32 MaxLength, char const *Tag, const %.*s &Value, u32 JsonFlags);\n",
                   PSTRING(Struct->Name));
-    WriteToOutput(Headers, Memory, 
+    WriteToOutput(Headers, Memory,
                   "/** @brief Returns whether a variable was specified in the JSON string when converting back to a struct. See @ref JsonToObject. **/"
-                  "struct %.*s_existlist;\n", 
+                  "struct %.*s_existlist;\n",
                   PSTRING(Struct->Name));
     WriteToOutput(Headers, Memory,
                   "/** @brief Convert a JSON string to an object.\n"
@@ -418,7 +418,8 @@ CreateStructJson(term_struct *Struct, tag *Tag, memory_arena *Memory, output_dat
                 WriteToOutput(Definitions, Memory,
                               "    ++Token;\n"
                               "    TokenLength = Token->end - Token->start;\n"
-                              "    s32 Length = MINIMUM(TokenLength, (%d-1));\n"
+                              "    // NOTE(amos): Token Length plus one for the terminator.\n"
+                              "    s32 Length = MINIMUM(TokenLength+1, (%d-1));\n"
                               "    st_StringCopy(ObjectOut->%.*s, &Json[Token->start], Length, true);\n"
                               "    ObjectOut->%.*s[Length] = 0;\n"
                               "}\n\n",

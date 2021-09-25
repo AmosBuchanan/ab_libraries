@@ -23,7 +23,7 @@ struct \mbox{\hyperlink{structlc__message}{lc\+\_\+message}}
 \doxysubsection*{Typedefs}
 \begin{DoxyCompactItemize}
 \item 
-typedef void($\ast$ \mbox{\hyperlink{ab__loggerclient_8h_ae447ebb43b063b77ad8be4bc630752ea}{log\+\_\+function}}) (\mbox{\hyperlink{structlc__message}{lc\+\_\+message}} $\ast$Message, char $\ast$Endpoint\+Name, \mbox{\hyperlink{ab__common_8h_a70e369648385b50f2d0588e8e8745275}{b8}} is\+Pause, \mbox{\hyperlink{ab__common_8h_a70e369648385b50f2d0588e8e8745275}{b8}} is\+Quiet, F\+I\+LE $\ast$File\+Pointer)
+typedef void($\ast$ \mbox{\hyperlink{ab__loggerclient_8h_ab7242e206b87a9a90e9b23c59cb6cd4a}{log\+\_\+function}}) (\mbox{\hyperlink{structlc__message}{lc\+\_\+message}} $\ast$Message, char $\ast$Endpoint\+Label, \mbox{\hyperlink{ab__common_8h_a70e369648385b50f2d0588e8e8745275}{b8}} is\+Pause, \mbox{\hyperlink{ab__common_8h_a70e369648385b50f2d0588e8e8745275}{b8}} is\+Quiet, F\+I\+LE $\ast$File\+Pointer)
 \end{DoxyCompactItemize}
 \doxysubsection*{Functions}
 \begin{DoxyCompactItemize}
@@ -60,7 +60,7 @@ Amos Buchanan
 \begin{DoxyDate}{Date}
 2020
 \end{DoxyDate}
-An example of how to subscribes to a logger created in {\ttfamily \mbox{\hyperlink{ab__logger_8h}{ab\+\_\+logger.\+h}}}. It also serves as a client that is usable on its own. This may subscribe to multiple loggers at different endpoints. By default it will print the log messages to stderr, but this is configurable. You can also set a filename to write all log messages.
+An example of how to subscribes to a logger created in \mbox{\hyperlink{ab__logger_8h}{ab\+\_\+logger.\+h}}. It also serves as a client that is usable on its own. This may subscribe to multiple loggers at different endpoints. By default it will print the log messages to stderr, but this is configurable. You can also set a filename to write all log messages.
 
 The client runs in a background thread to constantly retrieve and print messages from any logger it is subscribed to.
 
@@ -117,11 +117,11 @@ example usage\+:
 \end{DoxyItemize}
 
 \doxysubsection{Typedef Documentation}
-\mbox{\Hypertarget{ab__loggerclient_8h_ae447ebb43b063b77ad8be4bc630752ea}\label{ab__loggerclient_8h_ae447ebb43b063b77ad8be4bc630752ea}} 
+\mbox{\Hypertarget{ab__loggerclient_8h_ab7242e206b87a9a90e9b23c59cb6cd4a}\label{ab__loggerclient_8h_ab7242e206b87a9a90e9b23c59cb6cd4a}} 
 \index{ab\_loggerclient.h@{ab\_loggerclient.h}!log\_function@{log\_function}}
 \index{log\_function@{log\_function}!ab\_loggerclient.h@{ab\_loggerclient.h}}
 \doxysubsubsection{\texorpdfstring{log\_function}{log\_function}}
-{\footnotesize\ttfamily typedef void($\ast$ log\+\_\+function) (\mbox{\hyperlink{structlc__message}{lc\+\_\+message}} $\ast$Message, char $\ast$Endpoint\+Name, \mbox{\hyperlink{ab__common_8h_a70e369648385b50f2d0588e8e8745275}{b8}} is\+Pause, \mbox{\hyperlink{ab__common_8h_a70e369648385b50f2d0588e8e8745275}{b8}} is\+Quiet, F\+I\+LE $\ast$File\+Pointer)}
+{\footnotesize\ttfamily typedef void($\ast$ log\+\_\+function) (\mbox{\hyperlink{structlc__message}{lc\+\_\+message}} $\ast$Message, char $\ast$Endpoint\+Label, \mbox{\hyperlink{ab__common_8h_a70e369648385b50f2d0588e8e8745275}{b8}} is\+Pause, \mbox{\hyperlink{ab__common_8h_a70e369648385b50f2d0588e8e8745275}{b8}} is\+Quiet, F\+I\+LE $\ast$File\+Pointer)}
 
 
 

@@ -4,7 +4,7 @@
 @version 1.0
 @date 2020
 
-An example of how to subscribes to a logger created in @ref `ab_logger.h`. It also serves as a client that is usable on its own. This may subscribe to multiple loggers at different endpoints. By default it will print the log messages to stderr, but this is configurable. You can also set a filename to write all log messages.
+An example of how to subscribes to a logger created in @ref ab_logger.h. It also serves as a client that is usable on its own. This may subscribe to multiple loggers at different endpoints. By default it will print the log messages to stderr, but this is configurable. You can also set a filename to write all log messages.
 
 The client runs in a background thread to constantly retrieve and print messages from any logger it is subscribed to.
 

@@ -13,7 +13,7 @@ var searchData=
   ['log_5fdebug_40',['log_debug',['../d4/d4b/ab__logger_8h.html#a72d0b816afd22c249760589797b09579',1,'ab_logger.h']]],
   ['log_5ferror_41',['log_error',['../d4/d4b/ab__logger_8h.html#af63db9227f4c7f3c2fcbbe17e05dc038',1,'ab_logger.h']]],
   ['log_5ffatal_42',['log_fatal',['../d4/d4b/ab__logger_8h.html#ada6fd81b54e161246354215e72458a25',1,'ab_logger.h']]],
-  ['log_5ffunction_43',['log_function',['../dc/dd8/ab__loggerclient_8h.html#ae447ebb43b063b77ad8be4bc630752ea',1,'ab_loggerclient.h']]],
+  ['log_5ffunction_43',['log_function',['../dc/dd8/ab__loggerclient_8h.html#ab7242e206b87a9a90e9b23c59cb6cd4a',1,'ab_loggerclient.h']]],
   ['log_5finfo_44',['log_info',['../d4/d4b/ab__logger_8h.html#ab60a0c82e6c4cb4a23a02b772e31b626',1,'ab_logger.h']]],
   ['log_5finitializelogger_45',['log_InitializeLogger',['../d4/d4b/ab__logger_8h.html#acf77692576f0097f34ce2a671195cb90',1,'ab_logger.h']]],
   ['log_5flevel_46',['log_level',['../d4/d4b/ab__logger_8h.html#ac91d55174d383848b976a34de843748e',1,'ab_logger.h']]],

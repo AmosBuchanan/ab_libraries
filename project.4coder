@@ -1,5 +1,5 @@
 version(1);
-project_name = "AMS Code";
+project_name = "Amos Libraries";
 
 patterns = {
 "*.c",
@@ -28,7 +28,7 @@ load_paths = {
 
 build_preprocessor_win = "build-preproc.bat";
 build_preprocessor_test_win = "build-preproc.bat";
-build_preprocessor_lin = "preprocessor/build.sh";
+build_preprocessor_lin = "make";
 build_preprocessor_test_lin = "preprocessor/test/build.sh";
 
 build_doc_win = "build-doc.bat";
@@ -37,7 +37,15 @@ build_doc_lin = "./build-doc.sh";
 build_test_win = "build_test.bat";
 build_test_lin = "./build_test.sh";
 
+premake_lin = "premake5 --compilationunit=1 gmake";
+premake_win = "premake5 --compilationunit=1  vs2017";
+
 command_list = {
+ { .name = "Local Premake",
+   .out = "*compilation*", .save_dirty_files = true,
+   .cmd = { {premake_win, .os ="win"  },
+            {premake_lin, .os ="linux"  },
+          }, },
  { .name = "preproc build",
    .out = "*compilation*", .save_dirty_files = true,
    .cmd = { {build_preprocessor_win, .os ="win"  },
@@ -60,7 +68,8 @@ command_list = {
           }, },
  };
 
-fkey_command[1] = "test build";
-fkey_command[2] = "preproc build";
-fkey_command[5] = "preproc test build";
+fkey_command[1] = "preproc build";
+fkey_command[2] = "Local Premake";
+fkey_command[5] = "test build";
+fkey_command[6] = "preproc test build";
 fkey_command[8] = "Document";

@@ -4,6 +4,4 @@ bin
 **/bin
 **/*.log
 obj/
-src_preprocessor/Makefile src_tests/Makefile
-doc/latex/Makefile
-Makefile
+**/Makefile

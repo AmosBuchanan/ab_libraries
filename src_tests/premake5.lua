@@ -7,7 +7,7 @@ project "TestPreprocessor"
 
 	files 
 	{ 
-		workspacepath .. "{%prj.location}/test_preprocessor.cpp",
+		workspacepath .. "%{prj.location}/test_preprocessor.cpp",
 	}
 
 	defines
@@ -16,8 +16,10 @@ project "TestPreprocessor"
 
 	includedirs 
 	{ 
-		"%{prj.location}/include/", 
-	 }
+		"%{wks.location}/include",
+		"%{wks.location}/include/third-party",
+		"%{wks.location}/tools/stb"
+  	 }
 
 	links
 	{}
@@ -27,7 +29,9 @@ project "TestPreprocessor"
 		systemversion "latest"
 		architecture "x86_64"
 		defines { "_LINUX" }
-		prebuildcommands { "rm %{prj.location}/*Generated*", "%{cfg.targetdir}/preprocessor %{prj.location} Generatedtest_preprocessor" }
+		prebuildcommands { "rm -f %{prj.location}/*Generated*", "%{cfg.targetdir}/preprocessor %{prj.location} Generatedtest_preprocessor" }
+		postbuildcommands { "%{cfg.targetdir}/testpreprocessor" }
+
 
 	filter "platforms:Linux32"
 		system "Linux"

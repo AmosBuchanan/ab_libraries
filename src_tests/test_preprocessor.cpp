@@ -5,9 +5,8 @@
 #define MEMORY_SRC
 #define JSON_SRC
 #define GEN_JSMN_HEADER
-//#include "Generated_Test.h"
-#define GENERATED_TEST_SRC
-#include "Generated_Test.h"
+#define GENERATEDTEST_PREPROCESSOR_SRC
+#include "Generatedtest_preprocessor.h"
 
 enum class some_enum {first};
 struct some_struct {};
@@ -17,7 +16,7 @@ class some_class {};
 QUEUE(test_cmd);
 STATEMACHINE(test_statemachine, test_type, test_cmd, int Int, char const *String, ENUM some_enum EnumValue, STRUCT some_struct StructValue, UNION some_union UnionValue, CLASS some_class ClassValue);
 
-#include "PreprocTest.h"
+#include "test_preprocessor.h"
 
 #define JSMN_SRC
 #include "jsmn.h"

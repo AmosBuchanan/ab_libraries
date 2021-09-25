@@ -6,7 +6,7 @@ workspace "AmosLibraries"
 	platforms { "Linux64", "Linux32", "Win64", "Win32", "Arm" }
 
 	outputdir = "%{cfg.buildcfg}-%{cfg.system}-%{cfg.architecture}"
-	workspacepath = path.getabsolute("%{wks.location}")
+	workspacepath = "%{wks.abspath}"
 
 	targetdir ("%{wks.location}/bin/" .. outputdir)
 	objdir ("%{wks.location}/obj/" .. outputdir)

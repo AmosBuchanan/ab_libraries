@@ -4,11 +4,10 @@ project "AmosPreprocessor"
 	language "C++"	
 	cppdialect "C++17"
 	staticruntime "on"
-	compilationunitenabled ( true )
 
 	files
 	{ 
-		workspacepath .. "%{prj.location}/ab_preprocessor.cpp",
+		workspacepath .. "/ab_preprocessor.cpp",
 	}
 
 	defines

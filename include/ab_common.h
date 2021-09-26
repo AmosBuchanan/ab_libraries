@@ -54,6 +54,7 @@ typedef uint16_t u16;
 
 typedef int32_t s32;
 typedef uint32_t u32;
+typedef int32_t b32;
 
 typedef int64_t s64;
 typedef uint64_t u64;
@@ -71,7 +72,7 @@ const r32 TAU = 6.2831853071f;
 #ifdef _DEBUG
 
 /// Assert causes a hard-fault, useful when debugging. Don't use this is production code.
-#define Assert(test) if(!(test)) {*(int*)(0x0) = 0;}
+#define Assert(test) if(!(test)) {__builtin_trap();}
 
 #else
 

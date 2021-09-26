@@ -45,6 +45,7 @@ This file has the common macros and typedefs I use everywhere. Every other libra
 typedef wchar_t wchar;
 
 typedef int8_t b8;
+typedef int32_t b32;
 
 typedef int8_t s8;
 typedef uint8_t u8;

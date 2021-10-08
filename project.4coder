@@ -31,8 +31,8 @@ build_preprocessor_test_win = "build-preproc.bat";
 build_preprocessor_lin = "make";
 build_preprocessor_test_lin = "preprocessor/test/build.sh";
 
-build_doc_win = "build-doc.bat";
-build_doc_lin = "./build-doc.sh";
+build_doc_win = "";
+build_doc_lin = "doxygen doc/amos_libraries.cfg";
 
 build_test_win = "build_test.bat";
 build_test_lin = "./build_test.sh";

@@ -9,15 +9,15 @@ These are functions to handle string fragments. There are also some safe string 
 This is a single-file library. You may include it as a header just as any other. Add the following define to include the source *once* per project:
 
 ~~~c
-#define STRING_SRC
+#define AB_STRING_SRC
 #include "ab_string.h"
 ~~~
 
 **/
 
 
-#ifndef _STRING_H
-#define _STRING_H
+#ifndef AB_STRING_H
+#define AB_STRING_H
 
 #include "ab_memory.h"
 
@@ -194,9 +194,9 @@ st_CreateStringPtr(memory_arena *Memory, const char *String);
 st_ptr
 CreateStringPtr(char const *String, u32 Length);
 
-#endif //_STRING_H
+#endif //AB_STRING_H
 
-#if defined(STRING_SRC)
+#if defined(AB_STRING_SRC)
 
 b8
 st_AreStringsEqual(char const *String1, char const *String2, u32 MaxLength, b8 isCaseInsensitive)
@@ -427,6 +427,6 @@ st_Lowercase(st_ptr String, memory_arena *Memory)
 }
 
 
-#undef STRING_SRC
+#undef AB_STRING_SRC
 #endif
 

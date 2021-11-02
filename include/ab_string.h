@@ -192,7 +192,7 @@ st_CreateStringPtr(memory_arena *Memory, const char *String);
 @return st_ptr to the existing string using length.
 **/
 st_ptr
-CreateStringPtr(char const *String, u32 Length);
+st_CreateStringPtr(char const *String, u32 Length);
 
 #endif //_STRING_H
 

@@ -132,6 +132,18 @@ Case sensitive comparison of two `st_ptr`.
 b8
 st_AreStringsEqual(st_ptr String1, st_ptr String2);
 
+/** @brief Compare two `st_ptr`.
+
+Case sensitive comparison of two `st_ptr`. 
+
+@param String1 String or string fragment. May not be null-terminated.
+@param String2 String or string fragment. May not be null-terminated.
+@param isCaseInsensitive True if it should be a case-insensitive match.
+@return True if strings are equal, including lengths. False if strings are unequal.
+**/
+b8 st_AreStringsEqual(st_ptr String1, st_ptr String2, b8 isCaseInsensiteive);
+
+
 /** @brief Compare a null-terminated string with a `st_ptr`.
 
 Case sensitive comparison of null-terminated string and `st_ptr`. 
@@ -192,7 +204,23 @@ st_CreateStringPtr(memory_arena *Memory, const char *String);
 @return st_ptr to the existing string using length.
 **/
 st_ptr
-CreateStringPtr(char const *String, u32 Length);
+st_CreateStringPtr(char const *String, u32 Length);
+
+/** @brief Return an all-caps version of the input string.
+
+@param String The string to capitalize.
+@param Memory Memory arena to use for the new string.
+@return A new st_ptr for the capitalized string.
+**/
+st_ptr st_Capitalize(st_ptr String, memory_arena *Memory);
+
+/** @brief Return an all-lowercase version of the input string.
+
+@param String The string to lowercase
+@param Memory Memory arena to use for the new string.
+@return A new st_ptr for the lowercased string.
+**/
+st_ptr st_Lowercase(st_ptr String, memory_arena *Memory);
 
 #endif //AB_STRING_H
 

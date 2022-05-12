@@ -47,5 +47,4 @@ workspace "AmosLibraries"
 group "Dependencies"
 group ""
 
-include "src_preprocessor"
 include "src_tests"

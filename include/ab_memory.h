@@ -76,10 +76,6 @@ struct memory_arena
 	void *Start;
 	size_t Size;
 	size_t Used;
-    
-    // NOTE(amos): Used for spring arrays.
-    size_t PrevUsed;
-    size_t SpringArrayElementSize;
 };
 
 /** @private **/
@@ -87,6 +83,15 @@ struct temporary_memory
 {
 	memory_arena* Arena;
 	size_t Used;
+};
+
+/** @private **/
+struct memory_array
+{
+    memory_arena *Memory;
+    size_t Used;
+    size_t ElementSize;
+    u32 MaxElementCount;
 };
 
 /** @brief Get memory from the OS. 
@@ -135,51 +140,16 @@ This will clear the memory to 0.
 **/
 #define mem_PushArray(Arena, Count, Type) (Type*)mem_PushSize_(Arena, (Count)*sizeof(Type))
 
-/** @brief Initialize memory of an estimated size, which can be shrunk later when actual size is known.
 
-NOTE: Memory allocations between mem_BeginSpringArray() mem_EndSpringArray() will cause corruption, so don't do that.
+/** @brief Begin an array of unknown size.
 
-Example Usage:
-
-~~~c
-const s32 MaxBuffer = 1024;
-char *CharacterBuffer = mem_BeginSpringArray(&MemoryArena, MaxBuffer, char);
-
-s32 Length = snprintf(CharacterBuffer, MaxBuffer, "Some String.");
-
-// The memory arena will only use Length bytes
-mem_EndSpringArray(&MemoryArena, Length);
-
-const s32 MaxArray = 32;
-my_struct *StructArray = mem_BeginSpringArray(MemoryArena, MaxArray, my_struct);
-
-StructArray[0] = ...;
-StructArray[1] = ...;
-
-// Spring array keeps track of the size of the object in your array.
-mem_EndSpringArray(&MemoryArena, 2);
-~~~
-
-@param[in] Arena The memory arena to use.
-@param[in] Count The estimated number of elements in the array; must be equal to or larger to maximum expected size.
-@param[in] Type The element type.
+This will set the start of an array of unknown size, with a maximum allowed element count.
+This must be ended by a mem_EndArray() call. Do not use any other memory functions between this and the end call.
 **/
-#define mem_BeginSpringArray(Arena, Count, Type) (Type*)mem_BeginSpringArray_(Arena, sizeof(Type), Count) 
-
-/** @brief End the spring array, using only the amount of memory specfied from the memory arena.
-
-See @ref mem_BeginSpringArray() for usage.
-
-@param[in] Memory The memory arena to use.
-@param[in] FinalCount The number of elements actually used in the array.
-**/
-void mem_EndSpringArray(memory_arena *Memory, size_t FinalCount);
+#define mem_BeginArray(Arena, Type, MemoryArrayPtrOut) (Type*)mem_BeginArray_(Arena, sizeof(Type), MemoryArrayPtrOut);
 
 /** @private */
 void *mem_PushSize_(memory_arena *Memory, size_t Size, b8 ClearMemory = true);
-
-/** @private */
-void *mem_BeginSpringArray_(memory_arena *Memory, size_t ElementSize, size_t ElementCount, b8 ClearMemory = true);
 
 /** @brief Initialize a memory_arena.
 
@@ -247,6 +217,17 @@ void mem_EndTemporaryMemory(temporary_memory TempMem);
 **/
 memory_arena
 mem_CreateSubArena(memory_arena *Memory, size_t Size);
+
+/** @private **/
+void *mem_BeginArray_(memory_arena *Memory, size_t ElementSize, memory_array *MemoryArrayOut);
+
+
+/** @brief End a previously started array, setting memory size to the given element count.
+
+
+**/
+void mem_EndArray(memory_array *MemoryArray, u32 ElementCount);
+
 #endif
 
 #if _WINDOWS
@@ -282,40 +263,12 @@ mem_CreateSubArena(memory_arena *Memory, size_t Size)
     return SubArena;
 }
 
-mem_spring
-mem_PushSpringArray(memory_arena *Memory, size_t EstimatedSize, b8 ClearMemory)
-{
-    mem_spring Result = {};
-    Result.Arena = Memory;
-    Result.Used = Memory->Used;
-    Result.Memory = _mem_PushSize(Memory, EstimatedSize, ClearMemory);
-    
-    return Result;    
-}
-
-void *
-mem_BeginSpringArray_(memory_arena *Memory, size_t ElementSize, size_t ELementCount, b8 ClearMemory)
-{
-    void *Result = mem_PushSize_(Memory, ElementSize*ElementCount, ClearMemory);
-    Memory->SpringArrayElementSize = ElementSize;
-    
-    return Result;
-}
-
-void
-mem_EndSpringarray(memory_arena *Memory, size_t FinalCount)
-{
-    Memory->Used = Memory->PrevUsed + (FinalCount*Memory->SpringArrayElementSize);
-}
-
-
 void *
 mem_PushSize_(memory_arena *Memory, size_t Size, b8 ClearMemory)
 {
     void* Result = 0;
     
     Assert((Memory->Size - Memory->Used) > Size);
-    Memory->PrevUsed = Memory->Used;
     Result = (((u8*)Memory->Start) + Memory->Used);
     Memory->Used += Size;
     
@@ -361,6 +314,28 @@ mem_GetMemoryLeft(memory_arena *Memory)
     return Result;
 }
 
+void *
+mem_BeginArray_(memory_arena *Memory, size_t ElementSize, memory_array *ArrayDataOut)
+{
+    size_t MaxMemorySize = mem_GetMemoryLeft(Memory) - 1;
+    
+    ArrayDataOut->Memory = Memory;
+    ArrayDataOut->Used = Memory->Used;
+    ArrayDataOut->ElementSize = ElementSize;
+    ArrayDataOut->MaxElementCount = MaxMemorySize/ElementSize;
+    
+    void *Result = mem_PushSize_(Memory, MaxMemorySize);
+    return Result;
+}
+
+void
+mem_EndArray(memory_array *MemoryArray, u32 ElementCount)
+{
+    Assert(ElementCount <= MemoryArray->MaxElementCount);
+           
+    MemoryArray->Memory->Used = MemoryArray->Used;
+    mem_PushSize_(MemoryArray->Memory, (MemoryArray->ElementSize*ElementCount));
+}
 
 #undef MEMORY_SRC
 #endif

@@ -1,0 +1,35 @@
+expr: (taggedexpr | statemachine | queue | definefunction | nestedignored )*
+taggedexpr: tag  (function | struct | enum)
+tag: 'TAG' LPAREN (name [COLON option ] COMMA )* RPAREN [SEMICOLON | COMMA]
+
+function: type name LPAREN (typeexpr [EQUALS ignored] COMMA)* RPAREN bodyignored
+
+struct: ['struct' | 'union'] name LBRACE ( structitem )* RBRACE SEMICOLON
+structitem: [tag] typeexpr SEMICOLON 
+
+# When using custom types (struct, union, class, enum), prepend type with appropriate identifier to ensure it gets pre-declared properly.
+statemachine: 'STATEMACHINE' LPAREN state_function COMMA state_type COMMA state_cmd  [COMMA [('STRUCT' | 'ENUM' | 'UNION' | 'CLASS')] typeexpr]* RPAREN [SEMICOLON]
+# Used to identify functions for the statemachine. 
+definedfunction: definedfunctype LPAREN name  RPAREN bodyignored
+
+queue: 'QUEUE' LPAREN type [COMMA INTEGER] RPAREN [SEMICOLON]
+
+enum: ENUM CLASS name LBRACE [enumitem COMMA]* enumname [COMMA] RBRACE SEMICOLON
+enumitem: [tag] name
+
+type: ['const'] type ['const'] [(ptr | reference)] 
+typeexpr: type name [ LBRACKET arraycount RBRACKET ]
+
+bodyignored: (LBRACE ignored* RBRACE)
+nestedignored: (ignored | bodyignored)
+
+arraycount: INTEGER
+ignored: ANY
+name: IDENTIFIER
+definedfunctype: IDENTIFIER
+ptr: ASTERISK
+reference: AMPERSAND
+option: STRING
+state_function: IDENTIFIER
+state_type: IDENTIFIER
+state_cmd: IDENTIFIER

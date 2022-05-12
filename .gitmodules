@@ -1,0 +1,6 @@
+[submodule "tools/stb"]
+	path = tools/stb
+	url = https://github.com/nothings/stb
+[submodule "tools/premake/premake-compilationunit"]
+	path = tools/premake/premake-compilationunit
+	url = https://github.com/dcourtois/premake-compilationunit/

@@ -1,0 +1,75 @@
+version(1);
+project_name = "Amos Libraries";
+
+patterns = {
+"*.c",
+"*.cpp",
+"*.h",
+"*.bat",
+"*.sh",
+"*.4coder",
+"*.md",
+"commit.txt",
+};
+blacklist_patterns = {
+".*",
+"Generated*",
+"doc"
+};
+
+load_paths_only = {
+ {"."},
+};
+load_paths = {
+ { load_paths_only, .os = "win"  },
+ { load_paths_only, .os = "linux"},
+ { load_paths_only, .os = "mac"  },
+};
+
+build_preprocessor_win = "build-preproc.bat";
+build_preprocessor_test_win = "build-preproc.bat";
+build_preprocessor_lin = "make";
+build_preprocessor_test_lin = "preprocessor/test/build.sh";
+
+build_doc_win = "";
+build_doc_lin = "doxygen doc/amos_libraries.cfg";
+
+build_test_win = "build_test.bat";
+build_test_lin = "./build_test.sh";
+
+premake_lin = "premake5 --compilationunit=1 gmake";
+premake_win = "premake5 --compilationunit=1  vs2017";
+
+command_list = {
+ { .name = "Local Premake",
+   .out = "*compilation*", .save_dirty_files = true,
+   .cmd = { {premake_win, .os ="win"  },
+            {premake_lin, .os ="linux"  },
+          }, },
+ { .name = "preproc build",
+   .out = "*compilation*", .save_dirty_files = true,
+   .cmd = { {build_preprocessor_win, .os ="win"  },
+            {build_preprocessor_lin, .os ="linux"  },
+          }, },
+ { .name = "preproc test build",
+   .out = "*compilation*", .save_dirty_files = true,
+   .cmd = { {build_preprocessor_test_win, .os ="win"  },
+            {build_preprocessor_test_lin, .os ="linux"  },
+          }, },
+ { .name = "test build",
+   .out = "*compilation*", .save_dirty_files = true,
+   .cmd = { {build_test_win, .os ="win"  },
+            {build_test_lin, .os ="linux"  },
+          }, },
+ { .name = "Document",
+   .out = "*compilation*", .save_dirty_files = true,
+   .cmd = { {build_doc_win, .os ="win"  },
+            {build_doc_lin, .os ="linux"  },
+          }, },
+ };
+
+fkey_command[1] = "preproc build";
+fkey_command[2] = "Local Premake";
+fkey_command[5] = "test build";
+fkey_command[6] = "preproc test build";
+fkey_command[8] = "Document";

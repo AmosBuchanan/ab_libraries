@@ -1,0 +1,7 @@
+bin
+
+**/*.ii
+**/bin
+**/*.log
+obj/
+**/Makefile

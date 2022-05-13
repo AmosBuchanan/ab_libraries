@@ -324,7 +324,7 @@ mem_BeginArray_(memory_arena *Memory, size_t ElementSize, memory_array *ArrayDat
     ArrayDataOut->ElementSize = ElementSize;
     ArrayDataOut->MaxElementCount = MaxMemorySize/ElementSize;
     
-    void *Result = mem_PushSize_(Memory, MaxMemorySize);
+    void *Result = mem_PushSize_(Memory, MaxMemorySize, false);
     return Result;
 }
 
@@ -334,7 +334,7 @@ mem_EndArray(memory_array *MemoryArray, u32 ElementCount)
     Assert(ElementCount <= MemoryArray->MaxElementCount);
            
     MemoryArray->Memory->Used = MemoryArray->Used;
-    mem_PushSize_(MemoryArray->Memory, (MemoryArray->ElementSize*ElementCount));
+    mem_PushSize_(MemoryArray->Memory, (MemoryArray->ElementSize*ElementCount), false);
 }
 
 #undef MEMORY_SRC

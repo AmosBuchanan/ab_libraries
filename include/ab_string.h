@@ -19,7 +19,7 @@ This is a single-file library. You may include it as a header just as any other.
 #ifndef AB_STRING_H
 #define AB_STRING_H
 
-#include "ab_memory.h"
+#include "ab_common.h"
 
 /** @brief Get the length of a null-terminated string. 
 
@@ -190,12 +190,17 @@ u32 st_StringCopy(char *DestString, const char* SrcString, size_t Length, b8 Add
 
 /** @brief Create a string pointer out of a string.
 
-@param Memory Memory to use for the string.
-@param String Null terminated string to copy.
+This function will copy the string out of the source and into
+a location specified by Dest, and return a st_ptr to the copied 
+string.
+
+@param Dest Destination location to copy the input string to.
+@param DestMaxLength Maximum length of the output string.
+@param Src Null terminated string to copy.
 @return st_ptr to a new string.
 **/
 st_ptr
-st_CreateStringPtr(memory_arena *Memory, const char *String);
+st_CreateStringPtr(char *Dest, size_t DestMaxLength, const char *Src);
 
 /** @brief Create a string pointer out of a constant string.
 
@@ -208,19 +213,21 @@ st_CreateStringPtr(char const *String, u32 Length);
 
 /** @brief Return an all-caps version of the input string.
 
-@param String The string to capitalize.
-@param Memory Memory arena to use for the new string.
+@param Dest The destination to write the capitalized string to.
+@param DestMaxLength The maximum length of the string.
+@param Src The string to capitalize.
 @return A new st_ptr for the capitalized string.
 **/
-st_ptr st_Capitalize(st_ptr String, memory_arena *Memory);
+st_ptr st_Capitalize(char *Dest, size_t DestMaxLength, st_ptr Src);
 
 /** @brief Return an all-lowercase version of the input string.
 
-@param String The string to lowercase
-@param Memory Memory arena to use for the new string.
+@param Dest The destination to write the lowercased string to.
+@param DestMaxLength The maximum length of the destination string.
+@param Src The string to lowercase
 @return A new st_ptr for the lowercased string.
 **/
-st_ptr st_Lowercase(st_ptr String, memory_arena *Memory);
+st_ptr st_Lowercase(char *Dest, size_t DestMaxLength, st_ptr String);
 
 #endif //AB_STRING_H
 
@@ -389,15 +396,14 @@ st_StringCopy(char *DestString, const char* SrcString, size_t Length, b8 AddTerm
     
     return CharsCopied;
 }
-//return strncpy(dest, src, count);
 
 st_ptr
-st_CreateStringPtr(memory_arena *Memory, const char *String)
+st_CreateStringPtr(char *Dest, size_t DestMaxLength, const char *Src)
 {
-    u32 Length = st_StringLength(String, (u32)(mem_GetMemoryLeft(Memory)-1));
-    char *StringPtr = mem_PushArray(Memory, Length+1, char);
+    u32 Length = st_StringLength(Src, (u32)DestMaxLength);
+    char *StringPtr = Dest;
     
-    st_StringCopy(StringPtr, String, Length+1, true);
+    st_StringCopy(StringPtr, Src, Length+1, true);
     st_ptr Result = st_ptr(StringPtr, Length);
     
     return Result;
@@ -413,42 +419,55 @@ st_CreateStringPtr(char const *String, u32 Length)
 
 
 st_ptr
-st_Capitalize(st_ptr String, memory_arena *Memory)
+st_Capitalize(char *Dest, size_t DestMaxLength, st_ptr Src)
 {
-    char *NewString = mem_PushArray(Memory, String.Length, char);
-    for(u32 i = 0; i < String.Length; ++i)
+    // NOTE(amos): Refuse to capitalize a string if there isn't enough memory
+    //   to create the new string.
+    if(DestMaxLength < Src.Length)
     {
-        if(String.String[i] >= 'a' && String.String[i] <= 'z')
+        return {};
+    }
+    char *NewString = Dest;
+    for(u32 i = 0; i < Src.Length; ++i)
+    {
+        if(Src.String[i] >= 'a' && Src.String[i] <= 'z')
         {
-            NewString[i] = String.String[i] - 0x20;
+            NewString[i] = Src.String[i] - 0x20;
         }
         else
         {
-            NewString[i] = String.String[i];
+            NewString[i] = Src.String[i];
         }
     }
-    st_ptr Result = {NewString, String.Length};
+    st_ptr Result = {NewString, Src.Length};
     
     return Result;
     
 }
 
 st_ptr
-st_Lowercase(st_ptr String, memory_arena *Memory)
+st_Lowercase(char *Dest, size_t DestMaxLength, st_ptr Src)
 {
-    char *NewString = mem_PushArray(Memory, String.Length, char);
-    for(u32 i = 0; i < String.Length; ++i)
+    // NOTE(amos): Refuse to lowercase a string if there isn't enough memory
+    //   to create the new string.
+    if(DestMaxLength < Src.Length)
     {
-        if(String.String[i] >= 'A' && String.String[i] <= 'Z')
+        return {};
+    }
+    
+    char *NewString = Dest;
+    for(u32 i = 0; i < Src.Length; ++i)
+    {
+        if(Src.String[i] >= 'A' && Src.String[i] <= 'Z')
         {
-            NewString[i] = String.String[i] + 0x20;
+            NewString[i] = Src.String[i] + 0x20;
         }
         else
         {
-            NewString[i] = String.String[i];
+            NewString[i] = Src.String[i];
         }
     }
-    st_ptr Result = {NewString, String.Length};
+    st_ptr Result = {NewString, Src.Length};
     
     return Result;
     
